@@ -9,5 +9,6 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/api-1.0.0.jar app.jar
+# Render sets the PORT environment variable; default to 8081 for local dev
 EXPOSE 8081
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=${PORT:-8081}"]
