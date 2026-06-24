@@ -408,6 +408,7 @@ export const AdminPage = () => {
             </div>
           );
         })}
+
         </div>
 
         <style>{`
@@ -415,20 +416,21 @@ export const AdminPage = () => {
           * { box-sizing: border-box; }
           ::-webkit-scrollbar { width: 5px; height: 5px; }
           ::-webkit-scrollbar-track { background: transparent; }
-          ::-webkit-scrollbar-thumb { background: ${t.scrollbar}; border-radius: 4px; }
+          ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
           a { transition: opacity 0.12s; }
           a:hover { opacity: 0.8; }
           button:hover { opacity: 0.85; }
           html, body { margin: 0; padding: 0; }
         `}</style>
 
-        {/* Bottom brand strip */}
         <div style={{
           textAlign: "center", padding: "5px 0",
           fontSize: 9, fontWeight: 600, letterSpacing: "0.1em",
-          color: "rgba(255,255,255,0.6)", textTransform: "uppercase", userSelect: "none",
+          color: "rgba(255,255,255,0.65)", textTransform: "uppercase", userSelect: "none",
           flexShrink: 0,
-        }}>websbond.com &nbsp;·&nbsp; admin panel</div>
+        }}>websbond.com &nbsp;&middot;&nbsp; admin panel</div>
+
+        </div>
 
       </div>
     </div>
