@@ -42,7 +42,6 @@ services:
   - type: web
     name: websbond-frontend
     runtime: static
-    plan: free
     rootDir: agency
     buildCommand: npm install && npm run build
     staticPublishPath: dist
