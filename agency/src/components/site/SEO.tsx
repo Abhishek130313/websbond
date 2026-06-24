@@ -25,6 +25,9 @@ export const SEO = ({ title, description, path, keywords, jsonLd, ogImage }: SEO
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords} />
       <link rel="canonical" href={url} />
+      {import.meta.env.VITE_GOOGLE_SITE_VERIFICATION && (
+        <meta name="google-site-verification" content={import.meta.env.VITE_GOOGLE_SITE_VERIFICATION} />
+      )}
 
       {/* Open Graph */}
       <meta property="og:title" content={title} />

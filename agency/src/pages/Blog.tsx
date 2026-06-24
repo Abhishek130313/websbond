@@ -19,8 +19,30 @@ export const BlogPage = () => {
   const [activeFilter, setActiveFilter] = useState("All Posts");
   const [searchQuery, setSearchQuery] = useState("");
   const [subscribing, setSubscribing] = useState(false);
-  const [filteredPosts, setFilteredPosts] = useState(blogPosts);
+  const [posts, setPosts] = useState<any[]>(blogPosts);
+  const [filteredPosts, setFilteredPosts] = useState<any[]>(blogPosts);
   const [workerStats, setWorkerStats] = useState<{ timeTakenMs: number; threadId: number } | null>(null);
+
+  // Fetch dynamic blogs from API on mount
+  useEffect(() => {
+    const loadBlogs = async () => {
+      try {
+        const res = await fetch(getApiUrl("/api/blogs"));
+        if (!res.ok) throw new Error("Failed to fetch blogs");
+        const data = await res.json();
+        const processed = data.map((b: any) => ({
+          ...b,
+          tags: typeof b.tags === "string" ? b.tags.split(",").map((t: string) => t.trim()).filter(Boolean) : (Array.isArray(b.tags) ? b.tags : [])
+        }));
+        if (processed.length > 0) {
+          setPosts(processed);
+        }
+      } catch (err) {
+        console.warn("Backend dynamic blogs fetch failed, falling back to static posts.", err);
+      }
+    };
+    loadBlogs();
+  }, []);
 
   useEffect(() => {
     const worker = new Worker(new URL("../workers/query.worker.ts", import.meta.url), {
@@ -41,7 +63,7 @@ export const BlogPage = () => {
     worker.postMessage({
       action: "FILTER_BLOGS",
       payload: {
-        posts: blogPosts,
+        posts: posts,
         query: searchQuery,
         category: activeFilter,
       },
@@ -50,7 +72,7 @@ export const BlogPage = () => {
     return () => {
       worker.terminate();
     };
-  }, [searchQuery, activeFilter]);
+  }, [searchQuery, activeFilter, posts]);
 
   return (
     <Layout>
@@ -273,7 +295,7 @@ export const BlogPage = () => {
             <div className="glass-panel border-border rounded-3xl p-5 shadow-sm">
               <h4 className="font-display font-bold text-xs text-foreground uppercase tracking-widest mb-4">Recent Updates</h4>
               <ul className="space-y-3.5">
-                {blogPosts.slice(0, 4).map((post, idx) => (
+                {posts.slice(0, 4).map((post, idx) => (
                   <li key={idx} className="flex gap-3 border-b border-slate-200/80 dark:border-white/[0.06] pb-3 last:border-0 last:pb-0">
                     <Link to={`/blog/${post.slug}`} className="min-w-0 flex-1 block">
                       <p className="text-xs font-bold text-foreground leading-snug line-clamp-2 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">{post.title}</p>

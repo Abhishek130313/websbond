@@ -14,6 +14,7 @@ const ContactPage = lazy(() => import("./pages/Contact.tsx"));
 const AboutPage = lazy(() => import("./pages/About.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 const AdminPage = lazy(() => import("./pages/Admin.tsx").then(m => ({ default: m.AdminPage })));
+const BlogAdminPage = lazy(() => import("./pages/BlogAdmin.tsx").then(m => ({ default: m.BlogAdminPage })));
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/blog-admin" element={<BlogAdminPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

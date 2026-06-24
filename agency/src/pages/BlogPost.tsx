@@ -1,8 +1,10 @@
-import { ArrowLeft, Calendar, Clock, Tag, Share2, MessageCircle, ArrowRight, Sparkles, Check } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Tag, Share2, MessageCircle, ArrowRight, Sparkles, Check, Loader2 } from "lucide-react";
 import { Link, useParams, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { blogPosts, getPostBySlug, getRelatedPosts } from "@/data/blogPosts";
+import { getApiUrl } from "@/lib/api";
 
 const categoryColors: Record<string, string> = {
   "Web Development": "bg-cyan-500/10 border-cyan-500/20 text-cyan-700 dark:text-cyan-300",
@@ -21,11 +23,69 @@ const sharePost = (title: string) => {
 
 export const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const post = slug ? getPostBySlug(slug) : undefined;
+  const [post, setPost] = useState<any>(null);
+  const [related, setRelated] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadPostAndRelated = async () => {
+      if (!slug) return;
+      setLoading(true);
+      let currentPost = null;
+      
+      try {
+        const res = await fetch(getApiUrl(`/api/blogs/${slug}`));
+        if (!res.ok) throw new Error("Blog post not found");
+        const data = await res.json();
+        currentPost = {
+          ...data,
+          tags: typeof data.tags === "string" ? data.tags.split(",").map((t: string) => t.trim()).filter(Boolean) : (Array.isArray(data.tags) ? data.tags : [])
+        };
+        setPost(currentPost);
+      } catch (err) {
+        // Fallback to static post
+        const staticPost = getPostBySlug(slug);
+        if (staticPost) {
+          currentPost = staticPost;
+          setPost(staticPost);
+        }
+      }
+
+      if (currentPost) {
+        try {
+          const res = await fetch(getApiUrl("/api/blogs"));
+          if (!res.ok) throw new Error();
+          const data = await res.json();
+          const filtered = data
+            .filter((b: any) => b.slug !== slug && b.category === currentPost.category)
+            .slice(0, 3)
+            .map((b: any) => ({
+              ...b,
+              tags: typeof b.tags === "string" ? b.tags.split(",").map((t: string) => t.trim()).filter(Boolean) : (Array.isArray(b.tags) ? b.tags : [])
+            }));
+          setRelated(filtered);
+        } catch (err) {
+          setRelated(getRelatedPosts(currentPost.slug, 3));
+        }
+      }
+      setLoading(false);
+    };
+
+    loadPostAndRelated();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="min-h-[60vh] bg-background flex items-center justify-center">
+          <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
+        </div>
+      </Layout>
+    );
+  }
 
   if (!post) return <Navigate to="/blog" replace />;
 
-  const related = getRelatedPosts(post.slug, 3);
   const catColor = categoryColors[post.category] || "bg-indigo-500/10 border-indigo-500/20 text-indigo-700 dark:text-indigo-300";
 
   return (
