@@ -2,8 +2,8 @@ import { useState, useEffect, useMemo } from "react";
 import {
   Shield, RefreshCw, Mail, Phone, MessageCircle, User,
   Loader2, Lock, LogOut, Search, Download, ChevronDown,
-  ChevronUp, Clock, Inbox, CheckCircle, Star, StarOff,
-  ExternalLink, Filter, X
+  ChevronUp, CheckCircle, Star, StarOff, ExternalLink,
+  Filter, X, Sun, Moon, Inbox
 } from "lucide-react";
 import { getApiUrl } from "@/lib/api";
 
@@ -17,24 +17,21 @@ interface ContactSubmission {
   submittedAt: string;
 }
 
-type SortKey = "submittedAt" | "name";
+type Theme = "dark" | "light";
+type FilterState = "all" | "pending" | "done";
 
-/* ─── helpers ─── */
+/* ── helpers ── */
 const fmtDate = (dt: string) =>
-  new Date(dt).toLocaleString("en-IN", {
-    day: "2-digit", month: "short", year: "numeric",
-    hour: "2-digit", minute: "2-digit",
-  });
+  new Date(dt).toLocaleString("en-IN", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
 
 const isToday = (dt: string) => {
-  const d = new Date(dt);
-  const n = new Date();
+  const d = new Date(dt), n = new Date();
   return d.getDate() === n.getDate() && d.getMonth() === n.getMonth() && d.getFullYear() === n.getFullYear();
 };
 
-const whatsappUrl = (phone: string, name: string) => {
-  const cleaned = phone.replace(/\D/g, "");
-  const num = cleaned.startsWith("0") ? "91" + cleaned.slice(1) : cleaned.length === 10 ? "91" + cleaned : cleaned;
+const waUrl = (phone: string, name: string) => {
+  const c = phone.replace(/\D/g, "");
+  const num = c.startsWith("0") ? "91" + c.slice(1) : c.length === 10 ? "91" + c : c;
   const msg = encodeURIComponent(`Hi ${name}, Thank you for reaching out to Websbond! We'd love to discuss your project. When would be a good time to connect?`);
   return `https://wa.me/${num}?text=${msg}`;
 };
@@ -45,26 +42,63 @@ const gmailUrl = (email: string, name: string, subject: string) => {
   return `https://mail.google.com/mail/?view=cm&to=${email}&su=${sub}&body=${body}`;
 };
 
-/* ─── Login Screen ─── */
-const LoginScreen = ({ onLogin, loading, error }: { onLogin: (k: string) => void; loading: boolean; error: string }) => {
+/* ── theme tokens ── */
+const T = {
+  dark: {
+    bg: "#0d0d14",
+    surface: "rgba(255,255,255,0.03)",
+    surfaceHover: "rgba(255,255,255,0.055)",
+    border: "rgba(255,255,255,0.07)",
+    borderStrong: "rgba(255,255,255,0.12)",
+    text: "#e2e8f0",
+    textMuted: "rgba(255,255,255,0.45)",
+    textFaint: "rgba(255,255,255,0.25)",
+    topBg: "rgba(13,13,20,0.92)",
+    rowHover: "rgba(255,255,255,0.025)",
+    inputBg: "rgba(255,255,255,0.05)",
+    statBg: (c: string) => c + "12",
+    badge: "rgba(99,102,241,0.12)",
+    badgeText: "#c7d2fe",
+    badgeBorder: "rgba(99,102,241,0.2)",
+    scrollbar: "rgba(255,255,255,0.1)",
+  },
+  light: {
+    bg: "#f4f6fb",
+    surface: "#ffffff",
+    surfaceHover: "#f9fafb",
+    border: "#e5e7eb",
+    borderStrong: "#d1d5db",
+    text: "#111827",
+    textMuted: "#6b7280",
+    textFaint: "#9ca3af",
+    topBg: "rgba(255,255,255,0.95)",
+    rowHover: "#f9fafb",
+    inputBg: "#f3f4f6",
+    statBg: (c: string) => c + "18",
+    badge: "#eef2ff",
+    badgeText: "#4f46e5",
+    badgeBorder: "#c7d2fe",
+    scrollbar: "rgba(0,0,0,0.1)",
+  },
+};
+
+/* ── Login ── */
+const Login = ({ onLogin, loading, error, theme }: { onLogin: (k: string) => void; loading: boolean; error: string; theme: Theme }) => {
   const [key, setKey] = useState("");
+  const t = T[theme];
   return (
-    <div style={styles.loginBg}>
-      <div style={styles.loginCard}>
-        <div style={styles.loginIcon}><Shield size={22} color="#fff" /></div>
-        <h1 style={styles.loginTitle}>Websbond Admin</h1>
-        <p style={styles.loginSub}>Contact Submissions Dashboard</p>
-        <form onSubmit={(e) => { e.preventDefault(); onLogin(key); }} style={{ width: "100%" }}>
-          <input
-            type="password"
-            value={key}
-            onChange={e => setKey(e.target.value)}
-            placeholder="Enter admin key…"
-            required
-            style={styles.loginInput}
-          />
-          {error && <div style={styles.errorBadge}>{error}</div>}
-          <button type="submit" disabled={loading} style={styles.loginBtn}>
+    <div style={{ minHeight: "100vh", background: t.bg, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Inter',-apple-system,sans-serif" }}>
+      <div style={{ background: t.surface, border: `1px solid ${t.border}`, borderRadius: 16, padding: "36px 32px", width: "100%", maxWidth: 360, display: "flex", flexDirection: "column", alignItems: "center", gap: 8, boxShadow: theme === "light" ? "0 4px 24px rgba(0,0,0,0.08)" : "none" }}>
+        <div style={{ width: 44, height: 44, background: "linear-gradient(135deg,#6366f1,#8b5cf6)", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 4 }}>
+          <Shield size={20} color="#fff" />
+        </div>
+        <h1 style={{ color: t.text, fontSize: 20, fontWeight: 700, margin: 0 }}>Websbond Admin</h1>
+        <p style={{ color: t.textMuted, fontSize: 12, margin: "0 0 16px" }}>Contact Submissions Dashboard</p>
+        <form onSubmit={e => { e.preventDefault(); onLogin(key); }} style={{ width: "100%" }}>
+          <input type="password" value={key} onChange={e => setKey(e.target.value)} placeholder="Enter admin key…" required
+            style={{ width: "100%", padding: "10px 14px", background: t.inputBg, border: `1px solid ${t.border}`, borderRadius: 9, color: t.text, fontSize: 13, outline: "none", marginBottom: 10, boxSizing: "border-box" }} />
+          {error && <div style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: 7, padding: "7px 12px", color: "#ef4444", fontSize: 12, marginBottom: 10 }}>{error}</div>}
+          <button type="submit" disabled={loading} style={{ width: "100%", padding: 11, background: "linear-gradient(135deg,#6366f1,#8b5cf6)", border: "none", borderRadius: 9, color: "#fff", fontWeight: 600, fontSize: 14, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 7 }}>
             {loading ? <Loader2 size={15} style={{ animation: "spin 1s linear infinite" }} /> : <Lock size={15} />}
             {loading ? "Verifying…" : "Access Dashboard"}
           </button>
@@ -75,452 +109,285 @@ const LoginScreen = ({ onLogin, loading, error }: { onLogin: (k: string) => void
   );
 };
 
-/* ─── Stat Chip ─── */
-const Stat = ({ label, value, color }: { label: string; value: number; color: string }) => (
-  <div style={{ ...styles.statChip, borderColor: color + "30", background: color + "10" }}>
-    <span style={{ ...styles.statVal, color }}>{value}</span>
-    <span style={styles.statLabel}>{label}</span>
-  </div>
-);
-
-/* ─── Main Admin Page ─── */
+/* ── Main ── */
 export const AdminPage = () => {
   const [apiKey, setApiKey] = useState(localStorage.getItem("wb_admin_key") || "");
-  const [submissions, setSubmissions] = useState<ContactSubmission[]>([]);
+  const [subs, setSubs] = useState<ContactSubmission[]>([]);
   const [loading, setLoading] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [loginError, setLoginError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [theme, setTheme] = useState<Theme>((localStorage.getItem("wb_theme") as Theme) || "dark");
   const [search, setSearch] = useState("");
-  const [sortKey, setSortKey] = useState<SortKey>("submittedAt");
+  const [filter, setFilter] = useState<FilterState>("all");
   const [sortAsc, setSortAsc] = useState(false);
   const [starred, setStarred] = useState<Set<number>>(new Set(JSON.parse(localStorage.getItem("wb_starred") || "[]")));
   const [contacted, setContacted] = useState<Set<number>>(new Set(JSON.parse(localStorage.getItem("wb_contacted") || "[]")));
-  const [filterContacted, setFilterContacted] = useState<"all" | "pending" | "done">("all");
   const [expanded, setExpanded] = useState<number | null>(null);
 
-  const fetch_ = async (key: string, isLogin = false) => {
+  const t = T[theme];
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    localStorage.setItem("wb_theme", next);
+  };
+
+  const fetchData = async (key: string, isLogin = false) => {
     isLogin ? setLoginLoading(true) : setLoading(true);
-    setError("");
+    setLoginError("");
     try {
       const res = await fetch(getApiUrl("/api/admin/contacts"), { headers: { "X-Admin-Key": key } });
-      if (res.status === 401) { setError("Invalid admin key."); setIsLoggedIn(false); return; }
+      if (res.status === 401) { setLoginError("Invalid admin key."); setIsLoggedIn(false); return; }
       if (!res.ok) throw new Error();
       const data = await res.json();
-      setSubmissions(data);
+      setSubs(data);
       setIsLoggedIn(true);
       localStorage.setItem("wb_admin_key", key);
       setApiKey(key);
-    } catch { setError("Cannot connect to backend."); }
+    } catch { setLoginError("Cannot connect to backend."); }
     finally { setLoginLoading(false); setLoading(false); }
   };
 
-  useEffect(() => { if (apiKey) fetch_(apiKey); }, []);
+  useEffect(() => { if (apiKey) fetchData(apiKey); }, []);
 
-  const toggleStar = (id: number) => {
-    setStarred(prev => {
-      const n = new Set(prev);
-      n.has(id) ? n.delete(id) : n.add(id);
-      localStorage.setItem("wb_starred", JSON.stringify([...n]));
-      return n;
-    });
-  };
+  const toggleStar = (id: number) => setStarred(prev => {
+    const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id);
+    localStorage.setItem("wb_starred", JSON.stringify([...n])); return n;
+  });
 
-  const toggleContacted = (id: number) => {
-    setContacted(prev => {
-      const n = new Set(prev);
-      n.has(id) ? n.delete(id) : n.add(id);
-      localStorage.setItem("wb_contacted", JSON.stringify([...n]));
-      return n;
-    });
-  };
+  const toggleContacted = (id: number) => setContacted(prev => {
+    const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id);
+    localStorage.setItem("wb_contacted", JSON.stringify([...n])); return n;
+  });
 
   const exportCSV = () => {
     const hdr = ["ID", "Name", "Email", "Phone", "Subject", "Message", "Submitted At"];
     const rows = filtered.map(s => [s.id, s.name, s.email, s.phone, s.subject, s.message, s.submittedAt].map(v => `"${String(v || "").replace(/"/g, '""')}"`));
     const csv = [hdr, ...rows].map(r => r.join(",")).join("\n");
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
-    a.download = `websbond-contacts-${new Date().toISOString().slice(0, 10)}.csv`;
-    a.click();
+    const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+    a.download = `websbond-contacts-${new Date().toISOString().slice(0, 10)}.csv`; a.click();
   };
 
   const filtered = useMemo(() => {
-    let list = [...submissions];
-    if (search) {
-      const q = search.toLowerCase();
-      list = list.filter(s => s.name?.toLowerCase().includes(q) || s.email?.toLowerCase().includes(q) || s.phone?.includes(q) || s.subject?.toLowerCase().includes(q));
-    }
-    if (filterContacted === "pending") list = list.filter(s => !contacted.has(s.id));
-    if (filterContacted === "done") list = list.filter(s => contacted.has(s.id));
-    list.sort((a, b) => {
-      const va = sortKey === "name" ? a.name : a.submittedAt;
-      const vb = sortKey === "name" ? b.name : b.submittedAt;
-      return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
-    });
-    return list;
-  }, [submissions, search, sortKey, sortAsc, filterContacted, contacted]);
+    let list = [...subs];
+    if (search) { const q = search.toLowerCase(); list = list.filter(s => [s.name, s.email, s.phone, s.subject].some(v => v?.toLowerCase().includes(q))); }
+    if (filter === "pending") list = list.filter(s => !contacted.has(s.id));
+    if (filter === "done") list = list.filter(s => contacted.has(s.id));
+    return sortAsc ? list.sort((a, b) => a.submittedAt.localeCompare(b.submittedAt)) : list.sort((a, b) => b.submittedAt.localeCompare(a.submittedAt));
+  }, [subs, search, filter, sortAsc, contacted]);
 
-  const todayCount = submissions.filter(s => s.submittedAt && isToday(s.submittedAt)).length;
-  const pendingCount = submissions.filter(s => !contacted.has(s.id)).length;
+  if (!isLoggedIn) return <Login onLogin={k => fetchData(k, true)} loading={loginLoading} error={loginError} theme={theme} />;
 
-  if (!isLoggedIn) return <LoginScreen onLogin={k => fetch_(k, true)} loading={loginLoading} error={error} />;
+  const todayCount = subs.filter(s => s.submittedAt && isToday(s.submittedAt)).length;
+  const pendingCount = subs.filter(s => !contacted.has(s.id)).length;
 
   return (
-    <div style={styles.page}>
-      {/* Top Bar */}
-      <div style={styles.topBar}>
+    <div style={{ minHeight: "100vh", background: t.bg, fontFamily: "'Inter',-apple-system,sans-serif", color: t.text }}>
+
+      {/* ── Top Bar ── */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 24px", borderBottom: `1px solid ${t.border}`, background: t.topBg, backdropFilter: "blur(12px)", position: "sticky", top: 0, zIndex: 20 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={styles.topIcon}><Shield size={15} color="#6366f1" /></div>
-          <span style={styles.topTitle}>Websbond Admin</span>
+          <div style={{ width: 28, height: 28, background: "linear-gradient(135deg,#6366f1,#8b5cf6)", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <Shield size={14} color="#fff" />
+          </div>
+          <span style={{ fontWeight: 700, fontSize: 15, color: t.text }}>Admin</span>
+          <span style={{ fontSize: 11, color: t.textFaint, background: t.inputBg, border: `1px solid ${t.border}`, borderRadius: 5, padding: "2px 7px" }}>websbond.com</span>
         </div>
-        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-          <button onClick={() => fetch_(apiKey)} style={styles.iconBtn} title="Refresh">
+
+        {/* Stats inline */}
+        <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
+          {[["Total", subs.length, "#6366f1"], ["Today", todayCount, "#10b981"], ["Pending", pendingCount, "#f59e0b"], ["Starred", starred.size, "#ec4899"]].map(([l, v, c]) => (
+            <div key={l as string} style={{ textAlign: "center" }}>
+              <div style={{ fontWeight: 700, fontSize: 16, color: c as string, lineHeight: 1 }}>{v as number}</div>
+              <div style={{ fontSize: 9, color: t.textFaint, textTransform: "uppercase", letterSpacing: "0.06em" }}>{l as string}</div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+          {/* Theme toggle */}
+          <button onClick={toggleTheme} title="Toggle theme" style={{ background: t.inputBg, border: `1px solid ${t.border}`, borderRadius: 8, padding: "6px 10px", color: t.textMuted, cursor: "pointer", display: "flex", alignItems: "center", gap: 5, fontSize: 12 }}>
+            {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
+            {theme === "dark" ? "Light" : "Dark"}
+          </button>
+          <button onClick={() => fetchData(apiKey)} title="Refresh" style={{ background: t.inputBg, border: `1px solid ${t.border}`, borderRadius: 8, padding: "6px 10px", color: t.textMuted, cursor: "pointer", display: "flex", alignItems: "center" }}>
             {loading ? <Loader2 size={14} style={{ animation: "spin 1s linear infinite" }} /> : <RefreshCw size={14} />}
           </button>
-          <button onClick={exportCSV} style={styles.iconBtn} title="Export CSV">
+          <button onClick={exportCSV} title="Export CSV" style={{ background: t.inputBg, border: `1px solid ${t.border}`, borderRadius: 8, padding: "6px 10px", color: t.textMuted, cursor: "pointer", display: "flex", alignItems: "center" }}>
             <Download size={14} />
           </button>
-          <button onClick={() => { localStorage.removeItem("wb_admin_key"); setIsLoggedIn(false); setSubmissions([]); }} style={{ ...styles.iconBtn, color: "#f87171" }} title="Logout">
+          <button onClick={() => { localStorage.removeItem("wb_admin_key"); setIsLoggedIn(false); setSubs([]); }} title="Logout" style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.18)", borderRadius: 8, padding: "6px 10px", color: "#ef4444", cursor: "pointer", display: "flex", alignItems: "center" }}>
             <LogOut size={14} />
           </button>
         </div>
       </div>
 
-      <div style={styles.container}>
-        {/* Stats Row */}
-        <div style={styles.statsRow}>
-          <Stat label="Total" value={submissions.length} color="#6366f1" />
-          <Stat label="Today" value={todayCount} color="#10b981" />
-          <Stat label="Pending" value={pendingCount} color="#f59e0b" />
-          <Stat label="Starred" value={starred.size} color="#ec4899" />
+      {/* ── Toolbar ── */}
+      <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 24px", borderBottom: `1px solid ${t.border}`, flexWrap: "wrap" }}>
+        {/* Search */}
+        <div style={{ display: "flex", alignItems: "center", gap: 7, background: t.inputBg, border: `1px solid ${t.border}`, borderRadius: 8, padding: "7px 12px", flex: 1, minWidth: 200 }}>
+          <Search size={13} color={t.textFaint} />
+          <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search name, email, phone, subject…"
+            style={{ flex: 1, background: "none", border: "none", outline: "none", color: t.text, fontSize: 13, minWidth: 0 }} />
+          {search && <button onClick={() => setSearch("")} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", padding: 0 }}><X size={12} color={t.textFaint} /></button>}
         </div>
 
-        {/* Toolbar */}
-        <div style={styles.toolbar}>
-          <div style={styles.searchWrap}>
-            <Search size={13} color="rgba(255,255,255,0.3)" style={{ flexShrink: 0 }} />
-            <input
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-              placeholder="Search name, email, phone…"
-              style={styles.searchInput}
-            />
-            {search && <button onClick={() => setSearch("")} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, display: "flex" }}><X size={12} color="rgba(255,255,255,0.3)" /></button>}
-          </div>
-
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-            {(["all", "pending", "done"] as const).map(f => (
-              <button key={f} onClick={() => setFilterContacted(f)} style={{ ...styles.filterBtn, ...(filterContacted === f ? styles.filterBtnActive : {}) }}>
-                <Filter size={11} /> {f === "all" ? "All" : f === "pending" ? "Pending" : "Contacted"}
-              </button>
-            ))}
-            <button onClick={() => { setSortKey(k => k === "name" ? "submittedAt" : "name"); }} style={styles.filterBtn}>
-              Sort: {sortKey === "name" ? "Name" : "Date"}
+        {/* Filters */}
+        <div style={{ display: "flex", gap: 5 }}>
+          {(["all", "pending", "done"] as FilterState[]).map(f => (
+            <button key={f} onClick={() => setFilter(f)} style={{
+              display: "flex", alignItems: "center", gap: 4, padding: "6px 12px", fontSize: 12, fontWeight: 500,
+              background: filter === f ? "rgba(99,102,241,0.12)" : t.inputBg,
+              border: `1px solid ${filter === f ? "rgba(99,102,241,0.3)" : t.border}`,
+              borderRadius: 7, color: filter === f ? "#818cf8" : t.textMuted, cursor: "pointer",
+            }}>
+              <Filter size={11} /> {f === "all" ? "All" : f === "pending" ? "Pending" : "Contacted"}
             </button>
-            <button onClick={() => setSortAsc(a => !a)} style={styles.filterBtn}>
-              {sortAsc ? <ChevronUp size={11} /> : <ChevronDown size={11} />}
-            </button>
-          </div>
+          ))}
         </div>
 
-        {/* List */}
+        {/* Sort */}
+        <button onClick={() => setSortAsc(a => !a)} style={{ display: "flex", alignItems: "center", gap: 4, padding: "6px 12px", fontSize: 12, background: t.inputBg, border: `1px solid ${t.border}`, borderRadius: 7, color: t.textMuted, cursor: "pointer" }}>
+          {sortAsc ? <ChevronUp size={13} /> : <ChevronDown size={13} />} Date
+        </button>
+
+        <span style={{ marginLeft: "auto", fontSize: 12, color: t.textFaint }}>{filtered.length} result{filtered.length !== 1 ? "s" : ""}</span>
+      </div>
+
+      {/* ── Table Header ── */}
+      <div style={{ display: "grid", gridTemplateColumns: "28px 1fr 1fr 140px 180px 120px", gap: "0 16px", padding: "8px 24px", borderBottom: `1px solid ${t.border}`, background: theme === "light" ? "#f9fafb" : "rgba(255,255,255,0.02)" }}>
+        {["", "Name / Email", "Subject", "Phone", "Submitted", "Actions"].map((h, i) => (
+          <span key={i} style={{ fontSize: 10, fontWeight: 600, color: t.textFaint, textTransform: "uppercase", letterSpacing: "0.07em" }}>{h}</span>
+        ))}
+      </div>
+
+      {/* ── Rows ── */}
+      <div style={{ overflowY: "auto" }}>
         {filtered.length === 0 ? (
-          <div style={styles.empty}>
-            <Inbox size={28} color="rgba(255,255,255,0.15)" />
-            <p style={{ color: "rgba(255,255,255,0.25)", margin: "8px 0 0", fontSize: 13 }}>No submissions found</p>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "60px 24px", color: t.textFaint }}>
+            <Inbox size={32} style={{ marginBottom: 10, opacity: 0.4 }} />
+            <span style={{ fontSize: 14 }}>No submissions found</span>
           </div>
-        ) : (
-          <div style={styles.list}>
-            {filtered.map(s => {
-              const isExpanded = expanded === s.id;
-              const isDone = contacted.has(s.id);
-              const isStarred = starred.has(s.id);
-              return (
-                <div key={s.id} style={{ ...styles.card, ...(isDone ? styles.cardDone : {}), ...(isStarred ? styles.cardStarred : {}) }}>
-                  {/* Card Header */}
-                  <div style={styles.cardHeader} onClick={() => setExpanded(isExpanded ? null : s.id)}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
-                      <div style={{ ...styles.avatar, ...(isDone ? { background: "linear-gradient(135deg,#10b981,#059669)" } : {}) }}>
-                        {isDone ? <CheckCircle size={14} color="#fff" /> : <User size={14} color="#fff" />}
-                      </div>
-                      <div style={{ minWidth: 0 }}>
-                        <div style={styles.cardName}>{s.name}</div>
-                        <div style={styles.cardEmail}>{s.email}</div>
-                      </div>
-                    </div>
-                    <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
-                      <span style={styles.cardDate}>
-                        <Clock size={10} style={{ marginRight: 3 }} />{s.submittedAt ? fmtDate(s.submittedAt) : "—"}
-                      </span>
-                      {isExpanded ? <ChevronUp size={13} color="rgba(255,255,255,0.3)" /> : <ChevronDown size={13} color="rgba(255,255,255,0.3)" />}
-                    </div>
-                  </div>
+        ) : filtered.map(s => {
+          const isExp = expanded === s.id;
+          const isDone = contacted.has(s.id);
+          const isStarred = starred.has(s.id);
+          return (
+            <div key={s.id}>
+              {/* Row */}
+              <div
+                style={{
+                  display: "grid", gridTemplateColumns: "28px 1fr 1fr 140px 180px 120px", gap: "0 16px",
+                  padding: "11px 24px", alignItems: "center",
+                  borderBottom: `1px solid ${t.border}`,
+                  background: isExp ? (theme === "dark" ? "rgba(99,102,241,0.05)" : "#f5f3ff") : "transparent",
+                  opacity: isDone ? 0.55 : 1,
+                  cursor: "pointer",
+                  transition: "background 0.12s",
+                }}
+                onMouseEnter={e => { if (!isExp) (e.currentTarget as HTMLDivElement).style.background = t.rowHover; }}
+                onMouseLeave={e => { if (!isExp) (e.currentTarget as HTMLDivElement).style.background = "transparent"; }}
+              >
+                {/* Star */}
+                <button onClick={e => { e.stopPropagation(); toggleStar(s.id); }} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, display: "flex", color: isStarred ? "#fbbf24" : t.textFaint }}>
+                  {isStarred ? <Star size={14} fill="#fbbf24" /> : <StarOff size={14} />}
+                </button>
 
-                  {/* Subject pill */}
-                  {s.subject && (
-                    <div style={styles.subjectPill}>🎯 {s.subject}</div>
-                  )}
-
-                  {/* Expanded Details */}
-                  {isExpanded && (
-                    <div style={styles.expandedSection}>
-                      {s.message && (
-                        <div style={styles.messageBox}>
-                          <span style={{ color: "rgba(255,255,255,0.35)", fontSize: 11, display: "block", marginBottom: 4 }}>MESSAGE</span>
-                          {s.message}
-                        </div>
-                      )}
+                {/* Name / Email */}
+                <div onClick={() => setExpanded(isExp ? null : s.id)} style={{ minWidth: 0 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <div style={{ width: 26, height: 26, flexShrink: 0, background: isDone ? "linear-gradient(135deg,#10b981,#059669)" : "linear-gradient(135deg,#6366f1,#8b5cf6)", borderRadius: 7, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      {isDone ? <CheckCircle size={12} color="#fff" /> : <User size={12} color="#fff" />}
                     </div>
-                  )}
-
-                  {/* Action Row */}
-                  <div style={styles.actionRow}>
-                    <div style={{ display: "flex", gap: 6 }}>
-                      {/* Gmail */}
-                      <a href={gmailUrl(s.email, s.name, s.subject)} target="_blank" rel="noopener noreferrer" style={{ ...styles.actionBtn, ...styles.actionGmail }} title="Reply via Gmail">
-                        <Mail size={12} /> Gmail
-                      </a>
-                      {/* WhatsApp */}
-                      {s.phone && (
-                        <a href={whatsappUrl(s.phone, s.name)} target="_blank" rel="noopener noreferrer" style={{ ...styles.actionBtn, ...styles.actionWA }} title="WhatsApp">
-                          <MessageCircle size={12} /> WhatsApp
-                        </a>
-                      )}
-                      {/* Call */}
-                      {s.phone && (
-                        <a href={`tel:${s.phone}`} style={{ ...styles.actionBtn, ...styles.actionCall }} title="Call">
-                          <Phone size={12} /> Call
-                        </a>
-                      )}
-                    </div>
-                    <div style={{ display: "flex", gap: 6 }}>
-                      {/* Star */}
-                      <button onClick={() => toggleStar(s.id)} style={{ ...styles.iconBtn2, color: isStarred ? "#fbbf24" : "rgba(255,255,255,0.25)" }} title={isStarred ? "Unstar" : "Star"}>
-                        {isStarred ? <Star size={13} fill="#fbbf24" /> : <StarOff size={13} />}
-                      </button>
-                      {/* Mark contacted */}
-                      <button onClick={() => toggleContacted(s.id)} style={{ ...styles.iconBtn2, color: isDone ? "#10b981" : "rgba(255,255,255,0.25)" }} title={isDone ? "Mark pending" : "Mark contacted"}>
-                        <CheckCircle size={13} fill={isDone ? "#10b981" : "none"} />
-                      </button>
-                      {/* Open email externally */}
-                      <a href={`mailto:${s.email}`} style={{ ...styles.iconBtn2, textDecoration: "none", color: "rgba(255,255,255,0.25)" }} title="Open mail client">
-                        <ExternalLink size={13} />
-                      </a>
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{ fontWeight: 600, fontSize: 13, color: t.text, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{s.name}</div>
+                      <div style={{ fontSize: 11, color: t.textMuted, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{s.email}</div>
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        )}
+
+                {/* Subject */}
+                <div onClick={() => setExpanded(isExp ? null : s.id)} style={{ minWidth: 0 }}>
+                  {s.subject
+                    ? <span style={{ fontSize: 11, background: t.badge, border: `1px solid ${t.badgeBorder}`, color: t.badgeText, borderRadius: 5, padding: "2px 8px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", display: "block", maxWidth: "100%" }}>{s.subject}</span>
+                    : <span style={{ fontSize: 11, color: t.textFaint }}>—</span>}
+                </div>
+
+                {/* Phone */}
+                <div style={{ fontSize: 12, color: t.textMuted, whiteSpace: "nowrap" }}>
+                  {s.phone || <span style={{ color: t.textFaint }}>—</span>}
+                </div>
+
+                {/* Date */}
+                <div style={{ fontSize: 11, color: t.textFaint, whiteSpace: "nowrap" }}>
+                  {s.submittedAt ? fmtDate(s.submittedAt) : "—"}
+                </div>
+
+                {/* Actions */}
+                <div style={{ display: "flex", alignItems: "center", gap: 4 }} onClick={e => e.stopPropagation()}>
+                  <a href={gmailUrl(s.email, s.name, s.subject)} target="_blank" rel="noopener noreferrer" title="Reply on Gmail"
+                    style={{ display: "flex", alignItems: "center", gap: 3, padding: "4px 7px", borderRadius: 6, fontSize: 11, fontWeight: 500, background: "rgba(234,67,53,0.1)", border: "1px solid rgba(234,67,53,0.2)", color: "#ef4444", textDecoration: "none" }}>
+                    <Mail size={11} /> Mail
+                  </a>
+                  {s.phone && (
+                    <a href={waUrl(s.phone, s.name)} target="_blank" rel="noopener noreferrer" title="WhatsApp"
+                      style={{ display: "flex", alignItems: "center", gap: 3, padding: "4px 7px", borderRadius: 6, fontSize: 11, fontWeight: 500, background: "rgba(37,211,102,0.08)", border: "1px solid rgba(37,211,102,0.18)", color: "#22c55e", textDecoration: "none" }}>
+                      <MessageCircle size={11} /> WA
+                    </a>
+                  )}
+                  {s.phone && (
+                    <a href={`tel:${s.phone}`} title="Call"
+                      style={{ display: "flex", alignItems: "center", padding: "4px 6px", borderRadius: 6, background: t.inputBg, border: `1px solid ${t.border}`, color: t.textMuted, textDecoration: "none" }}>
+                      <Phone size={11} />
+                    </a>
+                  )}
+                  <button onClick={() => toggleContacted(s.id)} title={isDone ? "Mark pending" : "Mark contacted"}
+                    style={{ background: isDone ? "rgba(16,185,129,0.1)" : t.inputBg, border: `1px solid ${isDone ? "rgba(16,185,129,0.2)" : t.border}`, borderRadius: 6, padding: "4px 6px", cursor: "pointer", display: "flex", color: isDone ? "#10b981" : t.textFaint }}>
+                    <CheckCircle size={11} fill={isDone ? "#10b981" : "none"} />
+                  </button>
+                  <button onClick={() => setExpanded(isExp ? null : s.id)} style={{ background: "none", border: "none", cursor: "pointer", padding: "4px", display: "flex", color: t.textFaint }}>
+                    {isExp ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+                  </button>
+                </div>
+              </div>
+
+              {/* Expanded message */}
+              {isExp && (
+                <div style={{ padding: "12px 24px 14px", background: theme === "dark" ? "rgba(99,102,241,0.04)" : "#f5f3ff", borderBottom: `1px solid ${t.border}` }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, maxWidth: 700 }}>
+                    <div>
+                      <p style={{ fontSize: 10, fontWeight: 600, color: t.textFaint, textTransform: "uppercase", letterSpacing: "0.06em", margin: "0 0 4px" }}>Full Email</p>
+                      <a href={`mailto:${s.email}`} style={{ fontSize: 13, color: "#6366f1", textDecoration: "none" }}>{s.email} <ExternalLink size={10} /></a>
+                    </div>
+                    <div>
+                      <p style={{ fontSize: 10, fontWeight: 600, color: t.textFaint, textTransform: "uppercase", letterSpacing: "0.06em", margin: "0 0 4px" }}>Full Phone</p>
+                      <a href={`tel:${s.phone}`} style={{ fontSize: 13, color: "#6366f1", textDecoration: "none" }}>{s.phone || "—"}</a>
+                    </div>
+                    {s.message && (
+                      <div style={{ gridColumn: "1 / -1" }}>
+                        <p style={{ fontSize: 10, fontWeight: 600, color: t.textFaint, textTransform: "uppercase", letterSpacing: "0.06em", margin: "0 0 4px" }}>Message</p>
+                        <p style={{ fontSize: 13, color: t.textMuted, margin: 0, lineHeight: 1.6, background: t.surface, border: `1px solid ${t.border}`, borderRadius: 8, padding: "10px 14px" }}>{s.message}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       <style>{`
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         * { box-sizing: border-box; }
-        ::-webkit-scrollbar { width: 4px; } 
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
-        a:hover { opacity: 0.85; }
+        ::-webkit-scrollbar-thumb { background: ${t.scrollbar}; border-radius: 4px; }
+        a { transition: opacity 0.12s; }
+        a:hover { opacity: 0.8; }
+        button:hover { opacity: 0.85; }
       `}</style>
     </div>
   );
-};
-
-/* ─── Styles ─── */
-const styles: Record<string, React.CSSProperties> = {
-  page: {
-    minHeight: "100vh",
-    background: "#0d0d14",
-    fontFamily: "'Inter', -apple-system, sans-serif",
-    color: "#e2e8f0",
-  },
-  topBar: {
-    display: "flex", alignItems: "center", justifyContent: "space-between",
-    padding: "12px 20px",
-    borderBottom: "1px solid rgba(255,255,255,0.06)",
-    background: "rgba(255,255,255,0.02)",
-    backdropFilter: "blur(10px)",
-    position: "sticky", top: 0, zIndex: 10,
-  },
-  topIcon: {
-    width: 28, height: 28,
-    background: "rgba(99,102,241,0.15)",
-    border: "1px solid rgba(99,102,241,0.25)",
-    borderRadius: 8,
-    display: "flex", alignItems: "center", justifyContent: "center",
-  },
-  topTitle: { fontWeight: 600, fontSize: 14, color: "#fff" },
-  iconBtn: {
-    background: "rgba(255,255,255,0.05)",
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: 7,
-    padding: "6px 10px",
-    color: "rgba(255,255,255,0.5)",
-    cursor: "pointer",
-    display: "flex", alignItems: "center", gap: 5,
-    fontSize: 12,
-    transition: "all 0.15s",
-  },
-  container: { maxWidth: 760, margin: "0 auto", padding: "20px 16px" },
-  statsRow: { display: "flex", gap: 8, marginBottom: 16, flexWrap: "wrap" },
-  statChip: {
-    display: "flex", flexDirection: "column", alignItems: "center",
-    padding: "8px 16px",
-    border: "1px solid",
-    borderRadius: 10,
-    minWidth: 70,
-    flex: 1,
-  },
-  statVal: { fontWeight: 700, fontSize: 20, lineHeight: 1 },
-  statLabel: { color: "rgba(255,255,255,0.35)", fontSize: 10, marginTop: 3, textTransform: "uppercase", letterSpacing: "0.05em" },
-  toolbar: {
-    display: "flex", gap: 8, marginBottom: 14, flexWrap: "wrap", alignItems: "center",
-  },
-  searchWrap: {
-    flex: 1, minWidth: 160,
-    display: "flex", alignItems: "center", gap: 8,
-    background: "rgba(255,255,255,0.04)",
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: 8,
-    padding: "7px 10px",
-  },
-  searchInput: {
-    flex: 1, background: "none", border: "none", outline: "none",
-    color: "#fff", fontSize: 13,
-    width: "100%",
-  },
-  filterBtn: {
-    display: "flex", alignItems: "center", gap: 4,
-    padding: "6px 10px", fontSize: 11,
-    background: "rgba(255,255,255,0.04)",
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: 7, color: "rgba(255,255,255,0.45)", cursor: "pointer",
-  },
-  filterBtnActive: {
-    background: "rgba(99,102,241,0.15)",
-    border: "1px solid rgba(99,102,241,0.3)",
-    color: "#a5b4fc",
-  },
-  list: { display: "flex", flexDirection: "column", gap: 8 },
-  card: {
-    background: "rgba(255,255,255,0.03)",
-    border: "1px solid rgba(255,255,255,0.07)",
-    borderRadius: 12,
-    overflow: "hidden",
-  },
-  cardDone: { opacity: 0.65 },
-  cardStarred: { borderColor: "rgba(251,191,36,0.2)" },
-  cardHeader: {
-    display: "flex", alignItems: "center", justifyContent: "space-between",
-    padding: "12px 14px",
-    cursor: "pointer",
-    gap: 8,
-  },
-  avatar: {
-    width: 32, height: 32, flexShrink: 0,
-    background: "linear-gradient(135deg,#6366f1,#8b5cf6)",
-    borderRadius: 9,
-    display: "flex", alignItems: "center", justifyContent: "center",
-  },
-  cardName: { fontWeight: 600, fontSize: 14, color: "#fff", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" },
-  cardEmail: { fontSize: 11, color: "rgba(255,255,255,0.35)", marginTop: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" },
-  cardDate: {
-    display: "flex", alignItems: "center",
-    fontSize: 10, color: "rgba(255,255,255,0.25)",
-    whiteSpace: "nowrap",
-  },
-  subjectPill: {
-    margin: "0 14px 8px",
-    padding: "5px 10px",
-    background: "rgba(99,102,241,0.08)",
-    border: "1px solid rgba(99,102,241,0.12)",
-    borderRadius: 6,
-    fontSize: 11,
-    color: "#c7d2fe",
-  },
-  expandedSection: { padding: "0 14px 10px" },
-  messageBox: {
-    padding: "10px 12px",
-    background: "rgba(255,255,255,0.02)",
-    borderRadius: 8,
-    fontSize: 12,
-    color: "rgba(255,255,255,0.5)",
-    lineHeight: 1.6,
-  },
-  actionRow: {
-    display: "flex", alignItems: "center", justifyContent: "space-between",
-    padding: "8px 14px",
-    borderTop: "1px solid rgba(255,255,255,0.04)",
-    flexWrap: "wrap",
-    gap: 6,
-  },
-  actionBtn: {
-    display: "inline-flex", alignItems: "center", gap: 4,
-    padding: "5px 10px", borderRadius: 6, fontSize: 11, fontWeight: 500,
-    textDecoration: "none", border: "1px solid",
-    cursor: "pointer",
-  },
-  actionGmail: {
-    background: "rgba(234,67,53,0.1)", borderColor: "rgba(234,67,53,0.25)", color: "#fca5a5",
-  },
-  actionWA: {
-    background: "rgba(37,211,102,0.08)", borderColor: "rgba(37,211,102,0.2)", color: "#86efac",
-  },
-  actionCall: {
-    background: "rgba(59,130,246,0.08)", borderColor: "rgba(59,130,246,0.2)", color: "#93c5fd",
-  },
-  iconBtn2: {
-    background: "none", border: "none", cursor: "pointer", padding: 4,
-    display: "flex", alignItems: "center", borderRadius: 5,
-    transition: "opacity 0.15s",
-  },
-  empty: {
-    textAlign: "center", padding: "48px 20px",
-    border: "1px dashed rgba(255,255,255,0.06)", borderRadius: 12,
-    display: "flex", flexDirection: "column", alignItems: "center",
-  },
-  /* Login */
-  loginBg: {
-    minHeight: "100vh",
-    background: "#0d0d14",
-    display: "flex", alignItems: "center", justifyContent: "center",
-    fontFamily: "'Inter', sans-serif",
-  },
-  loginCard: {
-    background: "rgba(255,255,255,0.03)",
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: 16,
-    padding: "36px 32px",
-    width: "100%", maxWidth: 360,
-    display: "flex", flexDirection: "column", alignItems: "center", gap: 8,
-  },
-  loginIcon: {
-    width: 44, height: 44,
-    background: "linear-gradient(135deg,#6366f1,#8b5cf6)",
-    borderRadius: 12,
-    display: "flex", alignItems: "center", justifyContent: "center",
-    marginBottom: 4,
-  },
-  loginTitle: { color: "#fff", fontSize: 20, fontWeight: 700, margin: 0 },
-  loginSub: { color: "rgba(255,255,255,0.35)", fontSize: 12, margin: "0 0 16px" },
-  loginInput: {
-    width: "100%", padding: "10px 14px",
-    background: "rgba(255,255,255,0.05)",
-    border: "1px solid rgba(255,255,255,0.1)",
-    borderRadius: 9, color: "#fff", fontSize: 13, outline: "none",
-    marginBottom: 10,
-  },
-  errorBadge: {
-    background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.25)",
-    borderRadius: 7, padding: "7px 12px", color: "#f87171", fontSize: 12, marginBottom: 10,
-  },
-  loginBtn: {
-    width: "100%", padding: "11px",
-    background: "linear-gradient(135deg,#6366f1,#8b5cf6)",
-    border: "none", borderRadius: 9, color: "#fff", fontWeight: 600,
-    fontSize: 14, cursor: "pointer",
-    display: "flex", alignItems: "center", justifyContent: "center", gap: 7,
-  },
 };
