@@ -58,6 +58,7 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
   }, []);
 
   const handleContainerMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (window.innerWidth < 1024) return;
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     setSpotlightPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
