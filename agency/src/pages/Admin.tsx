@@ -183,7 +183,39 @@ export const AdminPage = () => {
   const pendingCount = subs.filter(s => !contacted.has(s.id)).length;
 
   return (
-    <div style={{ minHeight: "100vh", background: t.bg, fontFamily: "'Inter',-apple-system,sans-serif", color: t.text }}>
+    /* ── Full-screen shell ── */
+    <div style={{ minHeight: "100vh", background: t.bg, fontFamily: "'Inter',-apple-system,sans-serif", color: t.text, padding: "14px", boxSizing: "border-box" }}>
+
+      {/* ── Websbond gradient border frame ── */}
+      <div style={{
+        position: "relative",
+        borderRadius: 18,
+        padding: 2,           /* border thickness */
+        background: "linear-gradient(135deg, #06b6d4 0%, #6366f1 40%, #8b5cf6 70%, #ec4899 100%)",
+        minHeight: "calc(100vh - 28px)",
+        display: "flex", flexDirection: "column",
+        boxShadow: theme === "dark"
+          ? "0 0 48px rgba(99,102,241,0.18), 0 0 80px rgba(139,92,246,0.1)"
+          : "0 4px 40px rgba(99,102,241,0.14)",
+      }}>
+        {/* Watermark brand label on border */}
+        <div style={{
+          position: "absolute", top: -1, left: 28,
+          background: "linear-gradient(135deg, #06b6d4, #6366f1)",
+          borderRadius: "0 0 8px 8px",
+          padding: "2px 12px",
+          fontSize: 9, fontWeight: 700, letterSpacing: "0.12em",
+          color: "#fff", textTransform: "uppercase", userSelect: "none",
+          zIndex: 30,
+        }}>Websbond Admin</div>
+
+        {/* Inner panel */}
+        <div style={{
+          flex: 1, borderRadius: 16,
+          background: t.bg,
+          overflow: "hidden",
+          display: "flex", flexDirection: "column",
+        }}>
 
       {/* ── Top Bar ── */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 24px", borderBottom: `1px solid ${t.border}`, background: t.topBg, backdropFilter: "blur(12px)", position: "sticky", top: 0, zIndex: 20 }}>
@@ -376,18 +408,29 @@ export const AdminPage = () => {
             </div>
           );
         })}
-      </div>
+        </div>
 
-      <style>{`
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        * { box-sizing: border-box; }
-        ::-webkit-scrollbar { width: 5px; height: 5px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: ${t.scrollbar}; border-radius: 4px; }
-        a { transition: opacity 0.12s; }
-        a:hover { opacity: 0.8; }
-        button:hover { opacity: 0.85; }
-      `}</style>
+        <style>{`
+          @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+          * { box-sizing: border-box; }
+          ::-webkit-scrollbar { width: 5px; height: 5px; }
+          ::-webkit-scrollbar-track { background: transparent; }
+          ::-webkit-scrollbar-thumb { background: ${t.scrollbar}; border-radius: 4px; }
+          a { transition: opacity 0.12s; }
+          a:hover { opacity: 0.8; }
+          button:hover { opacity: 0.85; }
+          html, body { margin: 0; padding: 0; }
+        `}</style>
+
+        {/* Bottom brand strip */}
+        <div style={{
+          textAlign: "center", padding: "5px 0",
+          fontSize: 9, fontWeight: 600, letterSpacing: "0.1em",
+          color: "rgba(255,255,255,0.6)", textTransform: "uppercase", userSelect: "none",
+          flexShrink: 0,
+        }}>websbond.com &nbsp;·&nbsp; admin panel</div>
+
+      </div>
     </div>
   );
 };
