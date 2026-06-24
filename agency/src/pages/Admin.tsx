@@ -288,7 +288,7 @@ export const AdminPage = () => {
       </div>
 
       {/* ── Table Header ── */}
-      <div style={{ display: "grid", gridTemplateColumns: "28px 1fr 1fr 140px 180px 120px", gap: "0 16px", padding: "8px 24px", borderBottom: `1px solid ${t.border}`, background: theme === "light" ? "#f9fafb" : "rgba(255,255,255,0.02)" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "28px 1fr 1fr 130px 160px 160px", gap: "0 12px", padding: "8px 24px", borderBottom: `1px solid ${t.border}`, background: theme === "light" ? "#f9fafb" : "rgba(255,255,255,0.02)" }}>
         {["", "Name / Email", "Subject", "Phone", "Submitted", "Actions"].map((h, i) => (
           <span key={i} style={{ fontSize: 10, fontWeight: 600, color: t.textFaint, textTransform: "uppercase", letterSpacing: "0.07em" }}>{h}</span>
         ))}
@@ -310,7 +310,7 @@ export const AdminPage = () => {
               {/* Row */}
               <div
                 style={{
-                  display: "grid", gridTemplateColumns: "28px 1fr 1fr 140px 180px 120px", gap: "0 16px",
+                  display: "grid", gridTemplateColumns: "28px 1fr 1fr 130px 160px 160px", gap: "0 12px",
                   padding: "11px 24px", alignItems: "center",
                   borderBottom: `1px solid ${t.border}`,
                   background: isExp ? (theme === "dark" ? "rgba(99,102,241,0.05)" : "#f5f3ff") : "transparent",
@@ -356,30 +356,36 @@ export const AdminPage = () => {
                   {s.submittedAt ? fmtDate(s.submittedAt) : "—"}
                 </div>
 
-                {/* Actions */}
+                {/* Actions - all icon-only, fits in 160px */}
                 <div style={{ display: "flex", alignItems: "center", gap: 4 }} onClick={e => e.stopPropagation()}>
+                  {/* Gmail */}
                   <a href={gmailUrl(s.email, s.name, s.subject)} target="_blank" rel="noopener noreferrer" title="Reply on Gmail"
-                    style={{ display: "flex", alignItems: "center", gap: 3, padding: "4px 7px", borderRadius: 6, fontSize: 11, fontWeight: 500, background: "rgba(234,67,53,0.1)", border: "1px solid rgba(234,67,53,0.2)", color: "#ef4444", textDecoration: "none" }}>
-                    <Mail size={11} /> Mail
+                    style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "5px 7px", borderRadius: 6, background: "rgba(234,67,53,0.1)", border: "1px solid rgba(234,67,53,0.2)", color: "#ef4444", textDecoration: "none" }}>
+                    <Mail size={12} />
                   </a>
+                  {/* WhatsApp */}
                   {s.phone && (
                     <a href={waUrl(s.phone, s.name)} target="_blank" rel="noopener noreferrer" title="WhatsApp"
-                      style={{ display: "flex", alignItems: "center", gap: 3, padding: "4px 7px", borderRadius: 6, fontSize: 11, fontWeight: 500, background: "rgba(37,211,102,0.08)", border: "1px solid rgba(37,211,102,0.18)", color: "#22c55e", textDecoration: "none" }}>
-                      <MessageCircle size={11} /> WA
+                      style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "5px 7px", borderRadius: 6, background: "rgba(37,211,102,0.08)", border: "1px solid rgba(37,211,102,0.18)", color: "#22c55e", textDecoration: "none" }}>
+                      <MessageCircle size={12} />
                     </a>
                   )}
+                  {/* Call */}
                   {s.phone && (
                     <a href={`tel:${s.phone}`} title="Call"
-                      style={{ display: "flex", alignItems: "center", padding: "4px 6px", borderRadius: 6, background: t.inputBg, border: `1px solid ${t.border}`, color: t.textMuted, textDecoration: "none" }}>
-                      <Phone size={11} />
+                      style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "5px 7px", borderRadius: 6, background: t.inputBg, border: `1px solid ${t.border}`, color: t.textMuted, textDecoration: "none" }}>
+                      <Phone size={12} />
                     </a>
                   )}
+                  {/* Mark contacted */}
                   <button onClick={() => toggleContacted(s.id)} title={isDone ? "Mark pending" : "Mark contacted"}
-                    style={{ background: isDone ? "rgba(16,185,129,0.1)" : t.inputBg, border: `1px solid ${isDone ? "rgba(16,185,129,0.2)" : t.border}`, borderRadius: 6, padding: "4px 6px", cursor: "pointer", display: "flex", color: isDone ? "#10b981" : t.textFaint }}>
-                    <CheckCircle size={11} fill={isDone ? "#10b981" : "none"} />
+                    style={{ background: isDone ? "rgba(16,185,129,0.1)" : t.inputBg, border: `1px solid ${isDone ? "rgba(16,185,129,0.25)" : t.border}`, borderRadius: 6, padding: "5px 7px", cursor: "pointer", display: "flex", color: isDone ? "#10b981" : t.textFaint }}>
+                    <CheckCircle size={12} fill={isDone ? "#10b981" : "none"} />
                   </button>
-                  <button onClick={() => setExpanded(isExp ? null : s.id)} style={{ background: "none", border: "none", cursor: "pointer", padding: "4px", display: "flex", color: t.textFaint }}>
-                    {isExp ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+                  {/* Expand */}
+                  <button onClick={() => setExpanded(isExp ? null : s.id)} title={isExp ? "Collapse" : "Expand"}
+                    style={{ background: t.inputBg, border: `1px solid ${t.border}`, borderRadius: 6, padding: "5px 7px", cursor: "pointer", display: "flex", color: t.textFaint }}>
+                    {isExp ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
                   </button>
                 </div>
               </div>
