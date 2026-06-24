@@ -1,0 +1,22 @@
+# Frontend exclusions
+agency/node_modules/
+agency/dist/
+agency/.env
+agency/.env.local
+agency/.env.development.local
+agency/.env.test.local
+agency/.env.production.local
+
+# Backend exclusions
+backend/target/
+backend/.mvn/
+backend/mvnw
+backend/mvnw.cmd
+backend/.idea/
+backend/*.iml
+
+# General exclusions
+.DS_Store
+.vscode/
+.idea/
+*.log

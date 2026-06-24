@@ -1,0 +1,14 @@
+# Websbond
+
+> India's digital agency for small businesses — affordable websites, SEO, digital marketing, and 24/7 human support.
+
+Websbond helps small businesses go digital with end-to-end services: website development, SEO, paid ads, brand identity, social media management, and ongoing support — built for the Indian market with Hinglish-friendly communication.
+
+## Pages
+
+- [Home](/): Overview of Websbond services and the free pilot program.
+- [Services](/services): Website development, SEO, digital marketing, brand identity, social media, and 24/7 support with pricing.
+- [Our Work](/our-work): Case studies and project showcase from past clients.
+- [Blog](/blog): Articles on digital marketing, SEO, and growth for small businesses in India.
+- [About](/about): About Websbond, the team, and our mission.
+- [Contact](/contact): Contact details, office location, and consultation request form.

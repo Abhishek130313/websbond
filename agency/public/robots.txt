@@ -1,0 +1,11 @@
+﻿User-agent: *
+Allow: /
+
+# Block admin / private paths
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://websbond.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

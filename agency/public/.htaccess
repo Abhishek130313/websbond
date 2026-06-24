@@ -1,0 +1,25 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Serve existing files directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # SPA: serve index.html for all other routes
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Security: block sensitive files
+<FilesMatch "\.(env|git|lock|md)$">
+  Deny from all
+</FilesMatch>
+
+# Security: hide PHP version
+Header always unset X-Powered-By
+
+# Cache static assets
+<FilesMatch "\.(jpg|jpeg|png|webp|svg|ico|css|js)$">
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
