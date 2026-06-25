@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight, Play, Check, Sparkles, Code2, Search, Megaphone, Cpu, Zap, Headphones, Star, TrendingUp, Shield, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import a1 from "@/assets/avatar1.jpg";
-import a2 from "@/assets/avatar2.jpg";
-import a3 from "@/assets/avatar3.jpg";
+import a1 from "@/assets/avatar1.webp";
+import a2 from "@/assets/avatar2.webp";
+import a3 from "@/assets/avatar3.webp";
 
 interface FloatingCardProps {
   title: string;
@@ -65,14 +65,14 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
   };
 
   const partnerLogos = [
-    { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
-    { name: "Meta", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" },
-    { name: "Shopify", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg" },
-    { name: "WordPress", logo: "https://upload.wikimedia.org/wikipedia/commons/0/09/Wordpress-Logo.svg" },
-    { name: "AWS", logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" },
-    { name: "Cloudflare", logo: "https://upload.wikimedia.org/wikipedia/commons/9/94/Cloudflare_Logo.svg" },
-    { name: "Stripe", logo: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" },
-    { name: "HubSpot", logo: "https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg" },
+    { name: "Google", logo: "/logos/google.svg" },
+    { name: "Meta", logo: "/logos/meta.svg" },
+    { name: "Shopify", logo: "/logos/shopify.svg" },
+    { name: "WordPress", logo: "/logos/wordpress.svg" },
+    { name: "AWS", logo: "/logos/aws.svg" },
+    { name: "Cloudflare", logo: "/logos/cloudflare.svg" },
+    { name: "Stripe", logo: "/logos/stripe.svg" },
+    { name: "HubSpot", logo: "/logos/hubspot.svg" },
   ];
 
   const trustBadges = [

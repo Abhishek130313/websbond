@@ -192,19 +192,19 @@ export const GrowthConsole = () => {
           {/* Top Metrics Row */}
           <div className="grid grid-cols-3 gap-3">
             <div className="bg-white/[0.01] border border-white/[0.04] rounded-xl p-3.5 text-center">
-              <span className="text-[9px] text-slate-500 uppercase block font-bold">Total Visitors</span>
+              <span className="text-[9px] text-slate-400 uppercase block font-bold">Total Visitors</span>
               <span className="text-lg md:text-xl font-display font-black text-white font-mono block mt-1">
                 {activeData.kpis.visitors}
               </span>
             </div>
             <div className="bg-white/[0.01] border border-white/[0.04] rounded-xl p-3.5 text-center">
-              <span className="text-[9px] text-slate-500 uppercase block font-bold">Total Leads</span>
+              <span className="text-[9px] text-slate-400 uppercase block font-bold">Total Leads</span>
               <span className="text-lg md:text-xl font-display font-black text-white font-mono block mt-1">
                 {activeData.kpis.leads}
               </span>
             </div>
             <div className="bg-white/[0.01] border border-white/[0.04] rounded-xl p-3.5 text-center">
-              <span className="text-[9px] text-slate-500 uppercase block font-bold">Conv. Rate</span>
+              <span className="text-[9px] text-slate-400 uppercase block font-bold">Conv. Rate</span>
               <span className="text-lg md:text-xl font-display font-black text-emerald-400 font-mono block mt-1">
                 {activeData.kpis.conversion}
               </span>
@@ -244,7 +244,7 @@ export const GrowthConsole = () => {
                 </defs>
               </svg>
             </div>
-            <div className="flex justify-between items-center text-[8px] text-slate-500 font-mono mt-2">
+            <div className="flex justify-between items-center text-[8px] text-slate-400 font-mono mt-2">
               <span>MON</span>
               <span>WED</span>
               <span>FRI</span>
@@ -256,7 +256,7 @@ export const GrowthConsole = () => {
           <div className="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-4">
             {/* Pie Chart SVG Panel */}
             <div className="bg-white/[0.01] border border-white/[0.04] rounded-xl p-4 flex flex-col justify-between items-center text-center">
-              <span className="text-[9px] text-slate-500 uppercase font-bold block mb-2">Traffic Channels</span>
+              <span className="text-[9px] text-slate-400 uppercase font-bold block mb-2">Traffic Channels</span>
               <div className="relative w-20 h-20 flex items-center justify-center">
                 <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
                   {/* Sector segments drawn as circle stroke-dasharrays */}
@@ -278,7 +278,7 @@ export const GrowthConsole = () => {
                 {/* Center hole to create donut chart */}
                 <div className="absolute w-12 h-12 rounded-full bg-slate-950 flex flex-col justify-center items-center">
                   <span className="text-[10px] font-black text-white font-mono">{activeData.pieSectors[0].percentage}%</span>
-                  <span className="text-[6px] text-slate-500 font-bold uppercase tracking-wider">Top Src</span>
+                  <span className="text-[6px] text-slate-400 font-bold uppercase tracking-wider">Top Src</span>
                 </div>
               </div>
               <div className="space-y-1 mt-2.5 w-full text-left">
@@ -297,17 +297,17 @@ export const GrowthConsole = () => {
             {/* Live Terminal logs */}
             <div className="bg-slate-950 border border-white/[0.05] rounded-xl p-4 flex flex-col justify-between min-h-[140px] font-mono text-[9px] text-indigo-400">
               <div className="space-y-1.5 select-none">
-                <div className="text-slate-500">// INTEGRATION EVENT PIPELINE</div>
+                <div className="text-slate-400">// INTEGRATION EVENT PIPELINE</div>
                 {activeData.logs.map((log, i) => (
                   <div key={i} className="flex items-start gap-1.5 leading-relaxed">
-                    <span className="text-slate-600 shrink-0">[{14 + i}:12]</span>
+                    <span className="text-slate-500 shrink-0">[{14 + i}:12]</span>
                     <span className={i === activeData.logs.length - 1 ? "text-emerald-400 font-bold" : "text-slate-300"}>
                       {i === activeData.logs.length - 1 ? "✓ " : "• "} {log}
                     </span>
                   </div>
                 ))}
               </div>
-              <div className="text-[8px] text-slate-600 flex justify-between border-t border-white/[0.04] pt-2 mt-2">
+              <div className="text-[8px] text-slate-500 flex justify-between border-t border-white/[0.04] pt-2 mt-2">
                 <span>TERMINAL: OK</span>
                 <span>STREAM ACTIVE</span>
               </div>

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import b1 from "@/assets/blog1.jpg";
-import b2 from "@/assets/blog2.jpg";
-import b3 from "@/assets/blog3.jpg";
+import b1 from "@/assets/blog1.webp";
+import b2 from "@/assets/blog2.webp";
+import b3 from "@/assets/blog3.webp";
 
 const filters = [
   { label: "All Projects", icon: Layers },

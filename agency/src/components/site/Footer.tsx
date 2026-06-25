@@ -15,7 +15,7 @@ export const Footer = ({ theme = "dark" }: { theme?: "dark" | "light" }) => {
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-12 border-b border-white/[0.06]">
         {/* Company Column */}
         <div className="lg:col-span-4 flex flex-col gap-6">
-          <Logo light size="lg" />
+          <Logo size="lg" />
           <p className="text-slate-400 text-sm max-w-sm leading-relaxed">
             Crafting premium custom websites, running high-ROI marketing campaigns, and providing 24/7 real human support for businesses scaling online.
           </p>

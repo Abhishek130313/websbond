@@ -2,18 +2,18 @@ import { useState, useEffect } from "react";
 import { Star, MessageSquare, Sparkles, X, Plus, Loader2 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
-import a1 from "@/assets/avatar1.jpg";
-import a2 from "@/assets/avatar2.jpg";
-import a3 from "@/assets/avatar3.jpg";
+import a1 from "@/assets/avatar1.webp";
+import a2 from "@/assets/avatar2.webp";
+import a3 from "@/assets/avatar3.webp";
 
 const categories = ["All", "Hospitality", "Wellness", "Retail", "Fitness"];
 const avatarOptions = [a1, a2, a3, a2]; // Choices for avatar pre-sets
 
 const staticReviewsFallback = [
-  { name: "Rohit Sharma", role: "Hotel Owner, Indore", category: "Hospitality", img: a1, text: "Websbond completely transformed our hotel's online presence. Direct website bookings increased threefold, and our customer reviews have improved significantly!", rating: 5, avatarIndex: 0 },
-  { name: "Anjali Mehta", role: "Salon Owner, Mumbai", category: "Wellness", img: a2, text: "The team is extremely professional. Their 24/7 support is what sets them apart. Whenever I need updates or changes, they handle it within minutes.", rating: 5, avatarIndex: 1 },
-  { name: "Vikram Patel", role: "Kirana Store, Ahmedabad", category: "Retail", img: a3, text: "They built a digital ordering website that is so clean and easy to use that customers now place orders themselves via WhatsApp. Excellent craftsmanship.", rating: 5, avatarIndex: 2 },
-  { name: "Neha Verma", role: "Gym Owner, Delhi", category: "Fitness", img: a1, text: "Their Google and Facebook Ads setup generated 45 new memberships in the very first month. Absolute value for money.", rating: 5, avatarIndex: 3 },
+  { id: 1, name: "Rohit Verma", role: "Hotel Owner, Kanpur", category: "Hospitality", img: a1, text: "Websbond completely transformed our hotel's online presence. Direct website bookings increased threefold, and our customer reviews have improved significantly!", rating: 5, avatarIndex: 0 },
+  { id: 2, name: "Neha Sharma", role: "Salon Owner, Lucknow", category: "Wellness", img: a2, text: "The team is extremely professional. Their 24/7 support is what sets them apart. Whenever I need updates or changes, they handle it within minutes.", rating: 5, avatarIndex: 1 },
+  { id: 3, name: "Amit Patel", role: "Kirana Store, Indore", category: "Retail", img: a3, text: "They built a digital ordering website that is so clean and easy to use that customers now place orders themselves via WhatsApp. Excellent craftsmanship.", rating: 5, avatarIndex: 2 },
+  { id: 4, name: "Vikram Singh", role: "Gym Owner, Jaipur", category: "Fitness", img: a1, text: "Their Google and Facebook Ads setup generated 45 new memberships in the very first month. Absolute value for money.", rating: 5, avatarIndex: 3 },
 ];
 
 export const Testimonials = () => {
@@ -23,6 +23,7 @@ export const Testimonials = () => {
   const [workerStats, setWorkerStats] = useState<{ timeTakenMs: number; threadId: number } | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hoveredStar, setHoveredStar] = useState<number | null>(null);
+  const [hasFetched, setHasFetched] = useState(false);
   
   // Review Form state
   const [newReview, setNewReview] = useState({
@@ -57,8 +58,24 @@ export const Testimonials = () => {
   };
 
   useEffect(() => {
-    fetchReviews();
-  }, []);
+    // Set up intersection observer for lazy loading reviews
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasFetched) {
+          fetchReviews();
+          setHasFetched(true);
+        }
+      },
+      { rootMargin: "200px" } // Fetch 200px before coming into view
+    );
+
+    const el = document.getElementById("testimonials-section");
+    if (el) observer.observe(el);
+
+    return () => {
+      if (el) observer.unobserve(el);
+    };
+  }, [hasFetched]);
 
   useEffect(() => {
     if (allReviews.length === 0) return;
@@ -139,7 +156,7 @@ export const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden">
+    <section id="testimonials-section" className="py-20 md:py-28 relative overflow-hidden">
       <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full radial-glow pointer-events-none" style={{ "--glow-color": "rgba(217, 70, 239, 0.05)" } as React.CSSProperties} />
       
       <div className="container">

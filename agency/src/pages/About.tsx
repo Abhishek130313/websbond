@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import a1 from "@/assets/avatar1.jpg";
-import a2 from "@/assets/avatar2.jpg";
-import a3 from "@/assets/avatar3.jpg";
+import a1 from "@/assets/avatar1.webp";
+import a2 from "@/assets/avatar2.webp";
+import a3 from "@/assets/avatar3.webp";
 
 const values = [
   { icon: Heart, title: "Transparency First", desc: "Our pricing contracts are simple and honest. No hidden parameters, no surprise bills." },

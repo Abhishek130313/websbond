@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo3d from "@/assets/websbond-logo-3d.png";
+import logo3d from "@/assets/websbond-logo-3d.webp";
 
 type LogoProps = {
   light?: boolean;
