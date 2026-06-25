@@ -1,14 +1,22 @@
+import { lazy, Suspense } from "react";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { Hero } from "@/components/site/Hero";
 import { StatsBar } from "@/components/site/StatsBar";
-import { Process } from "@/components/site/Process";
-import { Services } from "@/components/site/Services";
-import { GrowthConsole } from "@/components/site/GrowthConsole";
-import { RecentWorks } from "@/components/site/RecentWorks";
-import { Testimonials } from "@/components/site/Testimonials";
-import { PricingPlans } from "@/components/site/PricingPlans";
-import { Blog } from "@/components/site/Blog";
+
+// Below-the-fold components: lazy-loaded to reduce initial bundle/parse time
+const Process = lazy(() => import("@/components/site/Process").then(m => ({ default: m.Process })));
+const Services = lazy(() => import("@/components/site/Services").then(m => ({ default: m.Services })));
+const GrowthConsole = lazy(() => import("@/components/site/GrowthConsole").then(m => ({ default: m.GrowthConsole })));
+const RecentWorks = lazy(() => import("@/components/site/RecentWorks").then(m => ({ default: m.RecentWorks })));
+const Testimonials = lazy(() => import("@/components/site/Testimonials").then(m => ({ default: m.Testimonials })));
+const PricingPlans = lazy(() => import("@/components/site/PricingPlans").then(m => ({ default: m.PricingPlans })));
+const Blog = lazy(() => import("@/components/site/Blog").then(m => ({ default: m.Blog })));
+
+// Minimal skeleton that preserves layout space to prevent CLS
+const SectionSkeleton = () => (
+  <div className="py-16 md:py-24" aria-hidden="true" />
+);
 
 const Index = () => (
   <Layout>
@@ -89,15 +97,31 @@ const Index = () => (
         }
       ]}
     />
+    {/* Above-fold: eagerly loaded for fastest LCP */}
     <Hero />
     <StatsBar />
-    <Process />
-    <Services />
-    <GrowthConsole />
-    <RecentWorks />
-    <Testimonials />
-    <PricingPlans />
-    <Blog />
+    {/* Below-fold: lazy loaded to reduce TTI and main thread blocking */}
+    <Suspense fallback={<SectionSkeleton />}>
+      <Process />
+    </Suspense>
+    <Suspense fallback={<SectionSkeleton />}>
+      <Services />
+    </Suspense>
+    <Suspense fallback={<SectionSkeleton />}>
+      <GrowthConsole />
+    </Suspense>
+    <Suspense fallback={<SectionSkeleton />}>
+      <RecentWorks />
+    </Suspense>
+    <Suspense fallback={<SectionSkeleton />}>
+      <Testimonials />
+    </Suspense>
+    <Suspense fallback={<SectionSkeleton />}>
+      <PricingPlans />
+    </Suspense>
+    <Suspense fallback={<SectionSkeleton />}>
+      <Blog />
+    </Suspense>
   </Layout>
 );
 

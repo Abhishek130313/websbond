@@ -88,49 +88,7 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
       onMouseMove={handleContainerMouseMove}
       className="relative overflow-hidden pt-6 pb-12 md:pt-8 md:pb-20 bg-background text-foreground transition-colors duration-300"
     >
-      <style>{`
-        @keyframes hero-fade-up {
-          from { opacity: 0; transform: translateY(32px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes float-a {
-          0%,100% { transform: translateY(0px); }
-          50%      { transform: translateY(-14px); }
-        }
-        @keyframes float-b {
-          0%,100% { transform: translateY(0px) rotate(0deg); }
-          50%      { transform: translateY(-10px) rotate(2deg); }
-        }
-        @keyframes particle-rise {
-          0%   { transform: translateY(0);    opacity: 0; }
-          15%  { opacity: 1; }
-          85%  { opacity: 1; }
-          100% { transform: translateY(-110px); opacity: 0; }
-        }
-        @keyframes glow-pulse {
-          0%,100% { text-shadow: 0 0 8px rgba(99,102,241,0.15); }
-          50%      { text-shadow: 0 0 28px rgba(99,102,241,0.4); }
-        }
-        @keyframes grid-warp {
-          0%   { background-position: 0 0; }
-          100% { background-position: 0 40px; }
-        }
-        @keyframes ring-pulse {
-          0%   { transform: scale(1); opacity: 0.5; }
-          100% { transform: scale(1.7); opacity: 0; }
-        }
-        .hero-fu   { animation: hero-fade-up 0.8s ease both; }
-        .hero-fu-1 { animation: hero-fade-up 0.8s ease 0.1s both; }
-        .hero-fu-2 { animation: hero-fade-up 0.8s ease 0.22s both; }
-        .hero-fu-3 { animation: hero-fade-up 0.8s ease 0.34s both; }
-        .hero-fu-4 { animation: hero-fade-up 0.8s ease 0.46s both; }
-        .hero-fu-5 { animation: hero-fade-up 0.8s ease 0.58s both; }
-        .float-a   { animation: float-a 6s ease-in-out infinite; }
-        .float-b   { animation: float-b 8s ease-in-out infinite; }
-        .glow-txt  { animation: glow-pulse 3s ease-in-out infinite; }
-        .grid-anim { animation: grid-warp 3s linear infinite; }
-        .ring-pulse-anim { animation: ring-pulse 2.5s ease-out infinite; }
-      `}</style>
+
 
       {/* Background layers */}
       <div className="noise-overlay pointer-events-none opacity-20 dark:opacity-35" />
@@ -243,9 +201,9 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
             {/* Client avatars */}
             <div className="hero-fu-5 flex items-center gap-4">
               <div className="flex -space-x-3">
-                <img src={a1} alt="Client" width={36} height={36} className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
-                <img src={a2} alt="Client" width={36} height={36} className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
-                <img src={a3} alt="Client" width={36} height={36} className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
+                <img src={a1} alt="Happy client" width={36} height={36} decoding="async" fetchPriority="low" className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
+                <img src={a2} alt="Happy client" width={36} height={36} decoding="async" fetchPriority="low" className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
+                <img src={a3} alt="Happy client" width={36} height={36} decoding="async" fetchPriority="low" className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
                 <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-500 ring-2 ring-slate-100 dark:ring-slate-950 flex items-center justify-center text-[10px] font-bold text-white">100%</div>
               </div>
               <div className="text-xs text-slate-500 dark:text-slate-400 text-left max-w-[200px]">
