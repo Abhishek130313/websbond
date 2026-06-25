@@ -167,6 +167,8 @@ export const RecentWorks = () => {
               <img
                 src={project.imageUrl}
                 alt={project.title}
+                width={600}
+                height={400}
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 pointer-events-none"
               />

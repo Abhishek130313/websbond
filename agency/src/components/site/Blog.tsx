@@ -36,6 +36,8 @@ export const Blog = () => (
               <img
                 src={p.coverImg}
                 alt={p.title}
+                width={400}
+                height={250}
                 loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
               />

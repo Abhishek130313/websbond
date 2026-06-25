@@ -229,6 +229,8 @@ export const Testimonials = () => {
                 <img 
                   src={r.img} 
                   alt={r.name} 
+                  width={40}
+                  height={40}
                   className="w-10 h-10 rounded-full object-cover border border-slate-200 dark:border-white/10" 
                   loading="lazy" 
                 />
@@ -337,7 +339,7 @@ export const Testimonials = () => {
                         newReview.avatarIndex === idx ? "border-purple-500 scale-105" : "border-transparent opacity-60 hover:opacity-100"
                       }`}
                     >
-                      <img src={avatar} alt={`Avatar option ${idx + 1}`} className="w-10 h-10 object-cover" />
+                      <img src={avatar} alt={`Avatar option ${idx + 1}`} width={40} height={40} className="w-10 h-10 object-cover" />
                       {newReview.avatarIndex === idx && (
                         <div className="absolute inset-0 bg-purple-500/20 flex items-center justify-center font-bold text-white text-xs">✓</div>
                       )}

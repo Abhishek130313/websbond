@@ -153,9 +153,9 @@ export const ServicesPage = () => {
               {/* AVATAR + RATING */}
               <div className="flex items-center gap-3 pt-3 border-t border-slate-200/80 dark:border-white/[0.06] mt-1 justify-start w-full">
                 <div className="flex -space-x-3">
-                  <img src={a1} alt="Client" className="w-8 h-8 rounded-full ring-2 ring-slate-150 dark:ring-slate-950 object-cover" />
-                  <img src={a2} alt="Client" className="w-8 h-8 rounded-full ring-2 ring-slate-150 dark:ring-slate-950 object-cover" />
-                  <img src={a3} alt="Client" className="w-8 h-8 rounded-full ring-2 ring-slate-150 dark:ring-slate-950 object-cover" />
+                  <img src={a1} alt="Client" width={32} height={32} className="w-8 h-8 rounded-full ring-2 ring-slate-150 dark:ring-slate-950 object-cover" />
+                  <img src={a2} alt="Client" width={32} height={32} className="w-8 h-8 rounded-full ring-2 ring-slate-150 dark:ring-slate-950 object-cover" />
+                  <img src={a3} alt="Client" width={32} height={32} className="w-8 h-8 rounded-full ring-2 ring-slate-150 dark:ring-slate-950 object-cover" />
                   <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 ring-2 ring-slate-150 dark:ring-slate-950 flex items-center justify-center text-[9px] font-bold text-white">100%</div>
                 </div>
                 <div>
@@ -233,6 +233,8 @@ export const ServicesPage = () => {
                   <img
                     src={p.logo}
                     alt={p.name}
+                    width={80}
+                    height={20}
                     className="h-4 sm:h-5 pointer-events-none select-none max-w-[80px] object-contain transition-all duration-300 filter grayscale opacity-75 hover:grayscale-0 hover:opacity-100 dark:invert dark:filter dark:brightness-200"
                   />
                 </div>

@@ -243,9 +243,9 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
             {/* Client avatars */}
             <div className="hero-fu-5 flex items-center gap-4">
               <div className="flex -space-x-3">
-                <img src={a1} alt="Client" className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
-                <img src={a2} alt="Client" className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
-                <img src={a3} alt="Client" className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
+                <img src={a1} alt="Client" width={36} height={36} className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
+                <img src={a2} alt="Client" width={36} height={36} className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
+                <img src={a3} alt="Client" width={36} height={36} className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
                 <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-500 ring-2 ring-slate-100 dark:ring-slate-950 flex items-center justify-center text-[10px] font-bold text-white">100%</div>
               </div>
               <div className="text-xs text-slate-500 dark:text-slate-400 text-left max-w-[200px]">
@@ -353,7 +353,7 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 opacity-35 dark:opacity-30 hover:opacity-70 transition-opacity duration-500">
             {partnerLogos.map((p) => (
               <div key={p.name}>
-                <img src={p.logo} alt={p.name} className="h-4 sm:h-5 opacity-70 dark:invert dark:filter dark:brightness-200 pointer-events-none select-none max-w-[80px] object-contain" />
+                <img src={p.logo} alt={p.name} width={80} height={20} className="h-4 sm:h-5 opacity-70 dark:invert dark:filter dark:brightness-200 pointer-events-none select-none max-w-[80px] object-contain" />
               </div>
             ))}
           </div>
