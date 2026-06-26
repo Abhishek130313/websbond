@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 const Index = lazy(() => import("./pages/Index.tsx"));
-const ServicesPage = lazy(() => import("./pages/Services.tsx"));
+
 const OurWorkPage = lazy(() => import("./pages/OurWork.tsx"));
 const BlogPage = lazy(() => import("./pages/Blog.tsx"));
 const BlogPostPage = lazy(() => import("./pages/BlogPost.tsx"));
@@ -53,7 +53,7 @@ const App = () => (
         <Suspense fallback={<PageLoader />}>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/services" element={<ServicesPage />} />
+
             
             {/* Main Branding Pages with Aliases */}
             <Route path="/about" element={<AboutPage />} />

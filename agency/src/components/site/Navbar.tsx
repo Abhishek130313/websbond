@@ -23,7 +23,7 @@ const NAV_LINKS = [
   { label: "HOME", to: "/" },
   {
     label: "OUR SERVICES",
-    to: "/services",
+    to: "#",
     dropdown: true,
   },
   {

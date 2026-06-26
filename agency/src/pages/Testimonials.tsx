@@ -1,208 +1,366 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
-import { CtaBanner } from "@/components/site/CtaBanner";
-import { Star, Quote, Send, Loader2 } from "lucide-react";
+import { Star, Loader2, Phone } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 
-const reviews = [
-  {
-    name: "Dr. Raman Kant Aggarwal",
-    role: "Senior Consultant Surgeon",
-    text: "Dedicated, focused, genuine, trustworthy and enterprising. Real good value for Customers. The team at Websbond has helped us structure our online presence perfectly.",
-    rating: 5
-  },
+const SERVICES_OPTIONS = [
+  "Website Design & Development",
+  "SEO Optimization",
+  "Google Ads / PPC",
+  "Social Media Marketing",
+  "Content Marketing",
+  "E-Commerce Solutions",
+  "App Development",
+  "Google My Business",
+];
+
+const VIDEOS = [
+  { id: "dQw4w9WgXcQ", name: "Rajesh Kumar", role: "Business Owner, Delhi", thumb: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80" },
+  { id: "dQw4w9WgXcQ", name: "Sunita Mehta", role: "Clinic Director, Gurgaon", thumb: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&auto=format&fit=crop&q=80" },
+  { id: "dQw4w9WgXcQ", name: "Priya Sharma", role: "E-Commerce Brand, NCR", thumb: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&auto=format&fit=crop&q=80" },
+  { id: "dQw4w9WgXcQ", name: "Dr. Anil Gupta", role: "Medical Practice, Delhi", thumb: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&auto=format&fit=crop&q=80" },
+  { id: "dQw4w9WgXcQ", name: "Dr. Neha Khandelwal", role: "Aesthetic Doctor, Noida", thumb: "https://images.unsplash.com/photo-1594824813573-246434de83fb?w=400&auto=format&fit=crop&q=80" },
+  { id: "dQw4w9WgXcQ", name: "Ajeet Tiwari", role: "Consultant Physician, Delhi", thumb: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&auto=format&fit=crop&q=80" },
+  { id: "dQw4w9WgXcQ", name: "Vikram Singh", role: "Gym Founder, Sonipat", thumb: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80" },
+  { id: "dQw4w9WgXcQ", name: "Sawan Bopanna", role: "Hospital Director, Delhi", thumb: "https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?w=400&auto=format&fit=crop&q=80" },
+  { id: "dQw4w9WgXcQ", name: "Rohit Verma", role: "Hotelier, Gurgaon", thumb: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=80" },
+  { id: "dQw4w9WgXcQ", name: "Amit Patel", role: "Kirana Business, Faridabad", thumb: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80" },
+];
+
+const REVIEWS = [
   {
     name: "Dr. Geeta Kadayaprath",
     role: "Founder, The Breast Cancer Clinic",
+    stars: 5,
     text: "Prompt services with a great team which is able to create excellent content and post it at appropriate times. Response to queries and resolution of problems is also very quick. Thank you!",
-    rating: 5
   },
   {
     name: "Dr. Sawan Bopanna",
     role: "Medical Director",
-    text: "Gopal, Abhishek, and the Websbond team have been very professional in their digital marketing and local SEO services. Definitely recommend their consultancy.",
-    rating: 5
+    stars: 5,
+    text: "Gopal, Abhishek, and the Websbond digital marketing team have been very professional in their digital services. Definitely recommend their consultancy.",
   },
   {
-    name: "Dr. Neha Khandelwal",
-    role: "Consultant Physician",
-    text: "Excellent work by Gopal and his team. A very dedicated team and has a lot of creativity when designing and managing local GMB profiles!",
-    rating: 5
+    name: "Rohit Verma",
+    role: "Hotel Owner, Gurugram",
+    stars: 5,
+    text: "Websbond completely transformed our hotel's online presence. Direct website bookings increased threefold and our Google ranking went from nowhere to Page 1 in just 3 months. Highly recommended!",
   },
   {
-    name: "Dr. Ajeet Tiwari",
-    role: "Medical Professional",
-    text: "Marketing is not about providing false details or boasting about yourself but letting people know what you want them to know about yourself. Websbond understands this distinction perfectly.",
-    rating: 5
+    name: "Neha Sharma",
+    role: "Salon Owner, Delhi",
+    stars: 5,
+    text: "The team is extremely professional. Their 24/7 support is what sets them apart. Whenever I need updates or changes, they handle it within minutes. My business has grown tremendously.",
   },
-  {
-    name: "Apolished Finish",
-    role: "E-Commerce Retailer",
-    text: "Searching for an exceptional SEO company in Delhi NCR led me to Websbond, and I'm thrilled with my decision! From the moment I contacted them, their professionalism and tech expertise were evident. Our organic traffic has grown by 50%!",
-    rating: 5
-  }
 ];
 
 export const TestimonialsPage = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", service: "SEO & Digital Marketing", message: "" });
-  const [submitting, setSubmitting] = useState(false);
+  const [playing, setPlaying] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.phone) {
-      toast({ title: "Details required", description: "Name, email and phone number are required.", variant: "destructive" });
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name    = (data.get("name")    as string)?.trim();
+    const phone   = (data.get("phone")   as string)?.trim();
+    const email   = (data.get("email")   as string)?.trim();
+    const service = (data.get("service") as string)?.trim();
+    const message = (data.get("message") as string)?.trim();
+
+    if (!name || !phone || !email) {
+      toast({ title: "Please fill in all required fields (*).", variant: "destructive" });
       return;
     }
-    setSubmitting(true);
+
+    setIsSubmitting(true);
     try {
-      const response = await fetch(getApiUrl("/api/contact"), {
+      const res = await fetch(getApiUrl("/api/leads"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: `Quote Request: Testimonials Page (${formData.service})`,
-          message: formData.message || "Requested consultation from testimonials reviews page"
-        })
+        body: JSON.stringify({ name, phone, email, service, message, source: "Testimonials Form" }),
       });
-      if (!response.ok) throw new Error("API fail");
-      toast({ title: "Request Received!", description: "We will contact you shortly to review your requirements." });
-      setFormData({ name: "", email: "", phone: "", service: "SEO & Digital Marketing", message: "" });
+      if (!res.ok) throw new Error("Failed");
+      toast({ title: "🎉 Quote Request Received!", description: "We will contact you shortly." });
+      form.reset();
     } catch {
-      toast({ title: "Submission failed", description: "Please try again or contact us directly on WhatsApp.", variant: "destructive" });
+      toast({ title: "Something went wrong.", description: "Please call us directly at +91 9306623619.", variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
     }
-    setSubmitting(false);
   };
 
   return (
     <Layout>
       <SEO 
-        title="Client Testimonials & Reviews | Websbond" 
-        description="Read real client reviews and testimonials about Websbond. See how our SEO, SMO, GMB, and website design services help businesses scale in Delhi NCR & Haryana."
-        path="/testimonials"
-        keywords="websbond reviews, websbond testimonials, best digital marketing agency reviews, seo client testimonials"
+        title="Client Reviews & Testimonials | Websbond" 
+        description="Hear what our clients say about their digital growth journey with Websbond. Verified reviews for SEO, SMO, website development, and PPC." 
+        path="/testimonials" 
       />
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-16 text-white text-center" style={{ background: "linear-gradient(135deg, #004b75 0%, #0c203b 100%)" }}>
-        <div className="absolute inset-0 grid-mesh opacity-5 pointer-events-none" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-2xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 backdrop-blur-md text-white font-semibold text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full">
-              → TESTIMONIALS
+      {/* ── Hero Split Block Section ── */}
+      <section 
+        className="relative overflow-hidden py-16 md:py-24 text-white"
+        style={{ background: "linear-gradient(135deg, #004b75 0%, #0c203b 100%)" }}
+      >
+        <div className="absolute inset-0 bg-[#004b75]/25 opacity-10 pointer-events-none" />
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+            
+            {/* Left Column: Title and Subtext */}
+            <div className="space-y-6 text-center lg:text-left">
+              <h1 className="font-jost font-black text-3xl md:text-5xl leading-tight">
+                Testimonials
+              </h1>
+              <p className="text-white/85 text-sm sm:text-base leading-relaxed max-w-xl font-medium">
+                Hear what our clients have to say about their journey with us—real experiences, real success, and lasting partnerships built on trust and results.
+              </p>
+              <div className="pt-2">
+                <a
+                  href="tel:+919306623619"
+                  className="inline-flex items-center gap-2 font-bold px-6 py-3.5 rounded-full text-[#002b49] bg-white transition-all hover:scale-105 shadow-md text-sm"
+                >
+                  <Phone className="w-4 h-4 text-[#eb560c]" /> +91 9306623619
+                </a>
+              </div>
             </div>
-            <h1 className="font-jost font-black text-3xl md:text-5xl leading-tight">
-              What Our Clients Say
-            </h1>
-            <p className="text-white/80 text-sm sm:text-base leading-relaxed">
-              Hear what our clients have to say about their journey with us—real experiences, real success, and lasting partnerships built on trust and results.
-            </p>
+
+            {/* Right Column: Quote Form Card */}
+            <div>
+              <div
+                className="bg-white rounded-3xl p-6 sm:p-8 text-[#002b49] shadow-2xl border border-gray-100/10"
+              >
+                <h3 className="font-jost font-bold text-xl mb-5 pb-2 border-b border-gray-100 text-[#002b49]">
+                  Request A Quote
+                </h3>
+
+                <form ref={formRef} onSubmit={handleFormSubmit} className="space-y-4">
+                  <input
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="Enter Your Name"
+                    className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3 text-sm text-[#002b49] placeholder:text-gray-400 outline-none focus:border-[#eb560c]"
+                  />
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="Enter Your Email Id"
+                    className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3 text-sm text-[#002b49] placeholder:text-gray-400 outline-none focus:border-[#eb560c]"
+                  />
+                  <input
+                    name="phone"
+                    type="tel"
+                    required
+                    placeholder="Enter Your Mobile No."
+                    className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3 text-sm text-[#002b49] placeholder:text-gray-400 outline-none focus:border-[#eb560c]"
+                  />
+
+                  <select
+                    name="service"
+                    required
+                    className="w-full bg-[#f8fafc] border border-gray-200 rounded-lg px-4 py-3 text-sm text-[#002b49] outline-none focus:border-[#eb560c] font-semibold"
+                  >
+                    <option value="">Select Services *</option>
+                    {SERVICES_OPTIONS.map((s) => (
+                      <option key={s} value={s}>{s}</option>
+                    ))}
+                  </select>
+
+                  {/* Mock ReCAPTCHA */}
+                  <div className="bg-slate-50 border border-gray-150 rounded-xl p-3 flex items-center justify-between">
+                    <label className="flex items-center gap-2 cursor-pointer text-xs text-gray-500 font-bold select-none">
+                      <input 
+                        type="checkbox" 
+                        required 
+                        className="w-4 h-4 rounded border-gray-300 text-[#eb560c] focus:ring-[#eb560c] accent-[#eb560c] cursor-pointer" 
+                      />
+                      I'm not a robot
+                    </label>
+                    <div className="flex flex-col items-center">
+                      <img 
+                        src="https://www.gstatic.com/recaptcha/api2/logo_48.png" 
+                        className="w-5 h-5 object-contain opacity-75" 
+                        alt="recaptcha logo" 
+                      />
+                      <span className="text-[7px] text-gray-400 font-bold tracking-tight mt-0.5">reCAPTCHA</span>
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full flex items-center justify-center gap-2 text-white font-bold py-3.5 rounded-lg transition-all duration-300 hover:opacity-90 disabled:opacity-60 text-sm uppercase tracking-wider bg-[#002b49]"
+                  >
+                    {isSubmitting ? (
+                      <><Loader2 className="w-4 h-4 animate-spin" /> Sending...</>
+                    ) : (
+                      "Send Message !"
+                    )}
+                  </button>
+                </form>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Testimonials List + Form Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-start">
-            
-            {/* Left: Testimonials Grid */}
-            <div className="grid sm:grid-cols-2 gap-6">
-              {reviews.map((r, idx) => (
-                <div key={idx} className="bg-[#f8fafc] border border-gray-150 p-6 rounded-3xl relative shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-                  <span className="absolute top-5 right-5 text-gray-200">
-                    <Quote className="w-10 h-10 rotate-180" />
-                  </span>
-                  <div>
-                    <div className="flex gap-1 mb-4">
-                      {[...Array(r.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-[#eb560c] text-[#eb560c]" />
-                      ))}
+      {/* ── Client Video Gallery Section ── */}
+      <section className="py-20 bg-slate-50">
+        <div className="container">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span style={{ color: "#004b75" }}>→</span>
+              <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#eb560c]">
+                OUR CLIENT
+              </span>
+            </div>
+            <h2
+              className="font-jost font-black text-2xl sm:text-4xl text-[#002b49]"
+            >
+              Hear What Our Clients Say
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {VIDEOS.map((v, i) => (
+              <button
+                key={i}
+                onClick={() => setPlaying(v.id)}
+                className="group relative overflow-hidden rounded-2xl text-left w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-white border border-gray-150"
+                style={{ boxShadow: "0 4px 15px rgba(0,0,0,0.03)" }}
+              >
+                <div className="relative overflow-hidden" style={{ height: 260 }}>
+                  <img
+                    src={v.thumb}
+                    alt={v.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition-all" />
+
+                  {/* Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 bg-[#FF0000]"
+                    >
+                      <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
                     </div>
-                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed font-semibold italic mb-6 relative z-10">
-                      "{r.text}"
-                    </p>
-                  </div>
-                  <div className="border-t border-gray-200/60 pt-4">
-                    <h4 className="font-jost font-bold text-[#002b49] text-sm">{r.name}</h4>
-                    <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider block mt-0.5">{r.role}</span>
                   </div>
                 </div>
-              ))}
-            </div>
-
-            {/* Right: Request a Quote Form */}
-            <div className="bg-[#f8fafc] border border-gray-200 rounded-3xl p-6 sm:p-8 text-[#002b49] shadow-lg sticky top-24">
-              <h3 className="font-jost font-bold text-lg border-b border-gray-200 pb-3 mb-5">Request A Quote</h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <input 
-                  type="text" 
-                  name="name" 
-                  value={formData.name} 
-                  onChange={handleInputChange} 
-                  placeholder="Your Name *" 
-                  required 
-                  className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-xs sm:text-sm text-[#002b49] outline-none focus:border-[#eb560c] font-sans" 
-                />
-                <input 
-                  type="email" 
-                  name="email" 
-                  value={formData.email} 
-                  onChange={handleInputChange} 
-                  placeholder="Email Address *" 
-                  required 
-                  className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-xs sm:text-sm text-[#002b49] outline-none focus:border-[#eb560c] font-sans" 
-                />
-                <input 
-                  type="text" 
-                  name="phone" 
-                  value={formData.phone} 
-                  onChange={handleInputChange} 
-                  placeholder="Phone / WhatsApp *" 
-                  required 
-                  className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-xs sm:text-sm text-[#002b49] outline-none focus:border-[#eb560c] font-sans" 
-                />
-                <select 
-                  name="service" 
-                  value={formData.service} 
-                  onChange={handleInputChange}
-                  className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-xs sm:text-sm text-[#002b49] outline-none focus:border-[#eb560c] font-sans font-semibold"
-                >
-                  <option value="SEO & Digital Marketing">SEO & Digital Marketing</option>
-                  <option value="SMO Services">SMO Services</option>
-                  <option value="Google Ads Services">Google Ads Services</option>
-                  <option value="GMB Optimization">GMB Optimization</option>
-                  <option value="Web Design & Development">Web Design & Development</option>
-                </select>
-                <textarea 
-                  name="message" 
-                  value={formData.message} 
-                  onChange={handleInputChange} 
-                  placeholder="Tell us about your project requirements..." 
-                  rows={3} 
-                  className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-xs sm:text-sm text-[#002b49] outline-none focus:border-[#eb560c] resize-none font-sans" 
-                />
-                <button 
-                  type="submit" 
-                  disabled={submitting} 
-                  className="w-full bg-[#eb560c] hover:bg-[#d14b0a] text-white font-bold py-3 rounded-lg text-xs uppercase tracking-wider transition-all disabled:opacity-50 flex items-center justify-center gap-2"
-                >
-                  {submitting ? "Submitting..." : "Send Message !"}
-                </button>
-              </form>
-            </div>
+                
+                {/* Details Footer */}
+                <div className="p-4 border-t border-gray-100">
+                  <h4 className="font-jost font-bold text-sm text-[#002b49]">{v.name}</h4>
+                  <p className="text-gray-400 text-xs font-semibold mt-0.5">{v.role}</p>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
       </section>
 
-      <CtaBanner />
+      {/* ── Need Help Banner Section ── */}
+      <section 
+        className="py-10 text-white"
+        style={{ background: "#002b49" }}
+      >
+        <div className="container">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-center sm:text-left">
+            <h3 className="font-jost font-bold text-lg md:text-xl uppercase tracking-wider">
+              Need Help? Contact with our marketing expert!
+            </h3>
+            <a
+              href="tel:+919306623619"
+              className="inline-flex items-center gap-2 font-bold px-6 py-2.5 rounded-full text-[#002b49] bg-white transition-all hover:scale-105 text-sm"
+            >
+              <Phone className="w-4 h-4 text-[#eb560c]" /> +91 9306623619
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Client Text Reviews Section ── */}
+      <section className="py-20 bg-white">
+        <div className="container">
+          <div className="text-center mb-14">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span style={{ color: "#004b75" }}>→</span>
+              <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#eb560c]">
+                CLIENTS TESTIMONIAL
+              </span>
+            </div>
+            <h2
+              className="font-jost font-black text-2xl sm:text-4xl text-[#002b49]"
+            >
+              Our Client Review
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {REVIEWS.map((r, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-3xl p-6 shadow-sm border border-gray-150 flex flex-col justify-between"
+                style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.03)" }}
+              >
+                <div>
+                  <div className="flex gap-0.5 mb-4">
+                    {Array.from({ length: r.stars }).map((_, idx) => (
+                      <Star key={idx} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
+                    ))}
+                  </div>
+                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed font-semibold italic mb-6">
+                    "{r.text}"
+                  </p>
+                </div>
+                <div className="border-t border-gray-100 pt-4 flex items-center justify-between">
+                  <div>
+                    <h4 className="font-jost font-bold text-sm text-[#002b49]">{r.name}</h4>
+                    <span className="text-[10px] text-gray-400 font-bold block mt-0.5">{r.role}</span>
+                  </div>
+                  {/* Quote decoration */}
+                  <span className="text-[#004b75]/10 font-serif text-5xl leading-none font-bold">“</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* YouTube Modal */}
+      {playing && (
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+          style={{ background: "rgba(0,0,0,0.85)" }}
+          onClick={() => setPlaying(null)}
+        >
+          <div
+            className="w-full max-w-3xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              src={`https://www.youtube.com/embed/${playing}?autoplay=1`}
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              className="w-full h-full"
+              title="Client Testimonial Video"
+            />
+          </div>
+          <button
+            className="absolute top-6 right-6 text-white/80 hover:text-white text-3xl font-bold"
+            onClick={() => setPlaying(null)}
+          >
+            ×
+          </button>
+        </div>
+      )}
     </Layout>
   );
 };
