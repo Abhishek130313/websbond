@@ -330,6 +330,22 @@
     animation: flow-dash 1.5s linear infinite;
   }
 
+  /* Footer logo rotating text ring */
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes spin-fast {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+  .animate-spin-fast {
+    animation: spin-fast 5s linear infinite;
+  }
+
   /* Responsive font sizes */
   @media (max-width: 768px) {
     h1 { font-size: 32px; }

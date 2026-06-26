@@ -74,7 +74,7 @@ export const AboutPage = () => {
         <div className="container">
           <div className="max-w-5xl mx-auto space-y-20">
             
-            {/* Row 1: Meet Our Founder */}
+            {/* Row 1: Meet Our Founders */}
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
@@ -82,17 +82,32 @@ export const AboutPage = () => {
                   <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#eb560c]">LEADERSHIP</span>
                 </div>
                 <h2 className="font-jost font-black text-3xl text-[#002b49] leading-tight">
-                  Meet Our Founder
+                  Meet Our Founders
                 </h2>
-                <p className="text-gray-500 text-sm sm:text-base leading-relaxed font-semibold">
-                  Abhishek Singh Rawat is the Co-Founder & Tech Lead behind Websbond. His journey commenced with a clear vision of how combining modern frameworks with search engine optimization strategies would yield positive results for scaling enterprises. He is now the one who directs technical digital marketing, core speed optimizations, and SEO architecture to ensure seamless business growth online.
-                </p>
+                <div className="space-y-6">
+                  {/* Founder 1: Abhishek */}
+                  <div className="border-l-4 border-[#eb560c] pl-4">
+                    <h3 className="font-jost font-bold text-xl text-[#002b49] mb-1">Abhishek Singh Rawat</h3>
+                    <p className="text-[#eb560c] text-xs font-bold uppercase tracking-wider mb-2">Co-Founder & Tech Lead</p>
+                    <p className="text-gray-500 text-sm leading-relaxed font-semibold">
+                      Abhishek's journey commenced with a clear vision of how combining modern frameworks with search engine optimization strategies would yield positive results for scaling enterprises. He directs technical digital marketing, core speed optimizations, and SEO architecture to ensure seamless business growth online.
+                    </p>
+                  </div>
+                  {/* Founder 2: Gopal */}
+                  <div className="border-l-4 border-[#004b75] pl-4">
+                    <h3 className="font-jost font-bold text-xl text-[#002b49] mb-1">Gopal Sharma</h3>
+                    <p className="text-[#004b75] text-xs font-bold uppercase tracking-wider mb-2">Co-Founder & Marketing Head</p>
+                    <p className="text-gray-500 text-sm leading-relaxed font-semibold">
+                      Gopal brings strategic marketing expertise and client relationship management to Websbond. He oversees business development, campaign strategies, and ensures every client gets personalized attention with result-oriented digital marketing solutions that drive real ROI.
+                    </p>
+                  </div>
+                </div>
               </div>
               <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-100 h-80">
                 <img 
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80" 
                   className="w-full h-full object-cover" 
-                  alt="Developer working" 
+                  alt="Websbond founders team" 
                 />
               </div>
             </div>

@@ -1,5 +1,7 @@
-/* CtaBanner — dark navy section with "Get a Consultation / Call Us" 
-   Exactly matches the reference site section */
+/* CtaBanner — dark navy section with "Get a Consultation / Call Us"
+   Uses Websbond logo instead of stock person image */
+import logo3d from "@/assets/websbond-logo-3d.webp";
+
 export const CtaBanner = () => (
   <section
     className="relative overflow-hidden"
@@ -7,18 +9,31 @@ export const CtaBanner = () => (
   >
     <div className="container">
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 py-14">
-        {/* Left: image floats out of section top */}
-        <div className="hidden md:block absolute left-0 bottom-0 w-72 pointer-events-none">
-          <img
-            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=80"
-            alt="Business consultant"
-            className="w-full object-cover object-top"
-            style={{ height: 220, objectPosition: "center top" }}
-          />
+        {/* Left: Websbond logo floats on left side */}
+        <div className="hidden md:flex absolute left-8 bottom-0 top-0 items-center pointer-events-none">
+          <div className="relative w-40 h-40">
+            {/* Glow ring */}
+            <div
+              className="absolute inset-0 rounded-full animate-pulse"
+              style={{
+                background: "radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%)",
+              }}
+            />
+            {/* Logo */}
+            <div className="absolute inset-4 rounded-full overflow-hidden flex items-center justify-center"
+              style={{ background: "#0a0f1c", border: "2px solid rgba(168,85,247,0.3)" }}
+            >
+              <img
+                src={logo3d}
+                alt="Websbond"
+                className="w-24 h-24 object-contain drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Center: phone icon + text */}
-        <div className="md:ml-72 flex items-center gap-5">
+        <div className="md:ml-56 flex items-center gap-5">
           {/* Phone circle */}
           <div
             className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0"
