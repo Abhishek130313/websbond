@@ -44,11 +44,11 @@ export const Navbar = ({
       >
         <div className="container flex justify-between items-center text-xs font-semibold">
           <div className="flex gap-6 items-center">
-            <a href="tel:+919306623619" className="flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-amber-400 transition-colors">
-              <Phone className="w-3.5 h-3.5 text-indigo-500 dark:text-amber-500" /> +91 9306623619
+            <a href="tel:+919306623619" className="flex items-center gap-1.5 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
+              <Phone className="w-3.5 h-3.5 text-amber-500" /> +91 9306623619
             </a>
-            <a href="mailto:websbond@websbond.com" className="flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-amber-400 transition-colors">
-              <Mail className="w-3.5 h-3.5 text-indigo-500 dark:text-amber-500" /> websbond@websbond.com
+            <a href="mailto:websbond@websbond.com" className="flex items-center gap-1.5 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
+              <Mail className="w-3.5 h-3.5 text-amber-500" /> websbond@websbond.com
             </a>
           </div>
           <div className="flex items-center gap-4">
@@ -95,10 +95,10 @@ export const Navbar = ({
                 `text-sm font-semibold tracking-wide transition-all duration-200 relative py-1 ${
                   theme === "light"
                     ? isActive
-                      ? "text-indigo-600 after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:w-1.5 after:h-1.5 after:rounded-full after:bg-indigo-600 after:shadow-[0_0_8px_rgba(79,70,229,0.4)]"
+                      ? "text-amber-600 after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:w-1.5 after:h-1.5 after:rounded-full after:bg-amber-600 after:shadow-[0_0_8px_rgba(242,161,4,0.4)]"
                       : "text-slate-500 hover:text-slate-900"
                     : isActive
-                      ? "text-white after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:w-1.5 after:h-1.5 after:rounded-full after:bg-purple-500 after:shadow-[0_0_10px_#a855f7]"
+                      ? "text-white after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:w-1.5 after:h-1.5 after:rounded-full after:bg-amber-500 after:shadow-[0_0_10px_rgba(242,161,4,0.6)]"
                       : "text-muted-foreground hover:text-white"
                 }`
               }
@@ -125,7 +125,7 @@ export const Navbar = ({
 
           <Link 
             to="/contact" 
-            className="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600 text-white font-semibold text-sm px-6 py-3 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.25)] hover:shadow-[0_0_30px_rgba(168,85,247,0.45)] hover:-translate-y-0.5"
+            className="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-sm px-6 py-3 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(242,161,4,0.15)] hover:shadow-[0_0_30px_rgba(242,161,4,0.3)] hover:-translate-y-0.5"
           >
             Free Consultation <ArrowRight className="w-4 h-4" />
           </Link>
@@ -166,8 +166,8 @@ export const Navbar = ({
                   theme === "light" ? "border-slate-100" : "border-white/[0.03]"
                 } transition-colors ${
                   theme === "light"
-                    ? isActive ? "text-indigo-600" : "text-slate-600 hover:text-slate-900"
-                    : isActive ? "text-purple-400" : "text-muted-foreground hover:text-white"
+                    ? isActive ? "text-amber-600" : "text-slate-600 hover:text-slate-900"
+                    : isActive ? "text-amber-400" : "text-muted-foreground hover:text-white"
                 }`
               }
             >
@@ -177,7 +177,7 @@ export const Navbar = ({
           <Link 
             to="/contact" 
             onClick={() => setOpen(false)}
-            className="mt-2 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3.5 rounded-xl w-full text-center"
+            className="mt-2 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold py-3.5 rounded-xl w-full text-center"
           >
             Free Consultation <ArrowRight className="w-4 h-4" />
           </Link>

@@ -46,9 +46,9 @@ const stats: StatItem[] = [
     icon: GitBranch, 
     value: "100%", 
     label: "Code Ownership", 
-    color: "text-purple-500 bg-purple-500/10 dark:text-purple-400 dark:bg-purple-500/10",
+    color: "text-amber-500 bg-amber-500/10 dark:text-amber-400 dark:bg-amber-500/10",
     sparkline: (
-      <svg className="w-12 h-6 text-purple-500 dark:text-purple-400" viewBox="0 0 100 30" fill="none">
+      <svg className="w-12 h-6 text-amber-500 dark:text-amber-400" viewBox="0 0 100 30" fill="none">
         <path d="M0 15C10 15 20 5 30 25C40 25 50 5 60 25C70 25 80 5 90 25C95 25 100 15 100 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     )
@@ -80,7 +80,7 @@ const stats: StatItem[] = [
 export const StatsBar = () => (
   <section className="container py-12 relative overflow-hidden mx-auto px-4">
     {/* Ambient background glow */}
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[120px] rounded-full blur-[80px] pointer-events-none opacity-40 dark:opacity-50 bg-gradient-to-r from-blue-500/10 via-purple-500/15 to-pink-500/10" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[120px] rounded-full blur-[80px] pointer-events-none opacity-40 dark:opacity-50 bg-gradient-to-r from-amber-500/10 via-amber-600/15 to-orange-500/10" />
     
     <div className="glass-panel border-slate-200/80 dark:border-white/[0.06] rounded-3xl overflow-hidden relative z-10 shadow-xl">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y divide-x divide-slate-200/80 dark:divide-white/[0.06] border-collapse">

@@ -49,8 +49,8 @@ const plans: PricingTier[] = [
     popular: true,
     ctaText: "Get Growth Plan",
     badge: "Most Popular Choice",
-    accentClass: "border-indigo-500 bg-indigo-950/20 shadow-[0_20px_50px_-20px_rgba(99,102,241,0.25)]",
-    buttonClass: "bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white shadow-[0_0_20px_rgba(99,102,241,0.3)]",
+    accentClass: "border-amber-500 bg-amber-950/20 shadow-[0_20px_50px_-20px_rgba(242,161,4,0.25)]",
+    buttonClass: "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold shadow-[0_0_20px_rgba(242,161,4,0.3)]",
   },
   {
     name: "Premium Package",
@@ -76,16 +76,16 @@ export const PricingPlans = () => {
   return (
     <section className="container py-24 md:py-32 relative mx-auto px-4">
       {/* Glow aesthetics */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[300px] rounded-full bg-gradient-to-r from-indigo-500/5 to-purple-500/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[300px] rounded-full bg-gradient-to-r from-amber-500/5 to-orange-500/5 blur-[120px] pointer-events-none" />
 
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-20">
-        <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-700 dark:text-purple-300 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-4">
+        <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-500 dark:text-amber-300 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-4">
           <Sparkles className="w-3.5 h-3.5" /> Pricing Options
         </div>
         <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-slate-900 dark:text-white tracking-tight leading-tight">
           Clear, honest pricing. <br />
-          <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 bg-clip-text text-transparent">
             No hidden developer fees.
           </span>
         </h2>
@@ -103,7 +103,7 @@ export const PricingPlans = () => {
           >
             {/* Popular Badge */}
             {tier.popular && tier.badge && (
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
                 {tier.badge}
               </div>
             )}

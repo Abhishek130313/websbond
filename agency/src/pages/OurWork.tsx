@@ -323,7 +323,7 @@ export const OurWorkPage = () => {
             {filteredProjects.map((p, idx) => (
               <article 
                 key={idx}
-                className={`glass-panel border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-500/20 transition-all duration-300 flex flex-col group ${
+                className={`glass-panel border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-md hover:border-amber-200 dark:hover:border-amber-500/20 transition-all duration-300 flex flex-col group ${
                   p.size === "large" 
                     ? "md:col-span-4" 
                     : p.size === "medium" 

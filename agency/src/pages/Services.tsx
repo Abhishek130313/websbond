@@ -82,7 +82,7 @@ export const ServicesPage = () => {
                   { value: "100%", label: "Speed Guarantee", icon: "⚡", color: "from-rose-500/5 to-rose-500/10 dark:from-rose-500/10 dark:to-rose-500/20 border-rose-200 dark:border-rose-500/20" },
                   { value: "Direct", label: "Developer Chat", icon: "💬", color: "from-emerald-500/5 to-emerald-500/10 dark:from-emerald-500/10 dark:to-emerald-500/20 border-emerald-200 dark:border-emerald-500/20" },
                   { value: "0%", label: "Upfront payment", icon: "🛡️", color: "from-blue-500/5 to-blue-500/10 dark:from-blue-500/10 dark:to-blue-500/20 border-blue-200 dark:border-blue-500/20" },
-                  { value: "100%", label: "Code Handoff", icon: "📦", color: "from-purple-500/5 to-purple-500/10 dark:from-purple-500/10 dark:to-purple-500/20 border-purple-200 dark:border-purple-500/20" },
+                  { value: "100%", label: "Code Handoff", icon: "📦", color: "from-amber-500/5 to-amber-500/10 dark:from-amber-500/10 dark:to-amber-500/20 border-amber-200 dark:border-amber-500/20" },
                 ].map((s, i) => (
                   <div key={i} className={`relative overflow-hidden bg-gradient-to-br ${s.color} border rounded-2xl p-3 flex flex-col gap-0.5 group hover:scale-105 transition-transform duration-300 shadow-sm`}>
                     <div className="absolute -top-1 -right-1 text-lg opacity-35 group-hover:opacity-60 transition-opacity">{s.icon}</div>
@@ -304,11 +304,11 @@ export const ServicesPage = () => {
       {/* 6-Stage Delivery Blueprint Section */}
       <section className="container mx-auto px-4 py-16 relative border-b border-slate-200/85 dark:border-white/[0.06]">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 bg-purple-500/5 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/20 text-purple-600 dark:text-purple-400 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3">
+          <div className="inline-flex items-center gap-2 bg-amber-500/5 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 text-amber-600 dark:text-amber-300 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3">
             <Sparkles className="w-3.5 h-3.5" /> Operations Blueprint
           </div>
           <h2 className="font-display font-extrabold text-3xl text-foreground tracking-tight">
-            Our 6-Stage <span className="bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-500 bg-clip-text text-transparent">Delivery Engine.</span>
+            Our 6-Stage <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">Delivery Engine.</span>
           </h2>
           <p className="text-muted-foreground mt-2 text-sm font-semibold">
             How we take your digital project from initial brief to verified global deployment.
@@ -338,7 +338,7 @@ export const ServicesPage = () => {
         {/* Service Command Center Visualizer */}
         <section className="container mx-auto px-4 py-10 relative">
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <div className="inline-flex items-center gap-2 bg-purple-500/5 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/20 text-purple-600 dark:text-purple-400 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3 shadow-sm">
+            <div className="inline-flex items-center gap-2 bg-amber-500/5 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 text-amber-600 dark:text-amber-300 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3 shadow-sm">
               <Sparkles className="w-3.5 h-3.5" /> Pipeline Sandbox
             </div>
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">
@@ -389,7 +389,7 @@ export const ServicesPage = () => {
                   <div className="pl-4">
                     <span className="text-purple-400">return</span> (
                     <div className="pl-4">
-                      &lt;<span className="text-emerald-400">button</span> className=<span className="text-orange-400">"bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-xl shadow-glow py-3 px-6 transform hover:scale-105 active:scale-95 transition-all"</span>&gt;<br />
+                      &lt;<span className="text-emerald-400">button</span> className=<span className="text-orange-400">"bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold rounded-xl shadow-glow py-3 px-6 transform hover:scale-105 active:scale-95 transition-all"</span>&gt;<br />
                       &nbsp;&nbsp;&#123;children&#125;<br />
                       &nbsp;&nbsp;&lt;/<span className="text-emerald-400">button</span>&gt;
                     </div>

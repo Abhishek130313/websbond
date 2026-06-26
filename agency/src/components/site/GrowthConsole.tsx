@@ -33,7 +33,7 @@ const campaigns: Record<string, CampaignData> = {
     chartPath: "M 0 60 Q 20 40 40 55 T 80 20 T 120 45 T 160 10 T 200 5",
     pieSectors: [
       { label: "Google Organic", percentage: 55, color: "#10b981", offset: 0 },
-      { label: "Meta Paid Ads", percentage: 30, color: "#6366f1", offset: 55 },
+      { label: "Meta Paid Ads", percentage: 30, color: "#e29a09", offset: 55 },
       { label: "Direct Referral", percentage: 15, color: "#f59e0b", offset: 85 }
     ],
     logs: [
@@ -59,7 +59,7 @@ const campaigns: Record<string, CampaignData> = {
     chartPath: "M 0 50 Q 20 52 40 30 T 80 35 T 120 15 T 160 8 T 200 2",
     pieSectors: [
       { label: "Google Organic", percentage: 70, color: "#10b981", offset: 0 },
-      { label: "Direct Traffic", percentage: 20, color: "#6366f1", offset: 70 },
+      { label: "Direct Traffic", percentage: 20, color: "#e29a09", offset: 70 },
       { label: "LinkedIn Ads", percentage: 10, color: "#f59e0b", offset: 90 }
     ],
     logs: [
@@ -85,7 +85,7 @@ const campaigns: Record<string, CampaignData> = {
     chartPath: "M 0 65 Q 20 60 40 40 T 80 48 T 120 18 T 160 12 T 200 4",
     pieSectors: [
       { label: "Google Maps Local", percentage: 60, color: "#10b981", offset: 0 },
-      { label: "Instagram SEO", percentage: 25, color: "#6366f1", offset: 60 },
+      { label: "Instagram SEO", percentage: 25, color: "#e29a09", offset: 60 },
       { label: "Email Campaign", percentage: 15, color: "#f59e0b", offset: 85 }
     ],
     logs: [
@@ -104,19 +104,19 @@ export const GrowthConsole = () => {
   return (
     <section className="container py-24 md:py-32 relative mx-auto px-4">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] h-[400px] rounded-full blur-[130px] pointer-events-none opacity-45 bg-gradient-to-tr from-cyan-500/10 via-purple-500/15 to-orange-500/10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] h-[400px] rounded-full blur-[130px] pointer-events-none opacity-45 bg-gradient-to-tr from-cyan-500/5 via-amber-500/10 to-orange-500/5" />
 
       <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-16 items-center max-w-6xl mx-auto relative z-10">
         
         {/* Left Side: Copy and Controls */}
         <div className="flex flex-col gap-8">
           <div>
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 border border-blue-500/20 text-indigo-700 dark:text-white font-semibold text-[11px] uppercase tracking-widest px-4 py-2 rounded-full mb-6">
-              <Cpu className="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400 animate-pulse" /> Live Growth Engine
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 text-amber-500 dark:text-white font-semibold text-[11px] uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+              <Cpu className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400 animate-pulse" /> Live Growth Engine
             </div>
             <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-slate-900 dark:text-white tracking-tight leading-tight">
               Real-time results, <br />
-              <span className="bg-gradient-to-r from-cyan-600 via-indigo-600 to-purple-600 dark:from-cyan-400 dark:via-indigo-400 dark:to-purple-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 bg-clip-text text-transparent">
                 backed by hard data.
               </span>
             </h2>
@@ -151,7 +151,7 @@ export const GrowthConsole = () => {
                     onClick={() => setSelectedCampaign(key)}
                     className={`py-3 px-2 text-center rounded-xl border text-[10px] sm:text-xs font-bold uppercase tracking-wide transition-all ${
                       isSelected
-                        ? "bg-indigo-500/15 border-indigo-500 text-indigo-700 dark:text-white shadow-[0_0_15px_rgba(99,102,241,0.2)]"
+                        ? "bg-amber-500/15 border-amber-500 text-amber-600 dark:text-white shadow-[0_0_15px_rgba(242,161,4,0.2)]"
                         : "bg-slate-100 dark:bg-white/[0.015] border-slate-200 dark:border-white/[0.05] text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-white/15 hover:bg-slate-200/50 dark:hover:bg-white/[0.03]"
                     }`}
                   >
@@ -166,7 +166,7 @@ export const GrowthConsole = () => {
           <div>
             <Link
               to="/our-work"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold px-6 py-3 rounded-xl transition-all shadow-[0_0_15px_rgba(99,102,241,0.2)]"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold px-6 py-3 rounded-xl transition-all shadow-[0_0_15px_rgba(242,161,4,0.15)]"
             >
               View Case Studies Portfolio <ArrowRight className="w-4 h-4" />
             </Link>
@@ -237,9 +237,9 @@ export const GrowthConsole = () => {
                 {/* Gradients definitions */}
                 <defs>
                   <linearGradient id="chart-line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#22d3ee" />
-                    <stop offset="50%" stopColor="#6366f1" />
-                    <stop offset="100%" stopColor="#ec4899" />
+                    <stop offset="0%" stopColor="#e29a09" />
+                    <stop offset="50%" stopColor="#f2a104" />
+                    <stop offset="100%" stopColor="#fbbf24" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -295,7 +295,7 @@ export const GrowthConsole = () => {
             </div>
 
             {/* Live Terminal logs */}
-            <div className="bg-slate-950 border border-white/[0.05] rounded-xl p-4 flex flex-col justify-between min-h-[140px] font-mono text-[9px] text-indigo-400">
+            <div className="bg-slate-950 border border-white/[0.05] rounded-xl p-4 flex flex-col justify-between min-h-[140px] font-mono text-[9px] text-amber-500/80">
               <div className="space-y-1.5 select-none">
                 <div className="text-slate-400">// INTEGRATION EVENT PIPELINE</div>
                 {activeData.logs.map((log, i) => (

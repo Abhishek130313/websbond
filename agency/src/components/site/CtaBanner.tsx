@@ -23,17 +23,17 @@ export const CtaBanner = ({
   ctaTo?: string;
 }) => (
   <section className="container py-6 lg:py-8">
-    <div className="relative rounded-3xl bg-gradient-to-br from-white via-slate-50 to-indigo-50/50 dark:from-slate-900 dark:via-slate-950 dark:to-indigo-950/20 border border-slate-200/80 dark:border-white/[0.06] text-slate-800 dark:text-slate-200 shadow-md shadow-indigo-600/5 overflow-hidden px-6 md:px-10 py-7 flex flex-col lg:flex-row items-center gap-6 lg:gap-8 transition-all hover:shadow-lg">
-      <div className="absolute -top-16 -left-8 w-72 h-72 rounded-full bg-indigo-500/5 blur-3xl pointer-events-none" />
+    <div className="relative rounded-3xl bg-gradient-to-br from-white via-slate-50 to-amber-500/5 dark:from-slate-900 dark:via-slate-950 dark:to-amber-500/5 border border-slate-200/80 dark:border-white/[0.06] text-slate-800 dark:text-slate-200 shadow-md shadow-amber-500/5 overflow-hidden px-6 md:px-10 py-7 flex flex-col lg:flex-row items-center gap-6 lg:gap-8 transition-all hover:shadow-lg">
+      <div className="absolute -top-16 -left-8 w-72 h-72 rounded-full bg-amber-500/5 blur-3xl pointer-events-none" />
       
       {/* Title & Icon */}
       <div className="flex items-center gap-4 flex-1 min-w-0 w-full lg:w-auto">
-        <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-100/55 dark:border-indigo-500/20 grid place-items-center shrink-0">
-          <Rocket className="w-5 h-5 lg:w-6 lg:h-6 text-indigo-600 dark:text-indigo-400" />
+        <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 grid place-items-center shrink-0">
+          <Rocket className="w-5 h-5 lg:w-6 lg:h-6 text-amber-500 dark:text-amber-400" />
         </div>
         <div>
           <h3 className="font-display font-extrabold text-lg sm:text-xl lg:text-2xl text-slate-900 dark:text-white leading-snug tracking-tight">
-            {title} {highlight && <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">{highlight}</span>}
+            {title} {highlight && <span className="bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">{highlight}</span>}
           </h3>
           {subtitle && <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-1 leading-relaxed font-medium">{subtitle}</p>}
         </div>
@@ -57,7 +57,7 @@ export const CtaBanner = ({
       {/* CTA Button */}
       <Link 
         to={ctaTo} 
-        className="inline-flex items-center gap-2 bg-indigo-600 text-white font-bold px-6 py-3.5 rounded-2xl hover:bg-indigo-700 transition-all shadow-md shadow-indigo-600/10 text-sm whitespace-nowrap w-full lg:w-auto justify-center"
+        className="inline-flex items-center gap-2 bg-amber-50 text-slate-950 font-bold px-6 py-3.5 rounded-2xl hover:bg-amber-600 transition-all shadow-md shadow-amber-500/10 text-sm whitespace-nowrap w-full lg:w-auto justify-center"
       >
         {ctaLabel} <ArrowRight className="w-4 h-4" />
       </Link>

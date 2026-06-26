@@ -82,7 +82,7 @@ const projects: Project[] = [
     imageUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&auto=format&fit=crop&q=80",
     colSpan: "lg:col-span-2 lg:row-span-1",
     rowSpan: "min-h-[280px]",
-    accent: "from-purple-500/20 to-fuchsia-500/20 border-purple-500/30",
+    accent: "from-amber-500/20 to-amber-600/20 border-amber-500/30",
   },
 ];
 
@@ -99,7 +99,7 @@ export const RecentWorks = () => {
     <section className="container py-24 md:py-32 relative mx-auto px-4">
       {/* Background aesthetics */}
       <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-amber-500/5 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/3 left-1/4 w-96 h-96 rounded-full bg-pink-500/5 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/3 left-1/4 w-96 h-96 rounded-full bg-amber-500/5 blur-3xl pointer-events-none" />
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">

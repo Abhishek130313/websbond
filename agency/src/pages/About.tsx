@@ -236,7 +236,7 @@ export const AboutPage = () => {
         <section className="container mx-auto px-4 py-8 mb-4">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">
-              Client <span className="bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-500 bg-clip-text text-transparent">love.</span>
+              Client <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">love.</span>
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-5">

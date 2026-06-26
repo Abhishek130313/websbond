@@ -175,7 +175,7 @@ export const BlogPage = () => {
                     <div className="space-y-1.5 py-1">
                       <div className="w-2/3 h-1 bg-amber-200 dark:bg-amber-400/25 rounded-full" />
                       <div className="w-4/5 h-1 bg-amber-200 dark:bg-amber-400/25 rounded-full" />
-                      <div className="flex justify-between text-[6px] text-emerald-600 dark:text-emerald-400 font-bold font-mono mt-1 bg-amber-50 dark:bg-indigo-950/40 p-1 rounded">
+                      <div className="flex justify-between text-[6px] text-emerald-600 dark:text-emerald-400 font-bold font-mono mt-1 bg-amber-50 dark:bg-amber-950/40 p-1 rounded">
                         <span>Organic Position</span>
                         <span>#1 Rank</span>
                       </div>

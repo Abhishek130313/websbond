@@ -39,7 +39,7 @@ const FloatingCard = ({ title, icon, glowColor, positionClass }: FloatingCardPro
           : `perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)`,
         transition: isHovered ? "none" : "transform 0.4s ease",
       } as React.CSSProperties}
-      className={`absolute hidden lg:flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/90 dark:bg-slate-900/95 border border-slate-200 dark:border-white/[0.1] backdrop-blur-xl hover:border-indigo-500/40 hover:shadow-[0_0_20px_rgba(99,102,241,0.2)] z-20 select-none ${positionClass} ${glowColor}`}
+      className={`absolute hidden lg:flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/90 dark:bg-slate-900/95 border border-slate-200 dark:border-white/[0.1] backdrop-blur-xl hover:border-amber-500/40 hover:shadow-[0_0_20px_rgba(242,161,4,0.25)] z-20 select-none ${positionClass} ${glowColor}`}
     >
       <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/[0.04] border border-slate-200/80 dark:border-white/[0.08] flex items-center justify-center">{icon}</div>
       <span className="text-xs font-bold text-slate-800 dark:text-white tracking-wide">{title}</span>
@@ -81,8 +81,8 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
   const trustBadges = [
     { label: "100% Code Handoff", dot: "bg-emerald-400" },
     { label: "Direct Developer Chat", dot: "bg-cyan-400" },
-    { label: "PageSpeed Guarantee", dot: "bg-indigo-400" },
-    { label: "0% Upfront Prototype", dot: "bg-purple-400" },
+    { label: "PageSpeed Guarantee", dot: "bg-amber-400" },
+    { label: "0% Upfront Prototype", dot: "bg-amber-50" },
   ];
 
   return (
@@ -98,14 +98,14 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
       <div className="absolute inset-0 grid-mesh opacity-30 dark:opacity-20 pointer-events-none" />
 
       {/* Aurora orbs */}
-      <div className="absolute -top-48 left-1/4 w-[550px] h-[550px] rounded-full bg-blue-500/5 dark:bg-blue-500/10 blur-[130px] pointer-events-none animate-aurora-1" />
-      <div className="absolute top-1/3 -right-32 w-[650px] h-[650px] rounded-full bg-purple-500/5 dark:bg-purple-500/8 blur-[150px] pointer-events-none animate-aurora-2" />
+      <div className="absolute -top-48 left-1/4 w-[550px] h-[550px] rounded-full bg-blue-500/3 dark:bg-blue-500/6 blur-[130px] pointer-events-none animate-aurora-1" />
+      <div className="absolute top-1/3 -right-32 w-[650px] h-[650px] rounded-full bg-amber-500/3 dark:bg-amber-500/6 blur-[150px] pointer-events-none animate-aurora-2" />
       <div className="absolute -bottom-40 left-10 w-[500px] h-[500px] rounded-full bg-cyan-500/4 dark:bg-cyan-500/6 blur-[110px] pointer-events-none animate-aurora-3" />
 
       {/* Mouse spotlight */}
       <div
         className="absolute inset-0 pointer-events-none z-0"
-        style={{ background: `radial-gradient(700px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(99,102,241,0.06), transparent 70%)` }}
+        style={{ background: `radial-gradient(700px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(242,161,4,0.06), transparent 70%)` }}
       />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -115,8 +115,8 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
           <div className="flex flex-col gap-6 text-left items-start">
             
             {/* Badge */}
-            <div className="hero-fu inline-flex items-center gap-2 bg-indigo-500/10 border border-purple-500/20 text-indigo-600 dark:text-white font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-4 py-2 rounded-full backdrop-blur-sm shadow-[0_0_20px_rgba(168,85,247,0.05)]">
-              <Sparkles className="w-3.5 h-3.5 text-purple-500 dark:text-purple-400 animate-spin-slow" />
+            <div className="hero-fu inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/25 text-amber-600 dark:text-white font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-4 py-2 rounded-full backdrop-blur-sm shadow-[0_0_20px_rgba(242,161,4,0.05)]">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400 animate-spin-slow" />
               Elite Digital Solutions — Engineered For Global Growth
             </div>
 
@@ -125,11 +125,11 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
               <h1 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-[-0.04em] text-slate-900 dark:text-white">
                 {title ? title : "We Build Websites"}{" "}
                 {subtitle ? (
-                  <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-cyan-400 dark:via-indigo-400 dark:to-purple-500 bg-clip-text text-transparent glow-txt block">
+                  <span className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 bg-clip-text text-transparent glow-txt block">
                     {subtitle}
                   </span>
                 ) : (
-                  <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-cyan-400 dark:via-indigo-400 dark:to-purple-500 bg-clip-text text-transparent glow-txt block">
+                  <span className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 bg-clip-text text-transparent glow-txt block">
                     That Grow Businesses.
                   </span>
                 )}
@@ -166,7 +166,7 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
             <div className="hero-fu-4 flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-xl shadow-[0_0_30px_rgba(99,102,241,0.2)] dark:shadow-[0_0_30px_rgba(99,102,241,0.35)] hover:shadow-[0_0_45px_rgba(99,102,241,0.45)] hover:-translate-y-0.5 transition-all duration-300 text-sm"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-[0_0_30px_rgba(242,161,4,0.15)] dark:shadow-[0_0_30px_rgba(242,161,4,0.25)] hover:shadow-[0_0_45px_rgba(242,161,4,0.35)] hover:-translate-y-0.5 transition-all duration-300 text-sm"
               >
                 Free Consultation <ArrowRight className="w-4 h-4" />
               </Link>
@@ -183,7 +183,7 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
                 className="inline-flex items-center gap-3 bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.1] hover:border-slate-300 dark:hover:border-white/20 hover:bg-slate-200/50 dark:hover:bg-white/[0.06] text-slate-700 dark:text-white font-bold px-6 py-4 rounded-xl hover:-translate-y-0.5 transition-all duration-300 backdrop-blur-md text-sm"
               >
                 <span className="w-7 h-7 rounded-full bg-white/60 dark:bg-white/5 border border-slate-200 dark:border-white/10 grid place-items-center">
-                  <Play className="w-2.5 h-2.5 fill-current ml-0.5 text-indigo-600 dark:text-white" />
+                  <Play className="w-2.5 h-2.5 fill-current ml-0.5 text-amber-600 dark:text-white" />
                 </span>
                 See Our Work
               </Link>
@@ -207,7 +207,7 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
                 <img src={a1} alt="Happy client" width={36} height={36} decoding="async" fetchPriority="low" className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
                 <img src={a2} alt="Happy client" width={36} height={36} decoding="async" fetchPriority="low" className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
                 <img src={a3} alt="Happy client" width={36} height={36} decoding="async" fetchPriority="low" className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
-                <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-500 ring-2 ring-slate-100 dark:ring-slate-950 flex items-center justify-center text-[10px] font-bold text-white">100%</div>
+                <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-amber-400 to-amber-600 ring-2 ring-slate-100 dark:ring-slate-950 flex items-center justify-center text-[10px] font-bold text-slate-950">100%</div>
               </div>
               <div className="text-xs text-slate-500 dark:text-slate-400 text-left max-w-[200px]">
                 <strong className="text-slate-900 dark:text-white font-bold">Delhi NCR & Haryana expert developers</strong> working directly with your business.
@@ -219,7 +219,7 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
           <div className="relative flex items-center justify-center pt-8 lg:pt-0 hero-fu-6" id="onboarding-form">
             <div className="relative w-full max-w-[440px] z-20">
               {/* Decorative glows */}
-              <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-amber-500 to-indigo-600 opacity-20 blur-lg" />
+              <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-amber-500 to-amber-600 opacity-25 blur-lg" />
               
               {/* Form Card */}
               <div className="relative w-full glass-panel border-border dark:border-white/[0.08] rounded-[2rem] p-6 sm:p-8 shadow-card backdrop-blur-xl">
