@@ -9,18 +9,37 @@ const NAV_LINKS = [
     label: "OUR SERVICES",
     to: "/services",
     dropdown: [
-      { label: "Website Design & Development", to: "/services#web-design" },
-      { label: "SEO (Search Engine Optimization)", to: "/services#seo" },
-      { label: "Google Ads / PPC Management", to: "/services#ppc" },
-      { label: "Social Media Marketing", to: "/services#smm" },
-      { label: "Content Marketing", to: "/services#content" },
-      { label: "E-Commerce Solutions", to: "/services#ecommerce" },
+      { label: "SEO (Search Engine Optimization)", to: "/seo-service-in-delhi" },
+      { label: "SMO (Social Media Optimization)", to: "/smo-service-in-delhi" },
+      { label: "SMM (Social Media Marketing)", to: "/smm-service-in-delhi" },
+      { label: "Website Design Services", to: "/website-design-service-in-delhi" },
+      { label: "UI & UX Design Services", to: "/website-design-service-in-delhi" },
+      { label: "Content Marketing Services", to: "/content-writing-service-in-delhi" },
+      { label: "Google Ads Services", to: "/google-ads-services" },
+      { label: "GMB (Google My Business)", to: "/gmb-service-in-delhi" },
+      { label: "ECommerce Web Designing", to: "/e-commerce-website-services-in-delhi" },
     ],
   },
-  { label: "OUR WORK", to: "/our-work" },
-  { label: "ABOUT US", to: "/about" },
+  {
+    label: "PACKAGES",
+    to: "/seo-packages",
+    dropdown: [
+      { label: "SEO Packages", to: "/seo-packages" },
+      { label: "SMO Packages", to: "/smo-packages" },
+    ],
+  },
+  {
+    label: "COMPANY",
+    to: "/about-us",
+    dropdown: [
+      { label: "Our Portfolio", to: "/our-portfolio" },
+      { label: "Testimonials", to: "/testimonials" },
+      { label: "ABOUT US", to: "/about-us" },
+      { label: "CASE STUDY", to: "/case-studies" },
+    ],
+  },
   { label: "BLOG", to: "/blog" },
-  { label: "CONTACT", to: "/contact" },
+  { label: "CONTACT", to: "/contact-us" },
 ];
 
 export const Navbar = ({
@@ -32,7 +51,6 @@ export const Navbar = ({
 }) => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -68,16 +86,18 @@ export const Navbar = ({
           </div>
           {/* Right: CTA */}
           <div className="flex items-center gap-3">
-            <a
-              href="#contact-form"
-              onClick={(e) => {
-                const el = document.getElementById("contact-form");
-                if (el) { e.preventDefault(); el.scrollIntoView({ behavior: "smooth" }); }
-              }}
+            <Link
+              to="/seo-analyzer"
               className="bg-[#eb560c] hover:bg-[#d14b0a] text-white text-xs font-bold px-4 py-1.5 rounded transition-colors uppercase tracking-wider"
             >
-              Get a Free Consultation
-            </a>
+              Get a Free SEO Audit
+            </Link>
+            <Link
+              to="/payment"
+              className="bg-[#002b49] border border-white/20 hover:bg-[#eb560c] text-white text-xs font-bold px-4 py-1.5 rounded transition-colors uppercase tracking-wider"
+            >
+              Pay Online
+            </Link>
           </div>
         </div>
       </div>
@@ -99,10 +119,8 @@ export const Navbar = ({
             {NAV_LINKS.map((link) =>
               link.dropdown ? (
                 <div
-                  key={link.to}
-                  className="relative group"
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
+                  key={link.label}
+                  className="relative group py-2"
                 >
                   <NavLink
                     to={link.to}
@@ -119,17 +137,12 @@ export const Navbar = ({
                   </NavLink>
                   {/* Dropdown */}
                   <div
-                    className={`absolute top-full left-0 w-72 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.12)] border-t-[3px] border-[#002b49] rounded-b-lg transition-all duration-200 ${
-                      servicesOpen
-                        ? "opacity-100 visible translate-y-0"
-                        : "opacity-0 invisible -translate-y-2"
-                    }`}
+                    className="absolute top-full left-0 w-72 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.12)] border-t-[3px] border-[#002b49] rounded-b-lg transition-all duration-200 opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0"
                   >
                     {link.dropdown.map((item) => (
                       <Link
                         key={item.to}
                         to={item.to}
-                        onClick={() => setServicesOpen(false)}
                         className="flex items-center gap-2 px-4 py-3 text-sm text-[#16243E] hover:text-[#eb560c] hover:bg-orange-50 transition-colors border-b border-gray-50 last:border-0 font-medium"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-[#eb560c] flex-shrink-0" />
@@ -160,7 +173,7 @@ export const Navbar = ({
           {/* Right: CTA button + mobile hamburger */}
           <div className="flex items-center gap-3">
             <Link
-              to="/contact"
+              to="/contact-us"
               className="hidden lg:inline-flex items-center gap-2 bg-[#002b49] hover:bg-[#eb560c] text-white text-sm font-bold px-6 py-2.5 rounded transition-all duration-300 shadow-sm hover:shadow-md"
             >
               Free Consultation <ArrowRight className="w-4 h-4" />
@@ -178,8 +191,8 @@ export const Navbar = ({
 
         {/* Mobile Drawer */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-gray-100 bg-white ${
-            open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          className={`lg:hidden overflow-y-auto transition-all duration-300 border-t border-gray-100 bg-white ${
+            open ? "max-h-[85vh] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div className="container py-4 flex flex-col gap-1">
@@ -192,25 +205,48 @@ export const Navbar = ({
                 <Mail className="w-4 h-4 text-[#eb560c]" /> websbond@websbond.com
               </a>
             </div>
-            {NAV_LINKS.map((l) => (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                end={l.to === "/"}
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  `py-2.5 px-2 text-base font-bold border-b border-gray-50 uppercase tracking-wide transition-colors ${
-                    isActive
-                      ? "text-[#eb560c]"
-                      : "text-[#16243E] hover:text-[#eb560c]"
-                  }`
-                }
-              >
-                {l.label}
-              </NavLink>
-            ))}
+            {NAV_LINKS.map((link) => {
+              if (link.dropdown) {
+                return (
+                  <div key={link.label} className="border-b border-gray-50 py-1">
+                    <div className="flex justify-between items-center py-1.5 px-2 text-base font-bold text-[#16243E] uppercase tracking-wide">
+                      <span>{link.label}</span>
+                    </div>
+                    <div className="pl-4 flex flex-col gap-1.5 pb-2">
+                      {link.dropdown.map((sub) => (
+                        <Link
+                          key={sub.to}
+                          to={sub.to}
+                          onClick={() => setOpen(false)}
+                          className="py-1 px-2 text-sm text-[#16243E]/80 hover:text-[#eb560c] font-semibold"
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  end={link.to === "/"}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    `py-2.5 px-2 text-base font-bold border-b border-gray-50 uppercase tracking-wide transition-colors ${
+                      isActive
+                        ? "text-[#eb560c]"
+                        : "text-[#16243E] hover:text-[#eb560c]"
+                    }`
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              );
+            })}
             <Link
-              to="/contact"
+              to="/contact-us"
               onClick={() => setOpen(false)}
               className="mt-3 flex items-center justify-center gap-2 bg-[#eb560c] text-white font-bold py-3.5 rounded text-center hover:bg-[#d14b0a] transition-colors"
             >
@@ -222,3 +258,5 @@ export const Navbar = ({
     </div>
   );
 };
+
+export default Navbar;

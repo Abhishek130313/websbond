@@ -2,12 +2,12 @@ import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube, ChevronRig
 import { Link } from "react-router-dom";
 
 const QUICK_LINKS = [
-  { label: "Services Area", to: "/services" },
+  { label: "Services Area", to: "/website-design-service-in-delhi" },
   { label: "Home", to: "/" },
-  { label: "About Company", to: "/about" },
-  { label: "Contact Us", to: "/contact" },
-  { label: "Our Work", to: "/our-work" },
-  { label: "Digital Marketing", to: "/services" },
+  { label: "About Company", to: "/about-us" },
+  { label: "Contact Us", to: "/contact-us" },
+  { label: "Our Work", to: "/our-portfolio" },
+  { label: "Digital Marketing", to: "/seo-service-in-delhi" },
 ];
 
 export const Footer = () => (
@@ -153,14 +153,19 @@ export const Footer = () => (
           <p className="text-white/50 text-sm text-center" style={{ marginBottom: 0 }}>
             Websbond Digital Marketing All Rights Reserved
           </p>
-          <div className="flex gap-5">
-            {["Terms & Conditions", "Privacy Policy"].map((l) => (
+          <div className="flex flex-wrap gap-x-5 gap-y-2 justify-center">
+            {[
+              { label: "Payment Option", to: "/payment" },
+              { label: "Terms & Conditions", to: "/terms-and-condition" },
+              { label: "Privacy Policy", to: "/privacy-policy" },
+              { label: "Refund Policy", to: "/refund-policy" }
+            ].map((link) => (
               <Link
-                key={l}
-                to={`/${l.toLowerCase().replace(/\s+/g, "-")}`}
+                key={link.label}
+                to={link.to}
                 className="text-white/50 text-xs hover:text-white transition-colors"
               >
-                {l}
+                {link.label}
               </Link>
             ))}
           </div>

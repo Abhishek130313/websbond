@@ -1,406 +1,221 @@
 import { useState } from "react";
-import { ArrowRight, Sparkles, Rocket, Smile, Coins, TrendingUp, Monitor, ShoppingBag, Search, Layers, Smartphone, Laptop, LaptopIcon, MessageCircle } from "lucide-react";
-import { Link } from "react-router-dom";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import b1 from "@/assets/blog1.webp";
-import b2 from "@/assets/blog2.webp";
-import b3 from "@/assets/blog3.webp";
+import { Monitor, Search, Layers, Briefcase, Plus, ArrowRight, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const filters = [
-  { label: "All Projects", icon: Layers },
-  { label: "Web Development", icon: Monitor },
-  { label: "eCommerce", icon: ShoppingBag },
-  { label: "SEO Campaigns", icon: Search },
+  { label: "All Portfolio", category: "All", icon: Layers },
+  { label: "Web Design", category: "Web Design", icon: Monitor },
+  { label: "SEO & Marketing", category: "SEO & Digital Marketing", icon: Search }
 ];
 
 const projects = [
   { 
-    name: "Ranga Pest Control", 
-    category: "Web Development", 
-    desc: "State-of-the-art React application built with TanStack Start, featuring lightning-fast server routing, schema markup, and direct WhatsApp lead triggers.", 
-    results: "Pest problems solved & top local SEO ranking",
-    img: b3,
-    size: "large",
-    previewUrl: "https://tanstack-start-app.rangapestservice.workers.dev/"
+    name: "Golden Masala", 
+    category: "Web Design", 
+    subcategory: "Manufacturing Company", 
+    desc: "A premium business website designed to rank locally and showcase a full catalog of Indian spices.", 
+    results: "Page 1 search rankings & 250% leads growth",
+    img: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=500&auto=format&fit=crop&q=80"
   },
   { 
-    name: "TechNova SaaS", 
-    category: "Web Development", 
-    desc: "Next.js 14 architecture focusing on speed optimizations, clean typography, and conversions. 100% Google Lighthouse score.", 
-    results: "+140% signups within 30 days",
-    img: b1,
-    size: "medium",
-    previewUrl: "technova.com"
+    name: "Dr. Archit Pandit", 
+    category: "Web Design", 
+    subcategory: "Healthcare Doctor", 
+    desc: "Trust-centric oncologist portfolio with appointment request sync and patient review streams.", 
+    results: "3x patient booking enquiries",
+    img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&auto=format&fit=crop&q=80"
   },
   { 
-    name: "UrbanWear Store", 
-    category: "eCommerce", 
-    desc: "High-end headless commerce platform with instant checkouts, stripe gateways, and mobile fluid filters.", 
-    results: "3.5x sales improvement",
-    img: b2,
-    size: "medium",
-    previewUrl: "urbanwear.in"
+    name: "Dr. Neha Khandelwal", 
+    category: "Web Design", 
+    subcategory: "Healthcare Doctor", 
+    desc: "High-end aesthetic clinic website with photo galleries, reviews and WhatsApp chat features.", 
+    results: "Dominates local search queries",
+    img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&auto=format&fit=crop&q=80"
   },
   { 
-    name: "AuraSkin Clinic", 
-    category: "Web Development", 
-    desc: "A premium medical-aesthetic brand identity layout. Fully customized booking flow integrated with WhatsApp API.", 
-    results: "Bookings doubled in Delhi NCR",
-    img: b3,
-    size: "medium",
-    previewUrl: "auraskin.in"
+    name: "Gladwin Electrolink Industries", 
+    category: "SEO & Digital Marketing", 
+    subcategory: "Industrial Manufacturing", 
+    desc: "B2B SEO mapping and search ranking visibility keywords optimization for electrical items.", 
+    results: "+220% search queries increment",
+    img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&auto=format&fit=crop&q=80"
   },
   { 
-    name: "RankBoost Campaign", 
-    category: "SEO Campaigns", 
-    desc: "Local search maps mapping and speed structural optimizations ranking multiple services on Google Position 1.", 
-    results: "Ranked #1 for 18 core keywords",
-    img: b1,
-    size: "small",
-    previewUrl: "rankboost.co"
+    name: "Suraaj Farms", 
+    category: "SEO & Digital Marketing", 
+    subcategory: "Agri-Business", 
+    desc: "Local listing map optimizations and organic SEO campaigns to capture bulk orders.", 
+    results: "Rank #1 for local farms query",
+    img: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=500&auto=format&fit=crop&q=80"
   },
+  { 
+    name: "H.O.P.E Oncology Clinic", 
+    category: "SEO & Digital Marketing", 
+    subcategory: "Healthcare Campaign", 
+    desc: "Paid search PPC and social media marketing funnel targeting oncology patient consultations.", 
+    results: "Cost-per-Lead reduced by 40%",
+    img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&auto=format&fit=crop&q=80"
+  },
+  { 
+    name: "PDI Expert", 
+    category: "Web Design", 
+    subcategory: "Business Service", 
+    desc: "Custom corporate service portal with quick audits request flow and speed score optimizations.", 
+    results: "Lighthouse core speed score 99/100",
+    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=80"
+  },
+  { 
+    name: "Oncology Forum", 
+    category: "Web Design", 
+    subcategory: "Doctor Association", 
+    desc: "Academic registry portal featuring directories, scientific updates and meeting journals.", 
+    results: "Seamless mobile dashboard UI",
+    img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&auto=format&fit=crop&q=80"
+  },
+  { 
+    name: "Singh Builders", 
+    category: "Web Design", 
+    subcategory: "Real Estate Business", 
+    desc: "Construction project grid showcase, layout diagrams and lead capturing integrations.", 
+    results: "3.2x monthly property queries",
+    img: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=500&auto=format&fit=crop&q=80"
+  }
 ];
 
 export const OurWorkPage = () => {
-  const [activeFilter, setActiveFilter] = useState("All Projects");
-  const [featuredDevice, setFeaturedDevice] = useState<"desktop" | "mobile">("desktop");
+  const [activeFilter, setActiveFilter] = useState("All");
 
-  const filteredProjects = activeFilter === "All Projects"
+  const filteredProjects = activeFilter === "All"
     ? projects
-    : projects.filter(p => p.category === activeFilter || (activeFilter === "eCommerce" && p.category === "eCommerce") || (activeFilter === "SEO Campaigns" && p.category === "SEO Campaigns"));
+    : projects.filter(p => p.category === activeFilter);
 
   return (
     <Layout>
       <SEO 
-        title="Websbond Portfolio | Best Website Developer Delhi NCR & Digital Agency" 
-        description="Explore our portfolio of high-speed custom React websites, eCommerce store development, and top-ranking Google SEO projects built by Websbond." 
-        path="/our-work" 
-        keywords="websbond portfolio, web developer Delhi NCR, digital marketing agency Gurgaon, website banwaye, business growth India"
+        title="Our Portfolio | Web Design & SEO Projects | Websbond" 
+        description="Browse our portfolio of custom React website designs, ecommerce builds, and result-oriented search engine optimization campaigns built by Websbond." 
+        path="/our-portfolio" 
+        keywords="websbond portfolio, web design delhi, digital marketing Gurgaon, google ads case studies"
       />
 
-      {/* ── Hero Title Section ── */}
-      <section className="relative overflow-hidden pt-8 pb-12 border-b border-border bg-gradient-to-br from-background via-surface-2 to-amber-500/5 dark:to-amber-950/10">
-        
-        {/* Background Mesh and Orbs */}
-        <div className="absolute inset-0 grid-mesh opacity-[0.05] dark:opacity-[0.07] pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-amber-500/5 blur-[100px] pointer-events-none animate-aurora-1" />
-        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-amber-500/5 blur-[90px] pointer-events-none animate-aurora-2" />
-
-        {/* Floating tech background shapes representing Portfolio */}
-        <div className="absolute top-12 right-16 w-8 h-8 border border-amber-500/20 rounded-lg flex items-center justify-center animate-pulse pointer-events-none">
-          <LaptopIcon className="w-4 h-4 text-amber-400/40" />
+      {/* ── Page Hero Header ── */}
+      <section className="relative overflow-hidden py-16 md:py-20 text-white" style={{ background: "linear-gradient(135deg, #002b49 0%, #16243E 100%)" }}>
+        <div className="absolute inset-0 grid-mesh opacity-5 pointer-events-none" />
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 backdrop-blur-md text-white font-semibold text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full mb-4">
+            → PROVEN CASE STUDIES
+          </div>
+          <h1 className="font-jost font-black text-3xl md:text-5xl leading-tight mb-4">
+            Our Portfolio
+          </h1>
+          <p className="text-white/80 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
+            Browse our creative showcase of custom web development and digital marketing campaigns that have helped businesses grow online.
+          </p>
         </div>
-        <div className="absolute bottom-6 left-1/3 w-5 h-5 bg-cyan-500/5 rounded-full animate-bounce pointer-events-none" style={{ animationDuration: '5.5s' }} />
+      </section>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
-            
-            {/* Left Content Column */}
-            <div className="md:col-span-7 flex flex-col gap-4 text-left items-start">
-              <div className="inline-flex items-center gap-2 bg-amber-500/5 border border-amber-500/20 text-amber-500 dark:text-amber-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full w-fit">
-                <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" /> Proven Case Studies
-              </div>
-              
-              <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground tracking-tight">
-                Work that drives <br />
-                <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">
-                  real business results.
-                </span>
-              </h1>
-              
-              <p className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed font-semibold">
-                We do not just construct simple designs; we write high-performance React codebases and configure Google SEO strategies to scale traffic, capture qualified leads, and maximize business growth.
-              </p>
-
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-md transition-all text-xs"
+      {/* ── Filter Tabs & Projects Grid ── */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          
+          {/* Tab buttons */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12 max-w-2xl mx-auto">
+            {filters.map((f) => {
+              const Icon = f.icon;
+              const isSelected = activeFilter === f.category;
+              return (
+                <button
+                  key={f.category}
+                  type="button"
+                  onClick={() => setActiveFilter(f.category)}
+                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all border ${
+                    isSelected 
+                      ? "bg-[#eb560c] text-white border-[#eb560c]" 
+                      : "bg-[#f8fafc] text-[#002b49] border-gray-100 hover:border-gray-300"
+                  }`}
                 >
-                  Start Similar Build <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-                <a
-                  href="https://wa.me/919306623619?text=Namaste!%20Mujhe%20website%20banwani%20hai.%20Free%20consultation%20chahiye."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl transition-all text-xs shadow-sm animate-pulse-slow"
-                >
-                  <MessageCircle className="w-3.5 h-3.5" /> WhatsApp Consultation
-                </a>
-              </div>
-              
-              <div className="flex flex-wrap gap-2 mt-1">
-                {[{ label: "Direct Developer Contact", dot: "bg-emerald-500" }, { label: "Google #1 Rankings", dot: "bg-cyan-500" }, { label: "100/100 PageSpeed", dot: "bg-amber-500" }].map((b) => (
-                  <div key={b.label} className="flex items-center gap-1.5 bg-card border border-border rounded-full px-3 py-1 shadow-sm">
-                    <span className={`w-1.5 h-1.5 rounded-full ${b.dot} animate-pulse`} />
-                    <span className="text-[10px] font-bold text-muted-foreground">{b.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+                  <Icon className="w-3.5 h-3.5" />
+                  {f.label}
+                </button>
+              );
+            })}
+          </div>
 
-            {/* Right Column: Interactive CSS 3D Responsive Mockups */}
-            <div className="md:col-span-5 flex items-center justify-center pt-4 md:pt-0">
-              <div className="relative w-full max-w-[340px] aspect-square flex items-center justify-center [perspective:1200px] pointer-events-auto group/hero">
-                
-                {/* 3D Wrapper */}
-                <div className="relative w-[260px] h-[200px] [transform-style:preserve-3d] [transform:rotateX(22deg)_rotateY(-15deg)] group-hover/hero:[transform:rotateX(12deg)_rotateY(2deg)] transition-all duration-700 ease-out">
-                  
-                  {/* Tablet/Mobile mockup float (Top Layer) */}
-                  <div className="absolute top-10 right-4 w-[110px] h-[190px] bg-slate-900 border border-slate-700 dark:border-slate-800 rounded-[2rem] p-1.5 shadow-[0_15px_30px_rgba(242,161,4,0.12)] [transform:translateZ(65px)] transition-transform duration-700 ease-out group-hover/hero:[transform:translateZ(90px)] flex flex-col items-center">
-                    <span className="w-10 h-2 bg-slate-950 rounded-full mb-2 shadow-inner" />
-                    <div className="w-full flex-1 bg-slate-950 rounded-[1.5rem] overflow-hidden p-2 flex flex-col justify-between">
-                      <div className="w-full h-1 bg-white/25 rounded" />
-                      <div className="flex-1 flex flex-col justify-center gap-1.5">
-                        <div className="w-3/4 h-1 bg-white/20 rounded mx-auto" />
-                        <div className="w-1/2 h-1 bg-amber-500/40 rounded mx-auto" />
-                      </div>
-                      <div className="w-full h-5 bg-white/5 border border-white/10 rounded flex items-center justify-center text-[5px] text-white">Buy Product</div>
+          {/* Grid of Portfolio Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {filteredProjects.map((project, idx) => (
+              <div 
+                key={idx} 
+                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col"
+              >
+                {/* Image top */}
+                <div className="relative overflow-hidden h-52 bg-slate-100 shrink-0">
+                  <img 
+                    src={project.img} 
+                    alt={project.name} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute top-4 left-4 bg-[#002b49] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                    {project.subcategory}
+                  </span>
+                </div>
+
+                {/* Content bottom */}
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div>
+                    <h3 className="font-jost font-bold text-lg text-[#002b49] group-hover:text-[#eb560c] transition-colors mb-1.5">
+                      {project.name}
+                    </h3>
+                    <p className="text-gray-500 text-xs sm:text-sm leading-relaxed font-medium">
+                      {project.desc}
+                    </p>
+                  </div>
+                  <div className="bg-[#f8fafc] border border-gray-100 rounded-xl p-3.5 flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-[#eb560c] shrink-0 animate-pulse" />
+                    <div>
+                      <h4 className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Metrics Delivered</h4>
+                      <p className="font-jost font-bold text-[#002b49] text-xs mt-0.5">{project.results}</p>
                     </div>
                   </div>
-
-                  {/* Browser Mockup Layer (Middle Layer) */}
-                  <div className="absolute inset-0 bg-card border border-border rounded-2xl p-3 shadow-card [transform:translateZ(10px)] group-hover/hero:[transform:translateZ(15deg)] flex flex-col justify-between">
-                    <div className="flex items-center justify-between border-b border-slate-200/50 dark:border-white/5 pb-2">
-                      <div className="flex gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-rose-500/80" />
-                        <span className="w-1.5 h-1.5 rounded-full bg-amber-500/80" />
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
-                      </div>
-                      <span className="text-[7px] text-muted-foreground font-mono">portfolio_preview</span>
-                    </div>
-                    <div className="flex-1 flex flex-col gap-2 py-3">
-                      <div className="w-2/3 h-1.5 bg-amber-500/25 rounded" />
-                      <div className="w-full h-1 bg-muted rounded animate-pulse" />
-                      <div className="w-5/6 h-1 bg-muted rounded animate-pulse" />
-                    </div>
-                  </div>
-
-                  {/* Base Layer */}
-                  <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 rounded-2xl p-4 shadow-[0_5px_15px_rgba(0,0,0,0.03)] dark:shadow-[0_5px_15px_rgba(0,0,0,0.15)] [transform:translateZ(-30px)] group-hover/hero:[transform:translateZ(-45deg)]" />
-
                 </div>
               </div>
-            </div>
+            ))}
+          </div>
 
+        </div>
+      </section>
+
+      {/* ── Direct Pitch Section ── */}
+      <section className="py-20" style={{ background: "#f5f5f5" }}>
+        <div className="container mx-auto px-4 text-center max-w-3xl">
+          <div className="inline-flex items-center gap-2 bg-orange-100 border border-orange-200 text-[#eb560c] font-semibold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-4">
+            <Briefcase className="w-3.5 h-3.5" /> Start Your Build
+          </div>
+          <h2 className="font-jost font-black text-2xl sm:text-4xl text-[#002b49] mb-4">
+            Need a similar setup built for your business?
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6 font-semibold">
+            We provide direct developer coordination and custom high-speed code logic mapping to ensure your brand dominates local search keywords and converts enquiries.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/contact-us" className="btn-orange font-bold text-sm">Initiate Similar Project</Link>
+            <a 
+              href="https://wa.me/919306623619?text=Namaste!%20I%20have%20seen%20your%20portfolio%20and%20want%2520to%2520build%2520a%2520website." 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-4 rounded-lg text-sm inline-flex items-center gap-2"
+            >
+              <MessageCircle className="w-4 h-4" /> WhatsApp Consultation
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ── Main Body Content ── */}
-      <div className="bg-background text-foreground py-10 transition-colors duration-300">
-
-        {/* Featured Project Showcase with Interactive Slider */}
-        <section className="container mx-auto px-4 py-4">
-          <div className="glass-panel rounded-3xl p-6 sm:p-8 lg:p-12 border border-border shadow-sm grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-12 items-center">
-            <div>
-              <span className="bg-amber-500/5 border border-amber-500/20 text-amber-500 dark:text-amber-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm animate-pulse-slow">
-                Featured Build
-              </span>
-              <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight mt-4">
-                FreshBites Grocery Platform
-              </h2>
-              <p className="text-muted-foreground mt-4 text-xs sm:text-sm leading-relaxed font-semibold">
-                An organic food delivery web platform designed with high-speed search indexings, interactive cart flows, and custom admin dashboard panels.
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 mt-6 border-t border-b border-slate-200/80 dark:border-white/[0.06] py-5">
-                <div>
-                  <div className="text-[10px] text-muted-foreground font-bold uppercase">Growth Result</div>
-                  <div className="font-display font-extrabold text-xl sm:text-2xl text-foreground mt-1">+240% Sales</div>
-                </div>
-                <div>
-                  <div className="text-[10px] text-muted-foreground font-bold uppercase">Load Speed</div>
-                  <div className="font-display font-extrabold text-xl sm:text-2xl text-amber-500 dark:text-amber-400 mt-1 font-mono">98/100</div>
-                </div>
-              </div>
-
-              <div className="flex gap-4 mt-6">
-                <Link 
-                  to="/contact"
-                  className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs sm:text-sm shadow-md shadow-amber-500/10"
-                >
-                  Start Similar Build
-                </Link>
-                <button 
-                  type="button"
-                  onClick={() => setFeaturedDevice(featuredDevice === "desktop" ? "mobile" : "desktop")}
-                  className="border border-border hover:border-slate-300 bg-card text-foreground font-bold px-5 py-3 rounded-xl text-xs sm:text-sm flex items-center gap-2 shadow-sm"
-                >
-                  {featuredDevice === "desktop" ? <Smartphone className="w-4 h-4" /> : <Laptop className="w-4 h-4" />}
-                  Show {featuredDevice === "desktop" ? "Mobile" : "Desktop"} View
-                </button>
-              </div>
-            </div>
-
-            {/* Interactive Screen Device Mockup */}
-            <div className="flex items-center justify-center relative w-full aspect-[4/3] bg-muted border border-border rounded-3xl overflow-hidden p-6 shadow-inner">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-amber-600/5 opacity-40 pointer-events-none" />
-              
-              {/* Device frame container */}
-              <div 
-                className={`bg-slate-900 border border-slate-800 p-2 shadow-2xl transition-all duration-500 flex flex-col items-center overflow-hidden ${
-                  featuredDevice === "desktop" 
-                    ? "w-full aspect-[16/10] rounded-2xl" 
-                    : "w-[48%] aspect-[9/18] rounded-[2.5rem]"
-                }`}
-              >
-                {/* Browser bar for desktop */}
-                {featuredDevice === "desktop" && (
-                  <div className="w-full flex items-center justify-between border-b border-slate-200/80 dark:border-slate-800 pb-1.5 mb-1.5 text-[8px] text-muted-foreground pl-2 select-none font-mono">
-                    <div className="flex gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-500/60" />
-                      <span className="w-1.5 h-1.5 rounded-full bg-yellow-500/60" />
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-500/60" />
-                    </div>
-                    <span className="bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 px-4 rounded-full text-[7px] w-1/3 text-center text-slate-600 dark:text-slate-400">freshbites.in</span>
-                    <div className="w-8" />
-                  </div>
-                )}
-
-                {/* Mobile camera notch */}
-                {featuredDevice === "mobile" && (
-                  <div className="w-16 h-3 bg-slate-950 rounded-full mb-3 mt-1 shadow-inner shrink-0" />
-                )}
-
-                {/* Simulated Screen Content */}
-                <div className="w-full flex-1 bg-slate-950 rounded-lg overflow-y-auto p-4 select-none scrollbar-thin flex flex-col text-left">
-                  <div className="flex items-center justify-between mb-4 border-b border-white/5 pb-2">
-                    <span className="text-[10px] font-bold text-white flex items-center gap-1">
-                      <span className="text-emerald-400">●</span> FreshBites
-                    </span>
-                    <span className="w-6 h-2 bg-white/10 rounded" />
-                  </div>
-                  
-                  <div className="text-center py-2 flex-1 flex flex-col justify-center">
-                    <h4 className="text-xs font-bold text-white leading-tight">Fresh organic farm ingredients <br />delivered to your doorstep.</h4>
-                    <div className="w-16 h-3 bg-emerald-500 text-slate-950 font-bold rounded-full mx-auto mt-3 text-[7px] flex items-center justify-center">Order Online</div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2 mt-4">
-                    <div className="bg-white/[0.02] border border-white/5 rounded p-1.5 text-center">
-                      <div className="w-full aspect-square rounded bg-white/[0.04] mb-1.5" />
-                      <div className="text-[8px] text-white font-bold">Avocado Pack</div>
-                      <div className="text-[7px] text-emerald-400 mt-0.5">₹180</div>
-                    </div>
-                    <div className="bg-white/[0.02] border border-white/5 rounded p-1.5 text-center">
-                      <div className="w-full aspect-square rounded bg-white/[0.04] mb-1.5" />
-                      <div className="text-[8px] text-white font-bold">Bio Broccoli</div>
-                      <div className="text-[7px] text-emerald-400 mt-0.5">₹90</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Filters Strip */}
-        <section className="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex flex-wrap gap-2">
-            {filters.map((f) => (
-              <button
-                key={f.label}
-                onClick={() => setActiveFilter(f.label)}
-                className={`px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 flex items-center gap-2 ${
-                  activeFilter === f.label
-                    ? "bg-amber-500 text-slate-950 border-amber-500 dark:bg-amber-500 dark:border-amber-500 shadow-sm font-bold"
-                    : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-slate-300 shadow-sm font-medium"
-                }`}
-              >
-                <f.icon className="w-3.5 h-3.5" />
-                {f.label}
-              </button>
-            ))}
-          </div>
-        </section>
-
-        {/* Bento Grid Projects */}
-        <section className="container mx-auto px-4 pb-10">
-          <div className="grid md:grid-cols-6 gap-6">
-            {filteredProjects.map((p, idx) => (
-              <article 
-                key={idx}
-                className={`glass-panel border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-md hover:border-amber-200 dark:hover:border-amber-500/20 transition-all duration-300 flex flex-col group ${
-                  p.size === "large" 
-                    ? "md:col-span-4" 
-                    : p.size === "medium" 
-                    ? "md:col-span-3" 
-                    : "md:col-span-2"
-                }`}
-              >
-                <div className="relative aspect-[16/9] w-full bg-muted overflow-hidden border-b border-slate-200/80 dark:border-white/[0.06]">
-                  <img 
-                    src={p.img} 
-                    alt={p.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <span className="absolute top-4 left-4 bg-slate-900/95 border border-white/10 text-[9px] text-amber-400 font-bold px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm shadow-sm">
-                    {p.category}
-                  </span>
-                </div>
-
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-display font-bold text-base sm:text-lg text-foreground mb-2 group-hover:text-amber-500 transition-colors">
-                      {p.name}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6 font-semibold">
-                      {p.desc}
-                    </p>
-                  </div>
-
-                  <div className="border-t border-slate-200/80 dark:border-white/[0.06] pt-4 mt-auto flex items-center justify-between gap-4 font-semibold text-xs text-muted-foreground">
-                    <div>
-                      <span className="text-[10px] text-muted-foreground font-bold uppercase block">Result Achieved</span>
-                      <span className="text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400 mt-0.5 block">{p.results}</span>
-                    </div>
-                    <a
-                      href={p.previewUrl.startsWith("http") ? p.previewUrl : `https://${p.previewUrl}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-amber-500 dark:text-amber-400 font-bold group-hover:translate-x-1.5 transition-transform flex items-center gap-1 cursor-pointer"
-                    >
-                      Live Preview <ArrowRight className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* Stats strip - Replaced fake counts with trust metrics */}
-        <section className="container mx-auto px-4 py-4">
-          <div className="glass-panel border-border rounded-3xl shadow-sm grid grid-cols-2 md:grid-cols-4 divide-y divide-x divide-slate-200/80 dark:divide-white/[0.06] md:divide-y-0">
-            {[
-              { icon: Rocket, val: "100%", label: "Speed Guarantee" },
-              { icon: Smile, val: "0%", label: "Upfront payment" },
-              { icon: Coins, val: "Direct", label: "Developer WhatsApp" },
-              { icon: TrendingUp, val: "100%", label: "Code Handoff" },
-            ].map(({ icon: Icon, val, label }) => (
-              <div key={label} className="p-5 sm:p-6 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/5 text-amber-500 dark:text-amber-400 border border-amber-500/20 dark:border-amber-500/10 grid place-items-center shrink-0">
-                  <Icon className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="font-display font-extrabold text-lg sm:text-xl text-foreground tracking-tight">{val}</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground font-bold uppercase tracking-wider mt-0.5">{label}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-      </div>
-
-      <CtaBanner 
-        title="Ready to build your next" 
-        highlight="success story?" 
-        subtitle="Let's craft a bespoke platform built for performance." 
-      />
+      <CtaBanner />
     </Layout>
   );
 };

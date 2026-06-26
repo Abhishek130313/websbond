@@ -1,276 +1,353 @@
-import { Sparkles, Target, Eye, Heart, CheckCircle2, Users, Trophy, Smile, Star, ArrowRight, Database, Cpu, MessageCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { CtaBanner } from "@/components/site/CtaBanner";
+import { Target, Eye, Shield, Users, Award, ChevronDown, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 import a1 from "@/assets/avatar1.webp";
 import a2 from "@/assets/avatar2.webp";
 import a3 from "@/assets/avatar3.webp";
 
-const values = [
-  { icon: Heart, title: "Transparency First", desc: "Our project scopes are clear and honest. No hidden parameters, no surprise bills." },
-  { icon: Users, title: "Direct Connection", desc: "We do not use bots. You speak directly with our lead developers and project designers." },
-  { icon: Trophy, title: "Quality Codebases", desc: "No templates or page builder speed blockers. We write custom lightweight React code." },
-  { icon: Smile, title: "Client First Handoff", desc: "We strive to deliver complete business growth and seamless analytics integrations." },
+const testimonials = [
+  {
+    name: "Raman Kant Aggarwal",
+    role: "Doctor",
+    text: "Dedicated, focused, genuine trustworthy and enterprising. Real good value for Customers.",
+    stars: 5,
+    img: a1
+  },
+  {
+    name: "Geeta Kadayaprath",
+    role: "The Breast Cancer Clinic",
+    text: "Prompt services with a great team which is able to create excellent content and post it at appropriate times. Response to queries and resolution of problems is also very quick. Thank you!",
+    stars: 5,
+    img: a2
+  },
+  {
+    name: "Sawan Bopanna",
+    role: "Doctor",
+    text: "Mr Abhishek and the Websbond digital marketing team have been very professional in their digital services. Definitely recommend.",
+    stars: 5,
+    img: a3
+  },
+  {
+    name: "Dr. Neha Khandelwal",
+    role: "Doctor",
+    text: "Excellent work by Mr Abhishek and his team. A very dedicated team and has lot of creativity!",
+    stars: 5,
+    img: a1
+  },
+  {
+    name: "Ajeet Tiwari",
+    role: "Doctor",
+    text: "Marketing is not about providing false details or boasting about yourself but letting people know what you want them to know about yourself rather than they learning unpredictable things about you. Highly satisfied with Websbond.",
+    stars: 5,
+    img: a2
+  },
+  {
+    name: "Apolished Finish",
+    role: "Business",
+    text: "Searching for an exceptional SEO company led me to Websbond, and I'm thrilled with my decision! From the moment I contacted them, their professionalism and expertise were evident.",
+    stars: 5,
+    img: a3
+  }
 ];
 
-const processSteps = [
-  { n: "01", t: "Discovery & Blueprint", d: "Mapping your business goals, targets, and structural requirements." },
-  { n: "02", t: "Bespoke Design", d: "Uniquely designing layouts and interactive flow prototypes." },
-  { n: "03", t: "Clean Code Engineering", d: "React & Next.js custom coding under high-performance rules." },
-  { n: "04", t: "Launch & SEO Retainers", d: "Google maps indexing, speed tuning, and 24/7 human support." },
+const faqs = [
+  {
+    q: "Why pick Websbond in Delhi NCR?",
+    a: "Websbond is a top digital agency, delivering high-performance SEO, Google Ads/PPC, SMM, and web design that generates sustainable traffic growth and quality conversions."
+  },
+  {
+    q: "What services do you offer?",
+    a: "We offer end-to-end digital solutions: custom Web Design and Development (React/Next.js), SEO, Pay Per Click (PPC), Social Media Optimization (SMO), Google My Business (GMB) optimization, and App Development."
+  },
+  {
+    q: "What makes Websbond the best SEO agency in Delhi NCR?",
+    a: "We offer data-driven local and global SEO strategies. This includes keyword discovery, technical page speed tuning, on-page optimization, content writing, and link building. Our focus is strictly on delivering measurable ROI."
+  },
+  {
+    q: "Do you offer local SEO services for businesses?",
+    a: "Yes, we specialize in local SEO to help businesses rank in Delhi NCR & Haryana maps. This covers Google My Business optimization, local citations, and geo-targeted ranking campaigns."
+  },
+  {
+    q: "SEO vs. PPC: What's the difference?",
+    a: "SEO is organic and builds authority over the long term; PPC drives instant traffic via paid campaigns. We blend both to deliver consistent lead generation and optimal ROI."
+  }
 ];
 
 export const AboutPage = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <Layout>
       <SEO 
-        title="About Websbond | Elite Website Designers & Digital Agency Delhi NCR" 
-        description="Websbond — Delhi NCR & Haryana's premier digital agency. Custom React websites, local Google SEO, and direct developer support. Ready to scale? Let's connect." 
-        path="/about"
-        keywords="about websbond, website designer Delhi NCR, digital agency Haryana, website banwaye, best web developer Gurgaon"
+        title="Digital Marketing Agency in Delhi NCR & Haryana | About Websbond" 
+        description="Websbond is a leading digital marketing agency in Delhi NCR and Haryana. Meet our founders Abhishek Singh Rawat and Gopal Sharma, and learn about our mission, vision, and values." 
+        path="/about-us" 
+        keywords="digital marketing agency in delhi, seo agency in delhi, web design company haryana, digital agency Gurgaon, websbond team"
       />
 
-      {/* ── Centered Hero Header ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-surface-2 to-amber-500/5 dark:to-amber-950/20 pt-8 pb-12 border-b border-border">
-        
-        <div className="absolute inset-0 grid-mesh opacity-[0.05] dark:opacity-[0.07] pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-amber-500/5 blur-[100px] pointer-events-none animate-aurora-1" />
-        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-cyan-500/5 blur-[90px] pointer-events-none animate-aurora-2" />
-        <div className="absolute top-12 right-12 w-6 h-6 border border-amber-250/20 rounded-full animate-pulse pointer-events-none" />
+      {/* ── Page Hero Header ── */}
+      <section className="relative overflow-hidden py-16 md:py-20 text-white" style={{ background: "linear-gradient(135deg, #002b49 0%, #16243E 100%)" }}>
+        <div className="absolute inset-0 grid-mesh opacity-5 pointer-events-none" />
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 backdrop-blur-md text-white font-semibold text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full mb-4">
+            → ABOUT WEBSBOND
+          </div>
+          <h1 className="font-jost font-black text-3xl md:text-5xl leading-tight mb-4">
+            About Us
+          </h1>
+          <p className="text-white/85 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed font-medium">
+            Leading Digital Marketing Agency in Delhi NCR delivering SEO, social media, PPC, branding, and result-driven online growth solutions for businesses.
+          </p>
+        </div>
+      </section>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-10 items-center">
-            
-            {/* Left Content Column */}
-            <div className="flex flex-col items-start text-left gap-5">
-              <div className="inline-flex items-center gap-2 border border-amber-200 dark:border-amber-500/20 bg-amber-50/60 dark:bg-amber-950/20 backdrop-blur-md text-amber-600 dark:text-amber-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full">
-                <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
-                Elite Software Engineering — Delhi NCR & Haryana
+      {/* ── Main About Story ── */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column: Image / Founders Visual */}
+            <div className="space-y-6">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100" style={{ height: 380 }}>
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80" 
+                  alt="Websbond Team" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#002b49]/90 via-transparent to-transparent flex flex-col justify-end p-6">
+                  <span className="text-[#eb560c] text-xs font-black uppercase tracking-wider mb-1">Established 2024</span>
+                  <h3 className="font-jost font-bold text-white text-xl">Websbond Digital Pipeline</h3>
+                  <p className="text-white/70 text-xs mt-1">Delhi NCR & Haryana's Premier Digital Growth Engineers</p>
+                </div>
               </div>
-              
-              <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground tracking-tight">
-                Built With Purpose.<br />
-                <span className="bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 dark:from-amber-400 dark:via-amber-300 dark:to-amber-500 bg-clip-text text-transparent">
-                  Engineered For Growth.
-                </span>
-              </h1>
-              
-              <p className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed font-semibold">
-                Websbond — Delhi NCR & Haryana's premier digital agency. We build custom React systems, data-backed local SEO, and provide 24/7 direct developer support. Ready to scale? Let's connect.
+            </div>
+
+            {/* Right Column: Narrative */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-[#002b49]">→</span>
+                <span className="text-sm font-bold uppercase tracking-widest text-[#eb560c]">YOUR PARTNER FOR GROWTH</span>
+              </div>
+              <h2 className="font-jost font-bold text-3xl md:text-4xl text-[#002b49]">
+                Empowering Brands in the <span className="text-[#eb560c]">Digital Age</span>
+              </h2>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                In the present-day digital marketing scenario, where competition is intense, working traditionally is not enough to be noticed. Websbond, located in Delhi NCR & Haryana, offers specialized solutions for the online growth of your business through personalized strategies. The digital marketing activities that can result in real benefits for your company are: being noticeable through the website and doing social media campaigns; all these activities are taken care of by us.
               </p>
-              
-              <div className="flex flex-wrap gap-3">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-md transition-all text-xs"
-                >
-                  Contact Our Team <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-                <a
-                  href="https://wa.me/919306623619?text=Namaste!%20Websbond%20ke%20baare%20mein%20jaanna%20chahta%20hun."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl transition-all text-xs shadow-sm"
-                >
-                  <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
-                </a>
-                <a
-                  href="#about-vision"
-                  className="inline-flex items-center gap-2 bg-card border border-border hover:bg-surface-2 text-foreground font-bold px-6 py-3 rounded-xl transition-all text-xs shadow-sm"
-                >
-                  Read Our Story
-                </a>
-              </div>
-
-              {/* Trust badges */}
-              <div className="flex flex-wrap gap-2">
-                {["100% Code Handoff", "Direct WhatsApp Line", "0% Upfront Payment", "Google #1 Rankings"].map((b) => (
-                  <div key={b} className="flex items-center gap-1.5 bg-card border border-border rounded-full px-3 py-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-[10px] font-bold text-muted-foreground">{b}</span>
-                  </div>
-                ))}
+              <p className="text-gray-600 text-sm leading-relaxed">
+                We have been in the business helping brands scale, and our clients have been very successful online as a result of our work in SEO, content writing, PPC ads, and web development for continuous growth. Building a good relationship with the clients is in our business, and we try to discover their wants, doing so, and we put our expertise to put our clients' dreams into reality.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Link to="/contact-us" className="btn-orange text-sm font-bold">Contact Our Team</Link>
+                <a href="tel:+919306623619" className="btn-navy text-sm font-bold">Call +91 9306623619</a>
               </div>
             </div>
-
-            {/* Right Column: Database reviews visualization */}
-            <div className="relative flex items-center justify-center pt-8 lg:pt-0">
-              <div className="glass-panel border-slate-200/80 dark:border-white/[0.06] rounded-3xl p-5 shadow-sm w-full max-w-[340px] font-mono text-[10px] text-muted-foreground">
-                <div className="flex items-center gap-1.5 border-b border-slate-200/60 dark:border-white/[0.06] pb-2 text-foreground font-bold">
-                  <Database className="w-4 h-4 text-amber-500 animate-pulse" />
-                  <span>Data Layer Query</span>
-                </div>
-                <div className="py-3 flex flex-col gap-1">
-                  <div className="text-slate-600 dark:text-slate-400">SELECT * FROM client_reviews ORDER BY rating DESC;</div>
-                  <div className="text-emerald-600 dark:text-emerald-500/80">{"=>"} 3 rows returned (0.01s)</div>
-                </div>
-                <div className="space-y-2 border-t border-slate-200/60 dark:border-white/[0.06] pt-3">
-                  <div className="p-2 bg-slate-100/50 dark:bg-white/[0.02] rounded-lg">
-                    <span className="text-amber-500 dark:text-amber-400">Rohit Verma:</span> "Websbond completely transformed our hotel's online presence."
-                  </div>
-                  <div className="p-2 bg-slate-100/50 dark:bg-white/[0.02] rounded-lg">
-                    <span className="text-amber-500 dark:text-amber-400">Neha Sharma:</span> "Very professional team and instant 24/7 support."
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
 
-      {/* ── Main Page Content ── */}
-      <div id="about-vision" className="bg-background text-foreground py-10 transition-colors duration-300">
-        
-        {/* Mission / Vision split grid */}
-        <section className="container mx-auto px-4 py-4 grid md:grid-cols-2 gap-6">
-          {[
-            { icon: Target, title: "Our Mission", desc: "Delivering world-class design standards and robust coding assets to Indian small and medium businesses, without charging overpriced consulting rates." },
-            { icon: Eye, title: "Our Vision", desc: "Creating a new benchmark in web delivery where clients have full project code ownership, 100% search speed score, and developer direct transparency." },
-          ].map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="glass-panel rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md hover:border-amber-500/30 dark:hover:border-amber-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all duration-300">
-              <div className="w-11 h-11 rounded-xl bg-amber-500/5 text-amber-500 dark:text-amber-400 border border-amber-500/20 dark:border-amber-500/10 grid place-items-center mb-4">
-                <Icon className="w-5 h-5" />
-              </div>
-              <h3 className="font-display font-bold text-lg text-foreground mb-2">{title}</h3>
-              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{desc}</p>
+      {/* ── Founders & Meet Our Team ── */}
+      <section className="py-20" style={{ background: "#f5f5f5" }}>
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="text-[#002b49]">→</span>
+              <span className="text-sm font-bold uppercase tracking-widest text-[#eb560c]">LEADERSHIP</span>
             </div>
-          ))}
-        </section>
-
-        {/* Values */}
-        <section className="container mx-auto px-4 py-8">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">
-              Our Core <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">Values</span>
+            <h2 className="font-jost font-bold text-3xl md:text-4xl text-[#002b49]">
+              Meet Our <span className="text-[#eb560c]">Founders</span>
             </h2>
-            <p className="mt-2 text-muted-foreground text-xs sm:text-sm font-medium">These principles define every project we build and handoff.</p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {values.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="glass-panel rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-amber-500/30 dark:hover:border-amber-500/25 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all duration-300">
-                <div className="w-9 h-9 rounded-lg bg-amber-500/5 text-amber-500 dark:text-amber-400 border border-amber-500/20 dark:border-amber-500/10 grid place-items-center mb-3">
-                  <Icon className="w-4.5 h-4.5" />
-                </div>
-                <h3 className="font-display font-bold text-sm sm:text-base text-foreground mb-1.5">{title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Process */}
-        <section className="container mx-auto px-4 py-8 relative">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">
-              Our Engineering <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">Process</span>
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-4 gap-5">
-            {processSteps.map(({ n, t, d }) => (
-              <div key={n} className="glass-panel rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-amber-500/20 dark:hover:border-amber-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all duration-350">
-                <div className="font-display font-extrabold text-3xl text-amber-500/20 mb-2">{n}</div>
-                <h3 className="font-display font-bold text-sm sm:text-base text-foreground mb-1.5">{t}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{d}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Statistics Grid - Replaced with trust-building metrics */}
-        <section className="container mx-auto px-4 py-6">
-          <div className="glass-panel border-slate-200/80 dark:border-white/[0.06] rounded-3xl shadow-sm grid grid-cols-2 md:grid-cols-4 divide-y divide-x divide-slate-200/60 dark:divide-white/[0.06] md:divide-y-0">
-            {[
-              { icon: Users, val: "Direct", label: "WhatsApp Chat" },
-              { icon: Trophy, val: "100%", label: "Speed Guarantee" },
-              { icon: CheckCircle2, val: "0%", label: "Upfront payment" },
-              { icon: Smile, val: "100%", label: "Code Handoff" },
-            ].map(({ icon: Icon, val, label }) => (
-              <div key={label} className="p-5 sm:p-6 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/5 text-amber-500 dark:text-amber-400 border border-amber-500/20 dark:border-amber-500/10 grid place-items-center shrink-0">
-                  <Icon className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="font-display font-extrabold text-lg sm:text-xl text-foreground tracking-tight">{val}</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground font-bold uppercase tracking-wider mt-0.5">{label}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Founders / Team Section */}
-        <section className="container mx-auto px-4 py-8 relative">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <div className="inline-flex items-center gap-2 bg-amber-500/5 border border-amber-500/20 text-amber-500 dark:text-amber-400 font-semibold text-[10px] sm:text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-4">
-              Our Leadership
-            </div>
-            <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white tracking-tight animate-fade-in">
-              Meet Our <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">Founders</span>
-            </h2>
-            <p className="mt-2 text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-semibold">
-              The engineers and builders behind Websbond's client success stories.
+            <p className="text-gray-600 mt-2 text-sm">
+              The creative strategists and software engineers directing Websbond's growth retainers.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            {/* Abhishek */}
-            <div className="glass-panel rounded-3xl p-5 sm:p-6 shadow-sm border border-border hover:border-amber-500/30 dark:hover:border-amber-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.02] transition-all duration-300">
-              <h3 className="font-display font-bold text-base text-foreground">Abhishek Singh Rawat</h3>
-              <p className="text-[11px] text-amber-500 dark:text-amber-400 font-bold uppercase tracking-wider mt-0.5">Co-Founder &amp; Tech Lead</p>
-              <p className="text-xs text-muted-foreground mt-2 leading-relaxed">Oversees our custom lightweight React codebases, API performance, and technical SEO structure.</p>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Founder 1: Abhishek */}
+            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="font-jost font-bold text-xl text-[#002b49]">Abhishek Singh Rawat</h3>
+              <p className="text-sm font-bold text-[#eb560c] uppercase tracking-wider mt-0.5">Co-Founder & Tech Lead</p>
+              <p className="text-gray-600 text-sm mt-4 leading-relaxed">
+                Abhishek is the brain behind Websbond's custom software engines. He realized how combining the websites with custom platform integrations would yield positive results. He is now the one who facilitates easy and really effective digital marketing strategies for the online growth of businesses globally.
+              </p>
             </div>
 
-            {/* Gopal */}
-            <div className="glass-panel rounded-3xl p-5 sm:p-6 shadow-sm border border-border hover:border-amber-500/30 dark:hover:border-amber-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.02] transition-all duration-300">
-              <h3 className="font-display font-bold text-base text-foreground">Gopal Sharma</h3>
-              <p className="text-[11px] text-amber-500 dark:text-amber-400 font-bold uppercase tracking-wider mt-0.5">Co-Founder &amp; Design Lead</p>
-              <p className="text-xs text-muted-foreground mt-2 leading-relaxed">Directs UI/UX visual flow, creative brand messaging, and client business scaling retainers.</p>
+            {/* Founder 2: Gopal */}
+            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="font-jost font-bold text-xl text-[#002b49]">Gopal Sharma</h3>
+              <p className="text-sm font-bold text-[#eb560c] uppercase tracking-wider mt-0.5">Co-Founder & Design Lead</p>
+              <p className="text-gray-600 text-sm mt-4 leading-relaxed">
+                Gopal oversees branding architecture, UI/UX aesthetics, and social media media campaign retainers. His deep understanding of visual communication and consumer psychology ensures that every project Websbond launches converts visitors into long-term clients.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Testimonials */}
-        <section className="container mx-auto px-4 py-8 mb-4">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">
-              Client <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">love.</span>
+      {/* ── Mission / Vision ── */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Vision */}
+            <div className="border border-gray-200 rounded-3xl p-8 hover:border-[#eb560c]/30 hover:bg-[#eb560c]/[0.01] transition-all flex flex-col items-start">
+              <div className="w-12 h-12 rounded-xl bg-orange-100 text-[#eb560c] grid place-items-center mb-5 shrink-0">
+                <Eye className="w-6 h-6" />
+              </div>
+              <h3 className="font-jost font-bold text-xl text-[#002b49] mb-3">Vision: Global Media Innovation</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                We imagine a future where every business grows online. Being digital ad specialists, we combine our skills and technology to ensure a great experience. Our aim is to become the best digital marketing firm globally.
+              </p>
+            </div>
+
+            {/* Mission */}
+            <div className="border border-gray-200 rounded-3xl p-8 hover:border-[#eb560c]/30 hover:bg-[#eb560c]/[0.01] transition-all flex flex-col items-start">
+              <div className="w-12 h-12 rounded-xl bg-orange-100 text-[#eb560c] grid place-items-center mb-5 shrink-0">
+                <Target className="w-6 h-6" />
+              </div>
+              <h3 className="font-jost font-bold text-xl text-[#002b49] mb-3">Mission: Empowering Businesses</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Our mission is to support business development and improve their digital presence to the next level. We use bright techniques and cutting-edge technology to bring about actual outcomes for our customers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Why Choose Us ── */}
+      <section className="py-20" style={{ background: "#f5f5f5" }}>
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            {/* Left: Content */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-[#002b49]">→</span>
+                <span className="text-sm font-bold uppercase tracking-widest text-[#eb560c]">WHY CHOOSE US</span>
+              </div>
+              <h2 className="font-jost font-bold text-3xl md:text-4xl text-[#002b49]">
+                Why Choose Websbond as Your <span className="text-[#eb560c]">Digital Marketing Company?</span>
+              </h2>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Being a reputable digital marketing agency, we emphasize developing tailored smart strategies for each business. We are a creative agency, and we also use the latest technology to help our clients increase their online presence. No matter if it is through social media, website promotion, or online marketing, we deliver results that truly make a difference.
+              </p>
+              
+              <ul className="space-y-4">
+                {[
+                  "Smart, data-driven strategies for better performance",
+                  "Affordable packages for every business scale",
+                  "Experienced team in SEO and digital marketing campaigns"
+                ].map((point, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-sm text-gray-700 font-semibold">
+                    <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 text-xs">✓</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right: Box Metrics */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { title: "Expert-Led", desc: "Campaigns driven by search experts", icon: Award },
+                { title: "Custom Solutions", desc: "No generic templates or builders", icon: Target },
+                { title: "100% Transparent", desc: "Clear reporting and analytics", icon: Shield },
+                { title: "Client First", desc: "Direct communication on WhatsApp", icon: Users }
+              ].map((card, idx) => (
+                <div key={idx} className="bg-white border border-gray-100 rounded-2xl p-6 text-center shadow-sm">
+                  <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#eb560c] grid place-items-center mb-4 mx-auto">
+                    <card.icon className="w-5 h-5" />
+                  </div>
+                  <h4 className="font-jost font-bold text-sm text-[#002b49] mb-1">{card.title}</h4>
+                  <p className="text-gray-500 text-[10px] sm:text-xs leading-normal font-medium">{card.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Client Testimonials ── */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="text-[#002b49]">→</span>
+              <span className="text-sm font-bold uppercase tracking-widest text-[#eb560c]">CLIENT FEEDBACK</span>
+            </div>
+            <h2 className="font-jost font-bold text-3xl md:text-4xl text-[#002b49]">
+              Our Client <span className="text-[#eb560c]">Reviews</span>
             </h2>
+            <p className="text-gray-600 mt-2 text-sm font-medium">
+              Read how we have helped doctors, retail brands, and service businesses establish trust and grow rankings.
+            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-5">
-            {[
-              { name: "Rohit Verma", role: "Hotel Owner, Kanpur", img: a1, text: "Websbond completely transformed our hotel's online presence. Direct website bookings increased 3x!" },
-              { name: "Neha Sharma", role: "Salon Owner, Lucknow", img: a2, text: "Very professional team and instant 24/7 support. Highly recommended!" },
-              { name: "Amit Patel", role: "Kirana Store, Gurgaon", img: a3, text: "The website was designed so beautifully that customers started messaging us directly." },
-            ].map((r, idx) => (
-              <article key={idx} className="glass-panel rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-amber-500/30 dark:hover:border-amber-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all duration-300 flex flex-col justify-between">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {testimonials.map((t, idx) => (
+              <div key={idx} className="bg-[#f8fafc] border border-gray-100 rounded-2xl p-6 flex flex-col justify-between hover:shadow-md transition-shadow">
                 <div>
-                  <div className="flex gap-0.5 text-amber-400">
-                    {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
+                  <div className="flex gap-0.5 text-amber-400 mb-3.5">
+                    {Array.from({ length: t.stars }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                   </div>
-                  <p className="mt-3 text-muted-foreground text-xs sm:text-sm leading-relaxed">"{r.text}"</p>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed italic">"{t.text}"</p>
                 </div>
-                <div className="mt-5 flex items-center gap-3 pt-4 border-t border-slate-200/80 dark:border-white/[0.06]">
-                  <img src={r.img} alt={r.name} className="w-9 h-9 rounded-full object-cover border border-slate-200 dark:border-slate-800" />
+                <div className="mt-6 flex items-center gap-3 pt-4 border-t border-gray-200">
+                  <img src={t.img} alt={t.name} className="w-9 h-9 rounded-full object-cover border border-gray-200" />
                   <div>
-                    <div className="font-bold text-xs sm:text-sm text-foreground">{r.name}</div>
-                    <div className="text-[10px] sm:text-xs text-muted-foreground font-medium">{r.role}</div>
+                    <div className="font-jost font-bold text-xs sm:text-sm text-[#002b49]">{t.name}</div>
+                    <div className="text-[10px] sm:text-xs text-[#eb560c] font-semibold">{t.role}</div>
                   </div>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
+      {/* ── FAQs Section ── */}
+      <section className="py-20" style={{ background: "#f5f5f5" }}>
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="text-[#002b49]">→</span>
+              <span className="text-sm font-bold uppercase tracking-widest text-[#eb560c]">FAQ</span>
+            </div>
+            <h2 className="font-jost font-bold text-3xl md:text-4xl text-[#002b49]">
+              Frequently Asked <span className="text-[#eb560c]">Questions</span>
+            </h2>
+            <p className="text-gray-600 mt-2 text-sm">
+              Common questions about our digital marketing and search engine optimization processes.
+            </p>
+          </div>
 
-      <CtaBanner 
-        title="Let's build something" 
-        highlight="huge together." 
-        subtitle="Your business vision, our engineering expertise — the perfect match." 
-      />
+          <div className="max-w-3xl mx-auto space-y-3.5">
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div key={idx} className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+                  <button 
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    className="w-full text-left p-5 flex items-center justify-between gap-4 font-bold text-[#002b49] hover:bg-orange-50/20 transition-colors"
+                  >
+                    <span className="text-sm sm:text-base font-jost">{faq.q}</span>
+                    <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  <div 
+                    className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                      isOpen ? "max-h-40 opacity-100 border-t border-gray-100 bg-gray-50/30" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <p className="p-5 text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">{faq.a}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <CtaBanner />
     </Layout>
   );
 };
