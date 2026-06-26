@@ -1,372 +1,270 @@
 import { useState, useEffect } from "react";
-import { Star, MessageSquare, Sparkles, X, Plus, Loader2 } from "lucide-react";
+import { Star, Quote, Plus, X, Loader2 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 import a1 from "@/assets/avatar1.webp";
 import a2 from "@/assets/avatar2.webp";
 import a3 from "@/assets/avatar3.webp";
 
-const categories = ["All", "Hospitality", "Wellness", "Retail", "Fitness"];
-const avatarOptions = [a1, a2, a3, a2]; // Choices for avatar pre-sets
+const avatarOptions = [a1, a2, a3, a2];
 
-const staticReviewsFallback = [
-  { id: 1, name: "Rohit Verma", role: "Hotel Owner, Kanpur", category: "Hospitality", img: a1, text: "Websbond completely transformed our hotel's online presence. Direct website bookings increased threefold, and our customer reviews have improved significantly!", rating: 5, avatarIndex: 0 },
-  { id: 2, name: "Neha Sharma", role: "Salon Owner, Lucknow", category: "Wellness", img: a2, text: "The team is extremely professional. Their 24/7 support is what sets them apart. Whenever I need updates or changes, they handle it within minutes.", rating: 5, avatarIndex: 1 },
-  { id: 3, name: "Amit Patel", role: "Kirana Store, Gurgaon", category: "Retail", img: a3, text: "They built a digital ordering website that is so clean and easy to use that customers now place orders themselves via WhatsApp. Excellent craftsmanship.", rating: 5, avatarIndex: 2 },
-  { id: 4, name: "Vikram Singh", role: "Gym Owner, Jaipur", category: "Fitness", img: a1, text: "Their Google and Facebook Ads setup generated 45 new memberships in the very first month. Absolute value for money.", rating: 5, avatarIndex: 3 },
+const STATIC_REVIEWS = [
+  {
+    id: 1,
+    name: "Rohit Verma",
+    role: "Hotel Owner, Gurugram",
+    img: a1,
+    text: "Websbond completely transformed our hotel's online presence. Direct website bookings increased threefold and our Google ranking went from nowhere to Page 1 in just 3 months. Highly recommended!",
+    rating: 5,
+    avatarIndex: 0,
+  },
+  {
+    id: 2,
+    name: "Neha Sharma",
+    role: "Salon Owner, Delhi",
+    img: a2,
+    text: "The team is extremely professional. Their 24/7 support is what sets them apart. Whenever I need updates or changes, they handle it within minutes. My business has grown tremendously.",
+    rating: 5,
+    avatarIndex: 1,
+  },
+  {
+    id: 3,
+    name: "Amit Patel",
+    role: "Kirana Store, Faridabad",
+    img: a3,
+    text: "They built a digital ordering website that is so clean and easy to use that customers now place orders themselves. The SEO work means we now get 200+ organic visits per day. Excellent craftsmanship!",
+    rating: 5,
+    avatarIndex: 2,
+  },
+  {
+    id: 4,
+    name: "Vikram Singh",
+    role: "Gym Owner, Sonipat",
+    img: a1,
+    text: "Their Google and Facebook Ads setup generated 45 new memberships in the very first month. The ROI has been incredible — absolute value for money from start to finish.",
+    rating: 5,
+    avatarIndex: 3,
+  },
+  {
+    id: 5,
+    name: "Priya Bansal",
+    role: "E-Commerce, Haryana",
+    img: a2,
+    text: "Websbond built our entire e-commerce platform from scratch. It's fast, beautiful, and converts amazingly well. Our online sales have grown by 320% since launch.",
+    rating: 5,
+    avatarIndex: 1,
+  },
+  {
+    id: 6,
+    name: "Rajesh Kumar",
+    role: "Real Estate Agency, Delhi NCR",
+    img: a3,
+    text: "The SEO and content strategy Websbond implemented has been a game-changer. We now rank #1 for our target keywords and get quality leads daily without any paid ads.",
+    rating: 5,
+    avatarIndex: 2,
+  },
 ];
 
+const StarRating = ({ rating, size = "sm" }: { rating: number; size?: "sm" | "lg" }) => (
+  <div className="flex gap-0.5">
+    {[1, 2, 3, 4, 5].map((s) => (
+      <Star
+        key={s}
+        className={size === "sm" ? "w-4 h-4" : "w-5 h-5"}
+        style={{ color: s <= rating ? "#f59e0b" : "#d1d5db", fill: s <= rating ? "#f59e0b" : "none" }}
+      />
+    ))}
+  </div>
+);
+
 export const Testimonials = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [allReviews, setAllReviews] = useState<any[]>([]);
-  const [filteredReviews, setFilteredReviews] = useState<any[]>(staticReviewsFallback);
-  const [workerStats, setWorkerStats] = useState<{ timeTakenMs: number; threadId: number } | null>(null);
+  const [reviews, setReviews] = useState<any[]>(STATIC_REVIEWS);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [hoveredStar, setHoveredStar] = useState<number | null>(null);
-  const [hasFetched, setHasFetched] = useState(false);
-  
-  // Review Form state
-  const [newReview, setNewReview] = useState({
-    name: "",
-    role: "",
-    category: "Hospitality",
-    rating: 5,
-    text: "",
-    avatarIndex: 0
-  });
   const [submitting, setSubmitting] = useState(false);
-
-  const fetchReviews = async () => {
-    try {
-      const res = await fetch(getApiUrl("/api/reviews"));
-      if (res.ok) {
-        const data = await res.json();
-        if (data && data.length > 0) {
-          const mapped = data.map((item: any) => ({
-            ...item,
-            img: avatarOptions[item.avatarIndex ?? 0] ?? a2
-          }));
-          setAllReviews(mapped);
-          return;
-        }
-      }
-    } catch (e) {
-      console.warn("Failed to load reviews from API, using static testimonials fallback", e);
-    }
-    // Fallback if API fails or is empty
-    setAllReviews(staticReviewsFallback);
-  };
+  const [hoverStar, setHoverStar] = useState<number | null>(null);
+  const [form, setForm] = useState({ name: "", role: "", text: "", rating: 5, avatarIndex: 0 });
 
   useEffect(() => {
-    // Set up intersection observer for lazy loading reviews
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasFetched) {
-          fetchReviews();
-          setHasFetched(true);
+    fetch(getApiUrl("/api/reviews"))
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        if (data?.length > 0) {
+          setReviews(data.map((r: any) => ({ ...r, img: avatarOptions[r.avatarIndex ?? 0] ?? a1 })));
         }
-      },
-      { rootMargin: "200px" } // Fetch 200px before coming into view
-    );
+      })
+      .catch(() => {});
+  }, []);
 
-    const el = document.getElementById("testimonials-section");
-    if (el) observer.observe(el);
-
-    return () => {
-      if (el) observer.unobserve(el);
-    };
-  }, [hasFetched]);
-
-  useEffect(() => {
-    if (allReviews.length === 0) return;
-
-    const worker = new Worker(new URL("../../workers/query.worker.ts", import.meta.url), {
-      type: "module",
-    });
-
-    worker.onmessage = (e) => {
-      const { action, payload } = e.data;
-      if (action === "FILTER_TESTIMONIALS_SUCCESS") {
-        setFilteredReviews(payload.results);
-        setWorkerStats({
-          timeTakenMs: payload.timeTakenMs,
-          threadId: payload.threadId,
-        });
-      }
-    };
-
-    worker.postMessage({
-      action: "FILTER_TESTIMONIALS",
-      payload: {
-        reviews: allReviews,
-        category: activeCategory,
-      },
-    });
-
-    return () => {
-      worker.terminate();
-    };
-  }, [allReviews, activeCategory]);
-
-  const handleReviewSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newReview.name || !newReview.role || !newReview.text) {
-      toast({ 
-        title: "Details required", 
-        description: "Please fill name, role/business, and review content.",
-        variant: "destructive"
-      });
+    if (!form.name || !form.text) {
+      toast({ title: "Please fill in all required fields.", variant: "destructive" });
       return;
     }
-
     setSubmitting(true);
     try {
       const res = await fetch(getApiUrl("/api/reviews"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newReview)
+        body: JSON.stringify(form),
       });
-
-      if (!res.ok) throw new Error("API post failed");
-
-      toast({ 
-        title: "Review Posted!", 
-        description: "Thank you! Your review is now live in the testimonials grid." 
-      });
-
-      // Clear review content
-      setNewReview({
-        name: "",
-        role: "",
-        category: "Hospitality",
-        rating: 5,
-        text: "",
-        avatarIndex: Math.floor(Math.random() * 4)
-      });
+      if (!res.ok) throw new Error();
+      toast({ title: "🎉 Thank you for your review!", description: "Your testimonial will appear after moderation." });
       setIsModalOpen(false);
-      fetchReviews();
+      setForm({ name: "", role: "", text: "", rating: 5, avatarIndex: 0 });
     } catch {
-      toast({ 
-        title: "Submission failed", 
-        description: "Could not post review. Please check your network or try again.", 
-        variant: "destructive" 
-      });
+      toast({ title: "Submission failed. Please try again.", variant: "destructive" });
+    } finally {
+      setSubmitting(false);
     }
-    setSubmitting(false);
   };
 
   return (
-    <section id="testimonials-section" className="py-20 md:py-28 relative overflow-hidden">
-      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full radial-glow pointer-events-none" style={{ "--glow-color": "rgba(242, 161, 4, 0.02)" } as React.CSSProperties} />
-      
+    <section className="py-20 md:py-28" style={{ background: "#f8fafc" }}>
       <div className="container">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-amber-500/5 border border-amber-500/20 text-amber-500 dark:text-amber-300 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" /> Client Stories
-            </div>
-            <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-slate-900 dark:text-white tracking-tight">
-              Our happy <span className="bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">clients.</span>
-            </h2>
-          </div>
-
-          {/* Categories Filters & Write Review Button */}
-          <div className="flex flex-col items-start md:items-end gap-2">
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="flex flex-wrap gap-2">
-                {categories.map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    className={`px-4 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 ${
-                      activeCategory === cat
-                        ? "bg-amber-500 dark:bg-white text-slate-950 dark:text-slate-950 border-amber-500 dark:border-white font-bold"
-                        : "bg-slate-100 dark:bg-white/[0.02] border-slate-200 dark:border-white/10 text-slate-500 dark:text-muted-foreground hover:text-slate-900 dark:hover:text-white hover:border-slate-350 dark:hover:border-white/20"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-              
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 hover:bg-amber-600 text-slate-950 shadow-[0_0_15px_rgba(242,161,4,0.15)] hover:shadow-[0_0_25px_rgba(242,161,4,0.3)] hover:scale-[1.03] transition-all flex items-center gap-1.5 animate-pulse-slow"
-              >
-                <Plus className="w-3.5 h-3.5" /> Write a Review
-              </button>
-            </div>
-            {workerStats && (
-              <div className="text-[10px] text-muted-foreground flex items-center gap-1.5 font-mono bg-amber-500/5 dark:bg-amber-500/5 border border-amber-500/20 rounded-xl px-2.5 py-1 w-fit">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse shrink-0" />
-                <span>Thread #{workerStats.threadId} active • Filtered in {workerStats.timeTakenMs}ms</span>
-              </div>
-            )}
-          </div>
+        {/* Header */}
+        <div className="text-center mb-14">
+          <span className="section-tagline">Client Reviews</span>
+          <h2 className="section-title">
+            What Our <span>Clients Say</span>
+          </h2>
+          <div className="section-underline mx-auto" />
+          <p className="text-gray-500 max-w-xl mx-auto mt-5 text-base leading-relaxed">
+            Don't just take our word for it — hear from the businesses we've helped grow across Delhi NCR, Haryana, and beyond.
+          </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredReviews.map((r, idx) => (
-            <article 
-              key={r.id || idx} 
-              className="glass-panel rounded-3xl p-6 transition-all duration-300 hover:bg-amber-500/5 dark:hover:bg-white/[0.03] hover:border-amber-500/30 dark:hover:border-white/10 flex flex-col group relative"
+        {/* Testimonial Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          {reviews.slice(0, 6).map((review) => (
+            <div
+              key={review.id}
+              className="bg-white rounded-2xl p-6 border border-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group relative"
             >
-              <div className="absolute top-6 right-6 text-white/5 group-hover:text-purple-500/10 transition-colors">
-                <MessageSquare className="w-10 h-10" />
-              </div>
+              {/* Orange top accent line */}
+              <div
+                className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: "linear-gradient(90deg, #eb560c, #ff9f67)" }}
+              />
 
-              <div className="flex gap-0.5 text-amber-400 mb-5">
-                {Array.from({ length: r.rating || 5 }).map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                ))}
-              </div>
+              {/* Quote icon */}
+              <Quote className="w-8 h-8 mb-4 opacity-20" style={{ color: "#eb560c" }} />
 
-              <p className="text-muted-foreground leading-relaxed text-sm flex-1 mb-6">
-                "{r.text}"
+              {/* Stars */}
+              <StarRating rating={review.rating} />
+
+              {/* Review text */}
+              <p className="text-gray-600 text-sm leading-relaxed my-4">
+                "{review.text}"
               </p>
 
-              <div className="flex items-center gap-3 pt-5 border-t border-slate-200/80 dark:border-white/[0.06] mt-auto">
-                <img 
-                  src={r.img} 
-                  alt={r.name} 
-                  width={40}
-                  height={40}
-                  className="w-10 h-10 rounded-full object-cover border border-slate-200 dark:border-white/10" 
-                  loading="lazy" 
+              {/* Author */}
+              <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                <img
+                  src={review.img}
+                  alt={review.name}
+                  className="w-11 h-11 rounded-full object-cover border-2 border-orange-100"
                 />
                 <div>
-                  <div className="font-bold text-sm text-slate-900 dark:text-white">{r.name}</div>
-                  <div className="text-xs text-muted-foreground">{r.role}</div>
+                  <p className="font-jost font-bold text-sm text-[#16243E]">{review.name}</p>
+                  <p className="text-gray-400 text-xs">{review.role}</p>
                 </div>
               </div>
-            </article>
+            </div>
           ))}
+        </div>
+
+        {/* Add Review CTA */}
+        <div className="text-center">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="inline-flex items-center gap-2 font-bold px-8 py-4 rounded-lg text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            style={{ background: "#002b49" }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#eb560c")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "#002b49")}
+          >
+            <Plus className="w-4 h-4" /> Share Your Experience
+          </button>
         </div>
       </div>
 
-      {/* Write a Review Modal Dialog */}
+      {/* Review Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fade-in">
-          <div className="glass-panel w-full max-w-lg rounded-3xl p-6 relative bg-slate-950 border border-white/10 shadow-2xl flex flex-col gap-5">
-            <button 
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div
+            className="absolute inset-0 bg-black/60"
+            onClick={() => setIsModalOpen(false)}
+          />
+          <div className="relative bg-white rounded-2xl p-8 w-full max-w-md shadow-2xl z-10">
+            <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-muted-foreground hover:text-white transition-colors"
-              aria-label="Close modal"
+              className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5 text-gray-500" />
             </button>
-            
-            <div>
-              <h3 className="font-display font-bold text-xl text-white">Share Your Feedback</h3>
-              <p className="text-xs text-muted-foreground mt-1">Submit your client review to be featured on our testimonials board.</p>
-            </div>
 
-            <form onSubmit={handleReviewSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-[10px] text-muted-foreground uppercase block mb-1">Your Name</label>
-                  <input 
-                    type="text"
-                    required
-                    value={newReview.name}
-                    onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
-                    placeholder="E.g. Rohit Verma"
-                    className="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-amber-500 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="text-[10px] text-muted-foreground uppercase block mb-1">Company / Role</label>
-                  <input 
-                    type="text"
-                    required
-                    value={newReview.role}
-                    onChange={(e) => setNewReview({ ...newReview, role: e.target.value })}
-                    placeholder="E.g. CEO, Hotel Nova"
-                    className="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-amber-500 transition-colors"
-                  />
-                </div>
-              </div>
+            <h3 className="font-jost font-bold text-xl text-[#002b49] mb-1">Leave a Review</h3>
+            <p className="text-gray-500 text-sm mb-6">Share your experience with Websbond</p>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-[10px] text-muted-foreground uppercase block mb-1">Industry</label>
-                  <select 
-                    value={newReview.category}
-                    onChange={(e) => setNewReview({ ...newReview, category: e.target.value })}
-                    className="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-amber-500 transition-colors"
-                  >
-                    <option value="Hospitality">Hospitality</option>
-                    <option value="Wellness">Wellness</option>
-                    <option value="Retail">Retail</option>
-                    <option value="Fitness">Fitness</option>
-                    <option value="Tech">Tech / Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="text-[10px] text-muted-foreground uppercase block mb-1">Star Rating</label>
-                  <div className="flex gap-1.5 mt-1.5">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <button
-                        type="button"
-                        key={star}
-                        onClick={() => setNewReview({ ...newReview, rating: star })}
-                        onMouseEnter={() => setHoveredStar(star)}
-                        onMouseLeave={() => setHoveredStar(null)}
-                        className="text-amber-400 focus:outline-none transition-transform active:scale-90"
-                      >
-                        <Star 
-                          className={`w-5 h-5 ${
-                            (hoveredStar !== null ? hoveredStar >= star : newReview.rating >= star) 
-                              ? "fill-current" 
-                              : "text-white/10"
-                          }`}
-                        />
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="text-[10px] text-muted-foreground uppercase block mb-1">Choose Avatar</label>
-                <div className="flex gap-3.5 mt-1">
-                  {avatarOptions.map((avatar, idx) => (
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Your Name *</label>
+                <input
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  required placeholder="John Doe"
+                  className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#eb560c] transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Role / Business</label>
+                <input
+                  value={form.role}
+                  onChange={(e) => setForm({ ...form, role: e.target.value })}
+                  placeholder="e.g. Hotel Owner, Delhi"
+                  className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#eb560c] transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Your Rating</label>
+                <div className="flex gap-1">
+                  {[1, 2, 3, 4, 5].map((s) => (
                     <button
-                      type="button"
-                      key={idx}
-                      onClick={() => setNewReview({ ...newReview, avatarIndex: idx })}
-                      className={`relative rounded-full overflow-hidden border-2 transition-all ${
-                        newReview.avatarIndex === idx ? "border-amber-500 scale-105" : "border-transparent opacity-60 hover:opacity-100"
-                      }`}
+                      key={s} type="button"
+                      onMouseEnter={() => setHoverStar(s)}
+                      onMouseLeave={() => setHoverStar(null)}
+                      onClick={() => setForm({ ...form, rating: s })}
                     >
-                      <img src={avatar} alt={`Avatar option ${idx + 1}`} width={40} height={40} className="w-10 h-10 object-cover" />
-                      {newReview.avatarIndex === idx && (
-                        <div className="absolute inset-0 bg-amber-500/20 flex items-center justify-center font-bold text-white text-xs">✓</div>
-                      )}
+                      <Star
+                        className="w-7 h-7 transition-colors"
+                        style={{
+                          color: s <= (hoverStar ?? form.rating) ? "#f59e0b" : "#d1d5db",
+                          fill: s <= (hoverStar ?? form.rating) ? "#f59e0b" : "none"
+                        }}
+                      />
                     </button>
                   ))}
                 </div>
               </div>
-
               <div>
-                <label className="text-[10px] text-muted-foreground uppercase block mb-1">Your Review</label>
-                <textarea 
-                  required
-                  rows={3}
-                  value={newReview.text}
-                  onChange={(e) => setNewReview({ ...newReview, text: e.target.value })}
-                  placeholder="Share your experience working with the Websbond team..."
-                  className="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-amber-500 transition-colors resize-none"
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Your Review *</label>
+                <textarea
+                  value={form.text}
+                  onChange={(e) => setForm({ ...form, text: e.target.value })}
+                  required rows={4} placeholder="Share your experience..."
+                  className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#eb560c] transition-colors resize-none"
                 />
               </div>
-
               <button
-                type="submit"
-                disabled={submitting}
-                className="w-full bg-white hover:bg-slate-100 disabled:opacity-50 text-slate-950 font-bold py-3 rounded-xl transition-all text-sm flex items-center justify-center gap-2 mt-2"
+                type="submit" disabled={submitting}
+                className="w-full flex items-center justify-center gap-2 text-white font-bold py-3.5 rounded-lg transition-all duration-300 disabled:opacity-60"
+                style={{ background: "#eb560c" }}
               >
-                {submitting && <Loader2 className="w-4 h-4 animate-spin" />}
-                {submitting ? "Submitting Review..." : "Submit Review"}
+                {submitting ? (
+                  <><Loader2 className="w-4 h-4 animate-spin" /> Submitting...</>
+                ) : (
+                  "Submit Review"
+                )}
               </button>
             </form>
           </div>

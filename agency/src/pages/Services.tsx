@@ -44,7 +44,7 @@ export const ServicesPage = () => {
       />
 
       {/* ── Services Hero Section ── */}
-      <section className="relative overflow-hidden pt-8 pb-12 border-b border-border bg-gradient-to-br from-background via-surface-2 to-amber-500/5 dark:to-amber-950/10">
+      <section className="relative overflow-hidden pt-16 pb-16" style={{ background: "linear-gradient(135deg, #002b49 0%, #16243E 100%)" }}>
 
         {/* Animated Background Mesh & Floating Particles */}
         <div className="absolute inset-0 grid-mesh opacity-[0.05] dark:opacity-[0.07] pointer-events-none" />
@@ -60,19 +60,19 @@ export const ServicesPage = () => {
             
             {/* Left Content Column */}
             <div className="flex flex-col items-start text-left gap-5">
-              <div className="inline-flex items-center gap-2 border border-amber-500/20 dark:border-amber-500/20 bg-amber-500/5 dark:bg-amber-500/5 backdrop-blur-md text-amber-500 dark:text-amber-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full w-fit">
-                <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
+              <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 backdrop-blur-md text-white font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full w-fit">
+                <Sparkles className="w-3.5 h-3.5 text-[#eb560c] animate-pulse" />
                 Digital Solutions That Drive Real Growth
               </div>
 
-              <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground tracking-tight">
-                Handcrafted Code.<br />
-                <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">
-                  Measurable Growth.
+              <h1 className="font-jost font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight text-white tracking-tight">
+                Premium Digital Services.<br />
+                <span style={{ color: "#eb560c" }}>
+                  Real, Measurable Growth.
                 </span>
               </h1>
 
-              <p className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed font-semibold">
+              <p className="text-sm sm:text-base text-white/75 max-w-xl leading-relaxed font-semibold">
                 We avoid template layouts. We build premium, custom React and Next.js systems engineered to dominate search rankings and optimize conversions.
               </p>
 
@@ -96,7 +96,8 @@ export const ServicesPage = () => {
               <div className="flex flex-wrap gap-3 mt-1 justify-start">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3.5 rounded-xl shadow-md transition-all text-xs"
+                  className="inline-flex items-center gap-2 font-bold px-6 py-3.5 rounded-lg shadow-md transition-all text-sm text-white"
+                  style={{ background: "#eb560c" }}
                 >
                   Get Started Free <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -108,22 +109,21 @@ export const ServicesPage = () => {
                 >
                   <MessageCircle className="w-3.5 h-3.5" /> WhatsApp Consultant
                 </a>
-              </div>
-
-              {/* AVATAR + RATING */}
-              <div className="flex items-center gap-3 pt-3 border-t border-slate-200/80 dark:border-white/[0.06] mt-1 justify-start w-full">
+               {/* AVATAR + RATING */}
+              <div className="flex items-center gap-3 pt-3 border-t border-white/10 mt-1 justify-start w-full">
                 <div className="flex -space-x-3">
-                  <img src={a1} alt="Client" width={32} height={32} className="w-8 h-8 rounded-full ring-2 ring-slate-150 dark:ring-slate-950 object-cover" />
-                  <img src={a2} alt="Client" width={32} height={32} className="w-8 h-8 rounded-full ring-2 ring-slate-150 dark:ring-slate-950 object-cover" />
-                  <img src={a3} alt="Client" width={32} height={32} className="w-8 h-8 rounded-full ring-2 ring-slate-150 dark:ring-slate-950 object-cover" />
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 to-amber-600 ring-2 ring-slate-150 dark:ring-slate-950 flex items-center justify-center text-[9px] font-bold text-slate-950">100%</div>
+                  <img src={a1} alt="Client" width={32} height={32} className="w-8 h-8 rounded-full ring-2 ring-[#002b49] object-cover" />
+                  <img src={a2} alt="Client" width={32} height={32} className="w-8 h-8 rounded-full ring-2 ring-[#002b49] object-cover" />
+                  <img src={a3} alt="Client" width={32} height={32} className="w-8 h-8 rounded-full ring-2 ring-[#002b49] object-cover" />
+                  <div className="w-8 h-8 rounded-full ring-2 ring-[#002b49] flex items-center justify-center text-[9px] font-bold text-white" style={{ background: "#eb560c" }}>100%</div>
                 </div>
                 <div>
-                  <div className="flex gap-0.5 text-amber-400">
+                  <div className="flex gap-0.5" style={{ color: "#f59e0b" }}>
                     {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
                   </div>
-                  <p className="text-[10px] text-muted-foreground font-semibold">Delhi NCR & Haryana engineering team working directly with you</p>
+                  <p className="text-[10px] text-white/70 font-semibold">Delhi NCR &amp; Haryana engineering team working directly with you</p>
                 </div>
+              </div>
               </div>
             </div>
 

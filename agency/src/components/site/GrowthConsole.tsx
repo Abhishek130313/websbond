@@ -1,322 +1,158 @@
-import { useState, useEffect } from "react";
-import { Sparkles, ArrowRight, Cpu, ArrowUpRight, TrendingUp, Check } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, Globe, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 
-interface CampaignData {
-  name: string;
-  industry: string;
-  leftStats: { value: string; label: string }[];
-  kpis: {
-    visitors: string;
-    leads: string;
-    conversion: string;
-  };
-  chartPath: string;
-  pieSectors: { label: string; percentage: number; color: string; offset: number }[];
-  logs: string[];
-}
+/* Brand partner logos (using named brand text since we can't use actual logo files) */
+const BRANDS = [
+  { name: "Google Partner", icon: "🔵" },
+  { name: "Meta Business", icon: "🟦" },
+  { name: "Shopify Partner", icon: "🟢" },
+  { name: "WordPress.org", icon: "🔷" },
+  { name: "AWS Partner", icon: "🟧" },
+  { name: "HubSpot", icon: "🟠" },
+  { name: "Semrush", icon: "🟣" },
+  { name: "Ahrefs", icon: "🔴" },
+  { name: "Mailchimp", icon: "🐵" },
+  { name: "Canva Pro", icon: "🎨" },
+];
 
-const campaigns: Record<string, CampaignData> = {
-  zara: {
-    name: "Zara Luxe Fashion",
-    industry: "E-Commerce Retailer",
-    leftStats: [
-      { value: "+240%", label: "Conversion Rate increase" },
-      { value: "0.24s", label: "Lighthouse FCP Speed load" },
-      { value: "124", label: "Monthly online orders" }
-    ],
-    kpis: {
-      visitors: "42.8K",
-      leads: "2,490",
-      conversion: "5.8%"
-    },
-    chartPath: "M 0 60 Q 20 40 40 55 T 80 20 T 120 45 T 160 10 T 200 5",
-    pieSectors: [
-      { label: "Google Organic", percentage: 55, color: "#10b981", offset: 0 },
-      { label: "Meta Paid Ads", percentage: 30, color: "#e29a09", offset: 55 },
-      { label: "Direct Referral", percentage: 15, color: "#f59e0b", offset: 85 }
-    ],
-    logs: [
-      "User session added leather boot item to cart...",
-      "API payload dispatched to Payment Gateway server...",
-      "Conversion Pixel tracked success event successfully...",
-      "Gurugram fulfillment hub updated stock parameters!"
-    ]
-  },
-  kearney: {
-    name: "Kearney Partners",
-    industry: "Corporate Consulting",
-    leftStats: [
-      { value: "Rank #1", label: "Google Search Position" },
-      { value: "99/100", label: "Mobile Performance Rating" },
-      { value: "480+", label: "Qualified leads collected" }
-    ],
-    kpis: {
-      visitors: "14.2K",
-      leads: "1,240",
-      conversion: "8.7%"
-    },
-    chartPath: "M 0 50 Q 20 52 40 30 T 80 35 T 120 15 T 160 8 T 200 2",
-    pieSectors: [
-      { label: "Google Organic", percentage: 70, color: "#10b981", offset: 0 },
-      { label: "Direct Traffic", percentage: 20, color: "#e29a09", offset: 70 },
-      { label: "LinkedIn Ads", percentage: 10, color: "#f59e0b", offset: 90 }
-    ],
-    logs: [
-      "Visitor downloaded advisory capability blueprint PDF...",
-      "Google Search Console scanned core Web Vitals - OK...",
-      "Lead synchronization with Hubspot CRM - Successful...",
-      "WhatsApp direct api redirected client consultation request!"
-    ]
-  },
-  taj: {
-    name: "Taj Spice Bistro",
-    industry: "Restaurant Chain",
-    leftStats: [
-      { value: "+400%", label: "Table booking rate increase" },
-      { value: "100%", label: "Desktop Lighthouse score" },
-      { value: "840+", label: "Inbound orders dispatched" }
-    ],
-    kpis: {
-      visitors: "28.4K",
-      leads: "3,180",
-      conversion: "11.2%"
-    },
-    chartPath: "M 0 65 Q 20 60 40 40 T 80 48 T 120 18 T 160 12 T 200 4",
-    pieSectors: [
-      { label: "Google Maps Local", percentage: 60, color: "#10b981", offset: 0 },
-      { label: "Instagram SEO", percentage: 25, color: "#e29a09", offset: 60 },
-      { label: "Email Campaign", percentage: 15, color: "#f59e0b", offset: 85 }
-    ],
-    logs: [
-      "Table reservation request for 4 guests received...",
-      "Booking confirmation dispatch trigger executed...",
-      "Local Map SEO rankings updated for Delhi NCR bistro terms...",
-      "Daily revenue report generated and emailed to admin dashboard!"
-    ]
-  }
-};
+const ACHIEVEMENTS = [
+  { icon: <TrendingUp className="w-6 h-6" />, value: "300%+", label: "Average ROI Delivered" },
+  { icon: <Users className="w-6 h-6" />, value: "100+", label: "Satisfied Clients" },
+  { icon: <Globe className="w-6 h-6" />, value: "10+", label: "Countries Served" },
+  { icon: <Award className="w-6 h-6" />, value: "5+", label: "Years of Excellence" },
+];
 
-export const GrowthConsole = () => {
-  const [selectedCampaign, setSelectedCampaign] = useState<keyof typeof campaigns>("zara");
-  const activeData = campaigns[selectedCampaign];
+export const GrowthConsole = () => (
+  <>
+    {/* ── Brand Partners / Tools Marquee ── */}
+    <section className="py-16" style={{ background: "#f8fafc" }}>
+      <div className="container">
+        <div className="text-center mb-10">
+          <span className="section-tagline">Trusted Tools & Partners</span>
+          <h2 className="section-title">
+            We Work With the <span>Best Platforms</span>
+          </h2>
+          <div className="section-underline mx-auto" />
+        </div>
 
-  return (
-    <section className="container py-24 md:py-32 relative mx-auto px-4">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] h-[400px] rounded-full blur-[130px] pointer-events-none opacity-45 bg-gradient-to-tr from-cyan-500/5 via-amber-500/10 to-orange-500/5" />
+        {/* Marquee container */}
+        <div className="relative overflow-hidden">
+          {/* Fade edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 z-10"
+            style={{ background: "linear-gradient(to right, #f8fafc, transparent)" }} />
+          <div className="absolute right-0 top-0 bottom-0 w-24 z-10"
+            style={{ background: "linear-gradient(to left, #f8fafc, transparent)" }} />
 
-      <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-16 items-center max-w-6xl mx-auto relative z-10">
-        
-        {/* Left Side: Copy and Controls */}
-        <div className="flex flex-col gap-8">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20 text-amber-500 dark:text-white font-semibold text-[11px] uppercase tracking-widest px-4 py-2 rounded-full mb-6">
-              <Cpu className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400 animate-pulse" /> Live Growth Engine
-            </div>
-            <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-slate-900 dark:text-white tracking-tight leading-tight">
-              Real-time results, <br />
-              <span className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 bg-clip-text text-transparent">
-                backed by hard data.
-              </span>
-            </h2>
-            <p className="mt-4 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-              We design digital systems built for conversion. Select one of our active client projects below to inspect live analytics indicators, conversion channels, and data flow logs.
-            </p>
-          </div>
-
-          {/* Bulleted Metric list */}
-          <div className="space-y-3 border-t border-b border-slate-200/60 dark:border-white/[0.06] py-6">
-            {activeData.leftStats.map((stat, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <div className="w-5 h-5 rounded-full bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center shrink-0">
-                  <Check className="w-3 h-3 text-emerald-600 dark:text-emerald-400" strokeWidth={3.5} />
-                </div>
-                <div className="text-sm font-semibold text-slate-800 dark:text-white">
-                  {stat.value} <span className="text-slate-500 dark:text-slate-400 font-normal">{stat.label}</span>
-                </div>
+          <div className="flex animate-marquee">
+            {/* Double for infinite loop */}
+            {[...BRANDS, ...BRANDS].map((brand, i) => (
+              <div
+                key={`${brand.name}-${i}`}
+                className="flex-shrink-0 mx-4 bg-white rounded-xl border border-gray-100 px-8 py-5 flex flex-col items-center gap-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                style={{ minWidth: 140 }}
+              >
+                <span className="text-3xl">{brand.icon}</span>
+                <span className="text-xs font-bold text-gray-600 text-center whitespace-nowrap">
+                  {brand.name}
+                </span>
               </div>
             ))}
           </div>
-
-          {/* Interactive Triggers */}
-          <div className="space-y-3">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-500">Choose Project Console:</span>
-            <div className="grid grid-cols-3 gap-2.5">
-              {(Object.keys(campaigns) as Array<keyof typeof campaigns>).map((key) => {
-                const isSelected = selectedCampaign === key;
-                return (
-                  <button
-                    key={key}
-                    onClick={() => setSelectedCampaign(key)}
-                    className={`py-3 px-2 text-center rounded-xl border text-[10px] sm:text-xs font-bold uppercase tracking-wide transition-all ${
-                      isSelected
-                        ? "bg-amber-500/15 border-amber-500 text-amber-600 dark:text-white shadow-[0_0_15px_rgba(242,161,4,0.2)]"
-                        : "bg-slate-100 dark:bg-white/[0.015] border-slate-200 dark:border-white/[0.05] text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-white/15 hover:bg-slate-200/50 dark:hover:bg-white/[0.03]"
-                    }`}
-                  >
-                    {campaigns[key].name.split(" ")[0]}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* CTA Link */}
-          <div>
-            <Link
-              to="/our-work"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold px-6 py-3 rounded-xl transition-all shadow-[0_0_15px_rgba(242,161,4,0.15)]"
-            >
-              View Case Studies Portfolio <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
-
-        {/* Right Side: Interactive Analytical Dashboard */}
-        <div className="glass-panel rounded-3xl p-6 md:p-8 bg-slate-950/70 border border-white/[0.06] flex flex-col gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.6)] relative overflow-hidden">
-          
-          {/* Dashboard Header */}
-          <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-              <span className="text-[10px] font-bold text-slate-400 font-mono">
-                KPI MONITOR // {activeData.name.toUpperCase()}
-              </span>
-            </div>
-            <span className="text-[9px] text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded uppercase font-mono">
-              System: Active
-            </span>
-          </div>
-
-          {/* Top Metrics Row */}
-          <div className="grid grid-cols-3 gap-3">
-            <div className="bg-white/[0.01] border border-white/[0.04] rounded-xl p-3.5 text-center">
-              <span className="text-[9px] text-slate-400 uppercase block font-bold">Total Visitors</span>
-              <span className="text-lg md:text-xl font-display font-black text-white font-mono block mt-1">
-                {activeData.kpis.visitors}
-              </span>
-            </div>
-            <div className="bg-white/[0.01] border border-white/[0.04] rounded-xl p-3.5 text-center">
-              <span className="text-[9px] text-slate-400 uppercase block font-bold">Total Leads</span>
-              <span className="text-lg md:text-xl font-display font-black text-white font-mono block mt-1">
-                {activeData.kpis.leads}
-              </span>
-            </div>
-            <div className="bg-white/[0.01] border border-white/[0.04] rounded-xl p-3.5 text-center">
-              <span className="text-[9px] text-slate-400 uppercase block font-bold">Conv. Rate</span>
-              <span className="text-lg md:text-xl font-display font-black text-emerald-400 font-mono block mt-1">
-                {activeData.kpis.conversion}
-              </span>
-            </div>
-          </div>
-
-          {/* Animated SVG Traffic growth Line Chart */}
-          <div className="bg-slate-900/40 border border-white/[0.04] rounded-xl p-4 flex flex-col justify-between">
-            <div className="flex items-center justify-between mb-3 text-[10px] font-mono text-slate-400">
-              <span className="flex items-center gap-1.5"><TrendingUp className="w-3.5 h-3.5 text-emerald-400" /> Weekly Traffic Growth</span>
-              <span>Lighthouse Verified</span>
-            </div>
-            <div className="relative h-28 w-full">
-              <svg className="w-full h-full" viewBox="0 0 200 70" preserveAspectRatio="none">
-                {/* Grid guidelines */}
-                <line x1="0" y1="15" x2="200" y2="15" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
-                <line x1="0" y1="35" x2="200" y2="35" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
-                <line x1="0" y1="55" x2="200" y2="55" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
-
-                {/* Animated Chart path */}
-                <path 
-                  d={activeData.chartPath} 
-                  fill="none" 
-                  stroke="url(#chart-line-gradient)" 
-                  strokeWidth="2.5" 
-                  strokeLinecap="round"
-                  className="animate-chart-dash"
-                />
-                
-                {/* Gradients definitions */}
-                <defs>
-                  <linearGradient id="chart-line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#e29a09" />
-                    <stop offset="50%" stopColor="#f2a104" />
-                    <stop offset="100%" stopColor="#fbbf24" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-            <div className="flex justify-between items-center text-[8px] text-slate-400 font-mono mt-2">
-              <span>MON</span>
-              <span>WED</span>
-              <span>FRI</span>
-              <span>SUN (TODAY)</span>
-            </div>
-          </div>
-
-          {/* Bottom Row: Traffic source Pie Chart & Live Console logs */}
-          <div className="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-4">
-            {/* Pie Chart SVG Panel */}
-            <div className="bg-white/[0.01] border border-white/[0.04] rounded-xl p-4 flex flex-col justify-between items-center text-center">
-              <span className="text-[9px] text-slate-400 uppercase font-bold block mb-2">Traffic Channels</span>
-              <div className="relative w-20 h-20 flex items-center justify-center">
-                <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
-                  {/* Sector segments drawn as circle stroke-dasharrays */}
-                  {activeData.pieSectors.map((sec, i) => (
-                    <circle
-                      key={i}
-                      cx="18"
-                      cy="18"
-                      r="15.915"
-                      fill="none"
-                      stroke={sec.color}
-                      strokeWidth="3.2"
-                      strokeDasharray={`${sec.percentage} ${100 - sec.percentage}`}
-                      strokeDashoffset={100 - sec.offset}
-                      className="transition-all duration-700"
-                    />
-                  ))}
-                </svg>
-                {/* Center hole to create donut chart */}
-                <div className="absolute w-12 h-12 rounded-full bg-slate-950 flex flex-col justify-center items-center">
-                  <span className="text-[10px] font-black text-white font-mono">{activeData.pieSectors[0].percentage}%</span>
-                  <span className="text-[6px] text-slate-400 font-bold uppercase tracking-wider">Top Src</span>
-                </div>
-              </div>
-              <div className="space-y-1 mt-2.5 w-full text-left">
-                {activeData.pieSectors.map((sec, i) => (
-                  <div key={i} className="flex items-center justify-between text-[8px]">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: sec.color }} />
-                      <span className="text-slate-400 font-bold">{sec.label}</span>
-                    </div>
-                    <span className="text-white font-mono font-bold">{sec.percentage}%</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Live Terminal logs */}
-            <div className="bg-slate-950 border border-white/[0.05] rounded-xl p-4 flex flex-col justify-between min-h-[140px] font-mono text-[9px] text-amber-500/80">
-              <div className="space-y-1.5 select-none">
-                <div className="text-slate-400">// INTEGRATION EVENT PIPELINE</div>
-                {activeData.logs.map((log, i) => (
-                  <div key={i} className="flex items-start gap-1.5 leading-relaxed">
-                    <span className="text-slate-500 shrink-0">[{14 + i}:12]</span>
-                    <span className={i === activeData.logs.length - 1 ? "text-emerald-400 font-bold" : "text-slate-300"}>
-                      {i === activeData.logs.length - 1 ? "✓ " : "• "} {log}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <div className="text-[8px] text-slate-500 flex justify-between border-t border-white/[0.04] pt-2 mt-2">
-                <span>TERMINAL: OK</span>
-                <span>STREAM ACTIVE</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
       </div>
     </section>
-  );
-};
+
+    {/* ── Achievements / Growth Stats ── */}
+    <section className="py-20 md:py-24" style={{ background: "#ffffff" }}>
+      <div className="container">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          {/* Left: Achievement Stats */}
+          <div>
+            <span className="section-tagline">Our Achievements</span>
+            <h2 className="section-title mb-2">
+              Proven Growth <span>Results</span>
+            </h2>
+            <div className="section-underline-left mb-6" />
+            <p className="text-gray-500 text-base leading-relaxed mb-8">
+              At Websbond, our success is measured by our clients' growth. From local businesses in Delhi NCR and Haryana to global enterprises, we've delivered measurable results across industries.
+            </p>
+
+            <div className="grid grid-cols-2 gap-6">
+              {ACHIEVEMENTS.map((item) => (
+                <div
+                  key={item.label}
+                  className="border border-gray-100 rounded-2xl p-5 text-center hover:-translate-y-1 transition-all duration-300 hover:shadow-lg group"
+                >
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 transition-all duration-300 group-hover:scale-110"
+                    style={{ background: "rgba(235,86,12,0.1)", color: "#eb560c" }}
+                  >
+                    {item.icon}
+                  </div>
+                  <div
+                    className="font-jost font-bold text-3xl mb-1"
+                    style={{ color: "#eb560c" }}
+                  >
+                    {item.value}
+                  </div>
+                  <p className="text-gray-500 text-sm font-medium">{item.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 font-bold px-8 py-4 rounded-lg text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                style={{ background: "#eb560c" }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "#d14b0a")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "#eb560c")}
+              >
+                Get Started Today <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Right: Feature visual */}
+          <div className="relative">
+            <div
+              className="rounded-2xl overflow-hidden"
+              style={{ boxShadow: "0 20px 60px rgba(0,43,73,0.12)" }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&auto=format&fit=crop&q=80"
+                alt="Digital marketing analytics dashboard"
+                className="w-full object-cover"
+                style={{ height: 420 }}
+              />
+            </div>
+
+            {/* Floating mini cards */}
+            <div
+              className="absolute -top-4 -right-4 bg-white rounded-xl px-4 py-3 flex items-center gap-2"
+              style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.12)" }}
+            >
+              <span className="text-xl">📈</span>
+              <div>
+                <p className="text-xs text-gray-400 font-medium">This month</p>
+                <p className="font-jost font-bold text-sm text-[#002b49]">+127% Traffic</p>
+              </div>
+            </div>
+
+            <div
+              className="absolute -bottom-4 -left-4 bg-white rounded-xl px-4 py-3 flex items-center gap-2"
+              style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.12)" }}
+            >
+              <span className="text-xl">🎯</span>
+              <div>
+                <p className="text-xs text-gray-400 font-medium">Conversions</p>
+                <p className="font-jost font-bold text-sm text-[#002b49]">4.8× ROI</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </>
+);

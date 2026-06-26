@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { ArrowRight, Play, Check, Sparkles, Code2, Search, Megaphone, Cpu, Zap, Headphones, Star, TrendingUp, Shield, MessageCircle, Loader2 } from "lucide-react";
+import { useState, useRef } from "react";
+import { ArrowRight, Play, Check, Phone, MessageCircle, Loader2, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
@@ -7,366 +7,235 @@ import a1 from "@/assets/avatar1.webp";
 import a2 from "@/assets/avatar2.webp";
 import a3 from "@/assets/avatar3.webp";
 
-interface FloatingCardProps {
-  title: string;
-  icon: React.ReactNode;
-  glowColor: string;
-  positionClass: string;
-}
+const SERVICES_PILLS = [
+  "Website Development",
+  "SEO Optimization",
+  "Google Ads / PPC",
+  "Social Media Marketing",
+  "Content Strategy",
+  "E-Commerce Solutions",
+];
 
-const FloatingCard = ({ title, icon, glowColor, positionClass }: FloatingCardProps) => {
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
+const TRUST_POINTS = [
+  "100+ Happy Clients",
+  "Result-Driven Strategies",
+  "Transparent Reporting",
+  "24/7 Dedicated Support",
+];
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (window.innerWidth < 1024) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const tX = -((y - rect.height / 2) / 6);
-    const tY = (x - rect.width / 2) / 6;
-    setTilt({ x: tX, y: tY });
-  };
-
-  return (
-    <div
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => { setTilt({ x: 0, y: 0 }); setIsHovered(false); }}
-      style={{
-        transform: isHovered
-          ? `perspective(600px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(1.08)`
-          : `perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)`,
-        transition: isHovered ? "none" : "transform 0.4s ease",
-      } as React.CSSProperties}
-      className={`absolute hidden lg:flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/90 dark:bg-slate-900/95 border border-slate-200 dark:border-white/[0.1] backdrop-blur-xl hover:border-amber-500/40 hover:shadow-[0_0_20px_rgba(242,161,4,0.25)] z-20 select-none ${positionClass} ${glowColor}`}
-    >
-      <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/[0.04] border border-slate-200/80 dark:border-white/[0.08] flex items-center justify-center">{icon}</div>
-      <span className="text-xs font-bold text-slate-800 dark:text-white tracking-wide">{title}</span>
-    </div>
-  );
-};
-
-export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; subtitle?: string; ctaLabel?: string; ctaHref?: string; }) => {
-  const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [liveConversions, setLiveConversions] = useState(3840);
+export const Hero = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLiveConversions((prev) => prev + Math.floor(Math.random() * 2) + 1);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleContainerMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (window.innerWidth < 1024) return;
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    setSpotlightPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name    = (data.get("name")    as string)?.trim();
+    const phone   = (data.get("phone")   as string)?.trim();
+    const service = (data.get("service") as string)?.trim();
+    if (!name || !phone) {
+      toast({ title: "Please fill in your name and phone number.", variant: "destructive" });
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const res = await fetch(getApiUrl("/api/leads"), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, service, source: "Hero Form" }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      toast({ title: "🎉 Thanks! We'll call you back shortly.", description: "Our expert team will reach out within minutes." });
+      form.reset();
+    } catch {
+      toast({ title: "Something went wrong.", description: "Please call us directly at +91 9306623619.", variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
-  const partnerLogos = [
-    { name: "Google", logo: "/logos/google.svg" },
-    { name: "Meta", logo: "/logos/meta.svg" },
-    { name: "Shopify", logo: "/logos/shopify.svg" },
-    { name: "WordPress", logo: "/logos/wordpress.svg" },
-    { name: "AWS", logo: "/logos/aws.svg" },
-    { name: "Cloudflare", logo: "/logos/cloudflare.svg" },
-    { name: "Stripe", logo: "/logos/stripe.svg" },
-    { name: "HubSpot", logo: "/logos/hubspot.svg" },
-  ];
-
-  const trustBadges = [
-    { label: "100% Code Handoff", dot: "bg-emerald-400" },
-    { label: "Direct Developer Chat", dot: "bg-cyan-400" },
-    { label: "PageSpeed Guarantee", dot: "bg-amber-400" },
-    { label: "0% Upfront Prototype", dot: "bg-amber-50" },
-  ];
 
   return (
     <section
-      ref={containerRef}
-      onMouseMove={handleContainerMouseMove}
-      className="relative overflow-hidden pt-6 pb-12 md:pt-8 md:pb-20 bg-background text-foreground transition-colors duration-300"
+      id="hero"
+      className="relative min-h-screen flex items-center overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, #002b49 0%, #16243E 60%, #010D4C 100%)",
+      }}
     >
-
-
-      {/* Background layers */}
-      <div className="noise-overlay pointer-events-none opacity-20 dark:opacity-35" />
-      <div className="absolute inset-0 grid-mesh opacity-30 dark:opacity-20 pointer-events-none" />
-
-      {/* Aurora orbs */}
-      <div className="absolute -top-48 left-1/4 w-[550px] h-[550px] rounded-full bg-blue-500/3 dark:bg-blue-500/6 blur-[130px] pointer-events-none animate-aurora-1" />
-      <div className="absolute top-1/3 -right-32 w-[650px] h-[650px] rounded-full bg-amber-500/3 dark:bg-amber-500/6 blur-[150px] pointer-events-none animate-aurora-2" />
-      <div className="absolute -bottom-40 left-10 w-[500px] h-[500px] rounded-full bg-cyan-500/4 dark:bg-cyan-500/6 blur-[110px] pointer-events-none animate-aurora-3" />
-
-      {/* Mouse spotlight */}
+      {/* Background pattern overlay */}
       <div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{ background: `radial-gradient(700px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(242,161,4,0.06), transparent 70%)` }}
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}
       />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-10 items-center">
+      {/* Radial glow blobs */}
+      <div className="absolute top-20 right-20 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none"
+        style={{ background: "radial-gradient(circle, #eb560c 0%, transparent 70%)" }} />
+      <div className="absolute bottom-20 left-20 w-72 h-72 rounded-full opacity-10 blur-3xl pointer-events-none"
+        style={{ background: "radial-gradient(circle, #eb560c 0%, transparent 70%)" }} />
 
-          {/* ═══ LEFT COLUMN (Text Left Aligned) ═══ */}
-          <div className="flex flex-col gap-6 text-left items-start">
-            
-            {/* Badge */}
-            <div className="hero-fu inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/25 text-amber-600 dark:text-white font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-4 py-2 rounded-full backdrop-blur-sm shadow-[0_0_20px_rgba(242,161,4,0.05)]">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400 animate-spin-slow" />
-              Elite Digital Solutions — Engineered For Global Growth
+      <div className="container relative z-10 py-20 md:py-28">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          {/* ── Left Column: Text + CTAs ── */}
+          <div>
+            {/* Tagline pill */}
+            <div className="hero-fu inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6">
+              <Star className="w-3.5 h-3.5 text-[#eb560c] fill-[#eb560c]" />
+              <span className="text-white/90 text-xs font-semibold uppercase tracking-widest">
+                #1 Digital Agency in Delhi NCR & Haryana
+              </span>
             </div>
 
-            {/* H1 */}
-            <div className="hero-fu-1">
-              <h1 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-[-0.04em] text-slate-900 dark:text-white">
-                {title ? title : "We Build Websites"}{" "}
-                {subtitle ? (
-                  <span className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 bg-clip-text text-transparent glow-txt block">
-                    {subtitle}
-                  </span>
-                ) : (
-                  <span className="bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 dark:from-amber-400 dark:via-yellow-400 dark:to-amber-500 bg-clip-text text-transparent glow-txt block">
-                    That Grow Businesses.
-                  </span>
-                )}
-              </h1>
-            </div>
+            {/* Main headline */}
+            <h1 className="hero-fu-1 font-jost font-bold text-white leading-tight mb-4"
+              style={{ fontSize: "clamp(32px, 5vw, 60px)", lineHeight: 1.1 }}>
+              Grow Your Business With{" "}
+              <span style={{ color: "#eb560c" }}>Data-Driven</span>{" "}
+              Digital Marketing
+            </h1>
 
-            {/* Subtext */}
-            <p className="hero-fu-2 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed">
-              Delhi NCR & Haryana's premier digital engineering agency — crafting custom React and Next.js platforms, 100/100 PageSpeed optimization, organic search engine systems, and direct senior developer contact. Ready to build?
+            {/* Subtitle */}
+            <p className="hero-fu-2 text-white/75 text-lg leading-relaxed mb-8 max-w-xl">
+              Websbond delivers premium websites, performance SEO, and high-ROI ad campaigns for businesses in Delhi NCR, Haryana, and worldwide. Get results that actually matter.
             </p>
 
-            {/* Stars + social proof */}
-            <div className="hero-fu-2 flex items-center gap-3 flex-wrap">
-              <div className="flex gap-0.5 text-amber-500 bg-amber-500/5 border border-amber-500/10 rounded-full px-3 py-1.5 items-center">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                ))}
-                <span className="text-xs font-bold text-slate-800 dark:text-white ml-2">5.0/5</span>
-              </div>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-bold tracking-wider uppercase">Transparent Engineering Guarantee</span>
-            </div>
-
-            {/* Trust badge pills */}
-            <div className="hero-fu-3 flex flex-wrap gap-2">
-              {trustBadges.map((b) => (
-                <div key={b.label} className="flex items-center gap-2 bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-sm rounded-full px-3 py-1.5">
-                  <span className={`w-1.5 h-1.5 rounded-full ${b.dot} animate-pulse shrink-0`} />
-                  <span className="text-[11px] font-bold text-slate-600 dark:text-slate-300">{b.label}</span>
-                </div>
+            {/* Trust points */}
+            <ul className="hero-fu-3 grid grid-cols-2 gap-2 mb-8">
+              {TRUST_POINTS.map((pt) => (
+                <li key={pt} className="flex items-center gap-2 text-white/85 text-sm font-medium">
+                  <Check className="w-4 h-4 text-[#eb560c] flex-shrink-0" />
+                  {pt}
+                </li>
               ))}
-            </div>
+            </ul>
 
             {/* CTA Buttons */}
-            <div className="hero-fu-4 flex flex-wrap gap-4">
+            <div className="hero-fu-4 flex flex-wrap items-center gap-4 mb-8">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold px-8 py-4 rounded-xl shadow-[0_0_30px_rgba(242,161,4,0.15)] dark:shadow-[0_0_30px_rgba(242,161,4,0.25)] hover:shadow-[0_0_45px_rgba(242,161,4,0.35)] hover:-translate-y-0.5 transition-all duration-300 text-sm"
+                className="inline-flex items-center gap-2 font-bold text-white px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
+                style={{ background: "#eb560c" }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "#d14b0a")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "#eb560c")}
               >
-                Free Consultation <ArrowRight className="w-4 h-4" />
+                Get Free Consultation <ArrowRight className="w-4 h-4" />
               </Link>
-              <a
-                href="https://wa.me/919306623619?text=Namaste!%20I%20am%20interested%20in%20a%20free%20website%20consultation%20with%20Websbond."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-4 rounded-xl hover:-translate-y-0.5 transition-all duration-300 text-sm shadow-md"
-              >
-                <MessageCircle className="w-4 h-4" /> WhatsApp Us
-              </a>
               <Link
                 to="/our-work"
-                className="inline-flex items-center gap-3 bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.1] hover:border-slate-300 dark:hover:border-white/20 hover:bg-slate-200/50 dark:hover:bg-white/[0.06] text-slate-700 dark:text-white font-bold px-6 py-4 rounded-xl hover:-translate-y-0.5 transition-all duration-300 backdrop-blur-md text-sm"
+                className="inline-flex items-center gap-2 font-bold text-white px-8 py-4 rounded-lg border-2 border-white/40 hover:border-white hover:bg-white/10 transition-all duration-300"
               >
-                <span className="w-7 h-7 rounded-full bg-white/60 dark:bg-white/5 border border-slate-200 dark:border-white/10 grid place-items-center">
-                  <Play className="w-2.5 h-2.5 fill-current ml-0.5 text-amber-600 dark:text-white" />
-                </span>
-                See Our Work
+                <Play className="w-4 h-4" /> View Our Work
               </Link>
             </div>
 
-            {/* Guarantees row */}
-            <div className="hero-fu-4 flex flex-wrap gap-x-6 gap-y-2 border-t border-slate-200 dark:border-white/[0.06] pt-5 text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider">
-              {["100% Code Ownership", "Direct WhatsApp Line", "Lighthouse 100/100", "NCR Engineering Team"].map((item) => (
-                <div key={item} className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
-                    <Check className="w-2.5 h-2.5 text-emerald-500 dark:text-emerald-400" strokeWidth={3.5} />
-                  </div>
-                  <span>{item}</span>
+            {/* Social proof: avatars */}
+            <div className="hero-fu-5 flex items-center gap-3">
+              <div className="flex -space-x-2">
+                {[a1, a2, a3].map((av, i) => (
+                  <img key={i} src={av} alt={`client ${i + 1}`}
+                    className="w-9 h-9 rounded-full border-2 border-[#002b49] object-cover" />
+                ))}
+              </div>
+              <div>
+                <div className="flex">
+                  {[1,2,3,4,5].map((s) => (
+                    <Star key={s} className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
+                  ))}
                 </div>
+                <p className="text-white/70 text-xs mt-0.5">Trusted by 100+ businesses</p>
+              </div>
+            </div>
+
+            {/* Service pills */}
+            <div className="mt-6 flex flex-wrap gap-2">
+              {SERVICES_PILLS.map((s) => (
+                <span key={s}
+                  className="text-xs font-semibold text-white/70 border border-white/20 rounded-full px-3 py-1 hover:border-[#eb560c] hover:text-[#eb560c] transition-colors cursor-default">
+                  {s}
+                </span>
               ))}
             </div>
-
-            {/* Client avatars */}
-            <div className="hero-fu-5 flex items-center gap-4">
-              <div className="flex -space-x-3">
-                <img src={a1} alt="Happy client" width={36} height={36} decoding="async" fetchPriority="low" className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
-                <img src={a2} alt="Happy client" width={36} height={36} decoding="async" fetchPriority="low" className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
-                <img src={a3} alt="Happy client" width={36} height={36} decoding="async" fetchPriority="low" className="w-9 h-9 rounded-full ring-2 ring-slate-100 dark:ring-slate-950 object-cover" />
-                <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-amber-400 to-amber-600 ring-2 ring-slate-100 dark:ring-slate-950 flex items-center justify-center text-[10px] font-bold text-slate-950">100%</div>
-              </div>
-              <div className="text-xs text-slate-500 dark:text-slate-400 text-left max-w-[200px]">
-                <strong className="text-slate-900 dark:text-white font-bold">Delhi NCR & Haryana expert developers</strong> working directly with your business.
-              </div>
-            </div>
           </div>
 
-          {/* ═══ RIGHT COLUMN (Interactive Quote Form) ═══ */}
-          <div className="relative flex items-center justify-center pt-8 lg:pt-0 hero-fu-6" id="onboarding-form">
-            <div className="relative w-full max-w-[440px] z-20">
-              {/* Decorative glows */}
-              <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-amber-500 to-amber-600 opacity-25 blur-lg" />
-              
-              {/* Form Card */}
-              <div className="relative w-full glass-panel border-border dark:border-white/[0.08] rounded-[2rem] p-6 sm:p-8 shadow-card backdrop-blur-xl">
-                <div className="text-center mb-6">
-                  <div className="inline-flex items-center gap-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold text-[9px] uppercase tracking-wider px-3 py-1 rounded-full mb-2">
-                    <Sparkles className="w-3 h-3 animate-pulse" /> Free Consultation
-                  </div>
-                  <h3 className="font-display font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-white tracking-tight">
-                    Request A Quote
-                  </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-semibold">
-                    Speak directly with lead developers & designers.
-                  </p>
+          {/* ── Right Column: Lead Form Card ── */}
+          <div className="float-a">
+            <div
+              id="contact-form"
+              className="bg-white rounded-2xl p-8 shadow-2xl"
+              style={{ boxShadow: "0 30px 80px rgba(0,0,0,0.3)" }}
+            >
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center gap-2 bg-orange-50 text-[#eb560c] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-3">
+                  <Phone className="w-3.5 h-3.5" /> Free Strategy Call
                 </div>
+                <h3 className="text-[#002b49] text-2xl font-bold font-jost leading-tight">
+                  Get a Free Digital Marketing Audit
+                </h3>
+                <p className="text-gray-500 text-sm mt-1">
+                  Fill the form — our expert calls you back in minutes!
+                </p>
+              </div>
 
-                <form 
-                  onSubmit={async (e) => {
-                    e.preventDefault();
-                    const form = e.currentTarget;
-                    const name = (form.elements.namedItem("name") as HTMLInputElement)?.value;
-                    const email = (form.elements.namedItem("email") as HTMLInputElement)?.value;
-                    const phone = (form.elements.namedItem("phone") as HTMLInputElement)?.value;
-                    const service = (form.elements.namedItem("service") as HTMLSelectElement)?.value;
-                    const message = (form.elements.namedItem("message") as HTMLTextAreaElement)?.value;
-
-                    if (!name || !email || !phone || !service) {
-                      toast({ title: "Fields required", description: "Please fill in all mandatory fields.", variant: "destructive" });
-                      return;
-                    }
-
-                    setIsSubmitting(true);
-                    try {
-                      const response = await fetch(getApiUrl("/api/contact"), {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                          name,
-                          email,
-                          phone,
-                          subject: `Quote Request: ${service}`,
-                          message: message || `Interested in ${service} details.`
-                        }),
-                      });
-
-                      if (!response.ok) throw new Error("API failed");
-                      toast({ title: "Request Received!", description: "Our lead developers will reach out shortly via WhatsApp." });
-                      form.reset();
-                    } catch {
-                      toast({ 
-                        title: "Submission failed", 
-                        description: "Could not submit quote. Please contact +91 9306623619 directly on WhatsApp.", 
-                        variant: "destructive" 
-                      });
-                    }
-                    setIsSubmitting(false);
-                  }}
-                  className="space-y-4"
-                >
-                  <div>
-                    <label className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider block mb-1">Full Name *</label>
-                    <input 
-                      type="text" 
-                      name="name" 
-                      required 
-                      placeholder="e.g. Amit Kumar"
-                      className="w-full bg-slate-100/50 dark:bg-slate-950/60 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 outline-none focus:border-amber-500 dark:focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all font-sans"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider block mb-1">Phone / WhatsApp *</label>
-                      <input 
-                        type="tel" 
-                        name="phone" 
-                        required 
-                        placeholder="e.g. 9306623619"
-                        className="w-full bg-slate-100/50 dark:bg-slate-950/60 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 outline-none focus:border-amber-500 dark:focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all font-sans"
-                      />
-                    </div>
-                    <div>
-                      <label className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider block mb-1">Email Address *</label>
-                      <input 
-                        type="email" 
-                        name="email" 
-                        required 
-                        placeholder="e.g. amit@company.com"
-                        className="w-full bg-slate-100/50 dark:bg-slate-950/60 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 outline-none focus:border-amber-500 dark:focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all font-sans"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider block mb-1">Select Service *</label>
-                    <select 
-                      name="service" 
-                      required 
-                      className="w-full bg-slate-100/50 dark:bg-slate-950/60 border border-slate-200 dark:border-white/10 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-900 dark:text-white outline-none focus:border-amber-500 dark:focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all font-sans animate-fade-in"
-                    >
-                      <option value="" disabled className="text-slate-400">Choose a solution...</option>
-                      <option value="Website Development" className="bg-background text-foreground">Website Development</option>
-                      <option value="SEO Maps Optimization" className="bg-background text-foreground">Local SEO & Google Maps</option>
-                      <option value="Paid Ads Lead Gen" className="bg-background text-foreground">Paid Google/Meta Ad Funnels</option>
-                      <option value="Healthcare Marketing" className="bg-background text-foreground">Healthcare & Doctor Marketing</option>
-                      <option value="Complete Growth Unification" className="bg-background text-foreground">Complete Digital Marketing Retainer</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider block mb-1">Project Brief / Message</label>
-                    <textarea 
-                      name="message" 
-                      rows={2} 
-                      placeholder="e.g. Tell us about your goals, timing, or link to your current website..."
-                      className="w-full bg-slate-100/50 dark:bg-slate-950/60 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 outline-none focus:border-amber-500 dark:focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all resize-none font-sans"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold uppercase tracking-widest text-xs py-3.5 rounded-xl shadow-md transition-all active:scale-98 flex items-center justify-center gap-2 disabled:opacity-50"
+              <form ref={formRef} onSubmit={handleFormSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">Your Name *</label>
+                  <input
+                    name="name" type="text" required placeholder="e.g. Rahul Sharma"
+                    className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 focus:outline-none focus:border-[#eb560c] focus:ring-2 focus:ring-[#eb560c]/10 transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">Phone Number *</label>
+                  <input
+                    name="phone" type="tel" required placeholder="+91 XXXXXXXXXX"
+                    className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 focus:outline-none focus:border-[#eb560c] focus:ring-2 focus:ring-[#eb560c]/10 transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">Service Needed</label>
+                  <select
+                    name="service"
+                    className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-700 focus:outline-none focus:border-[#eb560c] focus:ring-2 focus:ring-[#eb560c]/10 transition-all bg-white"
                   >
-                    {isSubmitting ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <MessageCircle className="w-3.5 h-3.5" />}
-                    {isSubmitting ? "Submitting Request..." : "Send Message!"}
-                  </button>
-                </form>
+                    <option value="">Select a service...</option>
+                    {SERVICES_PILLS.map((s) => <option key={s} value={s}>{s}</option>)}
+                  </select>
+                </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-2 text-white font-bold py-4 rounded-lg transition-all duration-300 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
+                  style={{ background: "linear-gradient(135deg, #eb560c, #d14b0a)" }}
+                >
+                  {isSubmitting ? (
+                    <><Loader2 className="w-4 h-4 animate-spin" /> Sending...</>
+                  ) : (
+                    <><MessageCircle className="w-4 h-4" /> Get Free Audit Now</>
+                  )}
+                </button>
+              </form>
+
+              {/* Trust badges below form */}
+              <div className="flex items-center justify-center gap-4 mt-5 pt-4 border-t border-gray-100">
+                {["🔒 100% Confidential", "⚡ Fast Response", "💯 No Obligation"].map((b) => (
+                  <span key={b} className="text-xs text-gray-400 font-medium">{b}</span>
+                ))}
               </div>
             </div>
           </div>
 
         </div>
+      </div>
 
-        {/* ── Partner Logos Bar ── */}
-        <div className="mt-14 border-t border-slate-200 dark:border-white/[0.06] pt-8">
-          <p className="text-center text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-slate-500 font-mono mb-7">
-            Ecosystem integrations & trusted partner channels
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 opacity-35 dark:opacity-30 hover:opacity-70 transition-opacity duration-500">
-            {partnerLogos.map((p) => (
-              <div key={p.name}>
-                <img src={p.logo} alt={p.name} width={80} height={20} className="h-4 sm:h-5 opacity-70 dark:invert dark:filter dark:brightness-200 pointer-events-none select-none max-w-[80px] object-contain" />
-              </div>
-            ))}
-          </div>
-        </div>
-
+      {/* Bottom wave */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#ffffff" />
+        </svg>
       </div>
     </section>
   );

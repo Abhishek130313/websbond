@@ -1,189 +1,224 @@
-import { ArrowRight, Menu, X, Sun, Moon, Phone, Mail } from "lucide-react";
+import { ArrowRight, Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Logo } from "./Logo";
 
-const links = [
+const NAV_LINKS = [
   { label: "HOME", to: "/" },
-  { label: "SERVICES", to: "/services" },
+  {
+    label: "OUR SERVICES",
+    to: "/services",
+    dropdown: [
+      { label: "Website Design & Development", to: "/services#web-design" },
+      { label: "SEO (Search Engine Optimization)", to: "/services#seo" },
+      { label: "Google Ads / PPC Management", to: "/services#ppc" },
+      { label: "Social Media Marketing", to: "/services#smm" },
+      { label: "Content Marketing", to: "/services#content" },
+      { label: "E-Commerce Solutions", to: "/services#ecommerce" },
+    ],
+  },
   { label: "OUR WORK", to: "/our-work" },
   { label: "ABOUT US", to: "/about" },
   { label: "BLOG", to: "/blog" },
   { label: "CONTACT", to: "/contact" },
 ];
 
-export const Navbar = ({ 
-  theme = "dark", 
-  onToggleTheme 
-}: { 
-  theme?: "dark" | "light"; 
-  onToggleTheme?: () => void; 
+export const Navbar = ({
+  theme = "light",
+  onToggleTheme,
+}: {
+  theme?: "dark" | "light";
+  onToggleTheme?: () => void;
 }) => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="w-full relative">
-      {/* Utility Top Bar */}
-      <div 
-        className={`hidden md:block transition-all duration-300 overflow-hidden ${
-          scrolled 
-            ? "max-h-0 py-0 border-none opacity-0" 
-            : theme === "light" 
-              ? "py-2.5 bg-slate-100/60 border-b border-slate-200 text-slate-600" 
-              : "py-2.5 bg-slate-950 border-b border-white/[0.04] text-slate-300"
+    <div className="w-full relative z-50">
+      {/* ── Top Utility Bar ── */}
+      <div
+        className={`hidden md:block bg-[#002b49] text-white text-sm transition-all duration-300 overflow-hidden ${
+          scrolled ? "max-h-0 opacity-0 py-0" : "max-h-16 opacity-100 py-2.5"
         }`}
       >
-        <div className="container flex justify-between items-center text-xs font-semibold">
+        <div className="container flex justify-between items-center">
+          {/* Left: contact info */}
           <div className="flex gap-6 items-center">
-            <a href="tel:+919306623619" className="flex items-center gap-1.5 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
-              <Phone className="w-3.5 h-3.5 text-amber-500" /> +91 9306623619
+            <a
+              href="tel:+919306623619"
+              className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5 text-orange-400" />
+              +91 9306623619
             </a>
-            <a href="mailto:websbond@websbond.com" className="flex items-center gap-1.5 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
-              <Mail className="w-3.5 h-3.5 text-amber-500" /> websbond@websbond.com
+            <a
+              href="mailto:websbond@websbond.com"
+              className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5 text-orange-400" />
+              websbond@websbond.com
             </a>
           </div>
-          <div className="flex items-center gap-4">
-            <a 
-              href="#onboarding-form" 
+          {/* Right: CTA */}
+          <div className="flex items-center gap-3">
+            <a
+              href="#contact-form"
               onClick={(e) => {
-                const el = document.getElementById("onboarding-form");
-                if (el) {
-                  e.preventDefault();
-                  el.scrollIntoView({ behavior: "smooth" });
-                }
+                const el = document.getElementById("contact-form");
+                if (el) { e.preventDefault(); el.scrollIntoView({ behavior: "smooth" }); }
               }}
-              className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold px-4 py-1 rounded-full transition-all text-[10px] uppercase tracking-wider shadow-sm hover:shadow-md active:scale-95 animate-pulse"
+              className="bg-[#eb560c] hover:bg-[#d14b0a] text-white text-xs font-bold px-4 py-1.5 rounded transition-colors uppercase tracking-wider"
             >
-              Get a Free SEO Audit
+              Get a Free Consultation
             </a>
           </div>
         </div>
       </div>
 
-      <header 
-        className={`sticky top-0 z-50 transition-all duration-300 w-full ${
-          scrolled 
-            ? theme === "light"
-              ? "py-2 bg-white/80 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
-              : "py-2 bg-background/70 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.4)]" 
-            : "py-3 bg-transparent"
+      {/* ── Main Header ── */}
+      <header
+        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+          scrolled
+            ? "bg-white shadow-[0_2px_20px_rgba(0,0,0,0.08)] py-2"
+            : "bg-white border-b border-gray-100 py-3"
         }`}
       >
         <div className="container flex items-center justify-between gap-4">
-        <Logo light={theme === "light"} size="md" />
-        
-        <nav className={`hidden lg:flex items-center gap-8 ${
-          theme === "light" 
-            ? "bg-slate-100/40 border border-slate-200/50" 
-            : "bg-white/[0.02] border border-white/[0.05]"
-        } rounded-full px-8 py-2.5 backdrop-blur-md`}>
-          {links.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              end={l.to === "/"}
-              className={({ isActive }) =>
-                `text-sm font-semibold tracking-wide transition-all duration-200 relative py-1 ${
-                  theme === "light"
-                    ? isActive
-                      ? "text-amber-600 after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:w-1.5 after:h-1.5 after:rounded-full after:bg-amber-600 after:shadow-[0_0_8px_rgba(242,161,4,0.4)]"
-                      : "text-slate-500 hover:text-slate-900"
-                    : isActive
-                      ? "text-white after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:w-1.5 after:h-1.5 after:rounded-full after:bg-amber-500 after:shadow-[0_0_10px_rgba(242,161,4,0.6)]"
-                      : "text-muted-foreground hover:text-white"
-                }`
-              }
-            >
-              {l.label}
-            </NavLink>
-          ))}
-        </nav>
+          {/* Logo */}
+          <Logo light={false} size="md" />
 
-        <div className="flex items-center gap-2 sm:gap-4">
-          {onToggleTheme && (
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {NAV_LINKS.map((link) =>
+              link.dropdown ? (
+                <div
+                  key={link.to}
+                  className="relative group"
+                  onMouseEnter={() => setServicesOpen(true)}
+                  onMouseLeave={() => setServicesOpen(false)}
+                >
+                  <NavLink
+                    to={link.to}
+                    className={({ isActive }) =>
+                      `flex items-center gap-1 px-4 py-2 text-sm font-semibold tracking-wide uppercase transition-colors ${
+                        isActive
+                          ? "text-[#eb560c]"
+                          : "text-[#16243E] hover:text-[#eb560c]"
+                      }`
+                    }
+                  >
+                    {link.label}
+                    <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
+                  </NavLink>
+                  {/* Dropdown */}
+                  <div
+                    className={`absolute top-full left-0 w-72 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.12)] border-t-[3px] border-[#002b49] rounded-b-lg transition-all duration-200 ${
+                      servicesOpen
+                        ? "opacity-100 visible translate-y-0"
+                        : "opacity-0 invisible -translate-y-2"
+                    }`}
+                  >
+                    {link.dropdown.map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        onClick={() => setServicesOpen(false)}
+                        className="flex items-center gap-2 px-4 py-3 text-sm text-[#16243E] hover:text-[#eb560c] hover:bg-orange-50 transition-colors border-b border-gray-50 last:border-0 font-medium"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#eb560c] flex-shrink-0" />
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  end={link.to === "/"}
+                  className={({ isActive }) =>
+                    `px-4 py-2 text-sm font-semibold tracking-wide uppercase transition-colors ${
+                      isActive
+                        ? "text-[#eb560c]"
+                        : "text-[#16243E] hover:text-[#eb560c]"
+                    }`
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              )
+            )}
+          </nav>
+
+          {/* Right: CTA button + mobile hamburger */}
+          <div className="flex items-center gap-3">
+            <Link
+              to="/contact"
+              className="hidden lg:inline-flex items-center gap-2 bg-[#002b49] hover:bg-[#eb560c] text-white text-sm font-bold px-6 py-2.5 rounded transition-all duration-300 shadow-sm hover:shadow-md"
+            >
+              Free Consultation <ArrowRight className="w-4 h-4" />
+            </Link>
+
             <button
-              onClick={onToggleTheme}
-              className={`p-2.5 rounded-xl border transition-all duration-300 ${
-                theme === "light"
-                  ? "bg-slate-100/80 border-slate-200 text-slate-700 hover:bg-slate-200/80 hover:text-slate-900"
-                  : "bg-white/[0.03] border-white/5 text-slate-300 hover:bg-white/[0.08] hover:text-white"
-              }`}
-              aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+              className="lg:hidden p-2.5 rounded border border-gray-200 text-[#002b49] hover:bg-gray-50 transition-colors"
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle menu"
             >
-              {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+              {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
-          )}
-
-          <Link 
-            to="/contact" 
-            className="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-sm px-6 py-3 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(242,161,4,0.15)] hover:shadow-[0_0_30px_rgba(242,161,4,0.3)] hover:-translate-y-0.5"
-          >
-            Free Consultation <ArrowRight className="w-4 h-4" />
-          </Link>
-          
-          <button 
-            className={`lg:hidden p-2.5 rounded-xl border transition-all duration-300 ${
-              theme === "light" 
-                ? "bg-slate-100/80 border-slate-200 text-slate-600 hover:text-slate-900" 
-                : "bg-white/[0.03] border-white/5 text-slate-300 hover:text-white"
-            }`} 
-            onClick={() => setOpen(!open)} 
-            aria-label="Toggle menu"
-          >
-            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          </div>
         </div>
-      </div>
 
-      {/* Mobile menu drawer */}
-      <div 
-        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          theme === "light"
-            ? "border-b border-slate-200 bg-white/95"
-            : "border-b border-white/[0.06] bg-background/95"
-        } backdrop-blur-xl ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="container py-6 flex flex-col gap-4">
-          {links.map((l) => (
-            <NavLink 
-              key={l.to} 
-              to={l.to} 
-              end={l.to === "/"} 
+        {/* Mobile Drawer */}
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-gray-100 bg-white ${
+            open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="container py-4 flex flex-col gap-1">
+            {/* Mobile contact */}
+            <div className="flex flex-col gap-2 mb-3 pb-3 border-b border-gray-100">
+              <a href="tel:+919306623619" className="flex items-center gap-2 text-sm text-[#002b49] font-semibold">
+                <Phone className="w-4 h-4 text-[#eb560c]" /> +91 9306623619
+              </a>
+              <a href="mailto:websbond@websbond.com" className="flex items-center gap-2 text-sm text-[#002b49] font-semibold">
+                <Mail className="w-4 h-4 text-[#eb560c]" /> websbond@websbond.com
+              </a>
+            </div>
+            {NAV_LINKS.map((l) => (
+              <NavLink
+                key={l.to}
+                to={l.to}
+                end={l.to === "/"}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  `py-2.5 px-2 text-base font-bold border-b border-gray-50 uppercase tracking-wide transition-colors ${
+                    isActive
+                      ? "text-[#eb560c]"
+                      : "text-[#16243E] hover:text-[#eb560c]"
+                  }`
+                }
+              >
+                {l.label}
+              </NavLink>
+            ))}
+            <Link
+              to="/contact"
               onClick={() => setOpen(false)}
-              className={({ isActive }) => 
-                `text-lg font-bold py-2 border-b ${
-                  theme === "light" ? "border-slate-100" : "border-white/[0.03]"
-                } transition-colors ${
-                  theme === "light"
-                    ? isActive ? "text-amber-600" : "text-slate-600 hover:text-slate-900"
-                    : isActive ? "text-amber-400" : "text-muted-foreground hover:text-white"
-                }`
-              }
+              className="mt-3 flex items-center justify-center gap-2 bg-[#eb560c] text-white font-bold py-3.5 rounded text-center hover:bg-[#d14b0a] transition-colors"
             >
-              {l.label}
-            </NavLink>
-          ))}
-          <Link 
-            to="/contact" 
-            onClick={() => setOpen(false)}
-            className="mt-2 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold py-3.5 rounded-xl w-full text-center"
-          >
-            Free Consultation <ArrowRight className="w-4 h-4" />
-          </Link>
+              Free Consultation <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
     </div>
   );
 };

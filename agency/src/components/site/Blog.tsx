@@ -1,62 +1,100 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { blogPosts } from "@/data/blogPosts";
 
-// Show 4 most recent posts on the homepage
-const posts = blogPosts.slice(0, 4);
+const posts = blogPosts.slice(0, 3);
 
 export const Blog = () => (
-  <section className="container py-16 md:py-24 relative mx-auto px-4">
-    <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-6">
-      <div>
-        <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-300 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-4">
-          <Sparkles className="w-3.5 h-3.5" /> Growth Library
+  <section className="py-20 md:py-28" style={{ background: "#ffffff" }}>
+    <div className="container">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+        <div>
+          <span className="section-tagline">Latest Insights</span>
+          <h2 className="section-title">
+            From Our <span>Blog</span>
+          </h2>
+          <div className="section-underline-left mt-4" />
         </div>
-        <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-slate-900 dark:text-white tracking-tight">
-          Latest from <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">insights.</span>
-        </h2>
-      </div>
-      <Link
-        to="/blog"
-        className="inline-flex items-center gap-2 font-bold text-sm bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 px-6 py-3 rounded-xl transition-all hover:translate-x-1 text-slate-800 dark:text-white whitespace-nowrap self-start sm:self-auto shadow-sm"
-      >
-        Saare Articles Dekhein <ArrowRight className="w-4 h-4 text-amber-500" />
-      </Link>
-    </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {posts.map((p, index) => (
         <Link
-          key={p.slug + index}
-          to={`/blog/${p.slug}`}
-          className="group cursor-pointer rounded-3xl overflow-hidden border border-slate-200 dark:border-white/5 bg-white dark:bg-white/[0.015] hover:bg-slate-50 dark:hover:bg-white/[0.030] hover:border-slate-300 dark:hover:border-white/10 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full justify-between"
+          to="/blog"
+          className="inline-flex items-center gap-2 font-bold text-sm px-6 py-3 rounded-lg border-2 transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap self-start sm:self-auto"
+          style={{ borderColor: "#002b49", color: "#002b49" }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#002b49";
+            e.currentTarget.style.color = "#fff";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "transparent";
+            e.currentTarget.style.color = "#002b49";
+          }}
         >
-          <div className="flex flex-col">
-            <div className="relative aspect-[16/10] overflow-hidden border-b border-slate-200/80 dark:border-white/5 bg-muted">
+          View All Posts <ArrowRight className="w-4 h-4" />
+        </Link>
+      </div>
+
+      {/* Blog Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {posts.map((p, i) => (
+          <Link
+            key={p.slug}
+            to={`/blog/${p.slug}`}
+            className="group block bg-white border border-gray-100 rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.10)]"
+          >
+            {/* Cover image */}
+            <div className="relative overflow-hidden" style={{ height: 220 }}>
               <img
                 src={p.coverImg}
                 alt={p.title}
-                width={400}
-                height={250}
-                loading="lazy"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <span className="absolute top-4 left-4 bg-slate-900/90 dark:bg-slate-950/80 border border-white/10 text-[9px] text-amber-400 font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm">
+              {/* Category badge */}
+              <span
+                className="absolute top-4 left-4 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                style={{ background: "#eb560c" }}
+              >
                 {p.category}
               </span>
             </div>
-            <div className="p-5">
-              <div className="text-[10px] font-semibold text-slate-500 dark:text-slate-500 uppercase tracking-wider mb-2 font-mono">{p.date}</div>
-              <h3 className="font-display font-bold text-sm sm:text-base leading-snug text-slate-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors line-clamp-3">
+
+            {/* Content */}
+            <div className="p-6">
+              {/* Meta */}
+              <div className="flex items-center gap-4 text-gray-400 text-xs font-medium mb-3">
+                <span className="flex items-center gap-1">
+                  <Calendar className="w-3.5 h-3.5" /> {p.date}
+                </span>
+                <span className="flex items-center gap-1">
+                  <Clock className="w-3.5 h-3.5" /> {p.readTime}
+                </span>
+              </div>
+
+              {/* Title */}
+              <h3
+                className="font-jost font-bold text-lg leading-snug line-clamp-2 mb-3 transition-colors duration-300 group-hover:text-[#eb560c]"
+                style={{ color: "#16243E" }}
+              >
                 {p.title}
               </h3>
+
+              {/* Excerpt */}
+              {p.excerpt && (
+                <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-4">
+                  {p.excerpt}
+                </p>
+              )}
+
+              {/* Read more */}
+              <div
+                className="inline-flex items-center gap-1.5 text-sm font-bold transition-all duration-300 group-hover:gap-2.5"
+                style={{ color: "#eb560c" }}
+              >
+                Read More <ArrowRight className="w-4 h-4" />
+              </div>
             </div>
-          </div>
-          <div className="px-5 pb-5 pt-2 text-[10px] text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider font-mono">
-            {p.readTime}
-          </div>
-        </Link>
-      ))}
+          </Link>
+        ))}
+      </div>
     </div>
   </section>
 );
