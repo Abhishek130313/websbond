@@ -1,31 +1,37 @@
-import { ArrowRight, Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
+import { 
+  ArrowRight, Menu, X, Phone, Mail, ChevronDown, 
+  Search, FileText, Share2, Target, Megaphone, MapPin, Code, ShoppingBag, Palette, Smartphone 
+} from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Logo } from "./Logo";
+
+const SERVICES_DROPDOWN = [
+  { label: "SEO (Search Engine Optimization)", to: "/seo-service-in-delhi", icon: Search, desc: "Rank on Page 1 organic searches" },
+  { label: "Content Marketing Services", to: "/content-writing-service-in-delhi", icon: FileText, desc: "Engage clients with custom copies" },
+  { label: "SMO (Social Media Optimization)", to: "/smo-service-in-delhi", icon: Share2, desc: "Optimize social profiles authority" },
+  { label: "Google Ads Services", to: "/google-ads-services", icon: Target, desc: "Drive instant buyer click leads" },
+  { label: "SMM (Social Media Marketing)", to: "/smm-service-in-delhi", icon: Megaphone, desc: "Run paid social media campaigns" },
+  { label: "GMB (Google My Business)", to: "/gmb-service-in-delhi", icon: MapPin, desc: "Dominate local maps 3-pack views" },
+  { label: "Website Design Services", to: "/website-design-service-in-delhi", icon: Code, desc: "Bespoke clean functional sites" },
+  { label: "ECommerce Web Designing", to: "/e-commerce-website-services-in-delhi", icon: ShoppingBag, desc: "Build scalable product online stores" },
+  { label: "UI & UX Design Services", to: "/website-design-service-in-delhi", icon: Palette, desc: "User-centered premium wireframes" },
+  { label: "App Development", to: "/contact-us", icon: Smartphone, desc: "Custom iOS & Android platforms" },
+];
 
 const NAV_LINKS = [
   { label: "HOME", to: "/" },
   {
     label: "OUR SERVICES",
     to: "/services",
-    dropdown: [
-      { label: "SEO (Search Engine Optimization)", to: "/seo-service-in-delhi" },
-      { label: "SMO (Social Media Optimization)", to: "/smo-service-in-delhi" },
-      { label: "SMM (Social Media Marketing)", to: "/smm-service-in-delhi" },
-      { label: "Website Design Services", to: "/website-design-service-in-delhi" },
-      { label: "UI & UX Design Services", to: "/website-design-service-in-delhi" },
-      { label: "Content Marketing Services", to: "/content-writing-service-in-delhi" },
-      { label: "Google Ads Services", to: "/google-ads-services" },
-      { label: "GMB (Google My Business)", to: "/gmb-service-in-delhi" },
-      { label: "ECommerce Web Designing", to: "/e-commerce-website-services-in-delhi" },
-    ],
+    dropdown: true,
   },
   {
     label: "PACKAGES",
     to: "/seo-packages",
     dropdown: [
-      { label: "SEO Packages", to: "/seo-packages" },
-      { label: "SMO Packages", to: "/smo-packages" },
+      { label: "SEO (Search Engine Optimization)", to: "/seo-packages" },
+      { label: "SMO (Social Media Optimization)", to: "/smo-packages" },
     ],
   },
   {
@@ -88,7 +94,7 @@ export const Navbar = ({
           <div className="flex items-center gap-3">
             <Link
               to="/seo-analyzer"
-              className="bg-[#eb560c] hover:bg-[#d14b0a] text-white text-xs font-bold px-4 py-1.5 rounded transition-colors uppercase tracking-wider"
+              className="bg-[#eb560c] hover:bg-[#d14b0a] text-white text-xs font-bold px-4 py-1.5 rounded transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(235,86,12,0.45)] uppercase tracking-wider animate-pulse"
             >
               Get a Free SEO Audit
             </Link>
@@ -112,7 +118,7 @@ export const Navbar = ({
       >
         <div className="container flex items-center justify-between gap-4">
           {/* Logo */}
-          <Logo light={false} size="md" />
+          <Logo light={true} size="md" />
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
@@ -135,21 +141,48 @@ export const Navbar = ({
                     {link.label}
                     <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
                   </NavLink>
-                  {/* Dropdown */}
-                  <div
-                    className="absolute top-full left-0 w-72 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.12)] border-t-[3px] border-[#002b49] rounded-b-lg transition-all duration-200 opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0"
-                  >
-                    {link.dropdown.map((item) => (
-                      <Link
-                        key={item.to}
-                        to={item.to}
-                        className="flex items-center gap-2 px-4 py-3 text-sm text-[#16243E] hover:text-[#eb560c] hover:bg-orange-50 transition-colors border-b border-gray-50 last:border-0 font-medium"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#eb560c] flex-shrink-0" />
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
+                  
+                  {link.label === "OUR SERVICES" ? (
+                    /* ── 2-Column Services Mega Dropdown ── */
+                    <div
+                      className="absolute top-full left-1/2 -translate-x-1/2 w-[720px] bg-white shadow-[0_15px_50px_rgba(0,0,0,0.15)] border-t-[3px] border-[#002b49] rounded-b-3xl transition-all duration-200 opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 grid grid-cols-2 p-6 gap-x-6 gap-y-2.5 z-50"
+                    >
+                      {SERVICES_DROPDOWN.map((item) => {
+                        const IconComponent = item.icon;
+                        return (
+                          <Link
+                            key={item.to}
+                            to={item.to}
+                            className="group/item flex items-center gap-3.5 px-4 py-3 rounded-2xl hover:bg-orange-50/40 text-[#16243E] hover:text-[#eb560c] transition-all duration-300 font-semibold"
+                          >
+                            <span className="p-2.5 rounded-xl bg-[#002b49]/5 text-[#002b49] group-hover/item:bg-[#eb560c]/10 group-hover/item:text-[#eb560c] transition-all shrink-0">
+                              <IconComponent className="w-5 h-5" />
+                            </span>
+                            <div className="flex flex-col">
+                              <span className="text-sm font-bold leading-tight">{item.label}</span>
+                              <span className="text-[10px] text-gray-400 font-medium mt-0.5 group-hover/item:text-[#eb560c]/80">{item.desc}</span>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    /* ── Standard Dropdown (Packages, Company) ── */
+                    <div
+                      className="absolute top-full left-0 w-72 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.12)] border-t-[3px] border-[#002b49] rounded-b-lg transition-all duration-200 opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-50"
+                    >
+                      {Array.isArray(link.dropdown) && link.dropdown.map((item) => (
+                        <Link
+                          key={item.to}
+                          to={item.to}
+                          className="flex items-center gap-2 px-4 py-3 text-sm text-[#16243E] hover:text-[#eb560c] hover:bg-orange-50 transition-colors border-b border-gray-50 last:border-0 font-medium"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#eb560c] flex-shrink-0" />
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ) : (
                 <NavLink
@@ -172,13 +205,6 @@ export const Navbar = ({
 
           {/* Right: CTA button + mobile hamburger */}
           <div className="flex items-center gap-3">
-            <Link
-              to="/contact-us"
-              className="hidden lg:inline-flex items-center gap-2 bg-[#002b49] hover:bg-[#eb560c] text-white text-sm font-bold px-6 py-2.5 rounded transition-all duration-300 shadow-sm hover:shadow-md"
-            >
-              Free Consultation <ArrowRight className="w-4 h-4" />
-            </Link>
-
             <button
               className="lg:hidden p-2.5 rounded border border-gray-200 text-[#002b49] hover:bg-gray-50 transition-colors"
               onClick={() => setOpen(!open)}
@@ -207,13 +233,16 @@ export const Navbar = ({
             </div>
             {NAV_LINKS.map((link) => {
               if (link.dropdown) {
+                const sublinks = link.label === "OUR SERVICES" 
+                  ? SERVICES_DROPDOWN 
+                  : (Array.isArray(link.dropdown) ? link.dropdown : []);
                 return (
                   <div key={link.label} className="border-b border-gray-50 py-1">
                     <div className="flex justify-between items-center py-1.5 px-2 text-base font-bold text-[#16243E] uppercase tracking-wide">
                       <span>{link.label}</span>
                     </div>
                     <div className="pl-4 flex flex-col gap-1.5 pb-2">
-                      {link.dropdown.map((sub) => (
+                      {sublinks.map((sub) => (
                         <Link
                           key={sub.to}
                           to={sub.to}
@@ -246,11 +275,11 @@ export const Navbar = ({
               );
             })}
             <Link
-              to="/contact-us"
+              to="/seo-analyzer"
               onClick={() => setOpen(false)}
-              className="mt-3 flex items-center justify-center gap-2 bg-[#eb560c] text-white font-bold py-3.5 rounded text-center hover:bg-[#d14b0a] transition-colors"
+              className="mt-3 flex items-center justify-center gap-2 bg-[#eb560c] text-white font-bold py-3.5 rounded text-center hover:bg-[#d14b0a] transition-colors shadow-[0_4px_15px_rgba(235,86,12,0.4)]"
             >
-              Free Consultation <ArrowRight className="w-4 h-4" />
+              Get a Free SEO Audit <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

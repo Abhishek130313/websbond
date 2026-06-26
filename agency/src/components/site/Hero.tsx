@@ -92,16 +92,15 @@ export const Hero = () => {
             >
               Best Digital Marketing Agency
               <br />
-              <span style={{ color: "#eb560c" }}>In Delhi NCR & Haryana</span>
+              <span style={{ color: "#eb560c" }}>& SEO Company in Delhi NCR</span>
             </h1>
 
             {/* Body text - same size and color as reference */}
             <p className="text-white/85 text-base leading-relaxed mb-8 max-w-xl" style={{ fontSize: 15 }}>
-              Grow Your Business with the Top Digital Marketing Agency in Delhi NCR — Websbond,
-              a leading <strong style={{ color: "#eb560c" }}>SEO agency in Delhi</strong>, provides
-              digital marketing services like search engine optimization, PPC advertising, social
-              media marketing (SMM), and website design services. Our expert team drives online
-              success for growing brands with affordable, data-driven digital marketing strategies.
+              Websbond is a premier, result-oriented <strong>digital marketing agency in Delhi NCR & Haryana</strong>. 
+              We specialize in top-performing <strong>SEO services in Delhi</strong>, custom <strong>website design & development</strong>, 
+              expert <strong>Google Ads (PPC)</strong> campaigns, and <strong>social media optimization (SMO)</strong>. Our marketing experts 
+              help businesses rank on Page 1, capture organic search traffic, and maximize leads ROI.
             </p>
 
             {/* Explore More button - orange solid like reference */}
@@ -119,7 +118,7 @@ export const Hero = () => {
           {/* ── Right: Request A Quote Form ── */}
           <div id="contact-form">
             <div
-              className="rounded-lg p-7 shadow-2xl"
+              className="rounded-3xl p-9 shadow-2xl"
               style={{
                 background: "rgba(22, 36, 62, 0.92)",
                 backdropFilter: "blur(10px)",
@@ -132,7 +131,7 @@ export const Hero = () => {
                 Request A Quote
               </h3>
 
-              <form ref={formRef} onSubmit={handleFormSubmit} className="space-y-3">
+              <form ref={formRef} onSubmit={handleFormSubmit} className="space-y-4">
                 {/* Row 1: Full Name + Phone */}
                 <div className="grid grid-cols-2 gap-3">
                   <input
@@ -140,7 +139,7 @@ export const Hero = () => {
                     type="text"
                     required
                     placeholder="Full Name*"
-                    className="w-full px-4 py-3 text-sm text-gray-800 rounded focus:outline-none focus:ring-2"
+                    className="w-full px-4 py-3.5 text-sm text-gray-800 rounded-lg focus:outline-none focus:ring-2"
                     style={{
                       background: "rgba(255,255,255,0.12)",
                       border: "1px solid rgba(255,255,255,0.2)",
@@ -154,7 +153,7 @@ export const Hero = () => {
                     type="tel"
                     required
                     placeholder="Phone*"
-                    className="w-full px-4 py-3 text-sm rounded focus:outline-none"
+                    className="w-full px-4 py-3.5 text-sm rounded-lg focus:outline-none"
                     style={{
                       background: "rgba(255,255,255,0.12)",
                       border: "1px solid rgba(255,255,255,0.2)",
@@ -170,7 +169,7 @@ export const Hero = () => {
                   name="email"
                   type="email"
                   placeholder="Email*"
-                  className="w-full px-4 py-3 text-sm rounded focus:outline-none"
+                  className="w-full px-4 py-3.5 text-sm rounded-lg focus:outline-none"
                   style={{
                     background: "rgba(255,255,255,0.12)",
                     border: "1px solid rgba(255,255,255,0.2)",
@@ -183,7 +182,7 @@ export const Hero = () => {
                 {/* Select Services */}
                 <select
                   name="service"
-                  className="w-full px-4 py-3 text-sm rounded focus:outline-none"
+                  className="w-full px-4 py-3.5 text-sm rounded-lg focus:outline-none"
                   style={{
                     background: "rgba(255,255,255,0.12)",
                     border: "1px solid rgba(255,255,255,0.2)",
@@ -199,9 +198,9 @@ export const Hero = () => {
                 {/* Message */}
                 <textarea
                   name="message"
-                  rows={3}
+                  rows={4}
                   placeholder="Message"
-                  className="w-full px-4 py-3 text-sm rounded focus:outline-none resize-none"
+                  className="w-full px-4 py-3.5 text-sm rounded-lg focus:outline-none resize-none"
                   style={{
                     background: "rgba(255,255,255,0.12)",
                     border: "1px solid rgba(255,255,255,0.2)",
@@ -215,7 +214,7 @@ export const Hero = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 text-white font-bold py-3.5 rounded transition-all duration-300 hover:opacity-90 disabled:opacity-60"
+                  className="w-full flex items-center justify-center gap-2 text-white font-bold py-4 rounded-lg transition-all duration-300 hover:opacity-90 disabled:opacity-60 text-sm uppercase tracking-wider"
                   style={{ background: "#eb560c" }}
                 >
                   {isSubmitting ? (
