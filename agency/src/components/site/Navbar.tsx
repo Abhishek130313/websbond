@@ -30,8 +30,8 @@ const NAV_LINKS = [
     label: "PACKAGES",
     to: "#",
     dropdown: [
-      { label: "SEO (Search Engine Optimization)", to: "/seo-packages" },
-      { label: "SMO (Social Media Optimization)", to: "/smo-packages" },
+      { label: "SEO (Search Engine Optimization)", to: "#" },
+      { label: "SMO (Social Media Optimization)", to: "#" },
     ],
   },
   {

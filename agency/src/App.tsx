@@ -26,9 +26,7 @@ const GoogleAdsPage = lazy(() => import("./pages/services/GoogleAds.tsx"));
 const GMBPage = lazy(() => import("./pages/services/GMB.tsx"));
 const ECommercePage = lazy(() => import("./pages/services/ECommerce.tsx"));
 
-// Packages Pages
-const SEOPackagesPage = lazy(() => import("./pages/packages/SEOPackages.tsx"));
-const SMOPackagesPage = lazy(() => import("./pages/packages/SMOPackages.tsx"));
+
 
 // Tools, Payment & Company details
 const SEOAnalyzerPage = lazy(() => import("./pages/tools/SEOAnalyzer.tsx"));
@@ -73,9 +71,7 @@ const App = () => (
             <Route path="/gmb-service-in-delhi" element={<GMBPage />} />
             <Route path="/e-commerce-website-services-in-delhi" element={<ECommercePage />} />
             
-            {/* Packages Pages */}
-            <Route path="/seo-packages" element={<SEOPackagesPage />} />
-            <Route path="/smo-packages" element={<SMOPackagesPage />} />
+
             
             {/* Tools, Payment, and Listing Pages */}
             <Route path="/seo-analyzer" element={<SEOAnalyzerPage />} />

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
-import { CtaBanner } from "@/components/site/CtaBanner";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 import { blogPosts } from "@/data/blogPosts";
@@ -197,8 +196,6 @@ export const BlogPage = () => {
           </div>
         </div>
       </section>
-
-      <CtaBanner />
     </Layout>
   );
 };

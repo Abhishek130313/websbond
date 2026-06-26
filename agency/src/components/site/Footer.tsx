@@ -152,6 +152,11 @@ export const Footer = () => (
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/50 text-sm text-center" style={{ marginBottom: 0 }}>
             Websbond Digital Marketing All Rights Reserved
+            <span className="opacity-15 hover:opacity-100 transition-opacity text-[10px] ml-4 space-x-2">
+              <Link to="/admin" className="text-white/70">Admin Panel</Link>
+              <span className="text-white/40">|</span>
+              <Link to="/blog-admin" className="text-white/70">Blog Admin</Link>
+            </span>
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-2 justify-center">
             {[

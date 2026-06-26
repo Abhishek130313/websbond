@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
-import { Loader2, Phone, Briefcase, MessageCircle } from "lucide-react";
+import { Loader2, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
@@ -267,38 +267,6 @@ export const OurWorkPage = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Consult Pitch CTA Section ── */}
-      <section className="py-20 bg-white">
-        <div className="container text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-orange-100 text-[#eb560c] font-semibold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-4">
-            <Briefcase className="w-3.5 h-3.5" /> Start Your Build
-          </div>
-          <h2 className="font-jost font-black text-2xl sm:text-4xl text-[#002b49] mb-4">
-            Need a similar setup built for your business?
-          </h2>
-          <p className="text-gray-500 text-sm sm:text-base leading-relaxed mb-6 font-semibold">
-            We provide direct developer coordination and custom high-speed code logic mapping to ensure your brand dominates local search keywords and converts enquiries.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link 
-              to="/contact-us" 
-              className="font-bold text-sm text-white px-8 py-4 rounded-lg shadow-md transition-all hover:bg-[#d14b0a]"
-              style={{ background: "#eb560c" }}
-            >
-              Initiate Similar Project
-            </Link>
-            <a 
-              href="https://wa.me/919306623619?text=Namaste!%20I%20have%20seen%20your%20portfolio%20and%20want%20to%20build%20a%20website." 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-4 rounded-lg text-sm inline-flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
-            >
-              <MessageCircle className="w-4 h-4" /> WhatsApp Consultation
-            </a>
           </div>
         </div>
       </section>

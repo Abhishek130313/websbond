@@ -1,6 +1,5 @@
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
-import { CtaBanner } from "@/components/site/CtaBanner";
 import { Link } from "react-router-dom";
 
 interface CaseStudy {
@@ -242,8 +241,6 @@ export const CaseStudiesPage = () => {
           </div>
         </div>
       </section>
-
-      <CtaBanner />
     </Layout>
   );
 };
