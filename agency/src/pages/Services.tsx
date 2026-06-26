@@ -44,7 +44,7 @@ export const ServicesPage = () => {
       />
 
       {/* ── Services Hero Section ── */}
-      <section className="relative overflow-hidden pt-16 pb-16" style={{ background: "linear-gradient(135deg, #002b49 0%, #16243E 100%)" }}>
+      <section className="relative overflow-hidden pt-16 pb-16" style={{ background: "linear-gradient(135deg, #004b75 0%, #0c203b 100%)" }}>
 
         {/* Animated Background Mesh & Floating Particles */}
         <div className="absolute inset-0 grid-mesh opacity-[0.05] dark:opacity-[0.07] pointer-events-none" />

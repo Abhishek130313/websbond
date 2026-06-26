@@ -63,10 +63,9 @@ export const Hero = () => {
           backgroundPosition: "center",
         }}
       />
-      {/* Dark overlay - same dark navy blue as reference */}
+      {/* Dark overlay - brand navy with a lighter opacity */}
       <div
-        className="absolute inset-0"
-        style={{ background: "rgba(0, 23, 58, 0.82)" }}
+        className="absolute inset-0 bg-gradient-to-br from-[#004b75]/75 to-[#0c203b]/85"
       />
 
       <div className="container relative z-10 py-16 md:py-24">

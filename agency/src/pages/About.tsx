@@ -89,7 +89,7 @@ export const AboutPage = () => {
       />
 
       {/* ── Page Hero Header ── */}
-      <section className="relative overflow-hidden py-16 md:py-20 text-white" style={{ background: "linear-gradient(135deg, #002b49 0%, #16243E 100%)" }}>
+      <section className="relative overflow-hidden py-16 md:py-20 text-white" style={{ background: "linear-gradient(135deg, #004b75 0%, #0c203b 100%)" }}>
         <div className="absolute inset-0 grid-mesh opacity-5 pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 backdrop-blur-md text-white font-semibold text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full mb-4">

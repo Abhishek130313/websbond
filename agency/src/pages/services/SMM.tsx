@@ -88,7 +88,7 @@ export const SMMPage = () => {
       />
 
       {/* ── Hero section ── */}
-      <section className="relative overflow-hidden py-20 text-white" style={{ background: "linear-gradient(135deg, #002b49 0%, #16243E 100%)" }}>
+      <section className="relative overflow-hidden py-20 text-white" style={{ background: "linear-gradient(135deg, #004b75 0%, #0c203b 100%)" }}>
         <div className="absolute inset-0 grid-mesh opacity-5 pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center max-w-6xl mx-auto">

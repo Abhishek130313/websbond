@@ -3,7 +3,7 @@
 export const CtaBanner = () => (
   <section
     className="relative overflow-hidden"
-    style={{ background: "linear-gradient(135deg, #002b49 0%, #16243E 100%)" }}
+    style={{ background: "linear-gradient(135deg, #004b75 0%, #0c203b 100%)" }}
   >
     <div className="container">
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 py-14">
