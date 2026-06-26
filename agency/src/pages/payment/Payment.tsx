@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import { CreditCard, Landmark, Check, Send, ShieldCheck, Loader2 } from "lucide-react";
+import { CreditCard, Landmark, Check, Send, ShieldCheck, Loader2, Info } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 
