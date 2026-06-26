@@ -100,9 +100,13 @@ export const Navbar = ({
             </Link>
             <Link
               to="/payment"
-              className="bg-[#002b49] border border-white/20 hover:bg-[#eb560c] text-white text-xs font-bold px-4 py-1.5 rounded transition-colors uppercase tracking-wider"
+              className="bg-white hover:bg-slate-50 text-[#003087] text-xs font-black px-3.5 py-1 rounded-md transition-all duration-300 flex items-center gap-1 hover:scale-105 border border-white/10 shrink-0 shadow-sm"
             >
-              Pay Online
+              <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="currentColor">
+                <path d="M20.06 8.12c-.1-1.02-.45-2.07-1.12-2.92-.66-.86-1.57-1.49-2.73-1.89C15.06 2.92 13.56 2.75 12 2.75H5.88c-.69 0-1.25.56-1.25 1.25v15c0 .69.56 1.25 1.25 1.25H9.6c.69 0 1.25-.56 1.25-1.25v-3.75h2.25c2.2 0 4.12-.88 5.25-2.62 1.13-1.74 1.38-4 .76-5.88z" fill="#003087" />
+                <path d="M12 9.75H7.38c-.35 0-.62.28-.62.62v6.25c0 .35.28.62.62.62H9.5c.35 0 .62-.28.62-.62v-2.5h1.88c1.55 0 2.87-.62 3.67-1.88.8-1.25.96-2.88.52-4.25-.07-.72-.32-1.46-.78-2.06-.47-.6-1.1-1.05-1.92-1.33A6.16 6.16 0 0 0 12 9.75z" fill="#0079C1" />
+              </svg>
+              <span className="font-sans font-black italic text-[#003087] tracking-tight text-[10px] sm:text-xs">PayPal</span>
             </Link>
           </div>
         </div>
