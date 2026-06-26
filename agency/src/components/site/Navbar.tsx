@@ -1,15 +1,15 @@
-import { ArrowRight, Menu, X, Sun, Moon } from "lucide-react";
+import { ArrowRight, Menu, X, Sun, Moon, Phone, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Logo } from "./Logo";
 
 const links = [
-  { label: "Home", to: "/" },
-  { label: "Services", to: "/services" },
-  { label: "Our Work", to: "/our-work" },
-  { label: "About Us", to: "/about" },
-  { label: "Blog", to: "/blog" },
-  { label: "Contact", to: "/contact" },
+  { label: "HOME", to: "/" },
+  { label: "SERVICES", to: "/services" },
+  { label: "OUR WORK", to: "/our-work" },
+  { label: "ABOUT US", to: "/about" },
+  { label: "BLOG", to: "/blog" },
+  { label: "CONTACT", to: "/contact" },
 ];
 
 export const Navbar = ({ 
@@ -31,16 +31,54 @@ export const Navbar = ({
   }, []);
 
   return (
-    <header 
-      className={`sticky top-0 z-50 transition-all duration-300 w-full ${
-        scrolled 
-          ? theme === "light"
-            ? "py-2 bg-white/80 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
-            : "py-2 bg-background/70 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.4)]" 
-          : "py-3 bg-transparent"
-      }`}
-    >
-      <div className="container flex items-center justify-between gap-4">
+    <div className="w-full relative">
+      {/* Utility Top Bar */}
+      <div 
+        className={`hidden md:block transition-all duration-300 overflow-hidden ${
+          scrolled 
+            ? "max-h-0 py-0 border-none opacity-0" 
+            : theme === "light" 
+              ? "py-2.5 bg-slate-100/60 border-b border-slate-200 text-slate-600" 
+              : "py-2.5 bg-slate-950 border-b border-white/[0.04] text-slate-300"
+        }`}
+      >
+        <div className="container flex justify-between items-center text-xs font-semibold">
+          <div className="flex gap-6 items-center">
+            <a href="tel:+919306623619" className="flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-amber-400 transition-colors">
+              <Phone className="w-3.5 h-3.5 text-indigo-500 dark:text-amber-500" /> +91 9306623619
+            </a>
+            <a href="mailto:websbond@websbond.com" className="flex items-center gap-1.5 hover:text-indigo-600 dark:hover:text-amber-400 transition-colors">
+              <Mail className="w-3.5 h-3.5 text-indigo-500 dark:text-amber-500" /> websbond@websbond.com
+            </a>
+          </div>
+          <div className="flex items-center gap-4">
+            <a 
+              href="#onboarding-form" 
+              onClick={(e) => {
+                const el = document.getElementById("onboarding-form");
+                if (el) {
+                  e.preventDefault();
+                  el.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold px-4 py-1 rounded-full transition-all text-[10px] uppercase tracking-wider shadow-sm hover:shadow-md active:scale-95 animate-pulse"
+            >
+              Get a Free SEO Audit
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <header 
+        className={`sticky top-0 z-50 transition-all duration-300 w-full ${
+          scrolled 
+            ? theme === "light"
+              ? "py-2 bg-white/80 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.02)]"
+              : "py-2 bg-background/70 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_4px_30px_rgba(0,0,0,0.4)]" 
+            : "py-3 bg-transparent"
+        }`}
+      >
+        <div className="container flex items-center justify-between gap-4">
         <Logo light={theme === "light"} size="md" />
         
         <nav className={`hidden lg:flex items-center gap-8 ${
@@ -146,5 +184,6 @@ export const Navbar = ({
         </div>
       </div>
     </header>
+    </div>
   );
 };

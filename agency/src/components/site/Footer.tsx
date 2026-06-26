@@ -28,6 +28,12 @@ export const Footer = ({ theme = "dark" }: { theme?: "dark" | "light" }) => {
               </div>
               <span>+91 9306623619</span>
             </a>
+            <div className="flex items-center gap-2 group w-fit text-slate-300">
+              <div className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/5 flex items-center justify-center group-hover:bg-white/[0.08] transition-colors">
+                <MapPin className="w-3.5 h-3.5 text-amber-400 animate-bounce" style={{ animationDuration: '3s' }} />
+              </div>
+              <span>Sector 48, Sohna Road, Gurugram, Haryana - 122018</span>
+            </div>
             <a href="mailto:websbond@websbond.com" className="flex items-center gap-2 hover:text-white transition-colors group w-fit">
               <div className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/5 flex items-center justify-center group-hover:bg-white/[0.08] transition-colors">
                 <Mail className="w-3.5 h-3.5 text-indigo-400" />

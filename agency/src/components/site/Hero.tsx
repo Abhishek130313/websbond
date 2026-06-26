@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, Play, Check, Sparkles, Code2, Search, Megaphone, Cpu, Zap, Headphones, Star, TrendingUp, Shield, MessageCircle } from "lucide-react";
+import { ArrowRight, Play, Check, Sparkles, Code2, Search, Megaphone, Cpu, Zap, Headphones, Star, TrendingUp, Shield, MessageCircle, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { toast } from "@/hooks/use-toast";
+import { getApiUrl } from "@/lib/api";
 import a1 from "@/assets/avatar1.webp";
 import a2 from "@/assets/avatar2.webp";
 import a3 from "@/assets/avatar3.webp";
@@ -49,6 +51,7 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
   const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
   const [liveConversions, setLiveConversions] = useState(3840);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -212,91 +215,138 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
             </div>
           </div>
 
-          {/* ═══ RIGHT COLUMN (3D Browser Mockup) ═══ */}
-          <div className="relative flex items-center justify-center pt-8 lg:pt-0 hero-fu-6">
-            <div className="relative w-full max-w-[450px]">
+          {/* ═══ RIGHT COLUMN (Interactive Quote Form) ═══ */}
+          <div className="relative flex items-center justify-center pt-8 lg:pt-0 hero-fu-6" id="onboarding-form">
+            <div className="relative w-full max-w-[440px] z-20">
+              {/* Decorative glows */}
+              <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-amber-500 to-indigo-600 opacity-20 blur-lg" />
               
-              {/* Floating cards */}
-              <FloatingCard title="Website Dev"    icon={<Code2       className="w-4 h-4 text-cyan-500 dark:text-cyan-400"    />} glowColor="hover:shadow-cyan-500/10"    positionClass="-top-5 -left-12" />
-              <FloatingCard title="SEO Ranking"    icon={<Search      className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />} glowColor="hover:shadow-emerald-500/10" positionClass="top-16 -right-12" />
-              <FloatingCard title="Paid Ads"       icon={<Megaphone   className="w-4 h-4 text-purple-500 dark:text-purple-400"  />} glowColor="hover:shadow-purple-500/10"  positionClass="top-1/2 -left-16" />
-              <FloatingCard title="Automations"    icon={<Cpu         className="w-4 h-4 text-cyan-500 dark:text-cyan-400"    />} glowColor="hover:shadow-cyan-500/10"    positionClass="bottom-24 -right-12" />
-              <FloatingCard title="Direct Chat"    icon={<Headphones  className="w-4 h-4 text-pink-500 dark:text-pink-400"    />} glowColor="hover:shadow-pink-500/10"    positionClass="-bottom-5 -left-4" />
-              <FloatingCard title="Business Growth" icon={<TrendingUp className="w-4 h-4 text-amber-500 dark:text-amber-400"  />} glowColor="hover:shadow-amber-500/10"   positionClass="bottom-4 right-12" />
-
-              {/* Browser Mockup */}
-              <div className="w-full bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-white/[0.1] rounded-3xl p-3 shadow-[0_30px_80px_rgba(0,0,0,0.06)] dark:shadow-[0_30px_80px_rgba(0,0,0,0.6)] backdrop-blur-xl float-a">
-                {/* Browser bar */}
-                <div className="flex items-center justify-between border-b border-slate-200/80 dark:border-white/[0.07] pb-2.5 mb-3">
-                  <div className="flex gap-1.5 pl-1.5">
-                    <span className="w-2 h-2 rounded-full bg-rose-500/80" />
-                    <span className="w-2 h-2 rounded-full bg-amber-500/80" />
-                    <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+              {/* Form Card */}
+              <div className="relative w-full glass-panel border-border dark:border-white/[0.08] rounded-[2rem] p-6 sm:p-8 shadow-card backdrop-blur-xl">
+                <div className="text-center mb-6">
+                  <div className="inline-flex items-center gap-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold text-[9px] uppercase tracking-wider px-3 py-1 rounded-full mb-2">
+                    <Sparkles className="w-3 h-3 animate-pulse" /> Free Consultation
                   </div>
-                  <div className="bg-slate-100 dark:bg-slate-950/80 border border-slate-200 dark:border-white/[0.06] rounded-full text-[9px] text-slate-600 dark:text-slate-400 font-mono px-4 py-0.5 w-1/2 text-center truncate">
-                    websbond.com/dashboard
-                  </div>
-                  <div className="w-8" />
+                  <h3 className="font-display font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-white tracking-tight">
+                    Request A Quote
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-semibold">
+                    Speak directly with lead developers & designers.
+                  </p>
                 </div>
 
-                {/* Console window */}
-                <div className="bg-slate-50 dark:bg-slate-950 rounded-2xl p-4 relative flex flex-col gap-4 border border-slate-100 dark:border-0 overflow-hidden">
-                  {/* Grid warp */}
-                  <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.06] bg-[linear-gradient(to_bottom,transparent_20%,rgba(99,102,241,0.2)_80%),repeating-linear-gradient(90deg,rgba(99,102,241,0.3)_0px,rgba(99,102,241,0.3)_20px,transparent_20px,transparent_40px)] [transform:perspective(120px)_rotateX(60deg)] [transform-origin:top_center] grid-anim pointer-events-none" />
+                <form 
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    const form = e.currentTarget;
+                    const name = (form.elements.namedItem("name") as HTMLInputElement)?.value;
+                    const email = (form.elements.namedItem("email") as HTMLInputElement)?.value;
+                    const phone = (form.elements.namedItem("phone") as HTMLInputElement)?.value;
+                    const service = (form.elements.namedItem("service") as HTMLSelectElement)?.value;
+                    const message = (form.elements.namedItem("message") as HTMLTextAreaElement)?.value;
 
-                  {/* Top metric widgets */}
-                  <div className="relative z-10 grid grid-cols-3 gap-3">
-                    <div className="bg-white dark:bg-slate-900/90 border border-slate-200/60 dark:border-white/5 backdrop-blur-md rounded-xl p-2.5 text-center shadow-sm">
-                      <span className="text-[7px] text-slate-500 block uppercase font-black">Lighthouse</span>
-                      <span className="text-base font-black text-emerald-600 dark:text-emerald-400 font-mono block mt-0.5">100/100</span>
+                    if (!name || !email || !phone || !service) {
+                      toast({ title: "Fields required", description: "Please fill in all mandatory fields.", variant: "destructive" });
+                      return;
+                    }
+
+                    setIsSubmitting(true);
+                    try {
+                      const response = await fetch(getApiUrl("/api/contact"), {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          name,
+                          email,
+                          phone,
+                          subject: `Quote Request: ${service}`,
+                          message: message || `Interested in ${service} details.`
+                        }),
+                      });
+
+                      if (!response.ok) throw new Error("API failed");
+                      toast({ title: "Request Received!", description: "Our lead developers will reach out shortly via WhatsApp." });
+                      form.reset();
+                    } catch {
+                      toast({ 
+                        title: "Submission failed", 
+                        description: "Could not submit quote. Please contact +91 9306623619 directly on WhatsApp.", 
+                        variant: "destructive" 
+                      });
+                    }
+                    setIsSubmitting(false);
+                  }}
+                  className="space-y-4"
+                >
+                  <div>
+                    <label className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider block mb-1">Full Name *</label>
+                    <input 
+                      type="text" 
+                      name="name" 
+                      required 
+                      placeholder="e.g. Amit Kumar"
+                      className="w-full bg-slate-100/50 dark:bg-slate-950/60 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 outline-none focus:border-amber-500 dark:focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all font-sans"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider block mb-1">Phone / WhatsApp *</label>
+                      <input 
+                        type="tel" 
+                        name="phone" 
+                        required 
+                        placeholder="e.g. 9306623619"
+                        className="w-full bg-slate-100/50 dark:bg-slate-950/60 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 outline-none focus:border-amber-500 dark:focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all font-sans"
+                      />
                     </div>
-                    <div className="bg-white dark:bg-slate-900/90 border border-slate-200/60 dark:border-white/5 backdrop-blur-md rounded-xl p-2.5 text-center shadow-sm">
-                      <span className="text-[7px] text-slate-500 block uppercase font-black">FCP Speed</span>
-                      <span className="text-base font-black text-cyan-600 dark:text-cyan-400 font-mono block mt-0.5">0.24s</span>
-                    </div>
-                    <div className="bg-white dark:bg-slate-900/90 border border-slate-200/60 dark:border-white/5 backdrop-blur-md rounded-xl p-2.5 text-center shadow-sm">
-                      <span className="text-[7px] text-slate-500 block uppercase font-black">SEO Rank</span>
-                      <span className="text-base font-black text-purple-600 dark:text-purple-400 font-mono block mt-0.5">Google #1</span>
+                    <div>
+                      <label className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider block mb-1">Email Address *</label>
+                      <input 
+                        type="email" 
+                        name="email" 
+                        required 
+                        placeholder="e.g. amit@company.com"
+                        className="w-full bg-slate-100/50 dark:bg-slate-950/60 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 outline-none focus:border-amber-500 dark:focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all font-sans"
+                      />
                     </div>
                   </div>
 
-                  {/* Central 3D cosmos */}
-                  <div className="relative z-10 flex items-center justify-center h-40 pointer-events-none select-none">
-                    <div className="relative w-44 h-44 flex items-center justify-center">
-                      <div className="absolute w-12 h-12 rounded-full bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-600 shadow-[0_0_35px_rgba(99,102,241,0.5)] dark:shadow-[0_0_35px_rgba(99,102,241,0.7)] animate-pulse flex items-center justify-center border border-white/20">
-                        <Sparkles className="w-5 h-5 text-white animate-spin-slow" />
-                      </div>
-                      <svg className="absolute w-40 h-40 animate-spin-slow" style={{ transform: "perspective(600px) rotateX(65deg) rotateY(15deg)" }} viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="45" stroke="#22d3ee" strokeWidth="1.2" fill="none" strokeDasharray="8 12" opacity="0.7" />
-                        <circle cx="50" cy="5" r="3" fill="#22d3ee" className="animate-pulse" />
-                      </svg>
-                      <svg className="absolute w-32 h-32 animate-spin-reverse" style={{ transform: "perspective(600px) rotateX(45deg) rotateY(-20deg)" }} viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="45" stroke="#a855f7" strokeWidth="1.8" fill="none" strokeDasharray="20 8 4 8" opacity="0.6" />
-                        <circle cx="95" cy="50" r="2.5" fill="#a855f7" />
-                      </svg>
-                      <svg className="absolute w-24 h-24 animate-spin-slow" style={{ transform: "perspective(600px) rotateX(75deg) rotateY(30deg)" }} viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="45" stroke="#fb923c" strokeWidth="1.2" fill="none" strokeDasharray="3 6" opacity="0.8" />
-                        <circle cx="50" cy="95" r="2.5" fill="#fb923c" />
-                      </svg>
-                    </div>
+                  <div>
+                    <label className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider block mb-1">Select Service *</label>
+                    <select 
+                      name="service" 
+                      required 
+                      className="w-full bg-slate-100/50 dark:bg-slate-950/60 border border-slate-200 dark:border-white/10 rounded-xl px-3 py-2.5 text-xs sm:text-sm text-slate-900 dark:text-white outline-none focus:border-amber-500 dark:focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all font-sans animate-fade-in"
+                    >
+                      <option value="" disabled className="text-slate-400">Choose a solution...</option>
+                      <option value="Website Development" className="bg-background text-foreground">Website Development</option>
+                      <option value="SEO Maps Optimization" className="bg-background text-foreground">Local SEO & Google Maps</option>
+                      <option value="Paid Ads Lead Gen" className="bg-background text-foreground">Paid Google/Meta Ad Funnels</option>
+                      <option value="Healthcare Marketing" className="bg-background text-foreground">Healthcare & Doctor Marketing</option>
+                      <option value="Complete Growth Unification" className="bg-background text-foreground">Complete Digital Marketing Retainer</option>
+                    </select>
                   </div>
 
-                  {/* Bottom performance card */}
-                  <div className="relative z-10 bg-white dark:bg-slate-900/90 border border-slate-200/60 dark:border-white/5 backdrop-blur-md rounded-xl p-3.5 flex items-center justify-between shadow-xl">
-                    <div className="flex items-center gap-2">
-                      <Shield className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />
-                      <div className="flex flex-col">
-                        <span className="text-[7px] text-slate-500 uppercase font-black tracking-wider">Speed Performance</span>
-                        <span className="text-sm font-black text-slate-800 dark:text-white font-mono mt-0.5 leading-none">
-                          99/100 Index
-                        </span>
-                      </div>
-                    </div>
-                    <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[8px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full flex items-center gap-1.5">
-                      <Zap className="w-3 h-3 fill-current animate-pulse" /> Verified
-                    </div>
+                  <div>
+                    <label className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider block mb-1">Project Brief / Message</label>
+                    <textarea 
+                      name="message" 
+                      rows={2} 
+                      placeholder="e.g. Tell us about your goals, timing, or link to your current website..."
+                      className="w-full bg-slate-100/50 dark:bg-slate-950/60 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 outline-none focus:border-amber-500 dark:focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all resize-none font-sans"
+                    />
                   </div>
-                </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold uppercase tracking-widest text-xs py-3.5 rounded-xl shadow-md transition-all active:scale-98 flex items-center justify-center gap-2 disabled:opacity-50"
+                  >
+                    {isSubmitting ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <MessageCircle className="w-3.5 h-3.5" />}
+                    {isSubmitting ? "Submitting Request..." : "Send Message!"}
+                  </button>
+                </form>
               </div>
             </div>
           </div>

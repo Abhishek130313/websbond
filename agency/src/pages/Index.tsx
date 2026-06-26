@@ -7,6 +7,7 @@ import { StatsBar } from "@/components/site/StatsBar";
 // Below-the-fold components: lazy-loaded to reduce initial bundle/parse time
 const Process = lazy(() => import("@/components/site/Process").then(m => ({ default: m.Process })));
 const Services = lazy(() => import("@/components/site/Services").then(m => ({ default: m.Services })));
+const VideoShowcase = lazy(() => import("@/components/site/VideoShowcase").then(m => ({ default: m.VideoShowcase })));
 const GrowthConsole = lazy(() => import("@/components/site/GrowthConsole").then(m => ({ default: m.GrowthConsole })));
 const RecentWorks = lazy(() => import("@/components/site/RecentWorks").then(m => ({ default: m.RecentWorks })));
 const Testimonials = lazy(() => import("@/components/site/Testimonials").then(m => ({ default: m.Testimonials })));
@@ -101,10 +102,13 @@ const Index = () => (
     <StatsBar />
     {/* Below-fold: lazy loaded to reduce TTI and main thread blocking */}
     <Suspense fallback={<SectionSkeleton />}>
-      <Process />
+      <Services />
     </Suspense>
     <Suspense fallback={<SectionSkeleton />}>
-      <Services />
+      <VideoShowcase />
+    </Suspense>
+    <Suspense fallback={<SectionSkeleton />}>
+      <Process />
     </Suspense>
     <Suspense fallback={<SectionSkeleton />}>
       <GrowthConsole />

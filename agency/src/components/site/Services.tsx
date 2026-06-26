@@ -163,21 +163,21 @@ const CapabilityCard = ({ title, description, icon, accentColor, glowClass, micr
         ["--x" as any]: mouseLocal.x,
         ["--y" as any]: mouseLocal.y,
       } as React.CSSProperties}
-      className={`group relative p-6 rounded-3xl bg-slate-900/60 border border-white/[0.06] backdrop-blur-md hover:border-white/[0.15] overflow-hidden z-10 transition-all duration-300 ${glowClass}`}
+      className={`group relative p-6 rounded-3xl bg-slate-900/60 border border-white/[0.06] backdrop-blur-md hover:border-amber-500/30 overflow-hidden z-10 transition-all duration-300 ${glowClass}`}
     >
       <div 
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
         style={{
-          background: `radial-gradient(150px circle at var(--x) var(--y), ${accentColor}18, transparent 80%)`
+          background: `radial-gradient(150px circle at var(--x) var(--y), #F2A10415, transparent 80%)`
         }}
       />
       
       <div className="flex flex-col h-full justify-between relative z-10">
         <div>
-          <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-white/[0.02] border border-white/[0.08] mb-6 text-white" style={{ color: accentColor }}>
+          <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-white/[0.02] border border-white/[0.08] group-hover:border-amber-500/20 group-hover:bg-amber-500/5 mb-6 text-slate-300 group-hover:text-amber-500 transition-colors">
             {icon}
           </div>
-          <h3 className="text-xl font-bold text-white mb-2 font-display">{title}</h3>
+          <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors mb-2 font-display">{title}</h3>
           <p className="text-xs sm:text-sm leading-relaxed text-slate-400">{description}</p>
         </div>
         {microPreview}

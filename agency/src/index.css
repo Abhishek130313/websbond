@@ -14,93 +14,93 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%; /* Light slate background #f8fafc */
-    --foreground: 224 71% 4%; /* Dark slate text #020617 */
+    --background: 217 50% 98%; /* Light slate background #f8fafc */
+    --foreground: 217 69% 13%; /* Deep Navy text #0a1d37 */
 
     --surface: 0 0% 100%;
-    --surface-2: 210 40% 96.1%;
+    --surface-2: 217 50% 95%;
 
     --card: 0 0% 100%;
-    --card-foreground: 224 71% 4%;
+    --card-foreground: 217 69% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71% 4%;
+    --popover-foreground: 217 69% 13%;
 
-    --primary: 224 71% 4%;
+    --primary: 217 69% 13%; /* Deep Navy */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 224 71% 4%;
+    --secondary: 217 50% 95%;
+    --secondary-foreground: 217 69% 13%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 35%;
+    --muted: 217 50% 95%;
+    --muted-foreground: 215 16% 40%;
 
-    --accent: 263 90% 64%; /* Neon purple/pink */
-    --accent-foreground: 210 40% 98%;
+    --accent: 38 97% 48%; /* Amber Gold #F2A104 */
+    --accent-foreground: 217 69% 13%;
 
-    --brand: 250 85% 60%; /* Indigo-violet */
+    --brand: 217 69% 13%; /* Deep Navy */
     --brand-foreground: 210 40% 98%;
-    --brand-soft: 250 85% 95%;
+    --brand-soft: 217 69% 95%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 263 90% 64%;
+    --ring: 38 97% 48%;
 
     --radius: 1.25rem;
 
     --shadow-soft: 0 10px 30px -12px rgba(0, 0, 0, 0.05);
     --shadow-card: 0 20px 40px -20px rgba(0, 0, 0, 0.1);
-    --shadow-float: 0 30px 60px -30px hsl(263 90% 64% / 0.15);
+    --shadow-float: 0 30px 60px -30px hsl(38 97% 48% / 0.15);
 
-    --gradient-warm: linear-gradient(135deg, hsl(210 40% 98%), hsl(210 40% 94%));
-    --gradient-accent: linear-gradient(135deg, #2563eb 0%, #c084fc 50%, #f97316 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(217 50% 98%), hsl(217 50% 94%));
+    --gradient-accent: linear-gradient(135deg, #0a1d37 0%, #e29a09 50%, #f2a104 100%);
   }
 
   .dark, html.dark, :root.dark {
-    --background: 224 71% 3.5%; /* Deep dark slate #030712 */
+    --background: 217 69% 6%; /* Deep Navy Black #040b16 */
     --foreground: 210 40% 98%;
 
-    --surface: 224 71% 5.5%;
-    --surface-2: 224 71% 8%;
+    --surface: 217 69% 10%; /* Deep Navy #071529 */
+    --surface-2: 217 69% 14%;
 
-    --card: 224 71% 5%;
+    --card: 217 69% 8%; /* Navy #051020 */
     --card-foreground: 210 40% 98%;
 
-    --popover: 224 71% 5%;
+    --popover: 217 69% 8%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 210 40% 98%;
-    --primary-foreground: 224 71% 3.5%;
+    --primary-foreground: 217 69% 13%;
 
-    --secondary: 224 30% 10%;
+    --secondary: 217 40% 12%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 224 30% 10%;
+    --muted: 217 40% 12%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 263 90% 64%; /* Neon purple/pink */
-    --accent-foreground: 210 40% 98%;
+    --accent: 38 97% 48%; /* Amber Gold #F2A104 */
+    --accent-foreground: 217 69% 13%;
 
-    --brand: 250 85% 60%; /* Indigo-violet */
-    --brand-foreground: 210 40% 98%;
-    --brand-soft: 250 85% 15%;
+    --brand: 38 97% 48%; /* Amber Gold in Dark Mode */
+    --brand-foreground: 217 69% 13%;
+    --brand-soft: 38 97% 12%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 224 30% 12%; /* Very subtle borders */
-    --input: 224 30% 12%;
-    --ring: 263 90% 64%;
+    --border: 217 40% 15%; /* Subtle navy borders */
+    --input: 217 40% 15%;
+    --ring: 38 97% 48%;
 
     --shadow-soft: 0 10px 30px -12px rgba(0, 0, 0, 0.6);
     --shadow-card: 0 20px 40px -20px rgba(0, 0, 0, 0.8);
-    --shadow-float: 0 30px 60px -30px hsl(263 90% 64% / 0.3);
+    --shadow-float: 0 30px 60px -30px hsl(38 97% 48% / 0.3);
 
-    --gradient-warm: linear-gradient(135deg, hsl(224 71% 4.5%), hsl(224 71% 8%));
-    --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #d946ef 50%, #f97316 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(217 69% 6%), hsl(217 69% 10%));
+    --gradient-accent: linear-gradient(135deg, #0a1d37 0%, #e29a09 50%, #f2a104 100%);
   }
 }
 
