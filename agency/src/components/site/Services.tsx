@@ -200,7 +200,7 @@ const AuditWidget = () => {
 
   return (
     <div className="mt-8 p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] backdrop-blur-md relative overflow-hidden group hover:border-slate-300 dark:hover:border-white/[0.12] transition-all duration-300">
-      <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/5 to-amber-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
       <div className="flex items-center gap-5">
         {/* Animated Speed Dial */}
         <div className="relative w-16 h-16 flex items-center justify-center shrink-0">
@@ -211,7 +211,7 @@ const AuditWidget = () => {
               cy="18"
               r="16"
               fill="none"
-              stroke={score === 100 ? "#10b981" : "#6366f1"}
+              stroke={score === 100 ? "#10b981" : "#F2A104"}
               strokeWidth="3.2"
               strokeDasharray={`${score} 100`}
               className="transition-all duration-500 ease-out"
@@ -241,7 +241,7 @@ const AuditWidget = () => {
       {/* Comparative list */}
       <div className="mt-4 pt-4 border-t border-slate-200 dark:border-white/[0.04] grid grid-cols-2 gap-3 text-[10px]">
         <div className="space-y-1.5 border-r border-slate-200 dark:border-white/[0.04] pr-2.5">
-          <span className="text-[8px] font-black uppercase text-indigo-600 dark:text-indigo-400 tracking-wider block">Websbond Dev</span>
+          <span className="text-[8px] font-black uppercase text-amber-500 dark:text-amber-400 tracking-wider block">Websbond Dev</span>
           <div className="flex items-center justify-between text-slate-800 dark:text-white font-semibold">
             <span>First Paint:</span>
             <span className="text-emerald-600 dark:text-emerald-400 font-mono">0.24s</span>
@@ -269,17 +269,17 @@ const AuditWidget = () => {
 
 export const Services = () => (
   <section className="container py-24 md:py-32 relative mx-auto px-4">
-    <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] rounded-full radial-glow pointer-events-none" style={{ "--glow-color": "rgba(168, 85, 247, 0.05)" } as React.CSSProperties} />
+    <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] rounded-full radial-glow pointer-events-none" style={{ "--glow-color": "rgba(242, 161, 4, 0.02)" } as React.CSSProperties} />
     
     <div className="grid lg:grid-cols-[0.95fr_2fr] gap-12 lg:gap-16 items-start">
       {/* Sticky Left Column */}
       <div className="lg:sticky lg:top-28">
-        <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-700 dark:text-purple-300 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-6">
-          <Sparkles className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" /> Capabilities
+        <div className="inline-flex items-center gap-2 bg-amber-500/5 border border-amber-500/20 text-amber-500 dark:text-amber-300 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-6">
+          <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" /> Capabilities
         </div>
         <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-slate-900 dark:text-white leading-tight">
           Everything you need, <br className="hidden sm:block" />
-          <span className="bg-gradient-to-r from-blue-600 to-pink-500 dark:from-blue-400 dark:to-pink-500 bg-clip-text text-transparent">all in one place.</span>
+          <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">all in one place.</span>
         </h2>
         <p className="mt-6 text-sm text-slate-700 dark:text-slate-400 max-w-md leading-relaxed">
           We don't build generic templates. We write custom performance code, configure indexing engines, script automation flows, and provide instant developer support.
@@ -293,7 +293,7 @@ export const Services = () => (
             to="/services" 
             className="inline-flex items-center gap-2 text-slate-800 dark:text-white font-bold text-sm bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 px-6 py-3 rounded-xl transition-all hover:translate-x-1"
           >
-            Explore All Services <ArrowRight className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+            Explore All Services <ArrowRight className="w-4 h-4 text-amber-500 dark:text-amber-400" />
           </Link>
         </div>
       </div>

@@ -81,16 +81,16 @@ export const OurWorkPage = () => {
       />
 
       {/* ── Hero Title Section ── */}
-      <section className="relative overflow-hidden pt-8 pb-12 border-b border-border bg-gradient-to-br from-background via-surface-2 to-indigo-500/5 dark:to-indigo-950/20">
+      <section className="relative overflow-hidden pt-8 pb-12 border-b border-border bg-gradient-to-br from-background via-surface-2 to-amber-500/5 dark:to-amber-950/10">
         
         {/* Background Mesh and Orbs */}
         <div className="absolute inset-0 grid-mesh opacity-[0.05] dark:opacity-[0.07] pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-purple-500/5 blur-[100px] pointer-events-none animate-aurora-1" />
-        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-blue-500/5 blur-[90px] pointer-events-none animate-aurora-2" />
+        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-amber-500/5 blur-[100px] pointer-events-none animate-aurora-1" />
+        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-amber-500/5 blur-[90px] pointer-events-none animate-aurora-2" />
 
         {/* Floating tech background shapes representing Portfolio */}
-        <div className="absolute top-12 right-16 w-8 h-8 border border-indigo-200/40 rounded-lg flex items-center justify-center animate-pulse pointer-events-none">
-          <LaptopIcon className="w-4 h-4 text-indigo-400/40" />
+        <div className="absolute top-12 right-16 w-8 h-8 border border-amber-500/20 rounded-lg flex items-center justify-center animate-pulse pointer-events-none">
+          <LaptopIcon className="w-4 h-4 text-amber-400/40" />
         </div>
         <div className="absolute bottom-6 left-1/3 w-5 h-5 bg-cyan-500/5 rounded-full animate-bounce pointer-events-none" style={{ animationDuration: '5.5s' }} />
 
@@ -99,13 +99,13 @@ export const OurWorkPage = () => {
             
             {/* Left Content Column */}
             <div className="md:col-span-7 flex flex-col gap-4 text-left items-start">
-              <div className="inline-flex items-center gap-2 bg-brand-soft border border-purple-200 dark:border-purple-500/10 text-purple-600 dark:text-purple-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full w-fit">
-                <Sparkles className="w-3.5 h-3.5 text-purple-500 animate-pulse" /> Proven Case Studies
+              <div className="inline-flex items-center gap-2 bg-amber-500/5 border border-amber-500/20 text-amber-500 dark:text-amber-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full w-fit">
+                <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" /> Proven Case Studies
               </div>
               
               <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground tracking-tight">
                 Work that drives <br />
-                <span className="bg-gradient-to-r from-cyan-600 via-indigo-500 to-purple-600 dark:from-cyan-400 dark:via-indigo-400 dark:to-purple-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">
                   real business results.
                 </span>
               </h1>
@@ -117,7 +117,7 @@ export const OurWorkPage = () => {
               <div className="flex flex-wrap gap-3">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition-all text-xs"
+                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-md transition-all text-xs"
                 >
                   Start Similar Build <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -132,7 +132,7 @@ export const OurWorkPage = () => {
               </div>
               
               <div className="flex flex-wrap gap-2 mt-1">
-                {[{ label: "Direct Developer Contact", dot: "bg-emerald-500" }, { label: "Google #1 Rankings", dot: "bg-cyan-500" }, { label: "100/100 PageSpeed", dot: "bg-indigo-500" }].map((b) => (
+                {[{ label: "Direct Developer Contact", dot: "bg-emerald-500" }, { label: "Google #1 Rankings", dot: "bg-cyan-500" }, { label: "100/100 PageSpeed", dot: "bg-amber-500" }].map((b) => (
                   <div key={b.label} className="flex items-center gap-1.5 bg-card border border-border rounded-full px-3 py-1 shadow-sm">
                     <span className={`w-1.5 h-1.5 rounded-full ${b.dot} animate-pulse`} />
                     <span className="text-[10px] font-bold text-muted-foreground">{b.label}</span>
@@ -149,13 +149,13 @@ export const OurWorkPage = () => {
                 <div className="relative w-[260px] h-[200px] [transform-style:preserve-3d] [transform:rotateX(22deg)_rotateY(-15deg)] group-hover/hero:[transform:rotateX(12deg)_rotateY(2deg)] transition-all duration-700 ease-out">
                   
                   {/* Tablet/Mobile mockup float (Top Layer) */}
-                  <div className="absolute top-10 right-4 w-[110px] h-[190px] bg-slate-900 border border-slate-700 dark:border-slate-800 rounded-[2rem] p-1.5 shadow-[0_15px_30px_rgba(79,70,229,0.12)] [transform:translateZ(65px)] transition-transform duration-700 ease-out group-hover/hero:[transform:translateZ(90px)] flex flex-col items-center">
+                  <div className="absolute top-10 right-4 w-[110px] h-[190px] bg-slate-900 border border-slate-700 dark:border-slate-800 rounded-[2rem] p-1.5 shadow-[0_15px_30px_rgba(242,161,4,0.12)] [transform:translateZ(65px)] transition-transform duration-700 ease-out group-hover/hero:[transform:translateZ(90px)] flex flex-col items-center">
                     <span className="w-10 h-2 bg-slate-950 rounded-full mb-2 shadow-inner" />
                     <div className="w-full flex-1 bg-slate-950 rounded-[1.5rem] overflow-hidden p-2 flex flex-col justify-between">
                       <div className="w-full h-1 bg-white/25 rounded" />
                       <div className="flex-1 flex flex-col justify-center gap-1.5">
                         <div className="w-3/4 h-1 bg-white/20 rounded mx-auto" />
-                        <div className="w-1/2 h-1 bg-indigo-500/40 rounded mx-auto" />
+                        <div className="w-1/2 h-1 bg-amber-500/40 rounded mx-auto" />
                       </div>
                       <div className="w-full h-5 bg-white/5 border border-white/10 rounded flex items-center justify-center text-[5px] text-white">Buy Product</div>
                     </div>
@@ -172,7 +172,7 @@ export const OurWorkPage = () => {
                       <span className="text-[7px] text-muted-foreground font-mono">portfolio_preview</span>
                     </div>
                     <div className="flex-1 flex flex-col gap-2 py-3">
-                      <div className="w-2/3 h-1.5 bg-indigo-500/25 rounded" />
+                      <div className="w-2/3 h-1.5 bg-amber-500/25 rounded" />
                       <div className="w-full h-1 bg-muted rounded animate-pulse" />
                       <div className="w-5/6 h-1 bg-muted rounded animate-pulse" />
                     </div>
@@ -196,7 +196,7 @@ export const OurWorkPage = () => {
         <section className="container mx-auto px-4 py-4">
           <div className="glass-panel rounded-3xl p-6 sm:p-8 lg:p-12 border border-border shadow-sm grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-12 items-center">
             <div>
-              <span className="bg-brand-soft border border-indigo-200 dark:border-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm animate-pulse-slow">
+              <span className="bg-amber-500/5 border border-amber-500/20 text-amber-500 dark:text-amber-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm animate-pulse-slow">
                 Featured Build
               </span>
               <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight mt-4">
@@ -213,14 +213,14 @@ export const OurWorkPage = () => {
                 </div>
                 <div>
                   <div className="text-[10px] text-muted-foreground font-bold uppercase">Load Speed</div>
-                  <div className="font-display font-extrabold text-xl sm:text-2xl text-indigo-600 dark:text-indigo-400 mt-1 font-mono">98/100</div>
+                  <div className="font-display font-extrabold text-xl sm:text-2xl text-amber-500 dark:text-amber-400 mt-1 font-mono">98/100</div>
                 </div>
               </div>
 
               <div className="flex gap-4 mt-6">
                 <Link 
                   to="/contact"
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm shadow-md shadow-indigo-600/10"
+                  className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs sm:text-sm shadow-md shadow-amber-500/10"
                 >
                   Start Similar Build
                 </Link>
@@ -237,7 +237,7 @@ export const OurWorkPage = () => {
 
             {/* Interactive Screen Device Mockup */}
             <div className="flex items-center justify-center relative w-full aspect-[4/3] bg-muted border border-border rounded-3xl overflow-hidden p-6 shadow-inner">
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-40 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-amber-600/5 opacity-40 pointer-events-none" />
               
               {/* Device frame container */}
               <div 
@@ -306,8 +306,8 @@ export const OurWorkPage = () => {
                 onClick={() => setActiveFilter(f.label)}
                 className={`px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 flex items-center gap-2 ${
                   activeFilter === f.label
-                    ? "bg-indigo-600 text-white border-indigo-600 dark:bg-indigo-500 dark:border-indigo-500 shadow-sm"
-                    : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-slate-300 shadow-sm"
+                    ? "bg-amber-500 text-slate-950 border-amber-500 dark:bg-amber-500 dark:border-amber-500 shadow-sm font-bold"
+                    : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-slate-300 shadow-sm font-medium"
                 }`}
               >
                 <f.icon className="w-3.5 h-3.5" />
@@ -337,14 +337,14 @@ export const OurWorkPage = () => {
                     alt={p.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-4 left-4 bg-slate-900/95 border border-white/10 text-[9px] text-indigo-300 font-bold px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm shadow-sm">
+                  <span className="absolute top-4 left-4 bg-slate-900/95 border border-white/10 text-[9px] text-amber-400 font-bold px-2.5 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm shadow-sm">
                     {p.category}
                   </span>
                 </div>
 
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-display font-bold text-base sm:text-lg text-foreground mb-2 group-hover:text-indigo-600 transition-colors">
+                    <h3 className="font-display font-bold text-base sm:text-lg text-foreground mb-2 group-hover:text-amber-500 transition-colors">
                       {p.name}
                     </h3>
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6 font-semibold">
@@ -361,7 +361,7 @@ export const OurWorkPage = () => {
                       href={p.previewUrl.startsWith("http") ? p.previewUrl : `https://${p.previewUrl}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs text-indigo-600 dark:text-indigo-400 font-bold group-hover:translate-x-1.5 transition-transform flex items-center gap-1 cursor-pointer"
+                      className="text-xs text-amber-500 dark:text-amber-400 font-bold group-hover:translate-x-1.5 transition-transform flex items-center gap-1 cursor-pointer"
                     >
                       Live Preview <ArrowRight className="w-3.5 h-3.5" />
                     </a>
@@ -382,7 +382,7 @@ export const OurWorkPage = () => {
               { icon: TrendingUp, val: "100%", label: "Code Handoff" },
             ].map(({ icon: Icon, val, label }) => (
               <div key={label} className="p-5 sm:p-6 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-brand-soft text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/10 grid place-items-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/5 text-amber-500 dark:text-amber-400 border border-amber-500/20 dark:border-amber-500/10 grid place-items-center shrink-0">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>

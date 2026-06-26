@@ -84,30 +84,30 @@ export const BlogPage = () => {
       />
 
       {/* ── Visual Sub-Hero Header ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-surface-2 to-indigo-500/5 dark:to-indigo-950/20 pt-8 pb-12 border-b border-border">
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-surface-2 to-amber-500/5 dark:to-amber-950/10 pt-8 pb-12 border-b border-border">
         
         {/* Grids and Aurora */}
         <div className="absolute inset-0 grid-mesh opacity-[0.05] dark:opacity-[0.07] pointer-events-none" />
-        <div className="absolute top-1/4 left-1/3 w-[450px] h-[450px] rounded-full bg-purple-500/5 blur-[110px] pointer-events-none animate-aurora-1" />
-        <div className="absolute bottom-1/4 right-1/4 w-[380px] h-[380px] rounded-full bg-indigo-500/5 blur-[100px] pointer-events-none animate-aurora-2" />
+        <div className="absolute top-1/4 left-1/3 w-[450px] h-[450px] rounded-full bg-amber-500/5 blur-[110px] pointer-events-none animate-aurora-1" />
+        <div className="absolute bottom-1/4 right-1/4 w-[380px] h-[380px] rounded-full bg-amber-500/5 blur-[100px] pointer-events-none animate-aurora-2" />
 
         {/* Animated background blogging graphics */}
-        <div className="absolute top-8 left-12 w-8 h-8 border border-purple-200/35 rounded-lg rotate-12 animate-pulse pointer-events-none" />
-        <div className="absolute bottom-6 right-1/3 w-6 h-6 bg-indigo-500/5 border border-indigo-200/30 rounded-full animate-bounce pointer-events-none" style={{ animationDuration: '5s' }} />
+        <div className="absolute top-8 left-12 w-8 h-8 border border-amber-500/20 rounded-lg rotate-12 animate-pulse pointer-events-none" />
+        <div className="absolute bottom-6 right-1/3 w-6 h-6 bg-amber-500/5 border border-amber-500/20 rounded-full animate-bounce pointer-events-none" style={{ animationDuration: '5s' }} />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-10 items-center">
             
             {/* Left Content Column */}
             <div className="flex flex-col items-start text-left gap-5">
-              <div className="inline-flex items-center gap-2 border border-purple-200 dark:border-purple-500/20 bg-purple-50/60 dark:bg-purple-950/20 backdrop-blur-md text-purple-600 dark:text-purple-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full w-fit">
-                <Sparkles className="w-3.5 h-3.5 text-purple-500 animate-pulse" />
+              <div className="inline-flex items-center gap-2 border border-amber-500/20 dark:border-amber-500/20 bg-amber-500/5 dark:bg-amber-500/5 backdrop-blur-md text-amber-500 dark:text-amber-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full w-fit">
+                <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
                 Knowledge Base &amp; Insights
               </div>
               
               <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground tracking-tight">
                 Insights &amp;<br />
-                <span className="bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-600 dark:from-purple-400 dark:via-indigo-400 dark:to-cyan-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">
                   Engineering Guides.
                 </span>
               </h1>
@@ -127,7 +127,7 @@ export const BlogPage = () => {
                 </a>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition-all text-xs"
+                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-md transition-all text-xs"
                 >
                   Contact for Free Audit <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -166,16 +166,16 @@ export const BlogPage = () => {
 
                   {/* Folder 2 (Marketing / Metrics) */}
                   <div className="absolute inset-0 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-[0_10px_20px_rgba(0,0,0,0.05)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.15)] [transform:translateZ(10px)] group-hover/hero:[transform:translateZ(15deg)] flex flex-col justify-between">
-                    <div className="flex items-center justify-between text-[8px] text-indigo-600 dark:text-indigo-300 font-mono border-b border-slate-200/50 dark:border-slate-800 pb-2">
+                    <div className="flex items-center justify-between text-[8px] text-amber-500 dark:text-amber-300 font-mono border-b border-slate-200/50 dark:border-slate-800 pb-2">
                       <div className="flex items-center gap-1.5">
-                        <Layers className="w-4 h-4 text-indigo-400" />
+                        <Layers className="w-4 h-4 text-amber-400" />
                         <span>SEO_Campaigns</span>
                       </div>
                     </div>
                     <div className="space-y-1.5 py-1">
-                      <div className="w-2/3 h-1 bg-indigo-200 dark:bg-indigo-400/25 rounded-full" />
-                      <div className="w-4/5 h-1 bg-indigo-200 dark:bg-indigo-400/25 rounded-full" />
-                      <div className="flex justify-between text-[6px] text-emerald-600 dark:text-emerald-400 font-bold font-mono mt-1 bg-indigo-50 dark:bg-indigo-950/40 p-1 rounded">
+                      <div className="w-2/3 h-1 bg-amber-200 dark:bg-amber-400/25 rounded-full" />
+                      <div className="w-4/5 h-1 bg-amber-200 dark:bg-amber-400/25 rounded-full" />
+                      <div className="flex justify-between text-[6px] text-emerald-600 dark:text-emerald-400 font-bold font-mono mt-1 bg-amber-50 dark:bg-indigo-950/40 p-1 rounded">
                         <span>Organic Position</span>
                         <span>#1 Rank</span>
                       </div>
@@ -183,9 +183,9 @@ export const BlogPage = () => {
                   </div>
 
                   {/* Folder 1 (Backend / DB Schema) */}
-                  <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-indigo-500/20 rounded-2xl p-4 shadow-[0_5px_15px_rgba(0,0,0,0.03)] dark:shadow-[0_5px_15px_rgba(0,0,0,0.2)] [transform:translateZ(-30px)] group-hover/hero:[transform:translateZ(-45deg)] flex flex-col justify-between">
+                  <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-amber-500/20 rounded-2xl p-4 shadow-[0_5px_15px_rgba(0,0,0,0.03)] dark:shadow-[0_5px_15px_rgba(0,0,0,0.2)] [transform:translateZ(-30px)] group-hover/hero:[transform:translateZ(-45deg)] flex flex-col justify-between">
                     <div className="flex items-center gap-1.5 text-[8px] text-muted-foreground font-mono">
-                      <Database className="w-4 h-4 text-indigo-500" />
+                      <Database className="w-4 h-4 text-amber-500" />
                       <span>Data_Archives</span>
                     </div>
                     <div className="w-full h-1 bg-muted rounded-full" />
@@ -215,8 +215,8 @@ export const BlogPage = () => {
                   onClick={() => setActiveFilter(f.label)}
                   className={`px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 flex items-center gap-2 ${
                     activeFilter === f.label
-                      ? "bg-indigo-600 text-white border-indigo-600 shadow-sm"
-                      : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-slate-300 shadow-sm"
+                      ? "bg-amber-500 text-slate-950 border-amber-500 shadow-sm font-bold"
+                      : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-slate-300 shadow-sm font-medium"
                   }`}
                 >
                   <f.icon className="w-3.5 h-3.5" />
@@ -232,7 +232,7 @@ export const BlogPage = () => {
                   <Link 
                     to={`/blog/${post.slug}`}
                     key={post.slug} 
-                    className="glass-panel border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-500/30 transition-all duration-305 flex flex-col group"
+                    className="glass-panel border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-md hover:border-amber-500/30 dark:hover:border-amber-500/30 transition-all duration-305 flex flex-col group"
                   >
                     <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
                       <img 
@@ -240,13 +240,13 @@ export const BlogPage = () => {
                         alt={post.title} 
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <span className="absolute top-4 left-4 bg-slate-900/90 border border-white/10 text-[9px] text-indigo-300 font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                      <span className="absolute top-4 left-4 bg-slate-900/90 border border-white/10 text-[9px] text-amber-400 font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                         {post.category}
                       </span>
                     </div>
                     <div className="p-5 flex-1 flex flex-col justify-between">
                       <div>
-                        <h3 className="font-display font-extrabold text-sm sm:text-base text-foreground group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-snug line-clamp-2">
+                        <h3 className="font-display font-extrabold text-sm sm:text-base text-foreground group-hover:text-amber-500 transition-colors leading-snug line-clamp-2">
                           {post.title}
                         </h3>
                         <p className="mt-2 text-xs text-muted-foreground leading-relaxed line-clamp-3 font-semibold font-sans">
@@ -281,10 +281,10 @@ export const BlogPage = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search insights..."
                 aria-label="Search blog posts"
-                className="w-full bg-card border border-border rounded-2xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-indigo-600 transition-colors shadow-sm" 
+                className="w-full bg-card border border-border rounded-2xl pl-10 pr-4 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-amber-500 transition-colors shadow-sm" 
               />
               {workerStats && (
-                <div className="mt-2 text-[10px] text-muted-foreground flex items-center gap-1.5 font-mono bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-500/10 rounded-xl px-2.5 py-1">
+                <div className="mt-2 text-[10px] text-muted-foreground flex items-center gap-1.5 font-mono bg-amber-500/5 dark:bg-amber-500/5 border border-amber-500/20 rounded-xl px-2.5 py-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                   <span>Thread #{workerStats.threadId} active • Query processed in {workerStats.timeTakenMs}ms</span>
                 </div>
@@ -298,7 +298,7 @@ export const BlogPage = () => {
                 {posts.slice(0, 4).map((post, idx) => (
                   <li key={idx} className="flex gap-3 border-b border-slate-200/80 dark:border-white/[0.06] pb-3 last:border-0 last:pb-0">
                     <Link to={`/blog/${post.slug}`} className="min-w-0 flex-1 block">
-                      <p className="text-xs font-bold text-foreground leading-snug line-clamp-2 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">{post.title}</p>
+                      <p className="text-xs font-bold text-foreground leading-snug line-clamp-2 hover:text-amber-500 transition-colors">{post.title}</p>
                       <div className="text-[10px] text-muted-foreground mt-0.5">{post.date}</div>
                     </Link>
                   </li>
@@ -307,8 +307,8 @@ export const BlogPage = () => {
             </div>
 
             {/* Newsletter Box */}
-            <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 border border-indigo-100 dark:border-indigo-500/20 rounded-3xl p-5 shadow-sm">
-              <div className="flex items-center gap-2 mb-2 text-indigo-600 dark:text-indigo-400">
+            <div className="bg-gradient-to-br from-amber-500/5 to-amber-600/5 dark:from-amber-950/10 dark:to-amber-950/10 border border-amber-500/20 dark:border-amber-500/20 rounded-3xl p-5 shadow-sm">
+              <div className="flex items-center gap-2 mb-2 text-amber-500 dark:text-amber-400">
                 <Send className="w-4 h-4 animate-pulse" />
                 <span className="font-display font-bold text-xs sm:text-sm text-foreground">Stay Updated</span>
               </div>
@@ -346,12 +346,12 @@ export const BlogPage = () => {
                   name="newsletter-email" 
                   aria-label="Newsletter email address" 
                   placeholder="Enter email address"
-                  className="w-full bg-card border border-border rounded-xl px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground outline-none focus:border-indigo-600 transition-colors shadow-sm font-sans" 
+                  className="w-full bg-card border border-border rounded-xl px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground outline-none focus:border-amber-500 transition-colors shadow-sm font-sans" 
                 />
                 <button 
                   type="submit" 
                   disabled={subscribing}
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-bold py-2 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-md shadow-indigo-600/10"
+                  className="w-full bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-slate-950 font-bold py-2 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-md shadow-amber-500/10"
                 >
                   {subscribing ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3 h-3" />}
                   {subscribing ? "Subscribing..." : "Subscribe Now"}

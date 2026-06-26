@@ -9,7 +9,7 @@ import { getApiUrl } from "@/lib/api";
 const categoryColors: Record<string, string> = {
   "Web Development": "bg-cyan-500/10 border-cyan-500/20 text-cyan-700 dark:text-cyan-300",
   "SEO": "bg-emerald-500/10 border-emerald-500/20 text-emerald-700 dark:text-emerald-300",
-  "Digital Marketing": "bg-purple-500/10 border-purple-500/20 text-purple-700 dark:text-purple-300",
+  "Digital Marketing": "bg-amber-500/10 border-amber-500/20 text-amber-500 dark:text-amber-300",
   "E-Commerce": "bg-orange-500/10 border-orange-500/20 text-orange-700 dark:text-orange-300",
 };
 
@@ -78,7 +78,7 @@ export const BlogPostPage = () => {
     return (
       <Layout>
         <div className="min-h-[60vh] bg-background flex items-center justify-center">
-          <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
+          <Loader2 className="w-8 h-8 text-amber-500 animate-spin" />
         </div>
       </Layout>
     );
@@ -86,7 +86,7 @@ export const BlogPostPage = () => {
 
   if (!post) return <Navigate to="/blog" replace />;
 
-  const catColor = categoryColors[post.category] || "bg-indigo-500/10 border-indigo-500/20 text-indigo-700 dark:text-indigo-300";
+  const catColor = categoryColors[post.category] || "bg-amber-500/10 border-amber-500/20 text-amber-500 dark:text-amber-300";
 
   return (
     <Layout>
@@ -116,9 +116,9 @@ export const BlogPostPage = () => {
       />
 
       {/* Hero Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-surface-2 to-indigo-500/5 dark:to-indigo-950/20 pt-8 pb-12 border-b border-border">
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-surface-2 to-amber-500/5 dark:to-amber-950/10 pt-8 pb-12 border-b border-border">
         <div className="absolute inset-0 grid-mesh opacity-[0.05] dark:opacity-[0.07] pointer-events-none" />
-        <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] rounded-full bg-purple-500/5 blur-[110px] pointer-events-none animate-aurora-1" />
+        <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] rounded-full bg-amber-500/5 blur-[110px] pointer-events-none animate-aurora-1" />
 
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Back */}
@@ -155,7 +155,7 @@ export const BlogPostPage = () => {
           {/* Author + Share */}
           <div className="flex items-center justify-between flex-wrap gap-4 pt-5 border-t border-slate-200/80 dark:border-white/[0.06]">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm">
+              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-amber-500 to-amber-600 flex items-center justify-center text-slate-950 font-bold text-sm">
                 W
               </div>
               <div>
@@ -196,7 +196,7 @@ export const BlogPostPage = () => {
               prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4
               prose-ul:text-muted-foreground prose-ol:text-muted-foreground
               prose-li:mb-2 prose-strong:text-foreground prose-strong:font-bold
-              prose-a:text-indigo-600 dark:prose-a:text-indigo-400 prose-a:no-underline hover:prose-a:underline"
+              prose-a:text-amber-500 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
@@ -206,7 +206,7 @@ export const BlogPostPage = () => {
             {/* CTA Card */}
             <div className="glass-panel border-border rounded-2xl p-5 shadow-sm">
               <div className="flex items-center gap-2 mb-3">
-                <Sparkles className="w-4 h-4 text-indigo-500" />
+                <Sparkles className="w-4 h-4 text-amber-500" />
                 <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Free Consultation</span>
               </div>
               <h3 className="font-display font-bold text-base text-foreground mb-2">
@@ -226,7 +226,7 @@ export const BlogPostPage = () => {
                 </a>
                 <Link
                   to="/contact"
-                  className="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition-all"
+                  className="flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs transition-all"
                 >
                   Contact Us <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -272,7 +272,7 @@ export const BlogPostPage = () => {
                 <Link
                   key={rel.slug}
                   to={`/blog/${rel.slug}`}
-                  className="glass-panel border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-500/20 transition-all group"
+                  className="glass-panel border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:border-amber-500/30 dark:hover:border-amber-500/20 transition-all group"
                 >
                   <div className="relative aspect-[16/9] bg-muted overflow-hidden">
                     <img
@@ -284,7 +284,7 @@ export const BlogPostPage = () => {
                   </div>
                   <div className="p-4">
                     <span className="text-[9px] font-bold uppercase tracking-wider text-muted-foreground">{rel.category}</span>
-                    <h3 className="font-bold text-sm text-foreground mt-1 line-clamp-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    <h3 className="font-bold text-sm text-foreground mt-1 line-clamp-2 group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-colors">
                       {rel.title}
                     </h3>
                     <span className="text-[10px] text-muted-foreground mt-2 block">{rel.readTime}</span>

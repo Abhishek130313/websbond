@@ -99,15 +99,15 @@ export const VideoShowcase = () => {
   return (
     <section className="container py-20 relative overflow-hidden">
       {/* Background glow atmospheric layout */}
-      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none opacity-40 bg-purple-500/10" />
+      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none opacity-40 bg-amber-500/5" />
       
       <div className="text-center max-w-2xl mx-auto mb-16 relative z-10">
-        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 text-purple-600 dark:text-white font-semibold text-[11px] uppercase tracking-widest px-4 py-2 rounded-full backdrop-blur-sm">
-          <Tv className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" /> Cinematic Walkthroughs
+        <div className="inline-flex items-center gap-2 bg-amber-500/5 border border-amber-500/20 text-amber-500 dark:text-white font-semibold text-[11px] uppercase tracking-widest px-4 py-2 rounded-full backdrop-blur-sm">
+          <Tv className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" /> Cinematic Walkthroughs
         </div>
         <h2 className="mt-6 font-display font-extrabold text-4xl sm:text-5xl text-slate-900 dark:text-white tracking-tight leading-tight">
           Inspect our systems <br />
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">in HD quality.</span>
+          <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">in HD quality.</span>
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
           Select a system walkthrough below, play the mock video demo, and scrub the progress bar to check technical benchmarks.
@@ -132,12 +132,12 @@ export const VideoShowcase = () => {
                   onClick={() => handleTabSelect(tab.id)}
                   className={`w-full p-5 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 ${
                     isSelected 
-                      ? "bg-purple-500/10 border-purple-500 text-purple-700 dark:text-white shadow-[0_0_20px_rgba(168,85,247,0.15)]" 
+                      ? "bg-amber-500/10 border-amber-500 text-amber-500 dark:text-white shadow-[0_0_20px_rgba(242,161,4,0.15)] font-bold" 
                       : "bg-slate-50/50 dark:bg-white/[0.015] border-slate-200 dark:border-white/[0.05] text-slate-500 dark:text-slate-400 hover:border-slate-300 dark:hover:border-white/15 hover:bg-slate-100 dark:hover:bg-white/[0.03]"
                   }`}
                 >
                   <div className="flex items-center justify-between w-full mb-1">
-                    <span className="text-[9px] uppercase tracking-wider font-extrabold text-purple-600 dark:text-purple-400">{tab.category}</span>
+                    <span className="text-[9px] uppercase tracking-wider font-extrabold text-amber-500 dark:text-amber-400">{tab.category}</span>
                     <span className="text-[10px] text-slate-500 font-mono">{tab.duration} demo</span>
                   </div>
                   <div className="text-xs font-bold text-slate-900 dark:text-white mb-2">{tab.title}</div>
@@ -181,7 +181,7 @@ export const VideoShowcase = () => {
             {/* 3D Animations overlay based on play state */}
             {isPlaying && (
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 bg-slate-950/30 backdrop-blur-[0.5px] z-10 pointer-events-none">
-                <div className="flex items-center gap-1.5 text-xs text-purple-400 font-bold bg-purple-500/10 border border-purple-500/20 px-3 py-1.5 rounded-full animate-pulse shadow-glow">
+                <div className="flex items-center gap-1.5 text-xs text-amber-500 font-bold bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-full animate-pulse shadow-glow">
                   <Sparkles className="w-3.5 h-3.5" /> Deployed pipeline running...
                 </div>
                 
@@ -195,7 +195,7 @@ export const VideoShowcase = () => {
                         <div 
                           key={i} 
                           className={`flex-1 rounded-t transition-all duration-300 ${
-                            isActive ? "bg-gradient-to-t from-cyan-400 to-indigo-500 opacity-90" : "bg-slate-800 opacity-30"
+                            isActive ? "bg-gradient-to-t from-amber-500 to-amber-600 opacity-90" : "bg-slate-800 opacity-30"
                           }`}
                           style={{ height: `${h * (isPlaying ? 0.75 : 0.4)}%` }}
                         />
@@ -232,7 +232,7 @@ export const VideoShowcase = () => {
                 max="100" 
                 value={progress} 
                 onChange={handleTimelineChange}
-                className="flex-1 accent-purple-500 h-1 bg-slate-800 rounded-full cursor-pointer hover:h-1.5 transition-all" 
+                className="flex-1 accent-amber-500 h-1 bg-slate-800 rounded-full cursor-pointer hover:h-1.5 transition-all" 
               />
               <span className="text-[9px] text-slate-400 font-mono select-none">{activeVideo.duration}</span>
             </div>

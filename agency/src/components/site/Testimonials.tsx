@@ -157,16 +157,16 @@ export const Testimonials = () => {
 
   return (
     <section id="testimonials-section" className="py-20 md:py-28 relative overflow-hidden">
-      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full radial-glow pointer-events-none" style={{ "--glow-color": "rgba(217, 70, 239, 0.05)" } as React.CSSProperties} />
+      <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] rounded-full radial-glow pointer-events-none" style={{ "--glow-color": "rgba(242, 161, 4, 0.02)" } as React.CSSProperties} />
       
       <div className="container">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 bg-pink-500/10 border border-pink-500/20 text-pink-600 dark:text-pink-300 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-4">
-              <Sparkles className="w-3.5 h-3.5" /> Client Stories
+            <div className="inline-flex items-center gap-2 bg-amber-500/5 border border-amber-500/20 text-amber-500 dark:text-amber-300 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" /> Client Stories
             </div>
             <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-slate-900 dark:text-white tracking-tight">
-              Our happy <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">clients.</span>
+              Our happy <span className="bg-gradient-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">clients.</span>
             </h2>
           </div>
 
@@ -180,7 +180,7 @@ export const Testimonials = () => {
                     onClick={() => setActiveCategory(cat)}
                     className={`px-4 py-2 rounded-xl text-xs font-semibold border transition-all duration-200 ${
                       activeCategory === cat
-                        ? "bg-indigo-600 dark:bg-white text-white dark:text-slate-950 border-indigo-600 dark:border-white"
+                        ? "bg-amber-500 dark:bg-white text-slate-950 dark:text-slate-950 border-amber-500 dark:border-white font-bold"
                         : "bg-slate-100 dark:bg-white/[0.02] border-slate-200 dark:border-white/10 text-slate-500 dark:text-muted-foreground hover:text-slate-900 dark:hover:text-white hover:border-slate-350 dark:hover:border-white/20"
                     }`}
                   >
@@ -191,13 +191,13 @@ export const Testimonials = () => {
               
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-[0_0_15px_rgba(168,85,247,0.25)] hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:scale-[1.03] transition-all flex items-center gap-1.5"
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 hover:bg-amber-600 text-slate-950 shadow-[0_0_15px_rgba(242,161,4,0.15)] hover:shadow-[0_0_25px_rgba(242,161,4,0.3)] hover:scale-[1.03] transition-all flex items-center gap-1.5 animate-pulse-slow"
               >
                 <Plus className="w-3.5 h-3.5" /> Write a Review
               </button>
             </div>
             {workerStats && (
-              <div className="text-[10px] text-muted-foreground flex items-center gap-1.5 font-mono bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-500/10 rounded-xl px-2.5 py-1 w-fit">
+              <div className="text-[10px] text-muted-foreground flex items-center gap-1.5 font-mono bg-amber-500/5 dark:bg-amber-500/5 border border-amber-500/20 rounded-xl px-2.5 py-1 w-fit">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse shrink-0" />
                 <span>Thread #{workerStats.threadId} active • Filtered in {workerStats.timeTakenMs}ms</span>
               </div>
@@ -209,7 +209,7 @@ export const Testimonials = () => {
           {filteredReviews.map((r, idx) => (
             <article 
               key={r.id || idx} 
-              className="glass-panel rounded-3xl p-6 transition-all duration-300 hover:bg-indigo-50/20 dark:hover:bg-white/[0.03] hover:border-slate-300 dark:hover:border-white/10 flex flex-col group relative"
+              className="glass-panel rounded-3xl p-6 transition-all duration-300 hover:bg-amber-500/5 dark:hover:bg-white/[0.03] hover:border-amber-500/30 dark:hover:border-white/10 flex flex-col group relative"
             >
               <div className="absolute top-6 right-6 text-white/5 group-hover:text-purple-500/10 transition-colors">
                 <MessageSquare className="w-10 h-10" />
@@ -271,7 +271,7 @@ export const Testimonials = () => {
                     value={newReview.name}
                     onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
                     placeholder="E.g. Rohit Verma"
-                    className="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-purple-500 transition-colors"
+                    className="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-amber-500 transition-colors"
                   />
                 </div>
                 <div>
@@ -282,7 +282,7 @@ export const Testimonials = () => {
                     value={newReview.role}
                     onChange={(e) => setNewReview({ ...newReview, role: e.target.value })}
                     placeholder="E.g. CEO, Hotel Nova"
-                    className="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-purple-500 transition-colors"
+                    className="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-amber-500 transition-colors"
                   />
                 </div>
               </div>
@@ -293,7 +293,7 @@ export const Testimonials = () => {
                   <select 
                     value={newReview.category}
                     onChange={(e) => setNewReview({ ...newReview, category: e.target.value })}
-                    className="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-purple-500 transition-colors"
+                    className="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-amber-500 transition-colors"
                   >
                     <option value="Hospitality">Hospitality</option>
                     <option value="Wellness">Wellness</option>
@@ -336,12 +336,12 @@ export const Testimonials = () => {
                       key={idx}
                       onClick={() => setNewReview({ ...newReview, avatarIndex: idx })}
                       className={`relative rounded-full overflow-hidden border-2 transition-all ${
-                        newReview.avatarIndex === idx ? "border-purple-500 scale-105" : "border-transparent opacity-60 hover:opacity-100"
+                        newReview.avatarIndex === idx ? "border-amber-500 scale-105" : "border-transparent opacity-60 hover:opacity-100"
                       }`}
                     >
                       <img src={avatar} alt={`Avatar option ${idx + 1}`} width={40} height={40} className="w-10 h-10 object-cover" />
                       {newReview.avatarIndex === idx && (
-                        <div className="absolute inset-0 bg-purple-500/20 flex items-center justify-center font-bold text-white text-xs">✓</div>
+                        <div className="absolute inset-0 bg-amber-500/20 flex items-center justify-center font-bold text-white text-xs">✓</div>
                       )}
                     </button>
                   ))}
@@ -356,7 +356,7 @@ export const Testimonials = () => {
                   value={newReview.text}
                   onChange={(e) => setNewReview({ ...newReview, text: e.target.value })}
                   placeholder="Share your experience working with the Websbond team..."
-                  className="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-purple-500 transition-colors resize-none"
+                  className="w-full bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-white outline-none focus:border-amber-500 transition-colors resize-none"
                 />
               </div>
 

@@ -69,16 +69,16 @@ export const ContactPage = () => {
       />
 
       {/* ── Visual Hero Header ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-surface-2 to-indigo-500/5 dark:to-indigo-950/20 pt-8 pb-12 border-b border-border">
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-surface-2 to-amber-500/5 dark:to-amber-950/10 pt-8 pb-12 border-b border-border">
         
         {/* Grids and Aurora */}
         <div className="absolute inset-0 grid-mesh opacity-[0.05] dark:opacity-[0.07] pointer-events-none" />
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-cyan-500/5 blur-[100px] pointer-events-none animate-aurora-1" />
-        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-indigo-500/5 blur-[90px] pointer-events-none animate-aurora-2" />
+        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-amber-500/5 blur-[90px] pointer-events-none animate-aurora-2" />
 
         {/* Floating communication/contact hitech elements in bg */}
-        <div className="absolute top-10 right-16 w-7 h-7 border border-indigo-200/40 rounded-full flex items-center justify-center animate-pulse pointer-events-none">
-          <Mail className="w-3.5 h-3.5 text-indigo-400/40" />
+        <div className="absolute top-10 right-16 w-7 h-7 border border-amber-500/20 rounded-full flex items-center justify-center animate-pulse pointer-events-none">
+          <Mail className="w-3.5 h-3.5 text-amber-400/40" />
         </div>
         <div className="absolute bottom-6 left-1/4 w-5 h-5 bg-cyan-500/5 rounded-full animate-bounce pointer-events-none" style={{ animationDuration: '6s' }} />
 
@@ -94,7 +94,7 @@ export const ContactPage = () => {
               
               <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground tracking-tight">
                 Let's Build Something<br />
-                <span className="bg-gradient-to-r from-cyan-600 via-indigo-600 to-purple-600 dark:from-cyan-400 dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">
                   Extraordinary.
                 </span>
               </h1>
@@ -114,7 +114,7 @@ export const ContactPage = () => {
                 </a>
                 <a
                   href="#onboarding-form"
-                  className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition-all text-xs"
+                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-md transition-all text-xs"
                 >
                   Fill Contact Form <ArrowRight className="w-3.5 h-3.5" />
                 </a>
@@ -149,20 +149,20 @@ export const ContactPage = () => {
 
                   {/* Connection Node 2: API logic */}
                   <div className="absolute inset-0 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-[0_10px_20px_rgba(0,0,0,0.05)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.15)] [transform:translateZ(10px)] group-hover/hero:[transform:translateZ(15deg)] flex flex-col justify-between">
-                    <div className="flex items-center justify-between text-[8px] text-indigo-600 dark:text-indigo-300 font-mono border-b border-slate-200/50 dark:border-slate-800 pb-2">
+                    <div className="flex items-center justify-between text-[8px] text-amber-500 dark:text-amber-300 font-mono border-b border-slate-200/50 dark:border-slate-800 pb-2">
                       <div className="flex items-center gap-1.5">
-                        <Cpu className="w-4 h-4 text-indigo-400 animate-spin-slow" />
+                        <Cpu className="w-4 h-4 text-amber-400 animate-spin-slow" />
                         <span>Integration_Hub</span>
                       </div>
                     </div>
                     <div className="flex-1 flex flex-col justify-center gap-1.5 py-1">
-                      <div className="w-full h-1 bg-indigo-100 dark:bg-indigo-500/20 rounded" />
-                      <div className="w-full h-1 bg-indigo-100 dark:bg-indigo-500/20 rounded" />
+                      <div className="w-full h-1 bg-amber-100 dark:bg-amber-500/20 rounded" />
+                      <div className="w-full h-1 bg-amber-100 dark:bg-amber-500/20 rounded" />
                     </div>
                   </div>
 
                   {/* Connection Node 1: Base */}
-                  <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-indigo-500/20 rounded-2xl p-4 shadow-[0_5px_15px_rgba(0,0,0,0.03)] dark:shadow-[0_5px_15px_rgba(0,0,0,0.2)] [transform:translateZ(-40px)] group-hover/hero:[transform:translateZ(-50deg)] flex flex-col justify-between">
+                  <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-amber-500/20 rounded-2xl p-4 shadow-[0_5px_15px_rgba(0,0,0,0.03)] dark:shadow-[0_5px_15px_rgba(0,0,0,0.2)] [transform:translateZ(-40px)] group-hover/hero:[transform:translateZ(-50deg)] flex flex-col justify-between">
                     <span className="text-[7px] text-muted-foreground font-mono">Infrastructure_Platform</span>
                   </div>
 
@@ -181,14 +181,14 @@ export const ContactPage = () => {
           <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-6 items-stretch">
             
             {/* Onboarding Wizard Form Card */}
-            <div className="glass-panel border-border rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between min-h-[460px]">
+            <div id="onboarding-form" className="glass-panel border-border rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between min-h-[460px]">
               
               {/* Step Header */}
               <div className="flex items-center justify-between pb-5 border-b border-slate-200/80 dark:border-white/[0.06] mb-6 text-xs text-muted-foreground">
                 <span className="font-bold text-foreground uppercase tracking-wider">Step {step} of 3</span>
                 <div className="flex gap-1.5">
                   {[1, 2, 3].map((s) => (
-                    <span key={s} className={`w-6 h-1.5 rounded-full transition-all ${step >= s ? "bg-indigo-600" : "bg-slate-200 dark:bg-slate-800"}`} />
+                    <span key={s} className={`w-6 h-1.5 rounded-full transition-all ${step >= s ? "bg-amber-500" : "bg-slate-200 dark:bg-slate-800"}`} />
                   ))}
                 </div>
               </div>
@@ -213,7 +213,7 @@ export const ContactPage = () => {
                           onClick={() => { setGoal(opt.label); setStep(2); }}
                           className={`p-4 rounded-2xl border text-left flex flex-col justify-between transition-all duration-200 ${
                             goal === opt.label 
-                              ? "bg-indigo-500/5 dark:bg-indigo-500/10 border-indigo-500 text-foreground" 
+                              ? "bg-amber-500/5 dark:bg-amber-500/10 border-amber-500 text-foreground" 
                               : "bg-card border-border text-muted-foreground hover:border-slate-300 dark:hover:border-slate-700"
                           }`}
                         >
@@ -242,7 +242,7 @@ export const ContactPage = () => {
                           onClick={() => { setSize(opt.label); setStep(3); }}
                           className={`p-4 rounded-2xl border text-left flex flex-col justify-between transition-all duration-200 ${
                             size === opt.label 
-                              ? "bg-indigo-500/5 dark:bg-indigo-500/10 border-indigo-500 text-foreground" 
+                              ? "bg-amber-500/5 dark:bg-amber-500/10 border-amber-500 text-foreground" 
                               : "bg-card border-border text-muted-foreground hover:border-slate-300 dark:hover:border-slate-700"
                           }`}
                         >
@@ -267,7 +267,7 @@ export const ContactPage = () => {
                           value={formData.name}
                           onChange={handleInputChange}
                           placeholder="Enter full name" 
-                          className="w-full bg-card border border-border rounded-xl px-4 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 shadow-sm font-sans" 
+                          className="w-full bg-card border border-border rounded-xl px-4 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 shadow-sm font-sans" 
                         />
                       </div>
                       <div>
@@ -278,7 +278,7 @@ export const ContactPage = () => {
                           value={formData.email}
                           onChange={handleInputChange}
                           placeholder="Enter email address" 
-                          className="w-full bg-card border border-border rounded-xl px-4 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 shadow-sm font-sans" 
+                          className="w-full bg-card border border-border rounded-xl px-4 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 shadow-sm font-sans" 
                         />
                       </div>
                     </div>
@@ -290,7 +290,7 @@ export const ContactPage = () => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="Enter phone number" 
-                        className="w-full bg-card border border-border rounded-xl px-4 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 shadow-sm font-sans" 
+                        className="w-full bg-card border border-border rounded-xl px-4 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 shadow-sm font-sans" 
                       />
                     </div>
                     <div>
@@ -301,7 +301,7 @@ export const ContactPage = () => {
                         value={formData.message}
                         onChange={handleInputChange}
                         placeholder="Tell us details about integrations, current web URL, or strategy targets..."
-                        className="w-full bg-card border border-border rounded-xl px-4 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 shadow-sm resize-none font-sans" 
+                        className="w-full bg-card border border-border rounded-xl px-4 py-2.5 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 shadow-sm resize-none font-sans" 
                       />
                     </div>
                   </div>
@@ -336,7 +336,7 @@ export const ContactPage = () => {
                     type="button"
                     onClick={submitForm}
                     disabled={isSubmitting}
-                    className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs flex items-center gap-1.5 shadow-md shadow-indigo-600/10 disabled:opacity-50 ml-auto transition-all"
+                    className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-2.5 rounded-xl text-xs flex items-center gap-1.5 shadow-md shadow-amber-500/10 disabled:opacity-50 ml-auto transition-all"
                   >
                     {isSubmitting ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3 h-3" />}
                     {isSubmitting ? "Submitting brief..." : "Submit Project Brief"}
@@ -421,9 +421,9 @@ export const ContactPage = () => {
               href={card.title === "Email Us" ? `mailto:${card.val}` : card.title === "Chat on WhatsApp" ? `https://wa.me/919306623619` : `tel:${card.val}`}
               target={card.title === "Call Us Direct" ? "_self" : "_blank"}
               rel="noopener noreferrer"
-              className="glass-panel border-border shadow-sm hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all rounded-3xl p-5 flex items-start gap-4"
+              className="glass-panel border-border shadow-sm hover:shadow-md hover:border-amber-500/30 dark:hover:border-amber-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all rounded-3xl p-5 flex items-start gap-4"
             >
-              <div className="w-10 h-10 rounded-xl bg-brand-soft border border-indigo-200 dark:border-indigo-500/10 text-indigo-600 dark:text-indigo-400 grid place-items-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/5 border border-amber-500/20 text-amber-500 dark:text-amber-400 grid place-items-center shrink-0">
                 <card.icon className="w-5 h-5" />
               </div>
               <div>

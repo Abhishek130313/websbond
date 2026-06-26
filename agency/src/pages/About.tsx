@@ -32,26 +32,26 @@ export const AboutPage = () => {
       />
 
       {/* ── Centered Hero Header ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-surface-2 to-indigo-500/5 dark:to-indigo-950/20 pt-8 pb-12 border-b border-border">
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-surface-2 to-amber-500/5 dark:to-amber-950/20 pt-8 pb-12 border-b border-border">
         
         <div className="absolute inset-0 grid-mesh opacity-[0.05] dark:opacity-[0.07] pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-indigo-500/5 blur-[100px] pointer-events-none animate-aurora-1" />
+        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-amber-500/5 blur-[100px] pointer-events-none animate-aurora-1" />
         <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-cyan-500/5 blur-[90px] pointer-events-none animate-aurora-2" />
-        <div className="absolute top-12 right-12 w-6 h-6 border border-indigo-200/40 rounded-full animate-pulse pointer-events-none" />
+        <div className="absolute top-12 right-12 w-6 h-6 border border-amber-250/20 rounded-full animate-pulse pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-10 items-center">
             
             {/* Left Content Column */}
             <div className="flex flex-col items-start text-left gap-5">
-              <div className="inline-flex items-center gap-2 border border-indigo-200 dark:border-indigo-500/20 bg-indigo-50/60 dark:bg-indigo-950/20 backdrop-blur-md text-indigo-600 dark:text-indigo-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full">
-                <Sparkles className="w-3.5 h-3.5 text-indigo-500 animate-pulse" />
+              <div className="inline-flex items-center gap-2 border border-amber-200 dark:border-amber-500/20 bg-amber-50/60 dark:bg-amber-950/20 backdrop-blur-md text-amber-600 dark:text-amber-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full">
+                <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
                 Elite Software Engineering — Delhi NCR & Haryana
               </div>
               
               <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground tracking-tight">
                 Built With Purpose.<br />
-                <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 dark:from-amber-400 dark:via-amber-300 dark:to-amber-500 bg-clip-text text-transparent">
                   Engineered For Growth.
                 </span>
               </h1>
@@ -63,7 +63,7 @@ export const AboutPage = () => {
               <div className="flex flex-wrap gap-3">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition-all text-xs"
+                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-md transition-all text-xs"
                 >
                   Contact Our Team <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -98,7 +98,7 @@ export const AboutPage = () => {
             <div className="relative flex items-center justify-center pt-8 lg:pt-0">
               <div className="glass-panel border-slate-200/80 dark:border-white/[0.06] rounded-3xl p-5 shadow-sm w-full max-w-[340px] font-mono text-[10px] text-muted-foreground">
                 <div className="flex items-center gap-1.5 border-b border-slate-200/60 dark:border-white/[0.06] pb-2 text-foreground font-bold">
-                  <Database className="w-4 h-4 text-indigo-500" />
+                  <Database className="w-4 h-4 text-amber-500 animate-pulse" />
                   <span>Data Layer Query</span>
                 </div>
                 <div className="py-3 flex flex-col gap-1">
@@ -107,10 +107,10 @@ export const AboutPage = () => {
                 </div>
                 <div className="space-y-2 border-t border-slate-200/60 dark:border-white/[0.06] pt-3">
                   <div className="p-2 bg-slate-100/50 dark:bg-white/[0.02] rounded-lg">
-                    <span className="text-indigo-600 dark:text-indigo-400">Rohit Verma:</span> "Websbond completely transformed our hotel's online presence."
+                    <span className="text-amber-500 dark:text-amber-400">Rohit Verma:</span> "Websbond completely transformed our hotel's online presence."
                   </div>
                   <div className="p-2 bg-slate-100/50 dark:bg-white/[0.02] rounded-lg">
-                    <span className="text-indigo-600 dark:text-indigo-400">Neha Sharma:</span> "Very professional team and instant 24/7 support."
+                    <span className="text-amber-500 dark:text-amber-400">Neha Sharma:</span> "Very professional team and instant 24/7 support."
                   </div>
                 </div>
               </div>
@@ -129,8 +129,8 @@ export const AboutPage = () => {
             { icon: Target, title: "Our Mission", desc: "Delivering world-class design standards and robust coding assets to Indian small and medium businesses, without charging overpriced consulting rates." },
             { icon: Eye, title: "Our Vision", desc: "Creating a new benchmark in web delivery where clients have full project code ownership, 100% search speed score, and developer direct transparency." },
           ].map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="glass-panel rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md hover:border-indigo-300/50 dark:hover:border-indigo-500/40 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all duration-300">
-              <div className="w-11 h-11 rounded-xl bg-brand-soft text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/10 grid place-items-center mb-4">
+            <div key={title} className="glass-panel rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md hover:border-amber-500/30 dark:hover:border-amber-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all duration-300">
+              <div className="w-11 h-11 rounded-xl bg-amber-500/5 text-amber-500 dark:text-amber-400 border border-amber-500/20 dark:border-amber-500/10 grid place-items-center mb-4">
                 <Icon className="w-5 h-5" />
               </div>
               <h3 className="font-display font-bold text-lg text-foreground mb-2">{title}</h3>
@@ -143,14 +143,14 @@ export const AboutPage = () => {
         <section className="container mx-auto px-4 py-8">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">
-              Our Core <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">Values</span>
+              Our Core <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">Values</span>
             </h2>
             <p className="mt-2 text-muted-foreground text-xs sm:text-sm font-medium">These principles define every project we build and handoff.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="glass-panel rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-indigo-300/40 dark:hover:border-indigo-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all duration-300">
-                <div className="w-9 h-9 rounded-lg bg-brand-soft text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/10 grid place-items-center mb-3">
+              <div key={title} className="glass-panel rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-amber-500/30 dark:hover:border-amber-500/25 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all duration-300">
+                <div className="w-9 h-9 rounded-lg bg-amber-500/5 text-amber-500 dark:text-amber-400 border border-amber-500/20 dark:border-amber-500/10 grid place-items-center mb-3">
                   <Icon className="w-4.5 h-4.5" />
                 </div>
                 <h3 className="font-display font-bold text-sm sm:text-base text-foreground mb-1.5">{title}</h3>
@@ -164,14 +164,14 @@ export const AboutPage = () => {
         <section className="container mx-auto px-4 py-8 relative">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">
-              Our Engineering <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">Process</span>
+              Our Engineering <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">Process</span>
             </h2>
           </div>
           
           <div className="grid md:grid-cols-4 gap-5">
             {processSteps.map(({ n, t, d }) => (
-              <div key={n} className="glass-panel rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all duration-350">
-                <div className="font-display font-extrabold text-3xl text-indigo-500/25 mb-2">{n}</div>
+              <div key={n} className="glass-panel rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-amber-500/20 dark:hover:border-amber-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all duration-350">
+                <div className="font-display font-extrabold text-3xl text-amber-500/20 mb-2">{n}</div>
                 <h3 className="font-display font-bold text-sm sm:text-base text-foreground mb-1.5">{t}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">{d}</p>
               </div>
@@ -189,7 +189,7 @@ export const AboutPage = () => {
               { icon: Smile, val: "100%", label: "Code Handoff" },
             ].map(({ icon: Icon, val, label }) => (
               <div key={label} className="p-5 sm:p-6 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-brand-soft text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/10 grid place-items-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/5 text-amber-500 dark:text-amber-400 border border-amber-500/20 dark:border-amber-500/10 grid place-items-center shrink-0">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>
@@ -204,11 +204,11 @@ export const AboutPage = () => {
         {/* Founders / Team Section */}
         <section className="container mx-auto px-4 py-8 relative">
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-semibold text-[10px] sm:text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 bg-amber-500/5 border border-amber-500/20 text-amber-500 dark:text-amber-400 font-semibold text-[10px] sm:text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-4">
               Our Leadership
             </div>
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white tracking-tight animate-fade-in">
-              Meet Our <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">Founders</span>
+              Meet Our <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">Founders</span>
             </h2>
             <p className="mt-2 text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-semibold">
               The engineers and builders behind Websbond's client success stories.
@@ -217,16 +217,16 @@ export const AboutPage = () => {
 
           <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {/* Abhishek */}
-            <div className="glass-panel rounded-3xl p-5 sm:p-6 shadow-sm border border-border hover:border-indigo-300 dark:hover:border-indigo-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.02] transition-all duration-300">
+            <div className="glass-panel rounded-3xl p-5 sm:p-6 shadow-sm border border-border hover:border-amber-500/30 dark:hover:border-amber-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.02] transition-all duration-300">
               <h3 className="font-display font-bold text-base text-foreground">Abhishek Singh Rawat</h3>
-              <p className="text-[11px] text-indigo-600 dark:text-indigo-400 font-bold uppercase tracking-wider mt-0.5">Co-Founder &amp; Tech Lead</p>
+              <p className="text-[11px] text-amber-500 dark:text-amber-400 font-bold uppercase tracking-wider mt-0.5">Co-Founder &amp; Tech Lead</p>
               <p className="text-xs text-muted-foreground mt-2 leading-relaxed">Oversees our custom lightweight React codebases, API performance, and technical SEO structure.</p>
             </div>
 
             {/* Gopal */}
-            <div className="glass-panel rounded-3xl p-5 sm:p-6 shadow-sm border border-border hover:border-indigo-300 dark:hover:border-indigo-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.02] transition-all duration-300">
+            <div className="glass-panel rounded-3xl p-5 sm:p-6 shadow-sm border border-border hover:border-amber-500/30 dark:hover:border-amber-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.02] transition-all duration-300">
               <h3 className="font-display font-bold text-base text-foreground">Gopal Sharma</h3>
-              <p className="text-[11px] text-indigo-600 dark:text-indigo-400 font-bold uppercase tracking-wider mt-0.5">Co-Founder &amp; Design Lead</p>
+              <p className="text-[11px] text-amber-500 dark:text-amber-400 font-bold uppercase tracking-wider mt-0.5">Co-Founder &amp; Design Lead</p>
               <p className="text-xs text-muted-foreground mt-2 leading-relaxed">Directs UI/UX visual flow, creative brand messaging, and client business scaling retainers.</p>
             </div>
           </div>
@@ -245,7 +245,7 @@ export const AboutPage = () => {
               { name: "Neha Sharma", role: "Salon Owner, Lucknow", img: a2, text: "Very professional team and instant 24/7 support. Highly recommended!" },
               { name: "Amit Patel", role: "Kirana Store, Gurgaon", img: a3, text: "The website was designed so beautifully that customers started messaging us directly." },
             ].map((r, idx) => (
-              <article key={idx} className="glass-panel rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-indigo-300/40 dark:hover:border-indigo-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all duration-300 flex flex-col justify-between">
+              <article key={idx} className="glass-panel rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-amber-500/30 dark:hover:border-amber-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all duration-300 flex flex-col justify-between">
                 <div>
                   <div className="flex gap-0.5 text-amber-400">
                     {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}

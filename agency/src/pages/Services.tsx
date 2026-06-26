@@ -44,15 +44,15 @@ export const ServicesPage = () => {
       />
 
       {/* ── Services Hero Section ── */}
-      <section className="relative overflow-hidden pt-8 pb-12 border-b border-border bg-gradient-to-br from-background via-surface-2 to-indigo-500/5 dark:to-indigo-950/20">
+      <section className="relative overflow-hidden pt-8 pb-12 border-b border-border bg-gradient-to-br from-background via-surface-2 to-amber-500/5 dark:to-amber-950/10">
 
         {/* Animated Background Mesh & Floating Particles */}
         <div className="absolute inset-0 grid-mesh opacity-[0.05] dark:opacity-[0.07] pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-indigo-500/5 blur-[100px] pointer-events-none animate-aurora-1" />
-        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-purple-500/5 blur-[90px] pointer-events-none animate-aurora-2" />
+        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-amber-500/5 blur-[100px] pointer-events-none animate-aurora-1" />
+        <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] rounded-full bg-amber-500/5 blur-[90px] pointer-events-none animate-aurora-2" />
 
         {/* Floating tech background shapes */}
-        <div className="absolute top-10 right-12 w-6 h-6 border border-indigo-200/40 rounded-full animate-pulse pointer-events-none" />
+        <div className="absolute top-10 right-12 w-6 h-6 border border-amber-500/20 rounded-full animate-pulse pointer-events-none" />
         <div className="absolute bottom-10 left-1/4 w-4 h-4 bg-cyan-500/10 rounded-full animate-bounce pointer-events-none" style={{ animationDuration: '4.5s' }} />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -60,14 +60,14 @@ export const ServicesPage = () => {
             
             {/* Left Content Column */}
             <div className="flex flex-col items-start text-left gap-5">
-              <div className="inline-flex items-center gap-2 border border-indigo-200 dark:border-indigo-500/20 bg-indigo-50/60 dark:bg-indigo-950/20 backdrop-blur-md text-indigo-600 dark:text-indigo-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full w-fit">
-                <Sparkles className="w-3.5 h-3.5 text-indigo-500 animate-pulse" />
+              <div className="inline-flex items-center gap-2 border border-amber-500/20 dark:border-amber-500/20 bg-amber-500/5 dark:bg-amber-500/5 backdrop-blur-md text-amber-500 dark:text-amber-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full w-fit">
+                <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
                 Digital Solutions That Drive Real Growth
               </div>
 
               <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground tracking-tight">
                 Handcrafted Code.<br />
-                <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 dark:from-indigo-400 dark:via-purple-400 dark:to-cyan-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">
                   Measurable Growth.
                 </span>
               </h1>
@@ -96,7 +96,7 @@ export const ServicesPage = () => {
               <div className="flex flex-wrap gap-3 mt-1 justify-start">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition-all text-xs"
+                  className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3.5 rounded-xl shadow-md transition-all text-xs"
                 >
                   Get Started Free <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -116,7 +116,7 @@ export const ServicesPage = () => {
                   <img src={a1} alt="Client" width={32} height={32} className="w-8 h-8 rounded-full ring-2 ring-slate-150 dark:ring-slate-950 object-cover" />
                   <img src={a2} alt="Client" width={32} height={32} className="w-8 h-8 rounded-full ring-2 ring-slate-150 dark:ring-slate-950 object-cover" />
                   <img src={a3} alt="Client" width={32} height={32} className="w-8 h-8 rounded-full ring-2 ring-slate-150 dark:ring-slate-950 object-cover" />
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 ring-2 ring-slate-150 dark:ring-slate-950 flex items-center justify-center text-[9px] font-bold text-white">100%</div>
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 to-amber-600 ring-2 ring-slate-150 dark:ring-slate-950 flex items-center justify-center text-[9px] font-bold text-slate-950">100%</div>
                 </div>
                 <div>
                   <div className="flex gap-0.5 text-amber-400">
@@ -130,7 +130,7 @@ export const ServicesPage = () => {
             {/* Right Column: 3D Dashboard Mockup */}
             <div className="relative flex items-center justify-center pt-8 lg:pt-0">
               <div className="relative w-full max-w-[340px] aspect-[4/3] flex items-center justify-center [perspective:1200px] pointer-events-auto group/hero">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-purple-500/5 to-cyan-500/5 rounded-3xl blur-2xl scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-amber-600/5 to-cyan-500/5 rounded-3xl blur-2xl scale-110" />
                 <div className="relative w-[280px] h-[220px] [transform-style:preserve-3d] [transform:rotateX(22deg)_rotateY(-16deg)] group-hover/hero:[transform:rotateX(12deg)_rotateY(-2deg)] transition-all duration-700 ease-out">
                   <div className="absolute inset-0 bg-card border border-border rounded-2xl p-4 shadow-card backdrop-blur-md [transform:translateZ(55px)] transition-transform duration-700 ease-out group-hover/hero:[transform:translateZ(75px)] flex flex-col justify-between">
                     <div className="flex items-center justify-between border-b border-slate-200/50 dark:border-white/5 pb-2 text-foreground">
@@ -139,12 +139,12 @@ export const ServicesPage = () => {
                         <span className="w-1.5 h-1.5 rounded-full bg-amber-500/80" />
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/80" />
                       </div>
-                      <span className="text-[8px] text-indigo-600 dark:text-indigo-400 font-bold font-mono">analytics_core</span>
+                      <span className="text-[8px] text-amber-500 dark:text-amber-400 font-bold font-mono">analytics_core</span>
                     </div>
                     <div className="grid grid-cols-2 gap-2 py-2 flex-1 items-center">
                       <div className="bg-muted/50 border border-border rounded-lg p-1.5 text-center">
                         <div className="text-[7px] text-muted-foreground font-bold uppercase">Conversions</div>
-                        <div className="text-xs font-black text-indigo-600 dark:text-indigo-400 font-mono mt-0.5">+128%</div>
+                        <div className="text-xs font-black text-amber-500 dark:text-amber-400 font-mono mt-0.5">+128%</div>
                       </div>
                       <div className="bg-muted/50 border border-border rounded-lg p-1.5 text-center">
                         <div className="text-[7px] text-muted-foreground font-bold uppercase">Page Speed</div>
@@ -153,13 +153,13 @@ export const ServicesPage = () => {
                     </div>
                   </div>
                   <div className="absolute inset-0 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-[0_10px_20px_rgba(0,0,0,0.05)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.15)] [transform:translateZ(10px)] group-hover/hero:[transform:translateZ(15px)] flex flex-col justify-between">
-                    <div className="flex items-center justify-between text-[8px] text-indigo-600 dark:text-indigo-300 font-mono">
+                    <div className="flex items-center justify-between text-[8px] text-amber-500 dark:text-amber-300 font-mono">
                       <span>Server Engine</span>
-                      <Cpu className="w-3.5 h-3.5 text-indigo-400 animate-spin-slow" />
+                      <Cpu className="w-3.5 h-3.5 text-amber-400 animate-spin-slow" />
                     </div>
-                    <div className="w-full h-1 bg-indigo-100 dark:bg-indigo-500/20 rounded-full" />
+                    <div className="w-full h-1 bg-amber-100 dark:bg-amber-500/20 rounded-full" />
                   </div>
-                  <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-indigo-500/20 rounded-2xl p-4 shadow-[0_5px_15px_rgba(0,0,0,0.03)] dark:shadow-[0_5px_15px_rgba(0,0,0,0.2)] [transform:translateZ(-30px)] group-hover/hero:[transform:translateZ(-45px)] flex flex-col justify-between">
+                  <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-amber-500/20 rounded-2xl p-4 shadow-[0_5px_15px_rgba(0,0,0,0.03)] dark:shadow-[0_5px_15px_rgba(0,0,0,0.2)] [transform:translateZ(-30px)] group-hover/hero:[transform:translateZ(-45px)] flex flex-col justify-between">
                     <span className="text-[7px] text-muted-foreground font-mono">Infrastructure</span>
                   </div>
                 </div>
@@ -196,11 +196,11 @@ export const ServicesPage = () => {
         {/* Capabilities Catalog Grid Section */}
         <section className="container mx-auto px-4 py-16 border-b border-slate-200/85 dark:border-white/[0.06]">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 bg-brand-soft border border-indigo-200 dark:border-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3 shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-amber-500/5 border border-amber-500/20 text-amber-500 dark:text-amber-400 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3 shadow-sm">
             <Sparkles className="w-3.5 h-3.5" /> Capabilities Catalog
           </div>
           <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">
-            Our Core <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500 bg-clip-text text-transparent">Digital Services.</span>
+            Our Core <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">Digital Services.</span>
           </h2>
           <p className="text-muted-foreground mt-2 text-xs sm:text-sm font-medium">
             Professional engineering and digital marketing systems crafted for high growth and conversions.
@@ -216,10 +216,10 @@ export const ServicesPage = () => {
             { icon: Headphones, title: "24/7 Retainer Support", desc: "Zero robotic AI loops. Real senior developers answering queries instantly on WhatsApp, emails, or direct calls.", points: ["WhatsApp Developer Chat", "Zero Ticket Queue", "Security Core Audits", "Staging Deploy Syncs"] },
             { icon: Share2, title: "Social Media Management", desc: "Complete handle management, creative visual templates, post calendars, and regular growth analytics reports.", points: ["Visual Creative Templates", "Editorial Calendar Planners", "Handle Growth Audits", "Performance Reporting"] }
           ].map((item, idx) => (
-            <div key={idx} className="glass-panel border-border rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-indigo-300/50 dark:hover:border-indigo-500/20 transition-all flex flex-col justify-between group">
+            <div key={idx} className="glass-panel border-border rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-amber-500/30 dark:hover:border-amber-500/20 transition-all flex flex-col justify-between group">
               <div>
-                <div className="w-10 h-10 rounded-xl bg-brand-soft text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/10 grid place-items-center mb-4 shrink-0 group-hover:scale-105 transition-transform"><item.icon className="w-5 h-5" /></div>
-                <h3 className="font-display font-bold text-base sm:text-lg text-foreground mb-2 group-hover:text-indigo-600 transition-colors">{item.title}</h3>
+                <div className="w-10 h-10 rounded-xl bg-amber-500/5 text-amber-500 dark:text-amber-400 border border-amber-500/20 dark:border-amber-500/10 grid place-items-center mb-4 shrink-0 group-hover:scale-105 transition-transform"><item.icon className="w-5 h-5" /></div>
+                <h3 className="font-display font-bold text-base sm:text-lg text-foreground mb-2 group-hover:text-amber-500 transition-colors">{item.title}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed mb-5 font-semibold">{item.desc}</p>
               </div>
               <ul className="space-y-2 border-t border-slate-200/80 dark:border-white/[0.06] pt-4 text-xs text-muted-foreground font-medium">
@@ -235,11 +235,11 @@ export const ServicesPage = () => {
       {/* Elite Engagement Models Section */}
       <section className="container mx-auto px-4 py-16 relative border-b border-slate-200/85 dark:border-white/[0.06]">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 bg-indigo-500/5 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3">
+          <div className="inline-flex items-center gap-2 bg-amber-500/5 dark:bg-amber-500/10 border border-amber-500/20 dark:border-amber-500/20 text-amber-500 dark:text-amber-400 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3">
             <Sparkles className="w-3.5 h-3.5" /> Collaboration Methods
           </div>
           <h2 className="font-display font-extrabold text-3xl text-foreground tracking-tight">
-            Elite <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500 bg-clip-text text-transparent">Engagement Models.</span>
+            Elite <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">Engagement Models.</span>
           </h2>
           <p className="text-muted-foreground mt-2 text-sm">
             We align with your operational needs to deliver design velocity and clean software builds.
@@ -258,7 +258,7 @@ export const ServicesPage = () => {
               title: "Fixed-Scope Projects",
               desc: "Best for launching clean marketing portfolios, interactive eCommerce systems, or enterprise web platforms.",
               highlights: ["Detailed architectural roadmap", "100% code handoff guarantee", "Strict delivery milestones", "Complete post-launch warranty"],
-              accent: "border-indigo-500 bg-indigo-500/5 dark:bg-indigo-500/10 relative shadow-md shadow-indigo-500/5",
+              accent: "border-amber-500 bg-amber-500/5 dark:bg-amber-500/10 relative shadow-md shadow-amber-500/5",
               featured: true
             },
             {
@@ -270,7 +270,7 @@ export const ServicesPage = () => {
           ].map((model, idx) => (
             <div key={idx} className={`rounded-3xl p-6 border flex flex-col justify-between hover:-translate-y-1 transition-all duration-300 ${model.accent}`}>
               {model.featured && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-[9px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-[9px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full font-sans">
                   Recommended Model
                 </span>
               )}
@@ -290,7 +290,7 @@ export const ServicesPage = () => {
                 to="/contact"
                 className={`w-full py-3 rounded-xl text-center font-bold text-xs uppercase tracking-wider transition-all block ${
                   model.featured
-                    ? "bg-indigo-600 hover:bg-indigo-700 text-white"
+                    ? "bg-amber-500 hover:bg-amber-600 text-slate-950"
                     : "bg-muted hover:bg-surface-2 text-foreground border border-border"
                 }`}
               >
@@ -324,9 +324,9 @@ export const ServicesPage = () => {
             { num: "05", stage: "Rigorous QA & Audit", desc: "100/100 PageSpeed target audits, cross-device responsiveness verification, and secure API tests." },
             { num: "06", stage: "VIP Handoff & Support", desc: "Server transfer configuration, complete code files handoff, and direct developer WhatsApp monitoring." }
           ].map((step, idx) => (
-            <div key={idx} className="glass-panel border-border rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-indigo-300/40 dark:hover:border-indigo-500/20 transition-all flex flex-col justify-between">
+            <div key={idx} className="glass-panel border-border rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-amber-500/30 dark:hover:border-amber-500/20 transition-all flex flex-col justify-between">
               <div>
-                <div className="font-display font-black text-3xl text-indigo-500/20 mb-3">{step.num}</div>
+                <div className="font-display font-black text-3xl text-amber-500/20 mb-3">{step.num}</div>
                 <h3 className="font-display font-bold text-sm sm:text-base text-foreground mb-2">{step.stage}</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed font-semibold">{step.desc}</p>
               </div>
@@ -342,7 +342,7 @@ export const ServicesPage = () => {
               <Sparkles className="w-3.5 h-3.5" /> Pipeline Sandbox
             </div>
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">
-              How we <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500 bg-clip-text text-transparent">build & deploy.</span>
+              How we <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">build & deploy.</span>
             </h2>
             <p className="text-muted-foreground mt-2 text-xs sm:text-sm font-medium">
               Click tabs below to inspect how our delivery engine handles different areas of your digital project.
@@ -363,8 +363,8 @@ export const ServicesPage = () => {
                 onClick={() => setActiveTab(tab.key as any)}
                 className={`flex-1 text-center py-2 rounded-full text-xs font-semibold tracking-wide transition-all ${
                   activeTab === tab.key 
-                    ? "bg-indigo-600 dark:bg-indigo-500 text-white shadow-sm" 
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-amber-500 dark:bg-amber-500 text-slate-950 shadow-sm font-bold" 
+                    : "text-muted-foreground hover:text-foreground font-medium"
                 }`}
               >
                 {tab.label}
@@ -408,7 +408,7 @@ export const ServicesPage = () => {
                   <div className="bg-slate-900 border border-white/5 rounded-xl p-4 flex flex-col gap-3 font-sans">
                     <div className="flex justify-between items-center text-xs text-white">
                       <span className="font-bold">Google search query: "Best luxury hotel in Kanpur"</span>
-                      <span className="text-purple-400 font-mono text-[10px]">Rank Scan</span>
+                      <span className="text-amber-500 font-mono text-[10px]">Rank Scan</span>
                     </div>
                     <div className="space-y-2 text-xs">
                       <div className="flex justify-between text-slate-500 dark:text-slate-400 line-through opacity-50">
@@ -455,9 +455,9 @@ export const ServicesPage = () => {
                   <div className="text-slate-500 dark:text-slate-400 font-mono">// WhatsApp Support Portal simulator (Zero Bots)</div>
                   <div className="space-y-2.5">
                     <div className="flex gap-2.5 items-end justify-end">
-                      <div className="bg-purple-600 text-white rounded-2xl rounded-tr-none px-4 py-2.5 max-w-[70%] text-left">
+                      <div className="bg-amber-500 text-slate-950 rounded-2xl rounded-tr-none px-4 py-2.5 max-w-[70%] text-left font-semibold">
                         "Hi Websbond, home screen banner change karna hai context update. Image swap code change available?"
-                        <div className="text-[9px] text-white/50 mt-1 text-right">10:42 AM</div>
+                        <div className="text-[9px] text-slate-950/60 mt-1 text-right font-medium">10:42 AM</div>
                       </div>
                     </div>
                     <div className="flex gap-2.5 items-end">
@@ -478,7 +478,7 @@ export const ServicesPage = () => {
         <section className="container mx-auto px-4 py-10 relative border-t border-slate-200/85 dark:border-white/[0.06]">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">
-              How we do it <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500 bg-clip-text text-transparent">differently.</span>
+              How we do it <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">differently.</span>
             </h2>
             <p className="text-muted-foreground text-xs sm:text-sm font-semibold mt-2">Compare our handcrafted engineering standard with template agencies.</p>
           </div>
@@ -537,7 +537,7 @@ export const ServicesPage = () => {
         {/* FAQ Section */}
         <section className="container mx-auto px-4 py-10">
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">FA<span className="text-indigo-600 dark:text-indigo-400">Qs</span></h2>
+            <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">FA<span className="text-amber-500 dark:text-amber-400">Qs</span></h2>
             <p className="mt-2 text-muted-foreground text-xs sm:text-sm font-medium">Frequently asked developer questions, explained simply.</p>
           </div>
           

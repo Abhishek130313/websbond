@@ -24,7 +24,7 @@ export const Footer = ({ theme = "dark" }: { theme?: "dark" | "light" }) => {
           <div className="flex flex-col gap-3.5 text-xs text-slate-300 font-medium">
             <a href="tel:+919306623619" className="flex items-center gap-2 hover:text-white transition-colors group w-fit">
               <div className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/5 flex items-center justify-center group-hover:bg-white/[0.08] transition-colors">
-                <Phone className="w-3.5 h-3.5 text-indigo-400" />
+                <Phone className="w-3.5 h-3.5 text-amber-400" />
               </div>
               <span>+91 9306623619</span>
             </a>
@@ -36,7 +36,7 @@ export const Footer = ({ theme = "dark" }: { theme?: "dark" | "light" }) => {
             </div>
             <a href="mailto:websbond@websbond.com" className="flex items-center gap-2 hover:text-white transition-colors group w-fit">
               <div className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/5 flex items-center justify-center group-hover:bg-white/[0.08] transition-colors">
-                <Mail className="w-3.5 h-3.5 text-indigo-400" />
+                <Mail className="w-3.5 h-3.5 text-amber-400" />
               </div>
               <span className="font-mono">websbond@websbond.com</span>
             </a>
@@ -151,7 +151,7 @@ export const Footer = ({ theme = "dark" }: { theme?: "dark" | "light" }) => {
               name="footer-email" 
               aria-label="Newsletter email address" 
               placeholder="Enter your email"
-              className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none focus:border-purple-500 focus:bg-white/[0.04] transition-all font-sans" 
+              className="w-full bg-white/[0.02] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none focus:border-amber-500 focus:bg-white/[0.04] transition-all font-sans" 
             />
             <button 
               type="submit" 

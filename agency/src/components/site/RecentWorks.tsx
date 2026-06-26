@@ -43,7 +43,7 @@ const projects: Project[] = [
     imageUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&auto=format&fit=crop&q=80",
     colSpan: "lg:col-span-1 lg:row-span-1",
     rowSpan: "min-h-[250px]",
-    accent: "from-blue-500/20 to-indigo-500/20 border-blue-500/30",
+    accent: "from-amber-500/20 to-amber-600/20 border-amber-500/30",
   },
   {
     id: 3,
@@ -98,17 +98,17 @@ export const RecentWorks = () => {
   return (
     <section className="container py-24 md:py-32 relative mx-auto px-4">
       {/* Background aesthetics */}
-      <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-indigo-500/5 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-amber-500/5 blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/3 left-1/4 w-96 h-96 rounded-full bg-pink-500/5 blur-3xl pointer-events-none" />
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
-          <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-300 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-4">
-            <Sparkles className="w-3.5 h-3.5" /> Case Studies
+          <div className="inline-flex items-center gap-2 bg-amber-500/5 border border-amber-500/20 text-amber-500 dark:text-amber-300 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" /> Case Studies
           </div>
           <h2 className="font-display font-extrabold text-4xl sm:text-5xl text-slate-900 dark:text-white tracking-tight">
-            Our recent <span className="bg-gradient-to-r from-cyan-600 via-indigo-500 to-purple-600 dark:from-cyan-400 dark:via-indigo-400 dark:to-purple-500 bg-clip-text text-transparent">masterpieces.</span>
+            Our recent <span className="bg-gradient-to-r from-amber-500 to-amber-600 dark:from-amber-400 dark:to-amber-500 bg-clip-text text-transparent">masterpieces.</span>
           </h2>
           <p className="mt-4 text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-xl">
             We don't build standard layouts. Here are the handcrafted sites we created that deliver real ROI, top search speed, and flawless lead rates.
@@ -123,8 +123,8 @@ export const RecentWorks = () => {
               onClick={() => setFilter(cat)}
               className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
                 filter === cat
-                  ? "bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/20"
-                  : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  ? "bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/10 font-bold"
+                  : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium"
               }`}
             >
               {cat}
@@ -138,7 +138,7 @@ export const RecentWorks = () => {
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className={`group relative overflow-hidden rounded-3xl border border-slate-200 dark:border-white/5 bg-white/70 dark:bg-slate-900/40 backdrop-blur-md transition-all duration-500 hover:border-slate-300 dark:hover:border-white/10 hover:shadow-[0_20px_50px_-20px_rgba(99,102,241,0.2)] flex flex-col justify-between ${project.colSpan} ${project.rowSpan}`}
+            className={`group relative overflow-hidden rounded-3xl border border-slate-200 dark:border-white/5 bg-white/70 dark:bg-slate-900/40 backdrop-blur-md transition-all duration-500 hover:border-slate-300 dark:hover:border-white/10 hover:shadow-[0_20px_50px_-20px_rgba(242,161,4,0.15)] flex flex-col justify-between ${project.colSpan} ${project.rowSpan}`}
           >
             {/* Ambient inner glow */}
             <div className={`absolute inset-0 bg-gradient-to-tr opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none ${project.accent}`} />
@@ -146,14 +146,14 @@ export const RecentWorks = () => {
             {/* Content Details (Top) */}
             <div className="p-6 md:p-8 relative z-10">
               <div className="flex items-center justify-between gap-4 mb-4">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-amber-500 bg-amber-500/5 border border-amber-500/20 px-3 py-1 rounded-full">
                   {project.subCategory}
                 </span>
                 <span className="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">
                   {project.category}
                 </span>
               </div>
-              <h3 className="font-display font-extrabold text-2xl text-slate-900 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-pink-600 dark:group-hover:from-indigo-300 dark:group-hover:to-pink-300 group-hover:bg-clip-text transition-all duration-300">
+              <h3 className="font-display font-extrabold text-2xl text-slate-900 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-amber-500 group-hover:to-amber-600 dark:group-hover:from-amber-400 dark:group-hover:to-amber-500 group-hover:bg-clip-text transition-all duration-300">
                 {project.title}
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed max-w-md group-hover:text-slate-800 dark:group-hover:text-slate-300 transition-colors duration-300">
@@ -190,7 +190,7 @@ export const RecentWorks = () => {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white flex items-center justify-center hover:bg-indigo-600 hover:border-indigo-500 hover:text-white hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all duration-300 hover:scale-110 shrink-0"
+                    className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white flex items-center justify-center hover:bg-amber-500 hover:border-amber-500 hover:text-slate-950 hover:shadow-[0_0_20px_rgba(242,161,4,0.4)] transition-all duration-300 hover:scale-110 shrink-0"
                     aria-label={`Visit live website of ${project.title}`}
                   >
                     <ExternalLink className="w-5.5 h-5.5" />
@@ -198,7 +198,7 @@ export const RecentWorks = () => {
                 ) : (
                   <Link
                     to="/our-work"
-                    className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white flex items-center justify-center hover:bg-indigo-600 hover:border-indigo-500 hover:text-white hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all duration-300 hover:scale-110 shrink-0"
+                    className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white flex items-center justify-center hover:bg-amber-500 hover:border-amber-500 hover:text-slate-950 hover:shadow-[0_0_20px_rgba(242,161,4,0.4)] transition-all duration-300 hover:scale-110 shrink-0"
                     aria-label={`View details of ${project.title}`}
                   >
                     <ExternalLink className="w-5.5 h-5.5" />
@@ -216,7 +216,7 @@ export const RecentWorks = () => {
           to="/our-work"
           className="inline-flex items-center gap-2 bg-slate-100 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/[0.18] text-slate-800 dark:text-white font-bold px-8 py-4 rounded-xl hover:-translate-y-0.5 transition-all duration-300"
         >
-          View Case Studies Portfolio <ArrowRight className="w-4 h-4 text-purple-400" />
+          View Case Studies Portfolio <ArrowRight className="w-4 h-4 text-amber-500" />
         </Link>
       </div>
     </section>
