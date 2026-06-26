@@ -72,7 +72,7 @@ export const PromoBanner = () => (
             </div>
             <div>
               <div className="text-xs font-bold text-white">Slot 2: Filled (Retail/Ecom)</div>
-              <div className="text-[10px] text-muted-foreground mt-0.5">Groceries e-commerce platform, Indore</div>
+              <div className="text-[10px] text-muted-foreground mt-0.5">Groceries e-commerce platform, Delhi NCR</div>
             </div>
           </div>
 

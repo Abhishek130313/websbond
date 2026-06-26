@@ -16,7 +16,7 @@ export const SEO = ({ title, description, path, keywords, jsonLd, ogImage }: SEO
   const url = `${SITE_URL}${path}`;
   const img = ogImage || OG_IMAGE;
   const schemas = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
-  const defaultKeywords = "website developer Indore, website banwaye, website banwana hai, sasti website, digital agency Indore, best website designer Indore, business grow kaise kare, local SEO Indore, Google pe top kaise aaye, digital marketing Indore, website design India, cheap website India, business website Indore";
+  const defaultKeywords = "website developer Delhi NCR, website banwaye, website banwana hai, digital agency Haryana, best website designer Delhi, business grow kaise kare, local SEO Gurgaon, Google pe top kaise aaye, digital marketing Faridabad, website design India, custom React website, premium software agency, business website Delhi NCR";
 
   return (
     <Helmet>
@@ -50,10 +50,10 @@ export const SEO = ({ title, description, path, keywords, jsonLd, ogImage }: SEO
       {/* Additional SEO */}
       <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
       <meta name="author" content="Websbond" />
-      <meta name="geo.region" content="IN-MP" />
-      <meta name="geo.placename" content="Indore, Madhya Pradesh" />
-      <meta name="geo.position" content="22.7533;75.8937" />
-      <meta name="ICBM" content="22.7533, 75.8937" />
+      <meta name="geo.region" content="IN-HR" />
+      <meta name="geo.placename" content="Gurugram, Haryana" />
+      <meta name="geo.position" content="28.4595;77.0266" />
+      <meta name="ICBM" content="28.4595, 77.0266" />
 
       {/* Structured Data */}
       {schemas.map((s, i) => (

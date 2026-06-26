@@ -10,7 +10,6 @@ const Services = lazy(() => import("@/components/site/Services").then(m => ({ de
 const GrowthConsole = lazy(() => import("@/components/site/GrowthConsole").then(m => ({ default: m.GrowthConsole })));
 const RecentWorks = lazy(() => import("@/components/site/RecentWorks").then(m => ({ default: m.RecentWorks })));
 const Testimonials = lazy(() => import("@/components/site/Testimonials").then(m => ({ default: m.Testimonials })));
-const PricingPlans = lazy(() => import("@/components/site/PricingPlans").then(m => ({ default: m.PricingPlans })));
 const Blog = lazy(() => import("@/components/site/Blog").then(m => ({ default: m.Blog })));
 
 // Minimal skeleton that preserves layout space to prevent CLS
@@ -21,8 +20,8 @@ const SectionSkeleton = () => (
 const Index = () => (
   <Layout>
     <SEO 
-      title="Websbond | Best Website Developer Indore & Digital Marketing Agency" 
-      description="Looking to get a website made? Websbond is the top website developer Indore, offering premium custom React websites, local Google SEO, and high-ROI digital marketing in India. Get a free consultation today!" 
+      title="Websbond | Best Website Developer Delhi NCR & Digital Marketing Agency" 
+      description="Looking to get a website made? Websbond is the top website developer in Delhi NCR and Haryana, offering premium custom React websites, local Google SEO, and high-ROI digital marketing globally. Get a free consultation today!" 
       path="/" 
       jsonLd={[
         {
@@ -33,19 +32,19 @@ const Index = () => (
           "@id": "https://websbond.com/#organization",
           "url": "https://websbond.com",
           "telephone": "+919306623619",
-          "priceRange": "₹7999 - ₹29999",
+          "priceRange": "Contact for Custom Quote",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Vijay Nagar",
-            "addressLocality": "Indore",
-            "addressRegion": "Madhya Pradesh",
-            "postalCode": "452010",
+            "streetAddress": "Sector 48, Sohna Road",
+            "addressLocality": "Gurugram",
+            "addressRegion": "Haryana",
+            "postalCode": "122018",
             "addressCountry": "IN"
           },
           "geo": {
             "@type": "GeoCoordinates",
-            "latitude": 22.7533,
-            "longitude": 75.8937
+            "latitude": 28.4595,
+            "longitude": 77.0266
           },
           "openingHoursSpecification": {
             "@type": "OpeningHoursSpecification",
@@ -74,23 +73,23 @@ const Index = () => (
               "name": "How to get a website made for my business in India?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "If you want to get a website made (website banwani hai), contact Websbond at +91 9306623619 or email websbond@websbond.com. We design custom React and Next.js sites with 100/100 speed scores, handle domain/hosting configuration, and set up local Google SEO."
+                "text": "If you want to get a website made, contact Websbond at +91 9306623619 or email websbond@websbond.com. We design custom React and Next.js sites with 100/100 speed scores, handle domain/hosting configuration, and set up Google SEO for businesses in Delhi NCR, Haryana, and globally."
               }
             },
             {
               "@type": "Question",
-              "name": "What is the cost of website development in Indore?",
+              "name": "What is the cost of website development in Delhi NCR & Haryana?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Websbond offers transparent, fixed-price packages starting from ₹7,999 for custom websites, including mobile responsiveness, search indexing setup, and developer-direct WhatsApp support with no hidden charges."
+                "text": "Websbond offers custom, transparent Proposals tailored to your exact requirements, including mobile responsiveness, search indexing setup, and developer-direct WhatsApp support with zero hidden charges."
               }
             },
             {
               "@type": "Question",
-              "name": "Why is Websbond the best website developer Indore and digital marketing agency?",
+              "name": "Why is Websbond the best website developer Delhi NCR and digital marketing agency?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Unlike standard agencies that use slow WordPress templates, Websbond writes high-performance handcrafted React code. We integrate target-oriented Google/Meta ad tracking, implement technical SEO mapping, and guarantee 24/7 human support."
+                "text": "Unlike standard agencies that use slow WordPress templates, Websbond writes high-performance handcrafted React and Next.js code. We integrate target-oriented Google/Meta ad tracking, implement technical SEO mapping, and guarantee 24/7 human support."
               }
             }
           ]
@@ -115,9 +114,6 @@ const Index = () => (
     </Suspense>
     <Suspense fallback={<SectionSkeleton />}>
       <Testimonials />
-    </Suspense>
-    <Suspense fallback={<SectionSkeleton />}>
-      <PricingPlans />
     </Suspense>
     <Suspense fallback={<SectionSkeleton />}>
       <Blog />

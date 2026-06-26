@@ -31,35 +31,16 @@ const partnerLogos = [
 ];
 
 export const ServicesPage = () => {
-  const [pages, setPages] = useState(5);
-  const [seoLevel, setSeoLevel] = useState<"basic" | "standard" | "pro">("standard");
-  const [support, setSupport] = useState(3);
   const [activeTab, setActiveTab] = useState<"dev" | "seo" | "ads" | "support">("dev");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const calculatePrice = () => {
-    let base = 5000;
-    base += pages * 600;
-    if (seoLevel === "standard") base += 4000;
-    if (seoLevel === "pro") base += 9000;
-    base += (support - 3) * 1200;
-    return base;
-  };
-
-  const calculateDays = () => {
-    let days = 10;
-    days += Math.floor(pages * 1.5);
-    if (seoLevel === "pro") days += 5;
-    return days;
-  };
 
   return (
     <Layout>
       <SEO 
-        title="Web Services | Professional Website Design & Google SEO Indore" 
-        description="Premium website development (website designer Indore), organic search engine optimization, and PPC campaigns. Choose a package starting at ₹7,999." 
+        title="Enterprise Web Services | Custom React & Global SEO | Websbond" 
+        description="Premium custom website development, search engine optimization, and PPC campaign management for global growth. Scale your business with Websbond." 
         path="/services" 
-        keywords="websbond services, website builder Indore, local SEO Indore, PPC ads agency Indore, sasti website banwaye, business growth India"
+        keywords="websbond services, website developer Delhi NCR, local SEO Gurgaon, PPC ads agency Haryana, custom website development, business growth"
       />
 
       {/* ── Services Hero Section ── */}
@@ -92,7 +73,7 @@ export const ServicesPage = () => {
               </h1>
 
               <p className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed font-semibold">
-                Hum slow templates reject karte hain. Hum lightning-fast websites banate hain jo Google rankings aur customers drive karein. Website banwana hai? Shuru karein.
+                We avoid template layouts. We build premium, custom React and Next.js systems engineered to dominate search rankings and optimize conversions.
               </p>
 
               {/* STATS GRID - Replaced with trust parameters */}
@@ -111,21 +92,6 @@ export const ServicesPage = () => {
                 ))}
               </div>
 
-              {/* TRUST BADGES */}
-              <div className="flex flex-wrap gap-2 mt-1 justify-start">
-                {[
-                  { label: "Google #1 Rankings", dot: "bg-emerald-500" },
-                  { label: "100/100 PageSpeed", dot: "bg-cyan-500" },
-                  { label: "Zero Hidden Fees", dot: "bg-indigo-500" },
-                  { label: "Code Ownership", dot: "bg-purple-500" },
-                ].map((b) => (
-                  <div key={b.label} className="flex items-center gap-1.5 bg-card border border-border rounded-full px-2.5 py-1">
-                    <span className={`w-1.5 h-1.5 rounded-full ${b.dot} animate-pulse shrink-0`} />
-                    <span className="text-[10px] font-semibold text-muted-foreground">{b.label}</span>
-                  </div>
-                ))}
-              </div>
-
               {/* CTA BUTTONS */}
               <div className="flex flex-wrap gap-3 mt-1 justify-start">
                 <Link
@@ -135,18 +101,12 @@ export const ServicesPage = () => {
                   Get Started Free <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
                 <a
-                  href="https://wa.me/919306623619?text=Namaste!%20Mujhe%20website%20banwani%20hai.%20Free%20consultation%20chahiye."
+                  href="https://wa.me/919306623619?text=Namaste!%20I%20am%20interested%20in%20a%20free%20website%20consultation%20with%20Websbond."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl transition-all text-xs shadow-sm"
                 >
                   <MessageCircle className="w-3.5 h-3.5" /> WhatsApp Consultant
-                </a>
-                <a
-                  href="#services-list"
-                  className="inline-flex items-center gap-2 bg-card border border-border hover:bg-surface-2 text-foreground font-bold px-6 py-3.5 rounded-xl transition-all text-xs shadow-sm"
-                >
-                  <Play className="w-2.5 h-2.5 fill-current text-foreground" /> Explore Services
                 </a>
               </div>
 
@@ -160,9 +120,9 @@ export const ServicesPage = () => {
                 </div>
                 <div>
                   <div className="flex gap-0.5 text-amber-400">
-                    {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
+                    {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
                   </div>
-                  <p className="text-[10px] text-muted-foreground font-semibold">Indore-based engineering team working directly with you</p>
+                  <p className="text-[10px] text-muted-foreground font-semibold">Delhi NCR & Haryana engineering team working directly with you</p>
                 </div>
               </div>
             </div>
@@ -170,12 +130,8 @@ export const ServicesPage = () => {
             {/* Right Column: 3D Dashboard Mockup */}
             <div className="relative flex items-center justify-center pt-8 lg:pt-0">
               <div className="relative w-full max-w-[340px] aspect-[4/3] flex items-center justify-center [perspective:1200px] pointer-events-auto group/hero">
-                {/* Glowing halo behind card */}
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-purple-500/5 to-cyan-500/5 rounded-3xl blur-2xl scale-110" />
-
-                {/* 3D Wrapper */}
                 <div className="relative w-[280px] h-[220px] [transform-style:preserve-3d] [transform:rotateX(22deg)_rotateY(-16deg)] group-hover/hero:[transform:rotateX(12deg)_rotateY(-2deg)] transition-all duration-700 ease-out">
-                  {/* Top Layer: UI Dashboard metrics */}
                   <div className="absolute inset-0 bg-card border border-border rounded-2xl p-4 shadow-card backdrop-blur-md [transform:translateZ(55px)] transition-transform duration-700 ease-out group-hover/hero:[transform:translateZ(75px)] flex flex-col justify-between">
                     <div className="flex items-center justify-between border-b border-slate-200/50 dark:border-white/5 pb-2 text-foreground">
                       <div className="flex gap-1">
@@ -185,7 +141,6 @@ export const ServicesPage = () => {
                       </div>
                       <span className="text-[8px] text-indigo-600 dark:text-indigo-400 font-bold font-mono">analytics_core</span>
                     </div>
-
                     <div className="grid grid-cols-2 gap-2 py-2 flex-1 items-center">
                       <div className="bg-muted/50 border border-border rounded-lg p-1.5 text-center">
                         <div className="text-[7px] text-muted-foreground font-bold uppercase">Conversions</div>
@@ -196,14 +151,7 @@ export const ServicesPage = () => {
                         <div className="text-xs font-black text-emerald-600 dark:text-emerald-400 font-mono mt-0.5">100/100</div>
                       </div>
                     </div>
-
-                    <div className="bg-muted/50 border border-border rounded-lg p-2 text-[7px] text-muted-foreground flex justify-between font-mono">
-                      <span>Google Index Status</span>
-                      <span className="text-emerald-600 dark:text-emerald-400 font-bold">Pos 1</span>
-                    </div>
                   </div>
-
-                  {/* Middle Layer: Server */}
                   <div className="absolute inset-0 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-[0_10px_20px_rgba(0,0,0,0.05)] dark:shadow-[0_10px_20px_rgba(0,0,0,0.15)] [transform:translateZ(10px)] group-hover/hero:[transform:translateZ(15px)] flex flex-col justify-between">
                     <div className="flex items-center justify-between text-[8px] text-indigo-600 dark:text-indigo-300 font-mono">
                       <span>Server Engine</span>
@@ -211,8 +159,6 @@ export const ServicesPage = () => {
                     </div>
                     <div className="w-full h-1 bg-indigo-100 dark:bg-indigo-500/20 rounded-full" />
                   </div>
-
-                  {/* Base Layer */}
                   <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-indigo-500/20 rounded-2xl p-4 shadow-[0_5px_15px_rgba(0,0,0,0.03)] dark:shadow-[0_5px_15px_rgba(0,0,0,0.2)] [transform:translateZ(-30px)] group-hover/hero:[transform:translateZ(-45px)] flex flex-col justify-between">
                     <span className="text-[7px] text-muted-foreground font-mono">Infrastructure</span>
                   </div>
@@ -241,7 +187,6 @@ export const ServicesPage = () => {
               ))}
             </div>
           </div>
-
         </div>
       </section>
 
@@ -249,275 +194,146 @@ export const ServicesPage = () => {
       <div id="services-list" className="bg-background text-foreground py-10 transition-colors duration-300">
 
         {/* Capabilities Catalog Grid Section */}
-        <section className="container mx-auto px-4 py-6 border-b border-slate-200/85 dark:border-white/[0.06]">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-2 bg-brand-soft border border-indigo-200 dark:border-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5" /> Capabilities Catalog
-            </div>
-            <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">
-              Our Core <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500 bg-clip-text text-transparent">Digital Services.</span>
-            </h2>
-            <p className="text-muted-foreground mt-2 text-xs sm:text-sm font-medium">
-              Professional engineering and digital marketing systems crafted for high growth and conversions.
-            </p>
+        <section className="container mx-auto px-4 py-16 border-b border-slate-200/85 dark:border-white/[0.06]">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 bg-brand-soft border border-indigo-200 dark:border-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3 shadow-sm">
+            <Sparkles className="w-3.5 h-3.5" /> Capabilities Catalog
           </div>
+          <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">
+            Our Core <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500 bg-clip-text text-transparent">Digital Services.</span>
+          </h2>
+          <p className="text-muted-foreground mt-2 text-xs sm:text-sm font-medium">
+            Professional engineering and digital marketing systems crafted for high growth and conversions.
+          </p>
+        </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { icon: Globe, title: "Website Development", desc: "Super-fast React & Next.js custom sites with fluid page loads, clean design structures, and responsive controls.", points: ["Custom Design Layouts", "Pixel Perfect Frontend", "100% Core Web Vitals", "Direct Code Handoff"] },
-              { icon: Search, title: "SEO Optimization", desc: "Elite keyword mappings, structural index speed audits, and content frameworks targeting Google Position 1 rankings.", points: ["Keyword Discovery Map", "Technical Speed Audit", "Schema Meta Integration", "Rank Trajectory Scans"] },
-              { icon: Megaphone, title: "Digital Marketing & Ads", desc: "Advanced campaign management on Google & Meta Ads tailored to drive qualified leads and actual conversions.", points: ["Meta Pixel Tracking Setup", "High-ROI Funnels", "A/B Creative Audits", "Conversions Analytics"] },
-              { icon: Palette, title: "Brand Identity", desc: "Meticulous design assets including high-fidelity logos, premium corporate palettes, typography styling guides.", points: ["Custom Logo Vector", "Corporate Color Palettes", "Typography Standards", "Identity Brand Guidelines"] },
-              { icon: Headphones, title: "24/7 Retainer Support", desc: "Zero robotic AI loops. Real senior developers answering queries instantly on WhatsApp, emails, or direct calls.", points: ["WhatsApp Developer Chat", "Zero Ticket Queue", "Security Core Audits", "Staging Deploy Syncs"] },
-              { icon: Share2, title: "Social Media Management", desc: "Complete handle management, creative visual templates, post calendars, and regular growth analytics reports.", points: ["Visual Creative Templates", "Editorial Calendar Planners", "Handle Growth Audits", "Performance Reporting"] }
-            ].map((item, idx) => (
-              <div key={idx} className="glass-panel border-border rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-indigo-300/50 dark:hover:border-indigo-500/20 transition-all flex flex-col justify-between group">
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-brand-soft text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/10 grid place-items-center mb-4 shrink-0 group-hover:scale-105 transition-transform"><item.icon className="w-5 h-5" /></div>
-                  <h3 className="font-display font-bold text-base sm:text-lg text-foreground mb-2 group-hover:text-indigo-600 transition-colors">{item.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed mb-5 font-semibold">{item.desc}</p>
-                </div>
-                <ul className="space-y-2 border-t border-slate-200/80 dark:border-white/[0.06] pt-4 text-xs text-muted-foreground font-medium">
-                  {item.points.map((p, i) => (
-                    <li key={i} className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-500 shrink-0" /> {p}</li>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[
+            { icon: Globe, title: "Website Development", desc: "Super-fast React & Next.js custom sites with fluid page loads, clean design structures, and responsive controls.", points: ["Custom Design Layouts", "Pixel Perfect Frontend", "100% Core Web Vitals", "Direct Code Handoff"] },
+            { icon: Search, title: "SEO Optimization", desc: "Elite keyword mappings, structural index speed audits, and content frameworks targeting Google Position 1 rankings.", points: ["Keyword Discovery Map", "Technical Speed Audit", "Schema Meta Integration", "Rank Trajectory Scans"] },
+            { icon: Megaphone, title: "Digital Marketing & Ads", desc: "Advanced campaign management on Google & Meta Ads tailored to drive qualified leads and actual conversions.", points: ["Meta Pixel Tracking Setup", "High-ROI Funnels", "A/B Creative Audits", "Conversions Analytics"] },
+            { icon: Palette, title: "Brand Identity", desc: "Meticulous design assets including high-fidelity logos, premium corporate palettes, typography styling guides.", points: ["Custom Logo Vector", "Corporate Color Palettes", "Typography Standards", "Identity Brand Guidelines"] },
+            { icon: Headphones, title: "24/7 Retainer Support", desc: "Zero robotic AI loops. Real senior developers answering queries instantly on WhatsApp, emails, or direct calls.", points: ["WhatsApp Developer Chat", "Zero Ticket Queue", "Security Core Audits", "Staging Deploy Syncs"] },
+            { icon: Share2, title: "Social Media Management", desc: "Complete handle management, creative visual templates, post calendars, and regular growth analytics reports.", points: ["Visual Creative Templates", "Editorial Calendar Planners", "Handle Growth Audits", "Performance Reporting"] }
+          ].map((item, idx) => (
+            <div key={idx} className="glass-panel border-border rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-indigo-300/50 dark:hover:border-indigo-500/20 transition-all flex flex-col justify-between group">
+              <div>
+                <div className="w-10 h-10 rounded-xl bg-brand-soft text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/10 grid place-items-center mb-4 shrink-0 group-hover:scale-105 transition-transform"><item.icon className="w-5 h-5" /></div>
+                <h3 className="font-display font-bold text-base sm:text-lg text-foreground mb-2 group-hover:text-indigo-600 transition-colors">{item.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-5 font-semibold">{item.desc}</p>
+              </div>
+              <ul className="space-y-2 border-t border-slate-200/80 dark:border-white/[0.06] pt-4 text-xs text-muted-foreground font-medium">
+                {item.points.map((p, i) => (
+                  <li key={i} className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-500 shrink-0" /> {p}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Elite Engagement Models Section */}
+      <section className="container mx-auto px-4 py-16 relative border-b border-slate-200/85 dark:border-white/[0.06]">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 bg-indigo-500/5 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3">
+            <Sparkles className="w-3.5 h-3.5" /> Collaboration Methods
+          </div>
+          <h2 className="font-display font-extrabold text-3xl text-foreground tracking-tight">
+            Elite <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500 bg-clip-text text-transparent">Engagement Models.</span>
+          </h2>
+          <p className="text-muted-foreground mt-2 text-sm">
+            We align with your operational needs to deliver design velocity and clean software builds.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {[
+            {
+              title: "Dedicated Tech Squads",
+              desc: "Ideal for fast-growth startups needing immediate development velocity and continuous product iteration.",
+              highlights: ["Full-time React/Next.js Engineers", "Direct developer Slack/WhatsApp syncs", "Agile sprints & weekly deployments", "Flexible scaling options"],
+              accent: "border-slate-200 dark:border-slate-800 bg-card hover:border-slate-350"
+            },
+            {
+              title: "Fixed-Scope Projects",
+              desc: "Best for launching clean marketing portfolios, interactive eCommerce systems, or enterprise web platforms.",
+              highlights: ["Detailed architectural roadmap", "100% code handoff guarantee", "Strict delivery milestones", "Complete post-launch warranty"],
+              accent: "border-indigo-500 bg-indigo-500/5 dark:bg-indigo-500/10 relative shadow-md shadow-indigo-500/5",
+              featured: true
+            },
+            {
+              title: "Growth & SEO Retainers",
+              desc: "Designed for businesses seeking recurring organic traffic rankings and continuous digital conversion optimization.",
+              highlights: ["Weekly local/global SEO syncs", "Meta & Google ad campaign audits", "Speed & security core checkups", "Priority developer support hours"],
+              accent: "border-slate-200 dark:border-slate-800 bg-card hover:border-slate-350"
+            }
+          ].map((model, idx) => (
+            <div key={idx} className={`rounded-3xl p-6 border flex flex-col justify-between hover:-translate-y-1 transition-all duration-300 ${model.accent}`}>
+              {model.featured && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-[9px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full">
+                  Recommended Model
+                </span>
+              )}
+              <div>
+                <h3 className="font-display font-extrabold text-base text-foreground mb-3">{model.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-6 font-semibold pb-5 border-b border-border">{model.desc}</p>
+                <ul className="space-y-3 mb-6">
+                  {model.highlights.map((h, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-xs text-muted-foreground font-semibold">
+                      <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                      <span>{h}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
-            ))}
-          </div>
-        </section>
+              <Link
+                to="/contact"
+                className={`w-full py-3 rounded-xl text-center font-bold text-xs uppercase tracking-wider transition-all block ${
+                  model.featured
+                    ? "bg-indigo-600 hover:bg-indigo-700 text-white"
+                    : "bg-muted hover:bg-surface-2 text-foreground border border-border"
+                }`}
+              >
+                Initiate Discussion
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        {/* Calculator Section */}
-        <section className="container mx-auto px-4 py-10 relative">
-          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-6 items-stretch">
-            
-            {/* Controls Panel */}
-            <div className="glass-panel border-border rounded-3xl p-6 sm:p-8 flex flex-col justify-between gap-6 shadow-sm text-foreground">
+      {/* 6-Stage Delivery Blueprint Section */}
+      <section className="container mx-auto px-4 py-16 relative border-b border-slate-200/85 dark:border-white/[0.06]">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 bg-purple-500/5 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/20 text-purple-600 dark:text-purple-400 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3">
+            <Sparkles className="w-3.5 h-3.5" /> Operations Blueprint
+          </div>
+          <h2 className="font-display font-extrabold text-3xl text-foreground tracking-tight">
+            Our 6-Stage <span className="bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-500 bg-clip-text text-transparent">Delivery Engine.</span>
+          </h2>
+          <p className="text-muted-foreground mt-2 text-sm font-semibold">
+            How we take your digital project from initial brief to verified global deployment.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {[
+            { num: "01", stage: "Discovery & Strategy", desc: "Competitor layout audit, keyword difficulty mapping, and tech stack spec blueprint compile." },
+            { num: "02", stage: "Figma UI Prototyping", desc: "Wireframe creation and custom design layouts tailored to elite global aesthetics." },
+            { num: "03", stage: "High-Performance Coding", desc: "Handcrafted React and Next.js engineering with clean components and zero builder bloat." },
+            { num: "04", stage: "Organic SEO Mapping", desc: "Google Search schema integration, local maps sync, and site indexing linkage configuration." },
+            { num: "05", stage: "Rigorous QA & Audit", desc: "100/100 PageSpeed target audits, cross-device responsiveness verification, and secure API tests." },
+            { num: "06", stage: "VIP Handoff & Support", desc: "Server transfer configuration, complete code files handoff, and direct developer WhatsApp monitoring." }
+          ].map((step, idx) => (
+            <div key={idx} className="glass-panel border-border rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-indigo-300/40 dark:hover:border-indigo-500/20 transition-all flex flex-col justify-between">
               <div>
-                <h3 className="font-display font-bold text-lg sm:text-xl text-foreground mb-1">1. Customize Project Specs</h3>
-                <p className="text-xs text-muted-foreground mb-6 font-medium">Adjust specs to customize your site build in real-time.</p>
-                
-                <div className="space-y-6">
-                  {/* Pages Slider */}
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-xs sm:text-sm font-semibold">
-                      <span className="text-foreground">Number of Custom Pages</span>
-                      <span className="text-indigo-600 dark:text-indigo-400 font-mono font-bold bg-brand-soft border border-indigo-200 dark:border-indigo-500/10 px-3 py-1 rounded-full">{pages} Pages</span>
-                    </div>
-                    <input 
-                      type="range" 
-                      min={1} 
-                      max={25} 
-                      value={pages} 
-                      onChange={(e) => setPages(parseInt(e.target.value))}
-                      className="w-full accent-indigo-600 h-2 bg-muted border border-border rounded-full cursor-pointer" 
-                    />
-                    <div className="flex justify-between text-[10px] text-muted-foreground font-medium">
-                      <span>1 Page (Landing page)</span>
-                      <span>25 Pages (Custom catalog)</span>
-                    </div>
-                  </div>
-
-                  {/* SEO Level Option */}
-                  <div className="space-y-2">
-                    <label className="text-xs sm:text-sm text-foreground font-bold block">SEO Strategy Intensity</label>
-                    <div className="grid grid-cols-3 gap-2">
-                      {[
-                        { key: "basic", label: "Basic indexing", desc: "Sitemap submission only" },
-                        { key: "standard", label: "Elite Core", desc: "Speed metrics & meta audits" },
-                        { key: "pro", label: "Aggressive", desc: "Keyword mappings & backlinks" },
-                      ].map((opt) => (
-                        <button
-                          key={opt.key}
-                          type="button"
-                          onClick={() => setSeoLevel(opt.key as any)}
-                          className={`p-3 rounded-2xl border text-left flex flex-col justify-between transition-all duration-300 ${
-                            seoLevel === opt.key 
-                              ? "bg-indigo-500/5 dark:bg-indigo-500/10 border-indigo-500 text-foreground shadow-sm" 
-                              : "bg-card border-border text-muted-foreground hover:border-slate-300 dark:hover:border-slate-700"
-                          }`}
-                        >
-                          <span className="text-xs font-bold text-foreground mb-1 capitalize">{opt.label}</span>
-                          <span className="text-[9px] text-muted-foreground leading-tight font-semibold">{opt.desc}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Support Slider */}
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-xs sm:text-sm font-semibold">
-                      <span className="text-foreground">Included Support Period</span>
-                      <span className="text-indigo-600 dark:text-indigo-400 font-mono font-bold bg-brand-soft border border-indigo-200 dark:border-indigo-500/10 px-3 py-1 rounded-full">{support} Months</span>
-                    </div>
-                    <input 
-                      type="range" 
-                      min={3} 
-                      max={12} 
-                      step={3}
-                      value={support} 
-                      onChange={(e) => setSupport(parseInt(e.target.value))}
-                      className="w-full accent-indigo-600 h-2 bg-muted border border-border rounded-full cursor-pointer" 
-                    />
-                    <div className="flex justify-between text-[10px] text-muted-foreground font-medium">
-                      <span>3 Months (Core handoff)</span>
-                      <span>12 Months (Active retainer)</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border-t border-slate-200/80 dark:border-white/[0.06] pt-4 flex items-center gap-3">
-                <Shield className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                <p className="text-[10px] sm:text-xs text-muted-foreground leading-normal font-semibold">
-                  Websbond rates are fixed. Estimates are directly compiled with transparent criteria. No negotiation overhead.
-                </p>
+                <div className="font-display font-black text-3xl text-indigo-500/20 mb-3">{step.num}</div>
+                <h3 className="font-display font-bold text-sm sm:text-base text-foreground mb-2">{step.stage}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed font-semibold">{step.desc}</p>
               </div>
             </div>
-
-            {/* Pricing Invoice Dashboard Card (High contrast dark card stays dark for premium visual) */}
-            <div className="bg-slate-950 border border-white/[0.06] rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden text-white">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-xl pointer-events-none" />
-              
-              <div>
-                <h3 className="font-display font-bold text-base sm:text-lg text-white pb-3 border-b border-white/[0.06] mb-5 flex items-center justify-between">
-                  <span>Summary Invoice</span>
-                  <span className="text-xs text-indigo-400 uppercase tracking-widest font-mono">Draft</span>
-                </h3>
-
-                <ul className="space-y-4 text-xs sm:text-sm text-slate-400">
-                  <li className="flex justify-between items-center">
-                    <span>Custom React Build ({pages} Pages)</span>
-                    <span className="text-white font-bold font-mono">₹{5000 + (pages * 600)}</span>
-                  </li>
-                  <li className="flex justify-between items-center">
-                    <span>SEO Mapping Strategy ({seoLevel === "basic" ? "Basic" : seoLevel === "standard" ? "Elite" : "Aggressive"})</span>
-                    <span className="text-white font-bold font-mono">
-                      ₹{seoLevel === "basic" ? 0 : seoLevel === "standard" ? 4000 : 9000}
-                    </span>
-                  </li>
-                  <li className="flex justify-between items-center">
-                    <span>24/7 Support retainer ({support} Months)</span>
-                    <span className="text-white font-bold font-mono">₹{(support - 3) * 1200}</span>
-                  </li>
-                  <li className="flex justify-between items-center">
-                    <span>Domain & Hosting Configuration</span>
-                    <span className="text-emerald-400 font-bold font-mono">Free</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="border-t border-white/[0.06] pt-5 mt-6">
-                <div className="flex justify-between items-end mb-5">
-                  <div>
-                    <div className="text-[10px] text-slate-500 uppercase">Estimated Project Budget</div>
-                    <div className="font-display font-extrabold text-2xl sm:text-3xl text-white mt-0.5 font-mono">
-                      ₹{calculatePrice().toLocaleString("en-IN")}
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-[10px] text-slate-500 uppercase">Turnaround</div>
-                    <div className="font-bold text-indigo-400 mt-0.5 text-xs sm:text-sm">~{calculateDays()} Days</div>
-                  </div>
-                </div>
-
-                <Link 
-                  to="/contact" 
-                  state={{ customProject: { pages, seoLevel, support, price: calculatePrice() } }}
-                  className="w-full bg-white hover:bg-slate-100 text-slate-950 font-bold py-3.5 rounded-xl text-center inline-block transition-all shadow-md text-xs sm:text-sm"
-                >
-                  Proceed with this Plan <ArrowRight className="w-4 h-4 ml-1.5 inline" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 3 Pricing Packages Cards Section */}
-        <section className="container mx-auto px-4 py-10 relative border-t border-b border-slate-200/85 dark:border-white/[0.06]">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-2 bg-pink-500/5 dark:bg-pink-500/10 border border-pink-200 dark:border-pink-500/20 text-pink-600 dark:text-pink-400 font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-full mb-3 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5" /> Pricing Plans
-            </div>
-            <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground tracking-tight">
-              Simple Pricing, <span className="bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-500 bg-clip-text text-transparent">No Surprises.</span>
-            </h2>
-            <p className="text-muted-foreground mt-2 text-xs sm:text-sm font-medium">
-              Choose a plan that fits your business scale, or use the cost calculator above to formulate a custom plan.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
-            {[
-              { 
-                name: "Starter Plan", 
-                price: "₹7,999", 
-                period: "/mo",
-                desc: "Perfect for single page launches, local business listings, or simple corporate profiles.",
-                features: ["5 Page React Website", "Fully Responsive Layout", "Core SEO Schema Setup", "3 Months Code Support", "Domain & Server Linkage"],
-                color: "border-slate-200 dark:border-slate-800 bg-white dark:bg-card"
-              },
-              { 
-                name: "Growth Plan", 
-                price: "₹14,999", 
-                period: "/mo",
-                desc: "Designed for scaling businesses requiring active search rankings and regular social management.",
-                features: ["Unlimited Pages Website", "Advanced SEO Optimization", "Social Media Management", "6 Months retain support", "Premium Content Auditing", "WhatsApp Support Retainer"],
-                color: "border-indigo-500 dark:border-indigo-500/50 bg-indigo-500/5 dark:bg-indigo-500/10 shadow-sm relative",
-                popular: true
-              },
-              { 
-                name: "Premium Plan", 
-                price: "₹29,999", 
-                period: "/mo",
-                desc: "A complete online system integrating dev, high-ROI marketing campaigns, and design retainers.",
-                features: ["Everything in Growth Plan", "Paid Google & Meta Campaign", "Brand Identity Logo Pack", "12 Months retain support", "Full Analytics Dashboard", "Priority Developer Priority"],
-                color: "border-slate-200 dark:border-slate-800 bg-white dark:bg-card"
-              }
-            ].map((plan, idx) => (
-              <div key={idx} className={`rounded-3xl p-6 sm:p-8 border flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 relative ${plan.color}`}>
-                {plan.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500 text-white text-[8px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-sm">
-                    Most Popular
-                  </span>
-                )}
-                
-                <div>
-                  <h3 className="font-display font-bold text-base sm:text-lg text-foreground mb-1.5">{plan.name}</h3>
-                  <div className="flex items-baseline gap-0.5 mb-3.5">
-                    <span className="font-display font-extrabold text-2xl sm:text-3xl text-foreground font-mono">{plan.price}</span>
-                    <span className="text-xs text-muted-foreground font-medium">{plan.period}</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed mb-5 border-b border-slate-200/80 dark:border-white/[0.06] pb-5 font-semibold">{plan.desc}</p>
-                  
-                  <ul className="space-y-3 mb-6">
-                    {plan.features.map((f, i) => (
-                      <li key={i} className="flex items-start gap-2 text-xs text-muted-foreground font-medium">
-                        <Check className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <Link 
-                  to="/contact"
-                  className={`w-full py-3 rounded-xl text-center font-bold text-xs transition-all block shadow-sm ${
-                    plan.popular 
-                      ? "bg-indigo-600 hover:bg-indigo-700 text-white" 
-                      : "bg-card hover:bg-surface-2 text-foreground border border-border"
-                  }`}
-                >
-                  Choose {plan.name}
-                </Link>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center text-xs text-muted-foreground font-semibold uppercase tracking-wider font-mono">
-            Need custom configurations? Reach us direct at <span className="text-foreground font-bold font-sans">+91 9306623619</span> or email <span className="text-indigo-600 dark:text-indigo-400 font-bold font-sans">service@websbond.com</span>
-          </div>
-        </section>
+          ))}
+        </div>
+      </section>
 
         {/* Service Command Center Visualizer */}
         <section className="container mx-auto px-4 py-10 relative">
@@ -711,7 +527,7 @@ export const ServicesPage = () => {
                 </li>
                 <li className="flex gap-2.5 items-start">
                   <span className="w-5 h-5 rounded-full bg-emerald-500/5 dark:bg-emerald-500/15 text-emerald-600 border border-emerald-200/40 flex items-center justify-center shrink-0">✓</span>
-                  <span>Transparent fixed pricing, full hosting ownership, and zero lock-in contracts</span>
+                  <span>Transparent proposal scope, full hosting ownership, and zero lock-in contracts</span>
                 </li>
               </ul>
             </div>

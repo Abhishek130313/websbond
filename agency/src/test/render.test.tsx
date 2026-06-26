@@ -48,6 +48,13 @@ beforeAll(() => {
     terminate() {}
   }
   global.Worker = MockWorker as any;
+
+  global.IntersectionObserver = class IntersectionObserver {
+    constructor() {}
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  } as any;
 });
 
 // Components
@@ -58,7 +65,6 @@ import { Services } from "../components/site/Services";
 import { GrowthConsole } from "../components/site/GrowthConsole";
 import { RecentWorks } from "../components/site/RecentWorks";
 import { Testimonials } from "../components/site/Testimonials";
-import { PricingPlans } from "../components/site/PricingPlans";
 import { Blog } from "../components/site/Blog";
 
 // Pages
@@ -116,10 +122,6 @@ describe("Homepage Components Render Tests", () => {
 
   it("renders Testimonials component without crashing", () => {
     renderWithProviders(<Testimonials />);
-  });
-
-  it("renders PricingPlans component without crashing", () => {
-    renderWithProviders(<PricingPlans />);
   });
 
   it("renders Blog component without crashing", () => {

@@ -12,7 +12,7 @@ const avatarOptions = [a1, a2, a3, a2]; // Choices for avatar pre-sets
 const staticReviewsFallback = [
   { id: 1, name: "Rohit Verma", role: "Hotel Owner, Kanpur", category: "Hospitality", img: a1, text: "Websbond completely transformed our hotel's online presence. Direct website bookings increased threefold, and our customer reviews have improved significantly!", rating: 5, avatarIndex: 0 },
   { id: 2, name: "Neha Sharma", role: "Salon Owner, Lucknow", category: "Wellness", img: a2, text: "The team is extremely professional. Their 24/7 support is what sets them apart. Whenever I need updates or changes, they handle it within minutes.", rating: 5, avatarIndex: 1 },
-  { id: 3, name: "Amit Patel", role: "Kirana Store, Indore", category: "Retail", img: a3, text: "They built a digital ordering website that is so clean and easy to use that customers now place orders themselves via WhatsApp. Excellent craftsmanship.", rating: 5, avatarIndex: 2 },
+  { id: 3, name: "Amit Patel", role: "Kirana Store, Gurgaon", category: "Retail", img: a3, text: "They built a digital ordering website that is so clean and easy to use that customers now place orders themselves via WhatsApp. Excellent craftsmanship.", rating: 5, avatarIndex: 2 },
   { id: 4, name: "Vikram Singh", role: "Gym Owner, Jaipur", category: "Fitness", img: a1, text: "Their Google and Facebook Ads setup generated 45 new memberships in the very first month. Absolute value for money.", rating: 5, avatarIndex: 3 },
 ];
 

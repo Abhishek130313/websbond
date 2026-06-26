@@ -77,10 +77,10 @@ export const BlogPage = () => {
   return (
     <Layout>
       <SEO 
-        title="Websbond Blog | Web Development, SEO & Business Growth Indore" 
+        title="Websbond Blog | Web Development, SEO & Business Growth Delhi NCR" 
         description="Learn how to grow your business online with guides on web speed optimization, custom React code benefits, local Google SEO maps, and digital ads." 
         path="/blog" 
-        keywords="websbond blog, digital agency Indore, website banwaye, digital marketing tips, organic google rankings Indore"
+        keywords="websbond blog, digital agency Delhi NCR, website banwaye, digital marketing tips, organic google rankings Haryana"
       />
 
       {/* ── Visual Sub-Hero Header ── */}

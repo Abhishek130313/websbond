@@ -40,7 +40,7 @@ const campaigns: Record<string, CampaignData> = {
       "User session added leather boot item to cart...",
       "API payload dispatched to Payment Gateway server...",
       "Conversion Pixel tracked success event successfully...",
-      "Indore fulfillment system updated stock parameters!"
+      "Gurugram fulfillment hub updated stock parameters!"
     ]
   },
   kearney: {
@@ -91,7 +91,7 @@ const campaigns: Record<string, CampaignData> = {
     logs: [
       "Table reservation request for 4 guests received...",
       "Booking confirmation dispatch trigger executed...",
-      "Local Map SEO rankings updated for indore bistro terms...",
+      "Local Map SEO rankings updated for Delhi NCR bistro terms...",
       "Daily revenue report generated and emailed to admin dashboard!"
     ]
   }

@@ -63,8 +63,8 @@ export const ContactPage = () => {
   return (
     <Layout>
       <SEO 
-        title="Contact Websbond | Hire Best Web Maker Indore & Ads Agency" 
-        description="Get a website built today! Contact our Vijay Nagar Indore office at +91 9306623619 or websbond@websbond.com for custom React sites and SEO optimization." 
+        title="Contact Websbond | Hire Best Web Developer Delhi NCR & Ads Agency" 
+        description="Get a website built today! Contact our team at +91 9306623619 or websbond@websbond.com for custom React sites and SEO optimization." 
         path="/contact" 
       />
 
@@ -231,10 +231,10 @@ export const ContactPage = () => {
                     <h3 className="font-display font-bold text-lg text-foreground">What is the scale of this project?</h3>
                     <div className="grid sm:grid-cols-2 gap-4">
                       {[
-                        { key: "small", label: "Starter Build (1-5 Pages)", desc: "Perfect for single page landing hooks or local profiles" },
-                        { key: "medium", label: "Growth Build (6-15 Pages)", desc: "Perfect for dynamic corporate platforms or blogs" },
-                        { key: "large", label: "Custom E-Commerce Catalog", desc: "Shopify headless or customized inventory checkout pipelines" },
-                        { key: "consulting", label: "Strategy Consultation Only", desc: "Audit and plan formulation sessions" },
+                        { key: "small", label: "MVP Launch / Single Page", desc: "Perfect for single-page campaigns or local business profiles" },
+                        { key: "medium", label: "Corporate Web System", desc: "Perfect for dynamic corporate portals, blogs, or brand sites" },
+                        { key: "large", label: "Custom E-Commerce Platform", desc: "Headless commerce or customized inventory checkouts" },
+                        { key: "consulting", label: "Enterprise Tech Strategy", desc: "Technical audits and strategy consultation sessions" },
                       ].map((opt) => (
                         <button
                           key={opt.key}

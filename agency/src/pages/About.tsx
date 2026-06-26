@@ -8,7 +8,7 @@ import a2 from "@/assets/avatar2.webp";
 import a3 from "@/assets/avatar3.webp";
 
 const values = [
-  { icon: Heart, title: "Transparency First", desc: "Our pricing contracts are simple and honest. No hidden parameters, no surprise bills." },
+  { icon: Heart, title: "Transparency First", desc: "Our project scopes are clear and honest. No hidden parameters, no surprise bills." },
   { icon: Users, title: "Direct Connection", desc: "We do not use bots. You speak directly with our lead developers and project designers." },
   { icon: Trophy, title: "Quality Codebases", desc: "No templates or page builder speed blockers. We write custom lightweight React code." },
   { icon: Smile, title: "Client First Handoff", desc: "We strive to deliver complete business growth and seamless analytics integrations." },
@@ -25,10 +25,10 @@ export const AboutPage = () => {
   return (
     <Layout>
       <SEO 
-        title="About Websbond | Elite Website Designers & Digital Agency Indore" 
-        description="Websbond — Indore ka best website design company. Custom React websites, local Google SEO, aur direct developer support. Website banwana hai? Mil ke baat karein." 
+        title="About Websbond | Elite Website Designers & Digital Agency Delhi NCR" 
+        description="Websbond — Delhi NCR & Haryana's premier digital agency. Custom React websites, local Google SEO, and direct developer support. Ready to scale? Let's connect." 
         path="/about"
-        keywords="about websbond, website designer Indore, digital agency Indore, website banwaye, best web developer Indore"
+        keywords="about websbond, website designer Delhi NCR, digital agency Haryana, website banwaye, best web developer Gurgaon"
       />
 
       {/* ── Centered Hero Header ── */}
@@ -46,7 +46,7 @@ export const AboutPage = () => {
             <div className="flex flex-col items-start text-left gap-5">
               <div className="inline-flex items-center gap-2 border border-indigo-200 dark:border-indigo-500/20 bg-indigo-50/60 dark:bg-indigo-950/20 backdrop-blur-md text-indigo-600 dark:text-indigo-400 font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full">
                 <Sparkles className="w-3.5 h-3.5 text-indigo-500 animate-pulse" />
-                Elite Software Engineering — Indore
+                Elite Software Engineering — Delhi NCR & Haryana
               </div>
               
               <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground tracking-tight">
@@ -57,7 +57,7 @@ export const AboutPage = () => {
               </h1>
               
               <p className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed font-semibold">
-                Websbond — Indore ka best digital agency. Hum custom React websites, data-backed local SEO, aur 24/7 direct developer support provide karte hain. Website banwana hai? Shuru karein.
+                Websbond — Delhi NCR & Haryana's premier digital agency. We build custom React systems, data-backed local SEO, and provide 24/7 direct developer support. Ready to scale? Let's connect.
               </p>
               
               <div className="flex flex-wrap gap-3">
@@ -241,9 +241,9 @@ export const AboutPage = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { name: "Rohit Verma", role: "Hotel Owner, Kanpur", img: a1, text: "Websbond completely transformed our hotel's online presence. Direct bookings increased 3x!" },
+              { name: "Rohit Verma", role: "Hotel Owner, Kanpur", img: a1, text: "Websbond completely transformed our hotel's online presence. Direct website bookings increased 3x!" },
               { name: "Neha Sharma", role: "Salon Owner, Lucknow", img: a2, text: "Very professional team and instant 24/7 support. Highly recommended!" },
-              { name: "Amit Patel", role: "Kirana Store, Indore", img: a3, text: "The website was designed so beautifully that customers started messaging us directly." },
+              { name: "Amit Patel", role: "Kirana Store, Gurgaon", img: a3, text: "The website was designed so beautifully that customers started messaging us directly." },
             ].map((r, idx) => (
               <article key={idx} className="glass-panel rounded-2xl p-5 shadow-sm hover:shadow-md hover:border-indigo-300/40 dark:hover:border-indigo-500/20 hover:bg-slate-500/[0.02] dark:hover:bg-white/[0.03] transition-all duration-300 flex flex-col justify-between">
                 <div>

@@ -114,7 +114,7 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
             {/* Badge */}
             <div className="hero-fu inline-flex items-center gap-2 bg-indigo-500/10 border border-purple-500/20 text-indigo-600 dark:text-white font-semibold text-[10px] sm:text-xs uppercase tracking-widest px-4 py-2 rounded-full backdrop-blur-sm shadow-[0_0_20px_rgba(168,85,247,0.05)]">
               <Sparkles className="w-3.5 h-3.5 text-purple-500 dark:text-purple-400 animate-spin-slow" />
-              Website Banwaye — Digital Solutions That Build Lasting Trust
+              Elite Digital Solutions — Engineered For Global Growth
             </div>
 
             {/* H1 */}
@@ -135,7 +135,7 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
 
             {/* Subtext */}
             <p className="hero-fu-2 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed">
-              Indore ka best digital agency — handcrafted React sites, 100/100 PageSpeed, local Google SEO, aur direct WhatsApp developer support. Website banwana hai? We're ready.
+              Delhi NCR & Haryana's premier digital engineering agency — crafting custom React and Next.js platforms, 100/100 PageSpeed optimization, organic search engine systems, and direct senior developer contact. Ready to build?
             </p>
 
             {/* Stars + social proof */}
@@ -168,7 +168,7 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
                 Free Consultation <ArrowRight className="w-4 h-4" />
               </Link>
               <a
-                href="https://wa.me/919306623619?text=Namaste!%20Mujhe%20website%20banwani%20hai.%20Free%20consultation%20chahiye."
+                href="https://wa.me/919306623619?text=Namaste!%20I%20am%20interested%20in%20a%20free%20website%20consultation%20with%20Websbond."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-4 rounded-xl hover:-translate-y-0.5 transition-all duration-300 text-sm shadow-md"
@@ -188,7 +188,7 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
 
             {/* Guarantees row */}
             <div className="hero-fu-4 flex flex-wrap gap-x-6 gap-y-2 border-t border-slate-200 dark:border-white/[0.06] pt-5 text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider">
-              {["100% Code Ownership", "Direct WhatsApp Line", "Lighthouse 100/100", "Indore Engineering Team"].map((item) => (
+              {["100% Code Ownership", "Direct WhatsApp Line", "Lighthouse 100/100", "NCR Engineering Team"].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <div className="w-4 h-4 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
                     <Check className="w-2.5 h-2.5 text-emerald-500 dark:text-emerald-400" strokeWidth={3.5} />
@@ -207,7 +207,7 @@ export const Hero = ({ title, subtitle, ctaLabel, ctaHref }: { title?: string; s
                 <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-500 ring-2 ring-slate-100 dark:ring-slate-950 flex items-center justify-center text-[10px] font-bold text-white">100%</div>
               </div>
               <div className="text-xs text-slate-500 dark:text-slate-400 text-left max-w-[200px]">
-                <strong className="text-slate-900 dark:text-white font-bold">Indore-based expert developers</strong> working directly with your business.
+                <strong className="text-slate-900 dark:text-white font-bold">Delhi NCR & Haryana expert developers</strong> working directly with your business.
               </div>
             </div>
           </div>

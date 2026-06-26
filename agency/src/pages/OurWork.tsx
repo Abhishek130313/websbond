@@ -47,7 +47,7 @@ const projects = [
     name: "AuraSkin Clinic", 
     category: "Web Development", 
     desc: "A premium medical-aesthetic brand identity layout. Fully customized booking flow integrated with WhatsApp API.", 
-    results: "Bookings doubled in Indore",
+    results: "Bookings doubled in Delhi NCR",
     img: b3,
     size: "medium",
     previewUrl: "auraskin.in"
@@ -74,10 +74,10 @@ export const OurWorkPage = () => {
   return (
     <Layout>
       <SEO 
-        title="Websbond Portfolio | Best Website Developer Indore & Digital Agency" 
-        description="Explore our portfolio of high-speed custom React websites, eCommerce store development, and top-ranking Google SEO projects built by Websbond Indore." 
+        title="Websbond Portfolio | Best Website Developer Delhi NCR & Digital Agency" 
+        description="Explore our portfolio of high-speed custom React websites, eCommerce store development, and top-ranking Google SEO projects built by Websbond." 
         path="/our-work" 
-        keywords="websbond portfolio, web developer Indore, digital marketing agency Indore, sasti website banwaye, business growth India"
+        keywords="websbond portfolio, web developer Delhi NCR, digital marketing agency Gurgaon, website banwaye, business growth India"
       />
 
       {/* ── Hero Title Section ── */}
@@ -105,13 +105,13 @@ export const OurWorkPage = () => {
               
               <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl leading-tight text-foreground tracking-tight">
                 Work that drives <br />
-                <span className="bg-gradient-to-r from-cyan-600 via-indigo-600 to-purple-600 dark:from-cyan-400 dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-600 via-indigo-500 to-purple-600 dark:from-cyan-400 dark:via-indigo-400 dark:to-purple-500 bg-clip-text text-transparent">
                   real business results.
                 </span>
               </h1>
               
               <p className="text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed font-semibold">
-                Hum sirf design nahi banate; hum custom React websites aur local SEO implement karte hain jo sales, leads aur search rankings drive karein. Website banwana hai? Shuru karein.
+                We do not just construct simple designs; we write high-performance React codebases and configure Google SEO strategies to scale traffic, capture qualified leads, and maximize business growth.
               </p>
 
               <div className="flex flex-wrap gap-3">
