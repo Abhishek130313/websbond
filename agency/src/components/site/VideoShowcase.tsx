@@ -1,138 +1,137 @@
 import { useState } from "react";
-import { Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-interface ShortCard {
-  id: string;
-  title: string;
-  ytId: string;
-  poster: string;
-  category: string;
-}
-
-const SHORTS: ShortCard[] = [
+/* VideoShowcase — exactly like reference site:
+   4 person/client cards in a row, each has a large photo with a red circular play button in center,
+   clicking opens a YouTube modal.
+*/
+const VIDEOS = [
   {
-    id: "web",
-    title: "Website Design Process",
-    ytId: "dQw4w9WgXcQ",
-    poster: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&auto=format&fit=crop&q=80",
-    category: "Web Development",
+    id: "dQw4w9WgXcQ",
+    name: "Rajesh Kumar",
+    role: "Business Owner, Delhi",
+    thumb: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80",
   },
   {
-    id: "seo",
-    title: "SEO Strategy Breakdown",
-    ytId: "dQw4w9WgXcQ",
-    poster: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&auto=format&fit=crop&q=80",
-    category: "SEO & Growth",
+    id: "dQw4w9WgXcQ",
+    name: "Sunita Mehta",
+    role: "Healthcare Clinic, Gurgaon",
+    thumb: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&auto=format&fit=crop&q=80",
   },
   {
-    id: "ads",
-    title: "Google Ads ROI Case Study",
-    ytId: "dQw4w9WgXcQ",
-    poster: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&auto=format&fit=crop&q=80",
-    category: "PPC Campaigns",
+    id: "dQw4w9WgXcQ",
+    name: "Priya Sharma",
+    role: "E-Commerce Brand, NCR",
+    thumb: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&auto=format&fit=crop&q=80",
   },
   {
-    id: "social",
-    title: "Social Media Growth Tips",
-    ytId: "dQw4w9WgXcQ",
-    poster: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=400&auto=format&fit=crop&q=80",
-    category: "Social Media",
+    id: "dQw4w9WgXcQ",
+    name: "Dr. Anil Gupta",
+    role: "Medical Practice, Delhi",
+    thumb: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&auto=format&fit=crop&q=80",
   },
 ];
 
-const ShortCard = ({ card }: { card: ShortCard }) => {
-  const [playing, setPlaying] = useState(false);
+export const VideoShowcase = () => {
+  const [playing, setPlaying] = useState<string | null>(null);
 
   return (
-    <div
-      className="bg-white border border-gray-100 rounded-2xl overflow-hidden group transition-all duration-400 hover:-translate-y-2 cursor-pointer"
-      style={{ boxShadow: "0 10px 25px rgba(0,0,0,0.04)" }}
-      onMouseEnter={(e) => {
-        const el = e.currentTarget as HTMLDivElement;
-        el.style.boxShadow = "0 20px 40px rgba(235,86,12,0.15)";
-        el.style.borderColor = "rgba(235,86,12,0.35)";
-      }}
-      onMouseLeave={(e) => {
-        const el = e.currentTarget as HTMLDivElement;
-        el.style.boxShadow = "0 10px 25px rgba(0,0,0,0.04)";
-        el.style.borderColor = "rgb(241,245,249)";
-      }}
-    >
-      {/* Video / Poster */}
-      <div className="relative" style={{ height: 240, background: "#000" }}>
-        {playing ? (
-          <iframe
-            src={`https://www.youtube.com/embed/${card.ytId}?autoplay=1`}
-            className="absolute inset-0 w-full h-full border-none"
-            allow="autoplay; encrypted-media"
-            title={card.title}
-          />
-        ) : (
-          <div
-            className="absolute inset-0 cursor-pointer"
-            onClick={() => setPlaying(true)}
-          >
-            <img
-              src={card.poster}
-              alt={card.title}
-              className="w-full h-full object-cover"
-            />
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/30" />
-            {/* Play button */}
-            <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-white group-hover:scale-110"
-              style={{ background: "rgba(255,0,0,0.9)" }}
-            >
-              <Play className="w-5 h-5 text-white fill-white ml-1" />
+    <>
+      <section className="py-16 md:py-20" style={{ background: "#f5f5f5" }}>
+        <div className="container">
+          {/* Section header */}
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span style={{ color: "#002b49" }}>→</span>
+              <span className="text-sm font-bold uppercase tracking-[0.2em]" style={{ color: "#eb560c" }}>
+                OUR CLIENT
+              </span>
             </div>
+            <h2
+              className="font-jost font-bold"
+              style={{ fontSize: "clamp(24px, 3.5vw, 38px)", color: "#002b49" }}
+            >
+              Hear What Our{" "}
+              <span style={{ color: "#eb560c" }}>Clients Say</span>
+            </h2>
           </div>
-        )}
-      </div>
 
-      {/* Card Info */}
-      <div className="p-4">
-        <span
-          className="text-xs font-bold uppercase tracking-wider"
-          style={{ color: "#eb560c" }}
+          {/* 4-col video cards — person photo + red play button */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {VIDEOS.map((v) => (
+              <button
+                key={v.id + v.name}
+                onClick={() => setPlaying(v.id)}
+                className="group relative overflow-hidden rounded-xl text-left w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                style={{ boxShadow: "0 2px 15px rgba(0,0,0,0.08)" }}
+              >
+                {/* Person photo */}
+                <div className="relative overflow-hidden" style={{ height: 280 }}>
+                  <img
+                    src={v.thumb}
+                    alt={v.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* Dark overlay on hover */}
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300" />
+
+                  {/* Red play button — centered */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div
+                      className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110"
+                      style={{ background: "#FF0000" }}
+                    >
+                      <svg viewBox="0 0 24 24" fill="white" width="24" height="24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Load More button */}
+          <div className="text-center mt-10">
+            <button
+              className="inline-flex items-center gap-2 font-bold px-8 py-3.5 rounded text-white transition-all duration-300 hover:-translate-y-0.5"
+              style={{ background: "#002b49" }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#eb560c")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#002b49")}
+            >
+              Load More
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* YouTube Modal */}
+      {playing && (
+        <div
+          className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+          style={{ background: "rgba(0,0,0,0.85)" }}
+          onClick={() => setPlaying(null)}
         >
-          {card.category}
-        </span>
-        <h4
-          className="font-jost font-bold text-base mt-1 leading-tight"
-          style={{ color: "#16243E" }}
-        >
-          {card.title}
-        </h4>
-      </div>
-    </div>
+          <div
+            className="w-full max-w-3xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              src={`https://www.youtube.com/embed/${playing}?autoplay=1`}
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              className="w-full h-full"
+              title="Client Testimonial Video"
+            />
+          </div>
+          <button
+            className="absolute top-6 right-6 text-white/80 hover:text-white text-3xl font-bold"
+            onClick={() => setPlaying(null)}
+          >
+            ×
+          </button>
+        </div>
+      )}
+    </>
   );
 };
-
-export const VideoShowcase = () => (
-  <section
-    className="py-20 md:py-28"
-    style={{ background: "#f8fafc" }}
-  >
-    <div className="container">
-      {/* Section Header */}
-      <div className="text-center mb-14">
-        <span className="section-tagline">See Us In Action</span>
-        <h2 className="section-title">
-          Our Work <span>Videos</span>
-        </h2>
-        <div className="section-underline mx-auto" />
-        <p className="text-gray-500 max-w-xl mx-auto mt-5 text-base leading-relaxed">
-          Watch real insights, case studies, and behind-the-scenes looks at how we deliver exceptional results for our clients.
-        </p>
-      </div>
-
-      {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {SHORTS.map((card) => (
-          <ShortCard key={card.id} card={card} />
-        ))}
-      </div>
-    </div>
-  </section>
-);

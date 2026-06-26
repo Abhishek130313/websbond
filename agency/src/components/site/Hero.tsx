@@ -1,26 +1,18 @@
 import { useState, useRef } from "react";
-import { ArrowRight, Play, Check, Phone, MessageCircle, Loader2, Star } from "lucide-react";
+import { ArrowRight, Loader2, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
-import a1 from "@/assets/avatar1.webp";
-import a2 from "@/assets/avatar2.webp";
-import a3 from "@/assets/avatar3.webp";
 
-const SERVICES_PILLS = [
-  "Website Development",
+const SERVICES_OPTIONS = [
+  "Website Design & Development",
   "SEO Optimization",
   "Google Ads / PPC",
   "Social Media Marketing",
-  "Content Strategy",
+  "Content Marketing",
   "E-Commerce Solutions",
-];
-
-const TRUST_POINTS = [
-  "100+ Happy Clients",
-  "Result-Driven Strategies",
-  "Transparent Reporting",
-  "24/7 Dedicated Support",
+  "App Development",
+  "Google My Business",
 ];
 
 export const Hero = () => {
@@ -33,7 +25,9 @@ export const Hero = () => {
     const data = new FormData(form);
     const name    = (data.get("name")    as string)?.trim();
     const phone   = (data.get("phone")   as string)?.trim();
+    const email   = (data.get("email")   as string)?.trim();
     const service = (data.get("service") as string)?.trim();
+    const message = (data.get("message") as string)?.trim();
     if (!name || !phone) {
       toast({ title: "Please fill in your name and phone number.", variant: "destructive" });
       return;
@@ -43,7 +37,7 @@ export const Hero = () => {
       const res = await fetch(getApiUrl("/api/leads"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, service, source: "Hero Form" }),
+        body: JSON.stringify({ name, phone, email, service, message, source: "Hero Form" }),
       });
       if (!res.ok) throw new Error("Failed");
       toast({ title: "🎉 Thanks! We'll call you back shortly.", description: "Our expert team will reach out within minutes." });
@@ -58,184 +52,183 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #002b49 0%, #16243E 60%, #010D4C 100%)",
-      }}
+      className="relative min-h-[88vh] flex items-center overflow-hidden"
     >
-      {/* Background pattern overlay */}
+      {/* Background photo + dark overlay (exactly like reference site) */}
       <div
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&auto=format&fit=crop&q=80")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       />
+      {/* Dark overlay - same dark navy blue as reference */}
+      <div
+        className="absolute inset-0"
+        style={{ background: "rgba(0, 23, 58, 0.82)" }}
+      />
 
-      {/* Radial glow blobs */}
-      <div className="absolute top-20 right-20 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none"
-        style={{ background: "radial-gradient(circle, #eb560c 0%, transparent 70%)" }} />
-      <div className="absolute bottom-20 left-20 w-72 h-72 rounded-full opacity-10 blur-3xl pointer-events-none"
-        style={{ background: "radial-gradient(circle, #eb560c 0%, transparent 70%)" }} />
+      <div className="container relative z-10 py-16 md:py-24">
+        <div className="grid lg:grid-cols-[1fr_420px] gap-10 lg:gap-16 items-center">
 
-      <div className="container relative z-10 py-20 md:py-28">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-          {/* ── Left Column: Text + CTAs ── */}
+          {/* ── Left: Text Content ── */}
           <div>
-            {/* Tagline pill */}
-            <div className="hero-fu inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6">
-              <Star className="w-3.5 h-3.5 text-[#eb560c] fill-[#eb560c]" />
-              <span className="text-white/90 text-xs font-semibold uppercase tracking-widest">
-                #1 Digital Agency in Delhi NCR & Haryana
+            {/* Tagline - exactly like reference: arrow + orange text */}
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-white">→</span>
+              <span
+                className="text-sm font-bold uppercase tracking-[0.2em]"
+                style={{ color: "#eb560c" }}
+              >
+                GROW BUSINESS
               </span>
             </div>
 
-            {/* Main headline */}
-            <h1 className="hero-fu-1 font-jost font-bold text-white leading-tight mb-4"
-              style={{ fontSize: "clamp(32px, 5vw, 60px)", lineHeight: 1.1 }}>
-              Grow Your Business With{" "}
-              <span style={{ color: "#eb560c" }}>Data-Driven</span>{" "}
-              Digital Marketing
+            {/* Main heading - same style as reference */}
+            <h1
+              className="font-jost font-bold text-white mb-5"
+              style={{ fontSize: "clamp(28px, 4vw, 52px)", lineHeight: 1.15 }}
+            >
+              Best Digital Marketing Agency
+              <br />
+              <span style={{ color: "#eb560c" }}>In Delhi NCR & Haryana</span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="hero-fu-2 text-white/75 text-lg leading-relaxed mb-8 max-w-xl">
-              Websbond delivers premium websites, performance SEO, and high-ROI ad campaigns for businesses in Delhi NCR, Haryana, and worldwide. Get results that actually matter.
+            {/* Body text - same size and color as reference */}
+            <p className="text-white/85 text-base leading-relaxed mb-8 max-w-xl" style={{ fontSize: 15 }}>
+              Grow Your Business with the Top Digital Marketing Agency in Delhi NCR — Websbond,
+              a leading <strong style={{ color: "#eb560c" }}>SEO agency in Delhi</strong>, provides
+              digital marketing services like search engine optimization, PPC advertising, social
+              media marketing (SMM), and website design services. Our expert team drives online
+              success for growing brands with affordable, data-driven digital marketing strategies.
             </p>
 
-            {/* Trust points */}
-            <ul className="hero-fu-3 grid grid-cols-2 gap-2 mb-8">
-              {TRUST_POINTS.map((pt) => (
-                <li key={pt} className="flex items-center gap-2 text-white/85 text-sm font-medium">
-                  <Check className="w-4 h-4 text-[#eb560c] flex-shrink-0" />
-                  {pt}
-                </li>
-              ))}
-            </ul>
-
-            {/* CTA Buttons */}
-            <div className="hero-fu-4 flex flex-wrap items-center gap-4 mb-8">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 font-bold text-white px-8 py-4 rounded-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
-                style={{ background: "#eb560c" }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "#d14b0a")}
-                onMouseLeave={(e) => (e.currentTarget.style.background = "#eb560c")}
-              >
-                Get Free Consultation <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                to="/our-work"
-                className="inline-flex items-center gap-2 font-bold text-white px-8 py-4 rounded-lg border-2 border-white/40 hover:border-white hover:bg-white/10 transition-all duration-300"
-              >
-                <Play className="w-4 h-4" /> View Our Work
-              </Link>
-            </div>
-
-            {/* Social proof: avatars */}
-            <div className="hero-fu-5 flex items-center gap-3">
-              <div className="flex -space-x-2">
-                {[a1, a2, a3].map((av, i) => (
-                  <img key={i} src={av} alt={`client ${i + 1}`}
-                    className="w-9 h-9 rounded-full border-2 border-[#002b49] object-cover" />
-                ))}
-              </div>
-              <div>
-                <div className="flex">
-                  {[1,2,3,4,5].map((s) => (
-                    <Star key={s} className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-white/70 text-xs mt-0.5">Trusted by 100+ businesses</p>
-              </div>
-            </div>
-
-            {/* Service pills */}
-            <div className="mt-6 flex flex-wrap gap-2">
-              {SERVICES_PILLS.map((s) => (
-                <span key={s}
-                  className="text-xs font-semibold text-white/70 border border-white/20 rounded-full px-3 py-1 hover:border-[#eb560c] hover:text-[#eb560c] transition-colors cursor-default">
-                  {s}
-                </span>
-              ))}
-            </div>
+            {/* Explore More button - orange solid like reference */}
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 font-bold text-white px-8 py-4 rounded transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 text-base"
+              style={{ background: "#eb560c" }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#d14b0a")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "#eb560c")}
+            >
+              Explore More <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
-          {/* ── Right Column: Lead Form Card ── */}
-          <div className="float-a">
+          {/* ── Right: Request A Quote Form ── */}
+          <div id="contact-form">
             <div
-              id="contact-form"
-              className="bg-white rounded-2xl p-8 shadow-2xl"
-              style={{ boxShadow: "0 30px 80px rgba(0,0,0,0.3)" }}
+              className="rounded-lg p-7 shadow-2xl"
+              style={{
+                background: "rgba(22, 36, 62, 0.92)",
+                backdropFilter: "blur(10px)",
+                border: "1px solid rgba(255,255,255,0.1)",
+              }}
             >
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center gap-2 bg-orange-50 text-[#eb560c] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-3">
-                  <Phone className="w-3.5 h-3.5" /> Free Strategy Call
-                </div>
-                <h3 className="text-[#002b49] text-2xl font-bold font-jost leading-tight">
-                  Get a Free Digital Marketing Audit
-                </h3>
-                <p className="text-gray-500 text-sm mt-1">
-                  Fill the form — our expert calls you back in minutes!
-                </p>
-              </div>
+              <h3
+                className="font-jost font-bold text-white text-2xl mb-5"
+              >
+                Request A Quote
+              </h3>
 
-              <form ref={formRef} onSubmit={handleFormSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">Your Name *</label>
+              <form ref={formRef} onSubmit={handleFormSubmit} className="space-y-3">
+                {/* Row 1: Full Name + Phone */}
+                <div className="grid grid-cols-2 gap-3">
                   <input
-                    name="name" type="text" required placeholder="e.g. Rahul Sharma"
-                    className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 focus:outline-none focus:border-[#eb560c] focus:ring-2 focus:ring-[#eb560c]/10 transition-all"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="Full Name*"
+                    className="w-full px-4 py-3 text-sm text-gray-800 rounded focus:outline-none focus:ring-2"
+                    style={{
+                      background: "rgba(255,255,255,0.12)",
+                      border: "1px solid rgba(255,255,255,0.2)",
+                      color: "#fff",
+                    }}
+                    onFocus={(e) => (e.target.style.borderColor = "#eb560c")}
+                    onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.2)")}
+                  />
+                  <input
+                    name="phone"
+                    type="tel"
+                    required
+                    placeholder="Phone*"
+                    className="w-full px-4 py-3 text-sm rounded focus:outline-none"
+                    style={{
+                      background: "rgba(255,255,255,0.12)",
+                      border: "1px solid rgba(255,255,255,0.2)",
+                      color: "#fff",
+                    }}
+                    onFocus={(e) => (e.target.style.borderColor = "#eb560c")}
+                    onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.2)")}
                   />
                 </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">Phone Number *</label>
-                  <input
-                    name="phone" type="tel" required placeholder="+91 XXXXXXXXXX"
-                    className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 focus:outline-none focus:border-[#eb560c] focus:ring-2 focus:ring-[#eb560c]/10 transition-all"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1">Service Needed</label>
-                  <select
-                    name="service"
-                    className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-700 focus:outline-none focus:border-[#eb560c] focus:ring-2 focus:ring-[#eb560c]/10 transition-all bg-white"
-                  >
-                    <option value="">Select a service...</option>
-                    {SERVICES_PILLS.map((s) => <option key={s} value={s}>{s}</option>)}
-                  </select>
-                </div>
+
+                {/* Email */}
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="Email*"
+                  className="w-full px-4 py-3 text-sm rounded focus:outline-none"
+                  style={{
+                    background: "rgba(255,255,255,0.12)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    color: "#fff",
+                  }}
+                  onFocus={(e) => (e.target.style.borderColor = "#eb560c")}
+                  onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.2)")}
+                />
+
+                {/* Select Services */}
+                <select
+                  name="service"
+                  className="w-full px-4 py-3 text-sm rounded focus:outline-none"
+                  style={{
+                    background: "rgba(255,255,255,0.12)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    color: "rgba(255,255,255,0.7)",
+                  }}
+                >
+                  <option value="" style={{ background: "#002b49" }}>Select Services *</option>
+                  {SERVICES_OPTIONS.map((s) => (
+                    <option key={s} value={s} style={{ background: "#002b49" }}>{s}</option>
+                  ))}
+                </select>
+
+                {/* Message */}
+                <textarea
+                  name="message"
+                  rows={3}
+                  placeholder="Message"
+                  className="w-full px-4 py-3 text-sm rounded focus:outline-none resize-none"
+                  style={{
+                    background: "rgba(255,255,255,0.12)",
+                    border: "1px solid rgba(255,255,255,0.2)",
+                    color: "#fff",
+                  }}
+                  onFocus={(e) => (e.target.style.borderColor = "#eb560c")}
+                  onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.2)")}
+                />
+
+                {/* Submit button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 text-white font-bold py-4 rounded-lg transition-all duration-300 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
-                  style={{ background: "linear-gradient(135deg, #eb560c, #d14b0a)" }}
+                  className="w-full flex items-center justify-center gap-2 text-white font-bold py-3.5 rounded transition-all duration-300 hover:opacity-90 disabled:opacity-60"
+                  style={{ background: "#eb560c" }}
                 >
                   {isSubmitting ? (
                     <><Loader2 className="w-4 h-4 animate-spin" /> Sending...</>
                   ) : (
-                    <><MessageCircle className="w-4 h-4" /> Get Free Audit Now</>
+                    <><Send className="w-4 h-4" /> Send Message!</>
                   )}
                 </button>
               </form>
-
-              {/* Trust badges below form */}
-              <div className="flex items-center justify-center gap-4 mt-5 pt-4 border-t border-gray-100">
-                {["🔒 100% Confidential", "⚡ Fast Response", "💯 No Obligation"].map((b) => (
-                  <span key={b} className="text-xs text-gray-400 font-medium">{b}</span>
-                ))}
-              </div>
             </div>
           </div>
 
         </div>
-      </div>
-
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#ffffff" />
-        </svg>
       </div>
     </section>
   );
