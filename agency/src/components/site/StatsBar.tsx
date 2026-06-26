@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { Users, Globe, Target, Award } from "lucide-react";
 
 const STATS = [
-  { value: 100, suffix: "+", label: "Happy Clients", icon: <Users className="w-6 h-6 text-white" />, orange: true },
-  { value: 2019, suffix: "", label: "Established", icon: <Globe className="w-6 h-6 text-white" />, orange: false },
-  { value: 150, suffix: "+", label: "Complete Projects", icon: <Target className="w-6 h-6 text-white" />, orange: true },
-  { value: 20, suffix: "+", label: "Winning Awards", icon: <Award className="w-6 h-6 text-white" />, orange: false },
+  { value: 800, suffix: "+", label: "Happy Client", icon: <Users className="w-6 h-6 text-white" />, orange: true },
+  { value: 2024, suffix: "", label: "Established", icon: <Globe className="w-6 h-6 text-white" />, orange: false },
+  { value: 1000, suffix: "+", label: "Complete Project", icon: <Target className="w-6 h-6 text-white" />, orange: true },
+  { value: 100, suffix: "+", label: "Winning award", icon: <Award className="w-6 h-6 text-white" />, orange: false },
 ];
 
 function useCountUp(target: number, duration = 2000, started = false) {

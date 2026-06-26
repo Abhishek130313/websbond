@@ -209,6 +209,26 @@ export const Hero = () => {
                   onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.2)")}
                 />
 
+                {/* Mock ReCAPTCHA */}
+                <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 flex items-center justify-between">
+                  <label className="flex items-center gap-2.5 cursor-pointer text-xs text-white/80 font-bold select-none">
+                    <input 
+                      type="checkbox" 
+                      required 
+                      className="w-4 h-4 rounded border-gray-300 text-[#eb560c] focus:ring-[#eb560c] bg-white/20 accent-[#eb560c] cursor-pointer" 
+                    />
+                    I'm not a robot
+                  </label>
+                  <div className="flex flex-col items-center">
+                    <img 
+                      src="https://www.gstatic.com/recaptcha/api2/logo_48.png" 
+                      className="w-5.5 h-5.5 object-contain opacity-70" 
+                      alt="recaptcha logo" 
+                    />
+                    <span className="text-[7px] text-white/30 font-bold tracking-tight mt-0.5">reCAPTCHA</span>
+                  </div>
+                </div>
+
                 {/* Submit button */}
                 <button
                   type="submit"

@@ -26,101 +26,102 @@ const CERTIFICATIONS = [
 export const Process = () => (
   <>
     {/* ── Trusted Certifications ── */}
-    <section className="py-14" style={{ background: "#f0f2f5" }}>
+    <section className="py-14" style={{ background: "#f8fafc" }}>
       <div className="container">
         <h2
-          className="font-jost font-bold text-center mb-8"
-          style={{ fontSize: "clamp(22px, 3vw, 34px)", color: "#002b49" }}
+          className="font-jost font-bold text-center mb-8 uppercase tracking-widest text-xs"
+          style={{ color: "#eb560c" }}
         >
-          Trusted Certifications
+          → Trusted Certifications
         </h2>
-        <div className="grid grid-cols-3 gap-5 max-w-2xl mx-auto">
-          {[
-            { name: "Google Partner", text: "Google\nPartner" },
-            { name: "Microsoft Certified", text: "Microsoft\nCertified" },
-            { name: "Clutch", text: "Clutch" },
-          ].map((cert) => (
-            <div
-              key={cert.name}
-              className="bg-white rounded-lg flex items-center justify-center py-8 px-4 text-center font-bold"
-              style={{ boxShadow: "0 2px 15px rgba(0,0,0,0.06)", border: "1px solid #e8ecf0", color: "#002b49", fontSize: 18, lineHeight: 1.3, whiteSpace: "pre-line" }}
-            >
-              {cert.text}
+        <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto">
+          {/* Google Partner */}
+          <div
+            className="bg-white rounded-2xl flex items-center justify-center py-6 px-4 border border-gray-200/80 shadow-sm transition-all duration-300 hover:shadow-md"
+          >
+            <div className="flex flex-col sm:flex-row items-center gap-1.5 font-sans">
+              <span className="font-extrabold text-[#4285F4] text-lg sm:text-xl">G</span>
+              <span className="font-extrabold text-[#EA4335] text-lg sm:text-xl -ml-0.5">o</span>
+              <span className="font-extrabold text-[#FBBC05] text-lg sm:text-xl -ml-0.5">o</span>
+              <span className="font-extrabold text-[#4285F4] text-lg sm:text-xl -ml-0.5">g</span>
+              <span className="font-extrabold text-[#34A853] text-lg sm:text-xl -ml-0.5">l</span>
+              <span className="font-extrabold text-[#EA4335] text-lg sm:text-xl -ml-0.5">e</span>
+              <span className="bg-[#4285F4] text-white text-[8px] font-black uppercase px-2 py-0.5 rounded tracking-wider ml-1">
+                Partner
+              </span>
             </div>
-          ))}
+          </div>
+
+          {/* Microsoft Partner */}
+          <div
+            className="bg-white rounded-2xl flex items-center justify-center py-6 px-4 border border-gray-200/80 shadow-sm transition-all duration-300 hover:shadow-md"
+          >
+            <div className="flex flex-col sm:flex-row items-center gap-2">
+              {/* Microsoft 4-square grid */}
+              <div className="grid grid-cols-2 gap-0.5 shrink-0">
+                <span className="w-2.5 h-2.5 bg-[#F25022]" />
+                <span className="w-2.5 h-2.5 bg-[#7FBA00]" />
+                <span className="w-2.5 h-2.5 bg-[#00A4EF]" />
+                <span className="w-2.5 h-2.5 bg-[#FFB900]" />
+              </div>
+              <span className="text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-tight text-center leading-tight">
+                Microsoft <br className="hidden sm:block" />Certified
+              </span>
+            </div>
+          </div>
+
+          {/* Clutch Badge */}
+          <div
+            className="bg-white rounded-2xl flex items-center justify-center py-6 px-4 border border-gray-200/80 shadow-sm transition-all duration-300 hover:shadow-md"
+          >
+            <div className="flex items-center gap-1 font-bold text-gray-800 text-sm sm:text-base tracking-tighter">
+              <span className="bg-red-500 text-white rounded px-1.5 py-0.5 text-xs font-black mr-0.5">C</span>
+              <span>Clutch</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    {/* ── Empowering Businesses / About Section ── */}
+    {/* ── Empowering Businesses / About Section (Centered exactly like PDF) ── */}
     <section className="py-16 md:py-20" style={{ background: "#fff" }}>
-      <div className="container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="container max-w-4xl mx-auto text-center space-y-6 px-4">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <span style={{ color: "#004b75" }}>→</span>
+          <span className="text-sm font-bold uppercase tracking-[0.2em]" style={{ color: "#eb560c" }}>
+            EMPOWERING BUSINESSES
+          </span>
+        </div>
+        
+        <h2
+          className="font-jost font-black leading-tight text-[#002b49]"
+          style={{ fontSize: "clamp(24px, 3.8vw, 42px)" }}
+        >
+          Elevating Visibility <span style={{ color: "#eb560c" }}>Driving Growth</span>
+        </h2>
+        
+        <p className="text-gray-600 text-sm sm:text-base leading-relaxed font-semibold">
+          As the best <strong>digital marketing agency in Delhi NCR & Haryana</strong>, Websbond transforms your online presence. 
+          We engineer high-performance search engine rankings, design custom mobile-first layouts, and launch conversion-focused campaigns 
+          to deliver measurable business returns.
+        </p>
+        
+        <p className="text-gray-500 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto font-medium">
+          Our result-oriented <strong>SEO services in Delhi NCR</strong>, paid media <strong>Google Ads (PPC)</strong> solutions, and 
+          social media optimizations (SMO) help growing brands capture target organic keywords, lower customer acquisition costs, 
+          and dominate search engine visibility in a highly competitive digital landscape.
+        </p>
 
-          {/* Left: Image */}
-          <div className="relative">
-            <img
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop&q=80"
-              alt="Digital marketing team"
-              className="w-full rounded-lg object-cover"
-              style={{ height: 420 }}
-            />
-            {/* Orange stats badge overlay */}
-            <div
-              className="absolute bottom-6 right-6 text-white rounded-lg p-4 text-center"
-              style={{ background: "#eb560c" }}
-            >
-              <div className="font-jost font-bold text-3xl">5+</div>
-              <div className="text-sm font-medium">Years of<br />Excellence</div>
-            </div>
-          </div>
-
-          {/* Right: Content */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <span style={{ color: "#002b49" }}>→</span>
-              <span className="text-sm font-bold uppercase tracking-[0.2em]" style={{ color: "#eb560c" }}>
-                ABOUT US
-              </span>
-            </div>
-            <h2
-              className="font-jost font-bold mb-4"
-              style={{ fontSize: "clamp(24px, 3.5vw, 38px)", color: "#002b49", lineHeight: 1.2 }}
-            >
-              Empowering Businesses<br />
-              Elevating Visibility{" "}
-              <span style={{ color: "#eb560c" }}>Driving Growth</span>
-            </h2>
-            <p className="text-gray-600 mb-6 text-base leading-relaxed">
-              As the <strong>best digital marketing agency in Delhi NCR & Haryana</strong>, we transform
-              your online presence. Founded with a passion for data-driven results, Websbond leverages
-              the power of <strong>SEO services in Delhi</strong>, social media optimization, and
-              Website Design to deliver measurable results.
-            </p>
-
-            {/* Checklist */}
-            <ul className="space-y-2.5 mb-8">
-              {WHY_POINTS.map((pt) => (
-                <li key={pt} className="flex items-start gap-3">
-                  <Check
-                    className="w-5 h-5 flex-shrink-0 mt-0.5"
-                    style={{ color: "#eb560c" }}
-                  />
-                  <span className="text-gray-700 text-sm">{pt}</span>
-                </li>
-              ))}
-            </ul>
-
-            <Link
-              to="/about"
-              className="inline-flex items-center gap-2 font-bold px-7 py-3.5 rounded text-white transition-all duration-300 hover:-translate-y-0.5"
-              style={{ background: "#eb560c" }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "#d14b0a")}
-              onMouseLeave={(e) => (e.currentTarget.style.background = "#eb560c")}
-            >
-              Explore More <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+        <div className="pt-4">
+          <Link
+            to="/about-us"
+            className="inline-flex items-center gap-2 font-bold px-8 py-3.5 rounded-xl text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 text-sm uppercase tracking-wider"
+            style={{ background: "#eb560c" }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "#d14b0a")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "#eb560c")}
+          >
+            Explore More <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>
