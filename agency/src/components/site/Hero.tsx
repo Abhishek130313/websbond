@@ -8,17 +8,20 @@ export const Hero = () => {
       id="hero"
       className="relative h-screen min-h-[650px] max-h-[960px] lg:max-h-[1080px] w-full flex items-center justify-center overflow-hidden bg-[#030712] pt-16 pb-4"
     >
-      {/* ── Background Image Container: Positioned on the right and masked to cover pre-printed text ── */}
-      <div className="absolute right-0 top-0 h-full w-full lg:w-[58%] z-0 select-none pointer-events-none overflow-hidden">
+      {/* ── Background Image Container: Cropped to 48% on desktop to hide all pre-printed text on the left ── */}
+      <div className="absolute right-0 top-0 h-full w-full lg:w-[48%] z-0 select-none pointer-events-none overflow-hidden">
         <img
           src={heroDashboard}
           alt="Websbond Tech Office Background"
           className="w-full h-full object-cover object-right z-0"
           loading="eager"
         />
-        {/* Transparent transition gradients to blend the background image perfectly with solid dark slate */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030712] via-[#030712]/90 via-[#030712]/50 to-transparent z-10 pointer-events-none lg:block hidden" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#030712] via-[#030712]/95 to-[#030712] z-10 pointer-events-none lg:hidden block" />
+        
+        {/* Mobile: Cover background with a heavy dark overlay to prevent double-text overlap on small screens */}
+        <div className="absolute inset-0 bg-black/92 backdrop-blur-[1px] z-10 pointer-events-none lg:hidden block" />
+
+        {/* Desktop: A narrow 96px (w-24) gradient on the left edge only, keeping the remaining 90% of the image fully bright, clear, and HD */}
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#030712] to-transparent z-10 pointer-events-none lg:block hidden" />
       </div>
 
       <div className="container relative z-20 mx-auto px-4 md:px-8 lg:px-12 h-full flex items-center">
