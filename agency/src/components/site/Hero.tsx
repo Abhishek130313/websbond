@@ -6,17 +6,24 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative h-screen min-h-[650px] max-h-[960px] lg:max-h-[1080px] w-full flex items-center justify-center overflow-hidden bg-[#0a0f19] pt-20 pb-6 bg-cover bg-center bg-no-repeat"
+      className="relative h-screen min-h-[650px] max-h-[960px] lg:max-h-[1080px] w-full flex items-center justify-center overflow-hidden pt-20 pb-6 bg-[#0a0f19] bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${heroDashboard})` }}
     >
-      {/* 100% Transparent overlay. Zero blurs, dull gradients or overlays on desktop to keep the HD background fully clear and bright. */}
-      <div className="absolute inset-0 bg-[#0a0f19]/80 lg:bg-transparent pointer-events-none z-0" />
+      {/* 
+        ── Precise Masking Overlays ──
+        1. Desktop: Solid dark blue-black mask covering the left 55% of the screen completely.
+           This guarantees that the pre-printed text, buttons, and logos on the left of the image are 100% covered.
+           The gradient starts to fade to transparent from 55% onwards, leaving the right side dashboards completely bright, clear, and HD.
+        2. Mobile: A solid 90% opacity overlay to ensure text is fully readable on small screens.
+      */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f19] from-0% via-[#0a0f19] via-56% to-transparent to-100% z-10 pointer-events-none lg:block hidden" />
+      <div className="absolute inset-0 bg-[#0a0f19]/92 backdrop-blur-[0.5px] z-10 pointer-events-none lg:hidden block" />
 
-      <div className="container relative z-10 mx-auto px-4 md:px-8 lg:px-12 h-full flex items-center">
+      <div className="container relative z-20 mx-auto px-4 md:px-8 lg:px-12 h-full flex items-center">
         <div className="grid lg:grid-cols-12 gap-8 items-center w-full">
           
-          {/* ── Left Column: Live Mockup Text ── */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left z-10 py-2">
+          {/* ── Left Column: Live HTML Mockup Text ── */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left z-20 py-2">
             
             {/* Trusted Badge */}
             <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3.5 py-1 text-[11px] text-white/90 font-bold mb-4 select-none shadow-sm backdrop-blur-sm">
@@ -26,7 +33,7 @@ export const Hero = () => {
 
             {/* Heading */}
             <h1
-              className="font-jost font-black text-white mb-4 leading-[1.02] tracking-tight text-left uppercase"
+              className="font-jost font-black text-white mb-4 leading-[1.02] tracking-tight text-left uppercase animate-fade-in"
               style={{ fontSize: "clamp(34px, 5vw, 76px)" }}
             >
               Engineering
