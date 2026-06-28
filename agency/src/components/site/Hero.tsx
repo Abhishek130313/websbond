@@ -54,18 +54,22 @@ export const Hero = () => {
       id="hero"
       className="relative min-h-[88vh] flex items-center overflow-hidden"
     >
-      {/* Background photo + dark overlay (exactly like reference site) */}
+      {/* Background video + dark overlay (exactly like reference site) */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source
+          src="https://labs.google/fx/api/og-video/shared/14b3b69a-687a-4b44-8de0-25928f4e6a16"
+          type="video/mp4"
+        />
+      </video>
+      {/* Neutral dark gradient overlay for text readability, removing the blue-navy overlay */}
       <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `url("https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&auto=format&fit=crop&q=80")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-      {/* Dark overlay - brand navy with a lighter opacity */}
-      <div
-        className="absolute inset-0 bg-gradient-to-br from-[#004b75]/75 to-[#0c203b]/85"
+        className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent"
       />
 
       <div className="container relative z-10 py-16 md:py-24">
