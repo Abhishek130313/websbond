@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import { getApiUrl } from "@/lib/api";
 import { ArrowRight, Send } from "lucide-react";
 import heroDashboard from "@/assets/hero-dashboard.jpg";
 
@@ -34,8 +35,18 @@ export const Hero = () => {
 
     setIsSubmitting(true);
     try {
-      // Simulate API submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const res = await fetch(getApiUrl("/api/contact"), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: "Strategy Call - " + formData.service,
+          message: "Requested Service: " + formData.service,
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
       toast({
         title: "Strategy Call Booked! 🎉",
         description: "Thank you! Our digital expert will contact you shortly.",
