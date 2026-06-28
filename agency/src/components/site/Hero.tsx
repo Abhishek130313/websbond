@@ -8,15 +8,17 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-[#fafbfc] pt-24 pb-16"
+      className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-[#fbfcfd] pt-24 pb-16 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${heroDashboard})` }}
     >
-      {/* Light modern background details */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-50/45 via-transparent to-transparent pointer-events-none" />
+      {/* Translucent overlay to blend light office details and make left-aligned text perfectly readable */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 md:from-white/70 md:via-white/20 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-white/10 backdrop-blur-[0.5px] pointer-events-none" />
 
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="container relative z-10 mx-auto px-4 md:px-8 lg:px-12">
+        <div className="grid lg:grid-cols-12 gap-8 items-center">
           
-          {/* ── Left Column: Live Styled Text ── */}
+          {/* ── Left Column: Live Mockup Text ── */}
           <div className="lg:col-span-7 flex flex-col items-start text-left z-10">
             
             {/* Trusted Badge */}
@@ -28,7 +30,7 @@ export const Hero = () => {
             {/* Heading */}
             <h1
               className="font-jost font-black text-[#0c0d16] mb-6 leading-[1.08] tracking-tight text-left"
-              style={{ fontSize: "clamp(34px, 4.8vw, 68px)" }}
+              style={{ fontSize: "clamp(34px, 4.5vw, 60px)" }}
             >
               Grow Your Business
               <br />
@@ -59,7 +61,7 @@ export const Hero = () => {
 
               <Link
                 to="/our-portfolio"
-                className="inline-flex items-center justify-center font-bold text-[#0c0d16] border border-gray-300/80 bg-white/70 backdrop-blur-sm px-8 py-4 rounded-full transition-all duration-300 hover:bg-gray-50 hover:scale-105 text-base w-full sm:w-auto"
+                className="inline-flex items-center justify-center font-bold text-[#0c0d16] border border-gray-300/80 bg-white/70 backdrop-blur-sm px-8 py-4 rounded-full transition-all duration-300 hover:bg-gray-50/90 hover:scale-105 text-base w-full sm:w-auto"
               >
                 View Our Portfolio
               </Link>
@@ -99,24 +101,8 @@ export const Hero = () => {
 
           </div>
 
-          {/* ── Right Column: Masked Mockup Graphic ── */}
-          <div className="lg:col-span-5 relative w-full flex items-center justify-center">
-            {/* Visual Glass Card Container */}
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] lg:h-[520px] rounded-[2.5rem] overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.12)] border border-gray-200/60 bg-white/10 backdrop-blur-sm select-none">
-              
-              {/* Cropped Mockup Image: displaying only the floating 3D dashboard components */}
-              <img
-                src={heroDashboard}
-                alt="Websbond Marketing Insights Platform"
-                className="absolute right-0 top-0 h-full w-[170%] max-w-none object-cover object-right select-none pointer-events-none"
-              />
-              
-            </div>
-            
-            {/* Ambient colorful glow decorations matching the mockup graphics */}
-            <div className="absolute -right-12 -top-12 w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -left-12 -bottom-12 w-64 h-64 bg-purple-500/15 rounded-full blur-3xl pointer-events-none" />
-          </div>
+          {/* ── Right Column: Spacer to preserve the background image's dashboard visuals ── */}
+          <div className="lg:col-span-5 h-0 lg:h-[500px] pointer-events-none select-none" />
 
         </div>
       </div>
