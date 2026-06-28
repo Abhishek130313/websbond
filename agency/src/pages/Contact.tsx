@@ -40,7 +40,13 @@ export const ContactPage = () => {
       const res = await fetch(getApiUrl("/api/contact"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, email, service, message, source: "Contact Form" }),
+        body: JSON.stringify({
+          name,
+          phone,
+          email,
+          subject: "Inquiry - " + service,
+          message: `Requested Service: ${service}\n\nClient Message:\n${message || "No message provided."}`
+        }),
       });
       if (!res.ok) throw new Error("Failed");
       toast({ title: "🎉 Message Sent Successfully!", description: "Our expert team will contact you shortly." });
