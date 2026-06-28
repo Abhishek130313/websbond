@@ -1,112 +1,93 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroDashboard from "@/assets/hero-dashboard.jpg";
 
 export const Hero = () => {
-  const TAGS = ["Web Design", "SEO & Ranking", "Branding", "AI Integration", "Webflow"];
-
   return (
     <section
       id="hero"
-      className="relative h-screen min-h-[650px] max-h-[1080px] flex items-center justify-center overflow-hidden pt-20 pb-6 bg-[#fafbfc]"
+      className="relative h-screen min-h-[650px] max-h-[1080px] flex items-center justify-center overflow-hidden pt-20 pb-6 bg-[#030712]"
     >
-      {/* Absolute High-Definition Background Image - Raw, crisp and clear with no overlays */}
+      {/* Absolute High-Definition Background Image - Clean and clear */}
       <img
         src={heroDashboard}
-        alt="Websbond Creative Office Background"
+        alt="Websbond Tech Office Background"
         className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none z-0"
         loading="eager"
-        style={{ imageRendering: "auto" }}
       />
 
-      <div className="container relative z-10 mx-auto px-4 md:px-8 lg:px-12 h-full flex items-center">
+      {/* Solid black gradient overlay to mask out the pre-printed text on the left, letting the right side dashboard show through clearly */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 md:from-black/75 md:via-black/25 to-transparent pointer-events-none z-10" />
+
+      <div className="container relative z-20 mx-auto px-4 md:px-8 lg:px-12 h-full flex items-center">
         <div className="grid lg:grid-cols-12 gap-8 items-center w-full">
           
-          {/* ── Left Column: Live Mockup Text (Fits completely within screen) ── */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left z-10 py-2">
+          {/* ── Left Column: Live Mockup Text ── */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left z-20 py-2">
             
             {/* Trusted Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#f0f2f5]/90 border border-gray-200/50 rounded-full px-4 py-1.5 text-[11px] text-[#0a0b13] font-bold mb-4 select-none shadow-sm backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 text-[11px] text-white/90 font-bold mb-6 select-none shadow-sm backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
               <span>TRUSTED BY 200+ BUSINESSES</span>
             </div>
 
             {/* Heading */}
             <h1
-              className="font-jost font-black text-[#0c0d16] mb-4 leading-[1.1] tracking-tight text-left"
-              style={{ fontSize: "clamp(30px, 3.8vw, 54px)" }}
+              className="font-jost font-black text-white mb-6 leading-[1.05] tracking-tight text-left uppercase"
+              style={{ fontSize: "clamp(34px, 5.2vw, 76px)" }}
             >
-              Grow Your Business
+              Engineering
               <br />
-              With Powerful{" "}
-              <span className="relative inline-block px-3 py-1.5 rounded-xl bg-blue-50 border border-blue-200/60 text-[#2563eb]">
-                Website Design
-              </span>
-              <br />
-              & Digital Solutions{" "}
-              <span className="text-[#0ea5e9] font-extrabold tracking-wide drop-shadow-[0_0_10px_rgba(14,165,233,0.3)]">
-                SEO
-              </span>
+              the future
             </h1>
 
             {/* Description Subheading */}
-            <p className="text-[#475569] text-sm md:text-base leading-relaxed mb-6 max-w-xl font-medium">
-              We help ambitious brands scale, captivate audiences, and dominate search results with data-driven strategies and premium creative design.
+            <p className="text-white/60 text-base md:text-lg leading-relaxed mb-8 max-w-xl font-medium">
+              We build world-class digital experiences and technology that accelerate visionaries.
             </p>
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-3.5 w-full sm:w-auto">
               <Link
                 to="/contact-us"
-                className="inline-flex items-center justify-center font-bold text-white bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 px-7 py-3.5 rounded-full transition-all duration-300 hover:from-blue-700 hover:to-indigo-700 hover:scale-105 text-sm md:text-base w-full sm:w-auto shadow-[0_8px_18px_rgba(37,99,235,0.3)]"
+                className="inline-flex items-center justify-center font-bold text-white bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 px-8 py-4 rounded-full transition-all duration-300 hover:from-indigo-700 hover:to-purple-700 hover:scale-105 text-base w-full sm:w-auto shadow-[0_10px_25px_rgba(99,102,241,0.35)]"
               >
-                Get Free Strategy Call <ArrowRight className="w-4 h-4 ml-2" />
+                Get Started <ArrowUpRight className="w-5 h-5 ml-2" />
               </Link>
-
-              <Link
-                to="/our-portfolio"
-                className="inline-flex items-center justify-center font-bold text-[#0c0d16] border border-gray-300/80 bg-white/70 backdrop-blur-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:bg-gray-50/90 hover:scale-105 text-sm md:text-base w-full sm:w-auto"
-              >
-                View Our Portfolio
-              </Link>
-            </div>
-
-            {/* Dynamic Tags */}
-            <div className="flex flex-wrap gap-2 mt-6">
-              {TAGS.map((tag) => (
-                <span
-                  key={tag}
-                  className="bg-slate-100/90 text-slate-600 text-[11px] font-semibold px-3.5 py-1.5 rounded-full border border-gray-200/50 select-none backdrop-blur-sm"
-                >
-                  {tag}
-                </span>
-              ))}
             </div>
 
             {/* Company Trust Logos */}
-            <div className="flex flex-wrap items-center gap-6 mt-8 pt-4 border-t border-gray-200/50 w-full max-w-xl">
-              {/* Google Text Logo */}
-              <span className="font-display font-black text-slate-400 text-base sm:text-lg select-none tracking-tight">
-                Google
+            <div className="flex flex-wrap items-center gap-8 mt-12 pt-6 border-t border-white/10 w-full max-w-xl">
+              {/* Spotify Text Logo */}
+              <span className="font-display font-black text-white/40 text-lg sm:text-xl select-none tracking-tight">
+                Spotify
               </span>
-              {/* Meta Text Logo */}
-              <span className="font-display font-black text-slate-400 text-base sm:text-lg select-none tracking-tight">
-                Meta
+              {/* Nike Text Logo */}
+              <span className="font-display font-black text-white/40 text-lg sm:text-xl select-none tracking-tight">
+                Nike
               </span>
               {/* AWS Text Logo */}
-              <span className="font-display font-semibold text-slate-400 text-base sm:text-lg select-none tracking-tighter">
+              <span className="font-display font-semibold text-white/40 text-lg sm:text-xl select-none tracking-tighter">
                 aws
               </span>
               {/* Stripe Text Logo */}
-              <span className="font-display font-black text-slate-400 text-base sm:text-lg select-none tracking-tight">
+              <span className="font-display font-black text-white/40 text-lg sm:text-xl select-none tracking-tight">
                 stripe
+              </span>
+              {/* Adobe Text Logo */}
+              <span className="font-display font-bold text-white/40 text-lg sm:text-xl select-none tracking-tight">
+                Adobe
+              </span>
+              {/* Salesforce Text Logo */}
+              <span className="font-display font-black text-white/40 text-lg sm:text-xl select-none tracking-tight">
+                salesforce
               </span>
             </div>
 
           </div>
 
           {/* ── Right Column: Spacer to preserve the background image's dashboard visuals ── */}
-          <div className="lg:col-span-5 h-0 lg:h-[450px] pointer-events-none select-none" />
+          <div className="lg:col-span-5 h-0 lg:h-[450px] pointer-events-none select-none z-20" />
 
         </div>
       </div>
