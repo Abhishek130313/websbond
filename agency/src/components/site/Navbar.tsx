@@ -3,7 +3,7 @@ import {
   Search, FileText, Share2, Target, Megaphone, MapPin, Code, ShoppingBag, Palette, Smartphone 
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Logo } from "./Logo";
 
 const SERVICES_DROPDOWN = [
@@ -57,6 +57,8 @@ export const Navbar = ({
 }) => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -69,7 +71,7 @@ export const Navbar = ({
       {/* ── Top Utility Bar ── */}
       <div
         className={`hidden md:block text-white text-sm transition-all duration-300 overflow-hidden ${
-          scrolled ? "max-h-0 opacity-0 py-0" : "max-h-16 opacity-100 py-2.5"
+          (isHome || scrolled) ? "max-h-0 opacity-0 py-0" : "max-h-16 opacity-100 py-2.5"
         }`}
         style={{ background: "linear-gradient(90deg, #001e36 0%, #002b49 50%, #001e36 100%)" }}
       >
@@ -122,15 +124,17 @@ export const Navbar = ({
 
       {/* ── Main Header ── */}
       <header
-        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-          scrolled
-            ? "bg-white shadow-[0_2px_20px_rgba(0,0,0,0.08)] py-2"
-            : "bg-white border-b border-gray-100 py-3"
+        className={`z-50 w-full transition-all duration-300 ${
+          isHome && !scrolled
+            ? "absolute top-0 left-0 bg-transparent border-b border-white/10 py-5 text-white"
+            : scrolled
+              ? "sticky top-0 bg-white shadow-[0_2px_20px_rgba(0,0,0,0.08)] py-2 text-[#16243E]"
+              : "sticky top-0 bg-white border-b border-gray-100 py-3 text-[#16243E]"
         }`}
       >
         <div className="container flex items-center justify-between gap-4">
           {/* Logo */}
-          <Logo light={true} size="md" />
+          <Logo light={!(isHome && !scrolled)} size="md" />
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-0.5">
@@ -146,7 +150,9 @@ export const Navbar = ({
                       `flex items-center gap-1 px-3 py-2 text-[13px] font-semibold tracking-wide uppercase transition-colors ${
                         isActive
                           ? "text-[#eb560c]"
-                          : "text-[#16243E] hover:text-[#eb560c]"
+                          : isHome && !scrolled
+                            ? "text-white/80 hover:text-white"
+                            : "text-[#16243E] hover:text-[#eb560c]"
                       }`
                     }
                   >
@@ -205,7 +211,9 @@ export const Navbar = ({
                     `px-3 py-2 text-[13px] font-semibold tracking-wide uppercase transition-colors ${
                       isActive
                         ? "text-[#eb560c]"
-                        : "text-[#16243E] hover:text-[#eb560c]"
+                        : isHome && !scrolled
+                          ? "text-white/80 hover:text-white"
+                          : "text-[#16243E] hover:text-[#eb560c]"
                     }`
                   }
                 >
@@ -217,8 +225,23 @@ export const Navbar = ({
 
           {/* Right: CTA button + mobile hamburger */}
           <div className="flex items-center gap-3">
+            <Link
+              to="/contact-us"
+              className={`hidden sm:inline-flex items-center justify-center font-bold text-xs uppercase tracking-wider px-6 py-2.5 rounded-full transition-all duration-300 ${
+                isHome && !scrolled
+                  ? "bg-white text-zinc-950 hover:bg-zinc-100 hover:scale-105"
+                  : "bg-[#eb560c] text-white hover:bg-[#d14b0a] hover:scale-105 shadow-md"
+              }`}
+            >
+              Book a Call
+            </Link>
+            
             <button
-              className="lg:hidden p-2.5 rounded border border-gray-200 text-[#002b49] hover:bg-gray-50 transition-colors"
+              className={`lg:hidden p-2.5 rounded border transition-colors ${
+                isHome && !scrolled
+                  ? "border-white/20 text-white hover:bg-white/10"
+                  : "border-gray-200 text-[#002b49] hover:bg-gray-50"
+              }`}
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
             >
