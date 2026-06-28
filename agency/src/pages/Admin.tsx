@@ -134,7 +134,11 @@ export const AdminPage = () => {
   };
 
   const fetchData = async (key: string, isLogin = false) => {
-    isLogin ? setLoginLoading(true) : setLoading(true);
+    if (isLogin) {
+      setLoginLoading(true);
+    } else {
+      setLoading(true);
+    }
     setLoginError("");
     try {
       const res = await fetch(getApiUrl("/api/admin/contacts"), { headers: { "X-Admin-Key": key } });
@@ -149,16 +153,33 @@ export const AdminPage = () => {
     finally { setLoginLoading(false); setLoading(false); }
   };
 
-  useEffect(() => { if (apiKey) fetchData(apiKey); }, []);
+  useEffect(() => {
+    if (apiKey) {
+      fetchData(apiKey);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const toggleStar = (id: number) => setStarred(prev => {
-    const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id);
-    localStorage.setItem("wb_starred", JSON.stringify([...n])); return n;
+    const n = new Set(prev);
+    if (n.has(id)) {
+      n.delete(id);
+    } else {
+      n.add(id);
+    }
+    localStorage.setItem("wb_starred", JSON.stringify([...n]));
+    return n;
   });
 
   const toggleContacted = (id: number) => setContacted(prev => {
-    const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id);
-    localStorage.setItem("wb_contacted", JSON.stringify([...n])); return n;
+    const n = new Set(prev);
+    if (n.has(id)) {
+      n.delete(id);
+    } else {
+      n.add(id);
+    }
+    localStorage.setItem("wb_contacted", JSON.stringify([...n]));
+    return n;
   });
 
   const exportCSV = () => {
