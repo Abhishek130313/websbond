@@ -126,7 +126,7 @@ export const Navbar = ({
       <header
         className={`z-50 w-full transition-all duration-300 ${
           isHome && !scrolled
-            ? "absolute top-0 left-0 bg-transparent border-b border-white/10 py-5 text-white"
+            ? "absolute top-0 left-0 bg-transparent border-b border-gray-200/60 py-5 text-[#16243E]"
             : scrolled
               ? "sticky top-0 bg-white shadow-[0_2px_20px_rgba(0,0,0,0.08)] py-2 text-[#16243E]"
               : "sticky top-0 bg-white border-b border-gray-100 py-3 text-[#16243E]"
@@ -134,7 +134,7 @@ export const Navbar = ({
       >
         <div className="container flex items-center justify-between gap-4">
           {/* Logo */}
-          <Logo light={!(isHome && !scrolled)} size="md" />
+          <Logo light={true} size="md" />
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-0.5">
@@ -150,9 +150,7 @@ export const Navbar = ({
                       `flex items-center gap-1 px-3 py-2 text-[13px] font-semibold tracking-wide uppercase transition-colors ${
                         isActive
                           ? "text-[#eb560c]"
-                          : isHome && !scrolled
-                            ? "text-white/80 hover:text-white"
-                            : "text-[#16243E] hover:text-[#eb560c]"
+                          : "text-[#16243E] hover:text-[#eb560c]"
                       }`
                     }
                   >
@@ -211,9 +209,7 @@ export const Navbar = ({
                     `px-3 py-2 text-[13px] font-semibold tracking-wide uppercase transition-colors ${
                       isActive
                         ? "text-[#eb560c]"
-                        : isHome && !scrolled
-                          ? "text-white/80 hover:text-white"
-                          : "text-[#16243E] hover:text-[#eb560c]"
+                        : "text-[#16243E] hover:text-[#eb560c]"
                     }`
                   }
                 >
@@ -227,21 +223,13 @@ export const Navbar = ({
           <div className="flex items-center gap-3">
             <Link
               to="/contact-us"
-              className={`hidden sm:inline-flex items-center justify-center font-bold text-xs uppercase tracking-wider px-6 py-2.5 rounded-full transition-all duration-300 ${
-                isHome && !scrolled
-                  ? "bg-white text-zinc-950 hover:bg-zinc-100 hover:scale-105"
-                  : "bg-[#eb560c] text-white hover:bg-[#d14b0a] hover:scale-105 shadow-md"
-              }`}
+              className="hidden sm:inline-flex items-center justify-center font-bold text-xs uppercase tracking-wider px-6 py-2.5 rounded-full transition-all duration-300 bg-[#eb560c] text-white hover:bg-[#d14b0a] hover:scale-105 shadow-[0_4px_15px_rgba(235,86,12,0.3)]"
             >
               Book a Call
             </Link>
             
             <button
-              className={`lg:hidden p-2.5 rounded border transition-colors ${
-                isHome && !scrolled
-                  ? "border-white/20 text-white hover:bg-white/10"
-                  : "border-gray-200 text-[#002b49] hover:bg-gray-50"
-              }`}
+              className="lg:hidden p-2.5 rounded border border-gray-200 text-[#002b49] hover:bg-gray-50 transition-colors"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
             >
