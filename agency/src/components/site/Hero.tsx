@@ -8,11 +8,16 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative h-screen min-h-[650px] max-h-[1080px] flex items-center justify-center overflow-hidden pt-20 pb-6 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${heroDashboard})` }}
+      className="relative h-screen min-h-[650px] max-h-[1080px] flex items-center justify-center overflow-hidden pt-20 pb-6 bg-[#fafbfc]"
     >
-      {/* Raw background image without any blur or foggy overlays to keep it completely clean and clear */}
-      <div className="absolute inset-0 bg-transparent pointer-events-none" />
+      {/* Absolute High-Definition Background Image - Raw, crisp and clear with no overlays */}
+      <img
+        src={heroDashboard}
+        alt="Websbond Creative Office Background"
+        className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none z-0"
+        loading="eager"
+        style={{ imageRendering: "auto" }}
+      />
 
       <div className="container relative z-10 mx-auto px-4 md:px-8 lg:px-12 h-full flex items-center">
         <div className="grid lg:grid-cols-12 gap-8 items-center w-full">

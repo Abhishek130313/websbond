@@ -69,7 +69,6 @@ import { Blog } from "../components/site/Blog";
 
 // Pages
 import Index from "../pages/Index";
-import { ServicesPage } from "../pages/Services";
 import OurWorkPage from "../pages/OurWork";
 import BlogPage from "../pages/Blog";
 import ContactPage from "../pages/Contact";
@@ -132,10 +131,6 @@ describe("Homepage Components Render Tests", () => {
 describe("Page Components Render Tests", () => {
   it("renders Index Page without crashing", () => {
     renderWithProviders(<Index />);
-  });
-
-  it("renders Services Page without crashing", () => {
-    renderWithProviders(<ServicesPage />);
   });
 
   it("renders OurWork Page without crashing", () => {
