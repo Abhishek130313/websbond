@@ -63,10 +63,10 @@ export const Hero = () => {
         alt="Websbond Premium Office Background"
         className="absolute inset-0 w-full h-full object-cover object-center select-none pointer-events-none z-0"
         loading="eager"
-        style={{ filter: "brightness(0.32) contrast(1.1) saturate(0.85)" }}
+        style={{ filter: "brightness(0.55) contrast(1.05) saturate(0.9)" }}
       />
-      {/* Fully transparent overlay to blend details and maximize text readability on both sides */}
-      <div className="absolute inset-0 bg-[#0a0f19]/75 backdrop-blur-[0.5px] z-10 pointer-events-none" />
+      {/* Semi-transparent gradient overlay to ensure high readability on the left while keeping the background image fully vivid and transparent on the right */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f19]/85 via-[#0a0f19]/50 to-[#0a0f19]/25 backdrop-blur-[0.2px] z-10 pointer-events-none" />
 
       <div className="container relative z-20 mx-auto px-4 md:px-8 lg:px-12 h-full flex items-center">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center w-full">
