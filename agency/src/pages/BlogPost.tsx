@@ -21,10 +21,17 @@ const sharePost = (title: string) => {
   }
 };
 
+type BlogPostData = {
+  slug: string;
+  category: string;
+  tags?: string | string[];
+  [key: string]: unknown;
+};
+
 export const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [post, setPost] = useState<any>(null);
-  const [related, setRelated] = useState<any[]>([]);
+  const [post, setPost] = useState<BlogPostData | null>(null);
+  const [related, setRelated] = useState<BlogPostData[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -57,9 +64,9 @@ export const BlogPostPage = () => {
           if (!res.ok) throw new Error();
           const data = await res.json();
           const filtered = data
-            .filter((b: any) => b.slug !== slug && b.category === currentPost.category)
+            .filter((b: BlogPostData) => b.slug !== slug && b.category === currentPost.category)
             .slice(0, 3)
-            .map((b: any) => ({
+            .map((b: BlogPostData) => ({
               ...b,
               tags: typeof b.tags === "string" ? b.tags.split(",").map((t: string) => t.trim()).filter(Boolean) : (Array.isArray(b.tags) ? b.tags : [])
             }));

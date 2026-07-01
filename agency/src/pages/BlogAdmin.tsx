@@ -99,6 +99,7 @@ export const BlogAdminPage = () => {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     if (apiKey) fetchBlogs(apiKey);
   }, []);
 
@@ -200,8 +201,8 @@ export const BlogAdminPage = () => {
 
       await fetchBlogs(apiKey);
       setIsFormOpen(false);
-    } catch (err: any) {
-      setFormError(err.message || "An error occurred while saving.");
+    } catch (err: unknown) {
+      setFormError(err instanceof Error ? err.message : "An error occurred while saving.");
     } finally {
       setFormSubmitting(false);
     }

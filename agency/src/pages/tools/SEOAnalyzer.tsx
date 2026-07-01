@@ -39,7 +39,7 @@ export const SEOAnalyzerPage = () => {
     }, 900);
 
     return () => clearInterval(interval);
-  }, [analyzing]);
+  }, [analyzing, crawlSteps.length]);
 
   const handleStartAnalysis = (e: React.FormEvent) => {
     e.preventDefault();

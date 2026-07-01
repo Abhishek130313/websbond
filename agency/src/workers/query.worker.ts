@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Web Worker for processing searches and filters off the main UI thread (Multithreading)
 self.onmessage = (e: MessageEvent) => {
   const { action, payload } = e.data;

@@ -8,7 +8,7 @@ import { getApiUrl } from "@/lib/api";
 import { blogPosts } from "@/data/blogPosts";
 
 export const BlogPage = () => {
-  const [posts, setPosts] = useState<any[]>(blogPosts);
+  const [posts, setPosts] = useState<typeof blogPosts>(blogPosts);
   const [commenting, setCommenting] = useState(false);
 
   useEffect(() => {
