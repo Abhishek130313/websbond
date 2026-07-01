@@ -57,7 +57,7 @@ export const GrowthConsole = () => (
               />
               {/* Frosted badge */}
               <div
-                className="absolute bottom-3 left-3 backdrop-blur-md bg-white/20 border border-white/30 text-white text-center rounded-lg font-medium px-3 py-1.5 text-[11px]"
+                className="absolute bottom-3 left-3 backdrop-blur-md bg-white/20 border border-white/30 text-white text-center hero-premium-bg rounded-lg font-medium px-3 py-1.5 text-[11px]"
               >
                 Since {c.since}
               </div>

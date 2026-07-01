@@ -2,7 +2,6 @@ import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 import { ArrowRight, Send } from "lucide-react";
-import heroHomeBg from "@/assets/hero_home_vibrant.png";
 
 export const Hero = () => {
   const [formData, setFormData] = useState({
@@ -66,15 +65,8 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen lg:h-screen lg:max-h-[1080px] w-full flex items-center justify-center overflow-hidden pt-28 pb-16"
-      style={{
-        backgroundImage: `url(${heroHomeBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative min-h-screen lg:h-screen lg:max-h-[1080px] w-full flex items-center justify-center overflow-hidden pt-28 pb-16 hero-premium-bg"
     >
-      {/* ── Lightened Dark Gradient Overlay for Vibrant Pop ── */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#09090b]" />
 
       <div className="container relative z-20 mx-auto px-4 md:px-8 lg:px-12 h-full flex items-center">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">

@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import heroBlogBg from "@/assets/hero_blog_vibrant.png";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { Loader2, Phone } from "lucide-react";
@@ -82,12 +81,7 @@ export const OurWorkPage = () => {
 
       {/* ── Page Hero Header ── */}
       <section 
-        className="relative overflow-hidden py-20 md:py-28 text-white text-center" 
-        style={{ 
-          backgroundImage: `url(${heroBlogBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center"
-        }}
+        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-premium-bg"
       >
         <div className="absolute inset-0 bg-[#002b49]/90" />
         <div className="container relative z-10">
@@ -280,3 +274,4 @@ export const OurWorkPage = () => {
 };
 
 export default OurWorkPage;
+

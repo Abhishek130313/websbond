@@ -101,12 +101,7 @@ export const ContentMarketing = () => {
 
       {/* ── Hero section ── */}
       <section 
-        className="relative overflow-hidden py-20 md:py-28 text-white text-center" 
-        style={{ 
-          backgroundImage: `url(${heroServicesBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center"
-        }}
+        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-premium-bg"
       >
         <div className="absolute inset-0 bg-black/70 pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
@@ -311,3 +306,4 @@ export const ContentMarketing = () => {
 };
 
 export default ContentMarketing;
+

@@ -58,7 +58,6 @@ export const Navbar = ({
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -71,7 +70,7 @@ export const Navbar = ({
       {/* ── Top Utility Bar — minimal, refined ── */}
       <div
         className={`hidden md:block text-sm transition-all duration-300 overflow-hidden ${
-          (isHome || scrolled) ? "max-h-0 opacity-0 py-0" : "max-h-12 opacity-100 py-2"
+          scrolled ? "max-h-0 opacity-0 py-0" : "max-h-12 opacity-100 py-2"
         }`}
         style={{ background: "#09090b" }}
       >
@@ -108,16 +107,14 @@ export const Navbar = ({
       {/* ── Main Header — frosted glass on scroll ── */}
       <header
         className={`z-50 w-full transition-all duration-300 ${
-          isHome && !scrolled
+          !scrolled
             ? "absolute top-0 left-0 bg-transparent py-5 text-white"
-            : scrolled
-              ? "sticky top-0 bg-white/80 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.06)] py-2.5 text-zinc-900"
-              : "sticky top-0 bg-white border-b border-zinc-100 py-3 text-zinc-900"
+            : "sticky top-0 bg-white/90 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.06)] py-2.5 text-zinc-900"
         }`}
       >
         <div className="container flex items-center justify-between gap-4">
           {/* Logo */}
-          <Logo light={!(isHome && !scrolled)} size="md" />
+          <Logo light={scrolled} size="md" />
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
@@ -133,7 +130,7 @@ export const Navbar = ({
                       `flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-colors ${
                         isActive
                           ? "text-indigo-600"
-                          : isHome && !scrolled
+                          : !scrolled
                             ? "text-white/80 hover:text-white"
                             : "text-zinc-600 hover:text-zinc-900"
                       }`
@@ -193,7 +190,7 @@ export const Navbar = ({
                     `px-3 py-2 text-[13px] font-medium transition-colors ${
                       isActive
                         ? "text-indigo-600"
-                        : isHome && !scrolled
+                        : !scrolled
                           ? "text-white/80 hover:text-white"
                           : "text-zinc-600 hover:text-zinc-900"
                     }`
@@ -210,7 +207,7 @@ export const Navbar = ({
             <Link
               to="/contact-us"
               className={`hidden sm:inline-flex items-center justify-center font-semibold text-xs px-5 py-2.5 rounded-full transition-all duration-300 ${
-                isHome && !scrolled
+                !scrolled
                   ? "bg-white text-zinc-900 hover:bg-zinc-100"
                   : "bg-gradient-to-r from-indigo-600 to-violet-600 text-white hover:shadow-[0_4px_14px_rgba(99,102,241,0.3)]"
               }`}
@@ -220,7 +217,7 @@ export const Navbar = ({
             
             <button
               className={`lg:hidden p-2.5 rounded-lg border transition-colors ${
-                isHome && !scrolled
+                !scrolled
                   ? "border-white/20 text-white hover:bg-white/10"
                   : "border-zinc-200 text-zinc-700 hover:bg-zinc-50"
               }`}

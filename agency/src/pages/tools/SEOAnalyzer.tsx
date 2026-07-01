@@ -90,7 +90,7 @@ export const SEOAnalyzerPage = () => {
       />
 
       {/* Hero Header */}
-      <section className="relative overflow-hidden py-16 text-white text-center" style={{ background: "linear-gradient(135deg, #004b75 0%, #0c203b 100%)" }}>
+      <section className="relative overflow-hidden pt-32 pb-16 text-white text-center hero-premium-bg" style={{ background: "linear-gradient(135deg, #004b75 0%, #0c203b 100%)" }}>
         <div className="absolute inset-0 grid-mesh opacity-5 pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-2xl mx-auto space-y-5">
@@ -327,3 +327,4 @@ export const SEOAnalyzerPage = () => {
 };
 
 export default SEOAnalyzerPage;
+

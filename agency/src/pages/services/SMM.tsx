@@ -90,14 +90,8 @@ export const SMMPage = () => {
 
       {/* ── Hero section ── */}
       <section 
-        className="relative overflow-hidden py-20 md:py-28 text-white text-center" 
-        style={{ 
-          backgroundImage: `url(${heroServicesBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center"
-        }}
+        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-premium-bg"
       >
-        <div className="absolute inset-0 bg-[#09090b]/80 backdrop-blur-[2px]" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center max-w-6xl mx-auto">
             {/* Left Content */}
@@ -303,3 +297,4 @@ export const SMMPage = () => {
 };
 
 export default SMMPage;
+
