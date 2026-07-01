@@ -29,27 +29,17 @@ const DIFFER_ITEMS = [
 
 export const WhyWeDiffer = () => {
   return (
-    <section className="py-20 bg-white border-t border-gray-100">
+    <section className="py-24 bg-white">
       <div className="container">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span style={{ color: "#004b75" }}>→</span>
-            <span
-              className="text-sm font-bold uppercase tracking-[0.2em]"
-              style={{ color: "#eb560c" }}
-            >
-              WHY WE DIFFER
-            </span>
-          </div>
-          <h2
-            className="font-jost font-black leading-tight text-[#002b49]"
-            style={{ fontSize: "clamp(26px, 3.5vw, 38px)" }}
-          >
-            What Makes Us the{" "}
-            <span style={{ color: "#eb560c" }}>Best Digital Marketing Agency</span> Company in Delhi NCR
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="section-badge">✦ Why We Differ</span>
+          <h2 className="section-heading mt-4">
+            What makes us the{" "}
+            <span className="gradient-text">best digital marketing agency</span>{" "}
+            in Delhi NCR
           </h2>
-          <p className="text-gray-500 mt-3 text-sm sm:text-base font-semibold max-w-xl mx-auto">
+          <p className="text-zinc-500 mt-4 text-sm sm:text-base max-w-xl mx-auto">
             Discover how Websbond blends technical search analysis with custom-crafted brand strategies to generate top tier search results.
           </p>
         </div>
@@ -59,8 +49,7 @@ export const WhyWeDiffer = () => {
           {DIFFER_ITEMS.map((item, idx) => (
             <div
               key={idx}
-              className="group bg-white rounded-2xl overflow-hidden border border-gray-100 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
-              style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.03)" }}
+              className="group bg-white rounded-2xl overflow-hidden border border-zinc-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-hover)] hover:border-indigo-200/50"
             >
               {/* Image Header with floating icon overlay */}
               <div className="relative overflow-hidden" style={{ height: 180 }}>
@@ -69,12 +58,11 @@ export const WhyWeDiffer = () => {
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-[#002b49]/10 group-hover:bg-[#002b49]/20 transition-all" />
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/10 transition-all" />
                 
-                {/* Floating Icon badge */}
+                {/* Floating Icon badge — indigo gradient */}
                 <div
-                  className="absolute bottom-3 right-3 w-10 h-10 rounded-xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110"
-                  style={{ background: "#eb560c" }}
+                  className="absolute bottom-3 right-3 w-10 h-10 rounded-xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110 bg-gradient-to-br from-indigo-500 to-violet-600"
                 >
                   {item.icon}
                 </div>
@@ -82,12 +70,10 @@ export const WhyWeDiffer = () => {
 
               {/* Text Body */}
               <div className="p-6">
-                <h3
-                  className="font-jost font-bold text-lg mb-2 text-[#002b49] transition-colors group-hover:text-[#eb560c]"
-                >
+                <h3 className="font-semibold text-lg mb-2 text-zinc-900 transition-colors group-hover:text-indigo-600">
                   {item.title}
                 </h3>
-                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed font-semibold">
+                <p className="text-zinc-500 text-xs sm:text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </div>

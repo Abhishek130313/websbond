@@ -9,10 +9,11 @@ export default {
     container: { center: true, padding: "1.5rem", screens: { "2xl": "1310px" } },
     extend: {
       fontFamily: {
-        display: ['"Jost"', "sans-serif"],
-        sans:    ['"Kumbh Sans"', "sans-serif"],
-        jost:    ['"Jost"', "sans-serif"],
-        kumbh:   ['"Kumbh Sans"', "sans-serif"],
+        sans:    ['"Inter"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+        display: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        /* Legacy compat */
+        jost:    ['"Inter"', 'sans-serif'],
+        kumbh:   ['"Inter"', 'sans-serif'],
       },
       colors: {
         border:     "hsl(var(--border) / <alpha-value>)",
@@ -57,16 +58,16 @@ export default {
           DEFAULT:    "hsl(var(--card) / <alpha-value>)",
           foreground: "hsl(var(--card-foreground) / <alpha-value>)",
         },
-        /* ── Custom Brand Tokens ── */
-        navy:   {
-          DEFAULT: "#002b49",
-          dark:    "#16243E",
-          deep:    "#010D4C",
+        /* ── Premium Brand Tokens ── */
+        navy: {
+          DEFAULT: "#09090b",
+          dark:    "#09090b",
+          deep:    "#09090b",
         },
         orange: {
-          DEFAULT: "#eb560c",
-          light:   "#ff9f67",
-          dark:    "#d14b0a",
+          DEFAULT: "#6366f1",
+          light:   "#a78bfa",
+          dark:    "#4f46e5",
         },
       },
       borderRadius: {
@@ -81,12 +82,16 @@ export default {
         "accordion-up":   { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
         float:    { "0%,100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-10px)" } },
         "fade-up":{ from: { opacity: "0", transform: "translateY(24px)" }, to: { opacity: "1", transform: "translateY(0)" } },
+        shimmer:  { "0%": { backgroundPosition: "-200% center" }, "100%": { backgroundPosition: "200% center" } },
+        "glow-pulse": { "0%,100%": { opacity: "0.4" }, "50%": { opacity: "0.8" } },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up":   "accordion-up 0.2s ease-out",
         float:    "float 5s ease-in-out infinite",
         "fade-up":"fade-up 0.8s ease both",
+        shimmer:  "shimmer 3s infinite",
+        "glow-pulse": "glow-pulse 4s ease-in-out infinite",
       },
     },
   },

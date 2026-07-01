@@ -1,11 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-/* Case Studies section — matches reference site exactly:
-   → CASE STUDIES tagline
-   "Case Studies: Client Success Stories"
-   3-col slider cards with website screenshot, "With Us Since XXXX" badge, client name, excerpt, Explore More button
-*/
 const CASES = [
   {
     name: "Dr. Geeta's Clinic",
@@ -31,26 +26,18 @@ const CASES = [
 ];
 
 export const GrowthConsole = () => (
-  <section className="py-16 md:py-20" style={{ background: "#f5f5f5" }}>
+  <section className="py-20 md:py-24 bg-[#fafafa]">
     <div className="container">
       {/* Header */}
-      <div className="text-center mb-12">
-        <div className="flex items-center justify-center gap-2 mb-3">
-          <span style={{ color: "#002b49" }}>→</span>
-          <span className="text-sm font-bold uppercase tracking-[0.2em]" style={{ color: "#eb560c" }}>
-            CASE STUDIES
-          </span>
-        </div>
-        <h2
-          className="font-jost font-bold mb-3"
-          style={{ fontSize: "clamp(24px, 3.5vw, 38px)", color: "#002b49" }}
-        >
-          Case Studies: Client Success Stories
+      <div className="text-center mb-14">
+        <span className="section-badge">✦ Case Studies</span>
+        <h2 className="section-heading mt-4">
+          Client success stories
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto text-base">
-          Real Success Stories from the{" "}
-          <strong style={{ color: "#eb560c" }}>Best Digital Marketing Agency in Delhi NCR</strong>.
-          Our clients trust us as the top SEO agency in Delhi for transformative results.
+        <p className="text-zinc-500 max-w-2xl mx-auto text-base mt-4">
+          Real results from the{" "}
+          <strong className="text-indigo-600">best digital marketing agency in Delhi NCR</strong>.
+          Our clients trust us for transformative growth.
         </p>
       </div>
 
@@ -59,38 +46,32 @@ export const GrowthConsole = () => (
         {CASES.map((c) => (
           <div
             key={c.name}
-            className="bg-white rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-            style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.06)", border: "1px solid #eee" }}
+            className="bg-white rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-hover)] border border-zinc-100"
           >
-            {/* Image with "With Us Since" badge */}
+            {/* Image with frosted "Since" badge */}
             <div className="relative overflow-hidden" style={{ height: 200 }}>
               <img
                 src={c.image}
                 alt={c.name}
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />
-              {/* Orange badge — bottom left */}
+              {/* Frosted badge */}
               <div
-                className="absolute bottom-4 left-4 text-white text-center rounded font-bold px-3 py-2"
-                style={{ background: "#eb560c", lineHeight: 1.2, fontSize: 12 }}
+                className="absolute bottom-3 left-3 backdrop-blur-md bg-white/20 border border-white/30 text-white text-center rounded-lg font-medium px-3 py-1.5 text-[11px]"
               >
-                With Us<br />Since {c.since}
+                Since {c.since}
               </div>
             </div>
 
             {/* Card content */}
-            <div className="p-5">
-              <h3
-                className="font-jost font-bold text-lg mb-2"
-                style={{ color: "#002b49" }}
-              >
+            <div className="p-6">
+              <h3 className="font-semibold text-lg mb-2 text-zinc-900">
                 {c.name}
               </h3>
-              <p className="text-gray-600 text-sm mb-4 leading-relaxed">{c.desc}</p>
+              <p className="text-zinc-500 text-sm mb-4 leading-relaxed">{c.desc}</p>
               <Link
                 to={c.slug}
-                className="inline-flex items-center gap-2 border border-gray-300 px-5 py-2 rounded text-sm font-medium transition-all duration-300 hover:border-[#eb560c] hover:text-[#eb560c]"
-                style={{ color: "#002b49" }}
+                className="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 hover:text-indigo-700 transition-colors"
               >
                 Explore More <ArrowRight className="w-4 h-4" />
               </Link>

@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import heroAboutBg from "@/assets/hero_about.png";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { Star, Loader2, Phone } from "lucide-react";
@@ -101,12 +102,16 @@ export const TestimonialsPage = () => {
         path="/testimonials" 
       />
 
-      {/* ── Hero Split Block Section ── */}
+      {/* ── Page Hero Header ── */}
       <section 
-        className="relative overflow-hidden py-16 md:py-24 text-white"
-        style={{ background: "linear-gradient(135deg, #004b75 0%, #0c203b 100%)" }}
+        className="relative overflow-hidden py-20 md:py-28 text-white text-center" 
+        style={{ 
+          backgroundImage: `url(${heroAboutBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}
       >
-        <div className="absolute inset-0 bg-[#004b75]/25 opacity-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#09090b]/90 via-[#09090b]/70 to-[#09090b] pointer-events-none" />
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
             

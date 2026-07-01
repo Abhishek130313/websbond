@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import heroHomeBg from "@/assets/hero_home.png";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { toast } from "@/hooks/use-toast";
@@ -68,10 +69,14 @@ export const ContactPage = () => {
 
       {/* ── Page Hero Header ── */}
       <section 
-        className="relative overflow-hidden py-16 md:py-20 text-white text-center" 
-        style={{ background: "linear-gradient(135deg, #004b75 0%, #0c203b 100%)" }}
+        className="relative overflow-hidden py-20 md:py-28 text-white text-center" 
+        style={{ 
+          backgroundImage: `url(${heroHomeBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}
       >
-        <div className="absolute inset-0 bg-[#004b75]/35 opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#09090b]/90 via-[#09090b]/70 to-[#09090b] pointer-events-none" />
         <div className="container relative z-10">
           <h1 className="font-jost font-black text-3xl md:text-5xl leading-tight mb-4">
             Contact Us

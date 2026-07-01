@@ -2,7 +2,8 @@ import { useState } from "react";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import { MapPin, ChevronDown, Check, Star, Shield, Award, Cpu, Send, Loader2, Info, AlertTriangle } from "lucide-react";
+import { MapPin, ChevronDown, Check, Star, Shield, Search, Smartphone, Send, Loader2 } from "lucide-react";
+import heroServicesBg from "@/assets/hero_services.png";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 
@@ -113,8 +114,15 @@ export const GMBPage = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 text-white" style={{ background: "linear-gradient(135deg, #004b75 0%, #0c203b 100%)" }}>
-        <div className="absolute inset-0 grid-mesh opacity-5 pointer-events-none" />
+      <section 
+        className="relative overflow-hidden py-20 md:py-28 text-white text-center" 
+        style={{ 
+          backgroundImage: `url(${heroServicesBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-[#09090b]/90 via-[#09090b]/70 to-[#09090b] pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center max-w-6xl mx-auto">
             {/* Left Content */}

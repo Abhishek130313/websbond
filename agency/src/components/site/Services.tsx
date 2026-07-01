@@ -1,141 +1,108 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Globe, Search, FileText, Code, Target, Share2, Smartphone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
-/* Service cards exactly matching reference site:
-   - Big image at top of card
-   - Service name in white box at bottom
-   - 4-column grid with carousel feel
-*/
 const SERVICES = [
   {
     title: "Social Media Marketing",
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=500&auto=format&fit=crop&q=80",
+    icon: Globe,
     link: "/services#smm",
-    desc: "Build a massive following, create viral content, and generate leads through strategic social media campaigns on Instagram, Facebook, LinkedIn & YouTube.",
+    desc: "Build a massive following and generate leads through strategic campaigns on Instagram, Facebook, LinkedIn & YouTube.",
   },
   {
     title: "Search Engine Optimization",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=500&auto=format&fit=crop&q=80",
+    icon: Search,
     link: "/services#seo",
-    desc: "Dominate Google search results with technical SEO, keyword research, quality backlinks, and schema markup that drives organic traffic and qualified leads.",
+    desc: "Dominate Google results with technical SEO, quality backlinks, and schema markup that drives organic traffic.",
   },
   {
     title: "Content Marketing",
-    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=500&auto=format&fit=crop&q=80",
+    icon: FileText,
     link: "/services#content",
-    desc: "Compelling blogs, landing pages, infographics, and videos crafted to rank, convert, and keep your audience engaged with your brand story.",
+    desc: "Compelling blogs, landing pages, and videos crafted to rank, convert, and engage your audience.",
   },
   {
     title: "Web Development",
-    image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=500&auto=format&fit=crop&q=80",
+    icon: Code,
     link: "/services#web-design",
-    desc: "Our website development services will enable you to create a strong online presence. The websites we build are super quick and mobile-friendly.",
+    desc: "Super-fast, mobile-friendly websites built on modern frameworks that create a strong online presence.",
   },
   {
     title: "Pay Per Click (PPC)",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=80",
+    icon: Target,
     link: "/services#ppc",
-    desc: "High-ROI Google & Meta ad campaigns with precise audience targeting, A/B testing, and transparent reporting to maximise your advertising spend.",
+    desc: "High-ROI Google & Meta ad campaigns with precise audience targeting and transparent reporting.",
   },
   {
     title: "Social Media Optimization",
-    image: "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=500&auto=format&fit=crop&q=80",
+    icon: Share2,
     link: "/services#smm",
-    desc: "Optimize your social profiles for maximum organic reach, brand authority, and consistent engagement across all major social platforms.",
+    desc: "Optimize social profiles for maximum organic reach, brand authority, and consistent engagement.",
   },
   {
     title: "App Development",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&auto=format&fit=crop&q=80",
+    icon: Smartphone,
     link: "/services#apps",
-    desc: "Custom mobile-first web and hybrid apps for iOS & Android with seamless UX, API integrations, and scalable architecture for growth.",
+    desc: "Custom mobile-first web and hybrid apps for iOS & Android with seamless UX and scalable architecture.",
   },
   {
     title: "Google My Business",
-    image: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=500&auto=format&fit=crop&q=80",
+    icon: MapPin,
     link: "/services#gmb",
-    desc: "Optimize your Google My Business profile to dominate local search results, get more calls, reviews, and foot traffic to your physical location.",
+    desc: "Dominate local search results, get more calls, reviews, and foot traffic to your business.",
   },
 ];
 
 export const Services = () => (
-  <section className="py-20 md:py-24" style={{ background: "#f5f5f5" }}>
+  <section className="py-24 md:py-28 bg-[#fafafa]">
     <div className="container">
-      {/* Section Header — exactly like reference */}
-      <div className="text-center mb-14">
-        {/* Orange arrow tagline */}
-        <div className="flex items-center justify-center gap-2 mb-3">
-          <span style={{ color: "#002b49" }}>→</span>
-          <span
-            className="text-sm font-bold uppercase tracking-[0.2em]"
-            style={{ color: "#eb560c" }}
-          >
-            BEST SERVICE
-          </span>
-        </div>
-        <h2
-          className="font-jost font-bold mb-3"
-          style={{ fontSize: "clamp(26px, 3.5vw, 40px)", color: "#002b49" }}
-        >
-          <span style={{ color: "#eb560c" }}>Digital Solutions</span>{" "}
-          for your every need
+      {/* Section Header */}
+      <div className="text-center mb-16">
+        <span className="section-badge">✦ Our Services</span>
+        <h2 className="section-heading mt-4">
+          Digital solutions for{" "}
+          <span className="gradient-text">every need</span>
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto text-base">
-          Discover our comprehensive digital marketing services designed to grow your brand, reach the right audience, and grow online.
+        <p className="text-zinc-500 max-w-2xl mx-auto text-base mt-4">
+          Discover our comprehensive digital marketing services designed to grow your brand, reach the right audience, and scale online.
         </p>
       </div>
 
-      {/* 4-column grid of image cards — reference site style */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {SERVICES.slice(0, 4).map((service) => (
-          <ServiceCard key={service.title} service={service} />
-        ))}
-      </div>
-
-      {/* Second row — info card variant (last card on first row of reference is text-only) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-        {SERVICES.slice(4).map((service) => (
-          <ServiceCard key={service.title} service={service} />
-        ))}
+      {/* Icon-driven premium card grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {SERVICES.map((service) => {
+          const IconComp = service.icon;
+          return (
+            <Link
+              key={service.title}
+              to={service.link}
+              className="group bg-white rounded-2xl p-6 border border-zinc-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-hover)] hover:border-indigo-200/50"
+            >
+              {/* Icon circle */}
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center mb-5 shadow-[0_4px_14px_rgba(99,102,241,0.2)] transition-transform duration-300 group-hover:scale-110">
+                <IconComp className="w-5 h-5 text-white" />
+              </div>
+              {/* Title */}
+              <h3 className="font-semibold text-base text-zinc-900 mb-2 transition-colors group-hover:text-indigo-600">
+                {service.title}
+              </h3>
+              {/* Description */}
+              <p className="text-zinc-500 text-sm leading-relaxed" style={{ marginBottom: 0 }}>
+                {service.desc}
+              </p>
+            </Link>
+          );
+        })}
       </div>
 
       {/* View All CTA */}
-      <div className="text-center mt-12">
+      <div className="text-center mt-14">
         <Link
           to="/services"
-          className="inline-flex items-center gap-2 font-bold px-8 py-4 rounded text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-          style={{ background: "#002b49" }}
-          onMouseEnter={(e) => (e.currentTarget.style.background = "#eb560c")}
-          onMouseLeave={(e) => (e.currentTarget.style.background = "#002b49")}
+          className="btn-primary inline-flex"
         >
           View All Services <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
     </div>
   </section>
-);
-
-const ServiceCard = ({ service }: { service: typeof SERVICES[0] }) => (
-  <Link
-    to={service.link}
-    className="group block bg-white rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-    style={{ boxShadow: "0 2px 15px rgba(0,0,0,0.08)" }}
-  >
-    {/* Image — takes up top 2/3 of card */}
-    <div className="overflow-hidden" style={{ height: 200 }}>
-      <img
-        src={service.image}
-        alt={service.title}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-    </div>
-    {/* Title + subtle desc */}
-    <div className="p-4">
-      <h3
-        className="font-jost font-bold text-center transition-colors duration-300 group-hover:text-[#eb560c]"
-        style={{ fontSize: 17, color: "#002b49" }}
-      >
-        {service.title}
-      </h3>
-    </div>
-  </Link>
 );

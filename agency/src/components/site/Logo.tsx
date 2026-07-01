@@ -16,13 +16,12 @@ export const Logo = ({ light = false, size = "md" }: LogoProps) => (
   <Link
     to="/"
     aria-label="Websbond home"
-    className="inline-flex items-center gap-3 group focus:outline-none"
+    className="inline-flex items-center gap-2.5 group focus:outline-none"
   >
     <span
-      className={`inline-flex items-center justify-center rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] ${
-        light ? "border border-white/10" : "border border-white/5 shadow-sm"
+      className={`inline-flex items-center justify-center rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105 ${
+        light ? "border border-zinc-200/60 bg-white shadow-sm" : "border border-white/10 bg-[#09090b]"
       }`}
-      style={{ background: "#0a0f1c" }}
     >
       <img
         src={logo3d}
@@ -34,10 +33,9 @@ export const Logo = ({ light = false, size = "md" }: LogoProps) => (
         className={`${sizeMap[size]} object-contain p-1`}
       />
     </span>
-    <span className="font-display font-bold tracking-tight text-lg sm:text-xl md:text-2xl flex items-center">
-      <span className={`${light ? "text-slate-900 group-hover:text-slate-800" : "text-white group-hover:text-white/90"} transition-colors`}>websbond</span>
-      <span className="bg-gradient-to-r from-purple-400 to-orange-400 bg-clip-text text-transparent">.com</span>
+    <span className="font-semibold tracking-tight text-lg sm:text-xl flex items-center">
+      <span className={`${light ? "text-zinc-900" : "text-white"} transition-colors`}>websbond</span>
+      <span className="bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent">.com</span>
     </span>
   </Link>
 );
-

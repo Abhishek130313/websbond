@@ -1,10 +1,6 @@
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
 
-/* VideoShowcase — exactly like reference site:
-   4 person/client cards in a row, each has a large photo with a red circular play button in center,
-   clicking opens a YouTube modal.
-*/
+/* VideoShowcase — person cards with frosted glass play button */
 const VIDEOS = [
   {
     id: "dQw4w9WgXcQ",
@@ -37,70 +33,54 @@ export const VideoShowcase = () => {
 
   return (
     <>
-      <section className="py-16 md:py-20" style={{ background: "#f5f5f5" }}>
+      <section className="py-20 md:py-24 bg-white">
         <div className="container">
           {/* Section header */}
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <span style={{ color: "#002b49" }}>→</span>
-              <span className="text-sm font-bold uppercase tracking-[0.2em]" style={{ color: "#eb560c" }}>
-                OUR CLIENT
-              </span>
-            </div>
-            <h2
-              className="font-jost font-bold"
-              style={{ fontSize: "clamp(24px, 3.5vw, 38px)", color: "#002b49" }}
-            >
-              Hear What Our{" "}
-              <span style={{ color: "#eb560c" }}>Clients Say</span>
+          <div className="text-center mb-14">
+            <span className="section-badge">✦ Client Stories</span>
+            <h2 className="section-heading mt-4">
+              Hear what our{" "}
+              <span className="gradient-text">clients say</span>
             </h2>
           </div>
 
-          {/* 4-col video cards — person photo + red play button */}
+          {/* 4-col video cards — frosted glass play button */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {VIDEOS.map((v) => (
               <button
                 key={v.id + v.name}
                 onClick={() => setPlaying(v.id)}
-                className="group relative overflow-hidden rounded-xl text-left w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                style={{ boxShadow: "0 2px 15px rgba(0,0,0,0.08)" }}
+                className="group relative overflow-hidden rounded-2xl text-left w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-hover)] border border-zinc-100"
               >
                 {/* Person photo */}
-                <div className="relative overflow-hidden" style={{ height: 280 }}>
+                <div className="relative overflow-hidden" style={{ height: 300 }}>
                   <img
                     src={v.thumb}
                     alt={v.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  {/* Dark overlay on hover */}
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300" />
+                  {/* Subtle overlay */}
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-all duration-300" />
 
-                  {/* Red play button — centered */}
+                  {/* Frosted glass play button — centered */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div
-                      className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110"
-                      style={{ background: "#FF0000" }}
+                      className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 backdrop-blur-md bg-white/20 border border-white/30"
                     >
-                      <svg viewBox="0 0 24 24" fill="white" width="24" height="24">
+                      <svg viewBox="0 0 24 24" fill="white" width="22" height="22">
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>
                   </div>
+
+                  {/* Name overlay at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+                    <p className="text-white font-semibold text-sm" style={{ marginBottom: 0 }}>{v.name}</p>
+                    <p className="text-white/60 text-xs" style={{ marginBottom: 0 }}>{v.role}</p>
+                  </div>
                 </div>
               </button>
             ))}
-          </div>
-
-          {/* Load More button */}
-          <div className="text-center mt-10">
-            <button
-              className="inline-flex items-center gap-2 font-bold px-8 py-3.5 rounded text-white transition-all duration-300 hover:-translate-y-0.5"
-              style={{ background: "#002b49" }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#eb560c")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#002b49")}
-            >
-              Load More
-            </button>
           </div>
         </div>
       </section>
@@ -113,7 +93,7 @@ export const VideoShowcase = () => {
           onClick={() => setPlaying(null)}
         >
           <div
-            className="w-full max-w-3xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl"
+            className="w-full max-w-3xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <iframe
@@ -125,7 +105,7 @@ export const VideoShowcase = () => {
             />
           </div>
           <button
-            className="absolute top-6 right-6 text-white/80 hover:text-white text-3xl font-bold"
+            className="absolute top-6 right-6 text-white/60 hover:text-white text-3xl font-light transition-colors"
             onClick={() => setPlaying(null)}
           >
             ×

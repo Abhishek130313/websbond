@@ -50,8 +50,6 @@ const Index = () => (
       ]}
     />
 
-    {/* Reference site order: Hero → Certifications+About → Services → Video → CTA → Case Studies → PracticeBanner → WhyWeDiffer → WhyChooseUs → Stats → Blog → Testimonials → FAQ */}
-    
     {/* 1. Hero with Quote Form */}
     <Hero />
 
@@ -60,7 +58,7 @@ const Index = () => (
       <Process />
     </Suspense>
 
-    {/* 3. Services — Digital Solutions for your every need */}
+    {/* 3. Services */}
     <Suspense fallback={<SectionSkeleton />}>
       <Services />
     </Suspense>
@@ -70,25 +68,25 @@ const Index = () => (
       <VideoShowcase />
     </Suspense>
 
-    {/* 5. CtaBanner - Consultation call (placed right after video testimonials to match PDF) */}
+    {/* 5. CtaBanner */}
     <CtaBanner />
 
-    {/* 6. Case Studies (GrowthConsole) */}
+    {/* 6. Case Studies */}
     <Suspense fallback={<SectionSkeleton />}>
       <GrowthConsole />
     </Suspense>
 
-    {/* 7. Practice Reach Banner (NEW) */}
+    {/* 7. Practice Reach Banner */}
     <Suspense fallback={<SectionSkeleton />}>
       <PracticeBanner />
     </Suspense>
 
-    {/* 8. Why We Differ (NEW) */}
+    {/* 8. Why We Differ */}
     <Suspense fallback={<SectionSkeleton />}>
       <WhyWeDiffer />
     </Suspense>
 
-    {/* 9. Why Choose Us (NEW) */}
+    {/* 9. Why Choose Us */}
     <Suspense fallback={<SectionSkeleton />}>
       <WhyChooseUs />
     </Suspense>
@@ -106,23 +104,20 @@ const Index = () => (
       <Testimonials />
     </Suspense>
 
-    {/* 13. FAQ Section (exactly like PDF) */}
-    <section className="py-20 bg-slate-50 border-t border-b border-gray-100">
+    {/* 13. FAQ Section — Premium SaaS style */}
+    <section className="py-24 bg-white">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <span style={{ color: "#004b75" }}>→</span>
-            <span className="text-sm font-bold uppercase tracking-widest text-[#eb560c]">ASK QUESTIONS</span>
-          </div>
-          <h2 className="font-jost font-black text-2xl sm:text-3xl text-[#002b49]">
-            FAQ About Our SEO & Marketing Services
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="section-badge">✦ FAQ</span>
+          <h2 className="section-heading mt-4">
+            Frequently asked questions
           </h2>
-          <p className="text-gray-500 mt-2 text-sm font-medium">
+          <p className="text-zinc-500 mt-3 text-sm">
             Get answers to common queries regarding page positioning, web standards, and growth campaigns.
           </p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {[
             {
               q: "Why choose Websbond as the best digital marketing agency in Delhi NCR?",
@@ -143,18 +138,18 @@ const Index = () => (
           ].map((faq, faqIdx) => (
             <details 
               key={faqIdx} 
-              className="group bg-white border border-gray-150 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 open:shadow-md [&_summary::-webkit-details-marker]:hidden"
+              className="group bg-white border border-zinc-200/60 rounded-2xl overflow-hidden transition-all duration-300 open:shadow-[var(--shadow-card)] open:border-indigo-200/50 [&_summary::-webkit-details-marker]:hidden"
             >
-              <summary className="flex items-center justify-between gap-4 p-5 font-bold text-[#002b49] hover:bg-orange-50/20 transition-colors cursor-pointer outline-none">
-                <span className="text-sm sm:text-base font-jost select-none">{faq.q}</span>
-                <span className="transition-transform duration-300 group-open:rotate-180 text-gray-400 shrink-0">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
+              <summary className="flex items-center justify-between gap-4 p-5 font-medium text-zinc-800 hover:text-zinc-900 transition-colors cursor-pointer outline-none">
+                <span className="text-sm sm:text-base select-none">{faq.q}</span>
+                <span className="transition-transform duration-300 group-open:rotate-180 text-zinc-400 shrink-0">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </span>
               </summary>
-              <div className="border-t border-gray-100 bg-gray-50/30">
-                <p className="p-5 text-xs sm:text-sm text-gray-500 leading-relaxed font-semibold">
+              <div className="border-t border-zinc-100">
+                <p className="p-5 text-sm text-zinc-500 leading-relaxed">
                   {faq.a}
                 </p>
               </div>

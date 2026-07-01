@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { Users, Globe, Target, Award } from "lucide-react";
 
 const STATS = [
-  { value: 800, suffix: "+", label: "Happy Client", icon: <Users className="w-6 h-6 text-white" />, orange: true },
-  { value: 2024, suffix: "", label: "Established", icon: <Globe className="w-6 h-6 text-white" />, orange: false },
-  { value: 1000, suffix: "+", label: "Complete Project", icon: <Target className="w-6 h-6 text-white" />, orange: true },
-  { value: 100, suffix: "+", label: "Winning award", icon: <Award className="w-6 h-6 text-white" />, orange: false },
+  { value: 800, suffix: "+", label: "Happy Clients", icon: <Users className="w-6 h-6 text-white" /> },
+  { value: 2024, suffix: "", label: "Established", icon: <Globe className="w-6 h-6 text-white" /> },
+  { value: 1000, suffix: "+", label: "Projects Completed", icon: <Target className="w-6 h-6 text-white" /> },
+  { value: 100, suffix: "+", label: "Awards Won", icon: <Award className="w-6 h-6 text-white" /> },
 ];
 
 function useCountUp(target: number, duration = 2000, started = false) {
@@ -25,26 +25,20 @@ function useCountUp(target: number, duration = 2000, started = false) {
   return count;
 }
 
-const StatItem = ({ value, suffix, label, icon, orange, started }: typeof STATS[0] & { started: boolean }) => {
+const StatItem = ({ value, suffix, label, icon, started }: typeof STATS[0] & { started: boolean }) => {
   const count = useCountUp(value, 2200, started);
   return (
-    <div className="flex items-center gap-4 bg-white rounded-xl px-6 py-5" style={{ boxShadow: "0 2px 20px rgba(0,0,0,0.07)" }}>
-      {/* Circular icon */}
-      <div
-        className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
-        style={{ background: orange ? "#eb560c" : "#002b49" }}
-      >
+    <div className="flex items-center gap-4 bg-white rounded-2xl px-6 py-6 border border-zinc-100 shadow-[var(--shadow-card)] transition-all duration-300 hover:shadow-[var(--shadow-hover)]">
+      {/* Icon circle — indigo gradient */}
+      <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 bg-gradient-to-br from-indigo-500 to-violet-600 shadow-[0_4px_14px_rgba(99,102,241,0.2)]">
         {icon}
       </div>
       {/* Number + label */}
       <div>
-        <div
-          className="font-jost font-bold text-4xl leading-none"
-          style={{ color: "#002b49" }}
-        >
+        <div className="font-bold text-3xl lg:text-4xl leading-none text-zinc-900 tracking-tight">
           {count}{suffix}
         </div>
-        <div className="text-gray-500 text-sm mt-1">{label}</div>
+        <div className="text-zinc-500 text-sm mt-1 font-medium">{label}</div>
       </div>
     </div>
   );
@@ -65,7 +59,7 @@ export const StatsBar = () => {
   }, []);
 
   return (
-    <section ref={ref} className="py-14" style={{ background: "#eef0f5" }}>
+    <section ref={ref} className="py-16 bg-white">
       <div className="container">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {STATS.map((s) => (
