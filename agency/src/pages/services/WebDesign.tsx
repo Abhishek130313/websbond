@@ -4,7 +4,7 @@ import { Layout } from "@/components/site/Layout";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Phone, Mail, ArrowRight, Check, ChevronDown, Monitor, Cpu, Laptop, Star } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroServicesBg from "@/assets/hero_services.png";
+import heroServicesBg from "@/assets/hero_web_vibrant.png";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 
@@ -143,18 +143,18 @@ export const WebDesign = () => {
           backgroundPosition: "center"
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-[#09090b]/90 via-[#09090b]/70 to-[#09090b] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#09090b] pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center max-w-6xl mx-auto">
             {/* Left Content */}
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 border border-white/20 bg-white/10 backdrop-blur-md text-white font-semibold text-xs uppercase tracking-widest px-3.5 py-1.5 rounded-full">
+            <div className="space-y-6 animate-in fade-in slide-in-from-left-8 duration-1000 text-left">
+              <div className="inline-flex items-center gap-2 bg-white/[0.1] border border-white/[0.15] shadow-lg shadow-white/5 rounded-full px-4 py-2 text-[11px] text-white/90 font-medium mb-6 select-none backdrop-blur-md">
                 → WEBSITE DESIGN SERVICES
               </div>
-              <h1 className="font-jost font-black text-3xl md:text-5xl leading-tight">
+              <h1 className="font-jost font-black text-4xl md:text-6xl leading-tight bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl">
                 Best Website Design Company in Delhi NCR | Top Web Design Agency
               </h1>
-              <p className="text-white/80 text-sm sm:text-base leading-relaxed font-medium">
+              <p className="text-zinc-200 text-base sm:text-lg leading-relaxed font-medium drop-shadow-md">
                 Unleash your business potential with Websbond's premier website design services in Delhi NCR. As the best website designing company in Delhi NCR & Haryana, our expert team crafts responsive website designs, affordable web design services, and custom website development that drive growth, boost conversions, and dominate Google rankings.
               </p>
               <div className="flex flex-wrap items-center gap-4 text-xs font-bold pt-2">
@@ -163,16 +163,14 @@ export const WebDesign = () => {
               </div>
             </div>
 
-            {/* Right: Form */}
-            <div className="bg-[#f8fafc] border border-gray-200 rounded-3xl p-6 sm:p-8 text-[#002b49] shadow-lg">
-              <h3 className="font-jost font-bold text-lg border-b border-gray-200 pb-3 mb-5">Request A Quote</h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <input 
-                  type="text" 
-                  name="name" 
-                  value={formData.name} 
-                  onChange={handleInputChange} 
-                  placeholder="Your Name *" 
+            {/* Right Form */}
+            <div className="relative animate-in fade-in slide-in-from-right-8 duration-1000 delay-200 fill-mode-both">
+              <div className="bg-white/[0.08] border border-white/[0.15] backdrop-blur-2xl rounded-3xl p-6 sm:p-8 shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
+                <h3 className="font-jost font-bold text-xl border-b border-white/20 pb-3 mb-5 text-white">Request A Quote</h3>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <input 
+                    type="text" 
+                    name="name"  
                   required 
                   className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-xs sm:text-sm text-[#002b49] outline-none focus:border-[#eb560c] font-sans" 
                 />
@@ -210,6 +208,7 @@ export const WebDesign = () => {
                   {submitting ? "Submitting..." : "Send Message !"}
                 </button>
               </form>
+            </div>
             </div>
           </div>
         </div>

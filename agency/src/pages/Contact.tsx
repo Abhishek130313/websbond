@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import heroHomeBg from "@/assets/hero_home.png";
+import heroHomeBg from "@/assets/hero_home_vibrant.png";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { toast } from "@/hooks/use-toast";
@@ -76,12 +76,12 @@ export const ContactPage = () => {
           backgroundPosition: "center"
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-[#09090b]/90 via-[#09090b]/70 to-[#09090b] pointer-events-none" />
-        <div className="container relative z-10">
-          <h1 className="font-jost font-black text-3xl md:text-5xl leading-tight mb-4">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#09090b] pointer-events-none" />
+        <div className="container relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <h1 className="font-jost font-black text-4xl md:text-6xl leading-tight mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl">
             Contact Us
           </h1>
-          <p className="text-white/85 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed font-semibold">
+          <p className="text-zinc-200 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed font-semibold drop-shadow-md">
             We're just a message away! Connect with us today to discuss how our result-driven marketing strategies can take your business to the next level.
           </p>
         </div>

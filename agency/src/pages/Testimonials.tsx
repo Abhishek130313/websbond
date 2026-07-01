@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import heroAboutBg from "@/assets/hero_about.png";
+import heroAboutBg from "@/assets/hero_about_vibrant.png";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { Star, Loader2, Phone } from "lucide-react";
@@ -111,16 +111,16 @@ export const TestimonialsPage = () => {
           backgroundPosition: "center"
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-[#09090b]/90 via-[#09090b]/70 to-[#09090b] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#09090b] pointer-events-none" />
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
             
             {/* Left Column: Title and Subtext */}
-            <div className="space-y-6 text-center lg:text-left">
-              <h1 className="font-jost font-black text-3xl md:text-5xl leading-tight">
+            <div className="space-y-6 text-center lg:text-left animate-in fade-in slide-in-from-left-8 duration-1000">
+              <h1 className="font-jost font-black text-4xl md:text-6xl leading-tight bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl">
                 Testimonials
               </h1>
-              <p className="text-white/85 text-sm sm:text-base leading-relaxed max-w-xl font-medium">
+              <p className="text-zinc-200 text-base sm:text-lg leading-relaxed max-w-xl font-medium drop-shadow-md">
                 Hear what our clients have to say about their journey with us—real experiences, real success, and lasting partnerships built on trust and results.
               </p>
               <div className="pt-2">
@@ -134,12 +134,12 @@ export const TestimonialsPage = () => {
             </div>
 
             {/* Right Column: Quote Form Card */}
-            <div>
+            <div className="relative animate-in fade-in slide-in-from-right-8 duration-1000 delay-200 fill-mode-both">
               <div
-                className="bg-white rounded-3xl p-6 sm:p-8 text-[#002b49] shadow-2xl border border-gray-100/10"
+                className="bg-white/[0.08] border border-white/[0.15] backdrop-blur-2xl rounded-3xl p-6 sm:p-8 shadow-[0_30px_80px_rgba(0,0,0,0.6)]"
               >
-                <h3 className="font-jost font-bold text-xl mb-5 pb-2 border-b border-gray-100 text-[#002b49]">
-                  Request A Quote
+                <h3 className="font-jost font-bold text-xl border-b border-white/20 pb-3 mb-5 text-left text-white">
+                  Send Your Message
                 </h3>
 
                 <form ref={formRef} onSubmit={handleFormSubmit} className="space-y-4">

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 import { ArrowRight, Send } from "lucide-react";
-import heroHomeBg from "@/assets/hero_home.png";
+import heroHomeBg from "@/assets/hero_home_vibrant.png";
 
 export const Hero = () => {
   const [formData, setFormData] = useState({
@@ -73,35 +73,35 @@ export const Hero = () => {
         backgroundPosition: "center",
       }}
     >
-      {/* ── Dark Gradient Overlay ── */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#09090b]/90 via-[#09090b]/80 to-[#09090b]" />
+      {/* ── Lightened Dark Gradient Overlay for Vibrant Pop ── */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#09090b]" />
 
       <div className="container relative z-20 mx-auto px-4 md:px-8 lg:px-12 h-full flex items-center">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center w-full">
           
           {/* ── Left Column: Hero Text ── */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left z-20 py-2">
+          <div className="lg:col-span-7 flex flex-col items-start text-left z-20 py-2 animate-in fade-in slide-in-from-bottom-8 duration-1000">
             
             {/* Trusted Badge — frosted glass pill */}
-            <div className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/[0.08] rounded-full px-4 py-2 text-[11px] text-white/70 font-medium mb-6 select-none backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 bg-white/[0.1] border border-white/[0.15] shadow-lg shadow-white/5 rounded-full px-4 py-2 text-[11px] text-white/90 font-medium mb-6 select-none backdrop-blur-md">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <span>Trusted by 200+ businesses</span>
             </div>
 
             {/* Heading — massive, tight tracking, no uppercase */}
             <h1
-              className="font-extrabold text-white mb-5 leading-[1.05] tracking-[-0.04em] text-left"
-              style={{ fontSize: "clamp(36px, 5vw, 72px)" }}
+              className="font-extrabold text-white mb-5 leading-[1.05] tracking-[-0.04em] text-left drop-shadow-xl"
+              style={{ fontSize: "clamp(42px, 6vw, 84px)" }}
             >
               Engineering{" "}
               <br />
-              <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl">
                 the future
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-zinc-400 text-base md:text-lg leading-relaxed mb-8 max-w-xl font-normal">
+            <p className="text-zinc-200 text-base md:text-xl leading-relaxed mb-8 max-w-xl font-normal drop-shadow-md">
               We build world-class digital experiences and technology that accelerate visionaries. Let's start your project today.
             </p>
 
@@ -110,8 +110,8 @@ export const Hero = () => {
           </div>
 
           {/* ── Right Column: Premium Contact Form (Frosted Glass) ── */}
-          <div className="lg:col-span-5 flex items-center justify-center z-20 w-full">
-            <div className="bg-white/[0.04] border border-white/[0.08] backdrop-blur-2xl rounded-2xl p-6 md:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.5)] w-full max-w-md">
+          <div className="lg:col-span-5 flex items-center justify-center z-20 w-full animate-in fade-in slide-in-from-right-8 duration-1000 delay-200 fill-mode-both">
+            <div className="bg-white/[0.08] border border-white/[0.15] backdrop-blur-2xl rounded-3xl p-6 md:p-8 shadow-[0_30px_80px_rgba(0,0,0,0.6)] w-full max-w-md">
               <div className="mb-6">
                 <h3 className="text-xl font-semibold text-white mb-1.5 flex items-center gap-2">
                   Get Free Consultation <ArrowRight className="w-5 h-5 text-indigo-400" />

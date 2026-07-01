@@ -99,9 +99,8 @@ export const BlogAdminPage = () => {
   };
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     if (apiKey) fetchBlogs(apiKey);
-  }, []);
+  }, [apiKey]);
 
   // Auto-generate slug from title
   const handleTitleChange = (val: string) => {
