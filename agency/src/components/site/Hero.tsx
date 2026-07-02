@@ -74,7 +74,7 @@ export const Hero = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
-        <source src="https://labs.google/fx/api/og-video/shared/57512328-33d9-49b3-b7c0-e5b401a78106" type="video/mp4" />
+          <source src="/videos/hero.mp4" type="video/mp4" />
       </video>
 
       {/* Subtle gradient overlay */}

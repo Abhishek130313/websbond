@@ -78,7 +78,7 @@ export const ContactPage = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="https://labs.google/fx/api/og-video/shared/cae9b9bb-a28d-4eb4-8d3e-a97411f24f80" type="video/mp4" />
+          <source src="/videos/contact.mp4" type="video/mp4" />
         </video>
 
         <div className="absolute inset-0 bg-gradient-to-r from-[#030305]/55 via-[#030305]/25 to-transparent" />

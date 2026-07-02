@@ -64,7 +64,7 @@ export const AboutPage = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="https://labs.google/fx/api/og-video/shared/5cbab45a-bd01-42fc-ae35-97b96e05ccdd" type="video/mp4" />
+          <source src="/videos/about.mp4" type="video/mp4" />
         </video>
 
         {/* Subtle gradient overlay */}
