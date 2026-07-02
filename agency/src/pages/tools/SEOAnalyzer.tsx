@@ -63,34 +63,21 @@ export const SEOAnalyzerPage = () => {
     setAnalyzing(true);
     setScanResult(null);
 
-    // Fallback Mock Data in case of API failure (rate limits, timeouts)
-    const fallbackMockResult = {
-      score: 74,
-      passed: [
-        { title: "SSL Certificate (HTTPS) Secure", description: "Security configurations check passed. Encrypted channels active." },
-        { title: "Robots.txt & XML Sitemaps Setup", description: "Search bots can crawl files successfully. Standard map present." },
-        { title: "Heading Hierarchy Structure", description: "HTML structure contains properly nested h1, h2, h3 tags elements." },
-        { title: "Friendly URLs Format", description: "URLs contain readable folder slugs. Clean directory path mapping." }
-      ],
-      warnings: [
-        { title: "Missing Alt Tags on Images", description: "Several images do not contain alternative text tags, causing accessibility flags." },
-        { title: "Page Speed Performance (2.9s)", description: "Time-to-first-byte exceeds recommended limits. Heavy assets blocking scripts." },
-        { title: "Meta Description Too Long", description: "Meta description exceeds 160 characters limit, leading to search truncation." }
-      ]
-    };
-
     try {
       // Call Real Google PageSpeed Insights API
       const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(targetUrl)}&category=SEO&category=PERFORMANCE`;
       
-      // Add a 15-second timeout to the fetch request
+      // Add a 30-second timeout to the fetch request as real scans take time
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 15000);
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
       
       const response = await fetch(apiUrl, { signal: controller.signal });
       clearTimeout(timeoutId);
 
       if (!response.ok) {
+        if (response.status === 429) {
+          throw new Error("RATE_LIMIT");
+        }
         const errData = await response.json().catch(() => null);
         throw new Error(errData?.error?.message || "Failed to scan website.");
       }
@@ -132,10 +119,24 @@ export const SEOAnalyzerPage = () => {
       } else {
         throw new Error("Invalid response format from Google API");
       }
-    } catch (err) {
-      console.warn("Real API failed, using fallback data. Error:", err);
-      // Seamlessly fallback to the mock data so the lead generation tool never looks broken!
-      setScanResult(fallbackMockResult);
+    } catch (err: any) {
+      console.error("API Error:", err);
+      
+      if (err.message === "RATE_LIMIT" || err.name === "AbortError") {
+         toast({ 
+           title: "Google Rate Limit Reached", 
+           description: "Google's free API is currently overwhelmed with requests. Please try again in 5 minutes.", 
+           variant: "destructive" 
+         });
+      } else {
+         toast({ 
+           title: "Analysis Failed", 
+           description: "Could not analyze the URL. Please check if the website is accessible and try again.", 
+           variant: "destructive" 
+         });
+      }
+      setAnalyzing(false);
+      return;
     }
 
     setAnalyzing(false);
