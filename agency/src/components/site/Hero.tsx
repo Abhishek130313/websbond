@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, TrendingUp, Zap, Shield, BarChart3, CheckCircle2 } from "lucide-react";
+import { ArrowRight, TrendingUp, Zap, Shield, BarChart3, CheckCircle2, User, Phone, Mail, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { getApiUrl } from "@/lib/api";
 import { toast } from "@/hooks/use-toast";
@@ -12,6 +12,7 @@ export const Hero = () => {
     service: "Website Design",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [focused, setFocused] = useState<string | null>(null);
 
   const SERVICES = [
     "Website Design",
@@ -53,10 +54,13 @@ export const Hero = () => {
       setFormData({ name: "", phone: "", email: "", service: "Website Design" });
     } catch {
       toast({
-        title: "Submission failed",
-        description: "Please try again or contact us on WhatsApp.",
-        variant: "destructive",
+        title: "Server Unavailable",
+        description: "Redirecting to WhatsApp...",
       });
+      const waMsg = encodeURIComponent(
+        `Hi Websbond! I need a strategy call.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nService: ${formData.service}`
+      );
+      window.open(`https://wa.me/919306623619?text=${waMsg}`, "_blank");
     } finally {
       setIsSubmitting(false);
     }
@@ -77,16 +81,12 @@ export const Hero = () => {
           <source src="/videos/hero.mp4" type="video/mp4" />
       </video>
 
-      {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#030305]/55 via-[#030305]/25 to-transparent z-0" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/30 via-transparent to-transparent z-0" />
 
-      {/* Premium warm + cool accent glows — Indian premium aesthetic */}
       <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-amber-500/8 blur-[150px] pointer-events-none z-0" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-indigo-500/12 blur-[120px] pointer-events-none z-0" />
       <div className="absolute top-1/2 right-1/3 w-[300px] h-[300px] rounded-full bg-rose-500/5 blur-[100px] pointer-events-none z-0" />
-
-
 
       <div className="max-w-7xl w-full mx-auto px-6 md:px-8 relative z-10 pt-36 lg:pt-44 pb-24">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -146,63 +146,101 @@ export const Hero = () => {
             </div>
           </div>
 
-          {/* ── Right Column: Lead Form ── */}
+          {/* ── Right Column: Premium Lead Form ── */}
           <div className="lg:col-span-5 hidden lg:flex items-start justify-center hero-fu-1 lg:sticky lg:top-32">
-            <div className="relative w-full max-w-[400px]">
-              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/15 to-cyan-500/15 rounded-[2.5rem] blur-2xl" />
+            <div className="relative w-full max-w-[420px]">
+              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/15 to-cyan-500/15 rounded-[2.5rem] blur-2xl animate-glow" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/5 via-cyan-500/5 to-purple-500/5 rounded-[2rem] blur-3xl" />
 
-              <div className="relative bg-[#09090b]/90 border border-white/[0.08] backdrop-blur-3xl rounded-[2rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
-                <div className="px-6 py-5 border-b border-white/[0.04]">
-                  <div className="flex items-center gap-2 mb-1">
-                    <CheckCircle2 className="w-4 h-4 text-amber-400" />
-                    <span className="text-sm font-bold text-white">Free Strategy Session</span>
+              <div className="relative bg-[#09090b]/95 border border-white/[0.06] backdrop-blur-3xl rounded-[2rem] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.7)]">
+                {/* Header */}
+                <div className="px-6 py-5 border-b border-white/[0.03] bg-gradient-to-r from-white/[0.02] to-transparent">
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="relative">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
+                        <MessageCircle className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-[#09090b]" />
+                    </div>
+                    <div>
+                      <span className="text-sm font-bold text-white">Free Strategy Session</span>
+                      <p className="text-[10px] text-zinc-500">Get a custom growth roadmap — no obligation.</p>
+                    </div>
                   </div>
-                  <p className="text-[11px] text-zinc-500">Get a custom growth roadmap — no obligation.</p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="p-6 space-y-3.5">
-                  <div>
-                    <label className="text-[10px] text-zinc-500 font-semibold uppercase tracking-wider mb-1 block">Full Name</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Your name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-[#18181b] border border-white/[0.06] rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50 focus:ring-2 focus:ring-indigo-500/20 transition-all"
-                    />
+                  {/* Name */}
+                  <div className="relative">
+                    <label className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "name" ? "text-amber-400" : "text-zinc-500"}`}>
+                      Full Name
+                    </label>
+                    <div className="relative">
+                      <User className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors duration-300 ${focused === "name" ? "text-amber-400" : "text-zinc-600"}`} />
+                      <input
+                        type="text"
+                        required
+                        placeholder="Your name"
+                        value={formData.name}
+                        onFocus={() => setFocused("name")}
+                        onBlur={() => setFocused(null)}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full bg-[#18181b] border border-white/[0.06] rounded-xl pl-9 pr-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
+                      />
+                    </div>
                   </div>
 
-                  <div>
-                    <label className="text-[10px] text-zinc-500 font-semibold uppercase tracking-wider mb-1 block">Phone Number</label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="+91 XXXXX XXXXX"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-[#18181b] border border-white/[0.06] rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50 focus:ring-2 focus:ring-indigo-500/20 transition-all"
-                    />
+                  {/* Phone */}
+                  <div className="relative">
+                    <label className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "phone" ? "text-amber-400" : "text-zinc-500"}`}>
+                      Phone Number
+                    </label>
+                    <div className="relative">
+                      <Phone className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors duration-300 ${focused === "phone" ? "text-amber-400" : "text-zinc-600"}`} />
+                      <input
+                        type="tel"
+                        required
+                        placeholder="+91 XXXXX XXXXX"
+                        value={formData.phone}
+                        onFocus={() => setFocused("phone")}
+                        onBlur={() => setFocused(null)}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full bg-[#18181b] border border-white/[0.06] rounded-xl pl-9 pr-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
+                      />
+                    </div>
                   </div>
 
-                  <div>
-                    <label className="text-[10px] text-zinc-500 font-semibold uppercase tracking-wider mb-1 block">Email Address</label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="name@company.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-[#18181b] border border-white/[0.06] rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50 focus:ring-2 focus:ring-indigo-500/20 transition-all"
-                    />
+                  {/* Email */}
+                  <div className="relative">
+                    <label className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "email" ? "text-amber-400" : "text-zinc-500"}`}>
+                      Email Address
+                    </label>
+                    <div className="relative">
+                      <Mail className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors duration-300 ${focused === "email" ? "text-amber-400" : "text-zinc-600"}`} />
+                      <input
+                        type="email"
+                        required
+                        placeholder="name@company.com"
+                        value={formData.email}
+                        onFocus={() => setFocused("email")}
+                        onBlur={() => setFocused(null)}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full bg-[#18181b] border border-white/[0.06] rounded-xl pl-9 pr-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
+                      />
+                    </div>
                   </div>
 
-                  <div>
-                    <label className="text-[10px] text-zinc-500 font-semibold uppercase tracking-wider mb-1 block">I'm interested in</label>
+                  {/* Service */}
+                  <div className="relative">
+                    <label className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "service" ? "text-amber-400" : "text-zinc-500"}`}>
+                      I'm interested in
+                    </label>
                     <select
                       value={formData.service}
+                      onFocus={() => setFocused("service")}
+                      onBlur={() => setFocused(null)}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full bg-[#18181b] border border-white/[0.06] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500/50 focus:ring-2 focus:ring-indigo-500/20 transition-all"
+                      className="w-full bg-[#18181b] border border-white/[0.06] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
                     >
                       {SERVICES.map((srv) => (
                         <option key={srv} value={srv} className="bg-zinc-900 text-white">{srv}</option>
@@ -213,13 +251,30 @@ export const Hero = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-amber-500 to-orange-600 py-3.5 px-6 rounded-xl text-white font-bold flex items-center justify-center gap-2 group transition-all duration-300 disabled:opacity-50 hover:brightness-110 shadow-lg shadow-amber-500/20 text-sm mt-1"
+                    className="w-full bg-gradient-to-r from-amber-500 to-orange-600 py-3.5 px-6 rounded-xl text-white font-bold flex items-center justify-center gap-2 group transition-all duration-300 disabled:opacity-60 hover:brightness-110 hover:shadow-lg hover:shadow-amber-500/25 active:scale-[0.98] text-sm mt-1 relative overflow-hidden"
                   >
-                    {isSubmitting ? "Submitting..." : "Claim Your Free Session"}
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                    {isSubmitting ? (
+                      <>
+                        <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        Claim Your Free Session
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </>
+                    )}
                   </button>
 
-                  <p className="text-[10px] text-zinc-600 text-center pt-1">✓ No spam. Response within 24 hours.</p>
+                  <div className="flex items-center justify-center gap-3 text-[10px] text-zinc-600 pt-1">
+                    <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-green-500/60" /> No spam</span>
+                    <span className="w-1 h-1 rounded-full bg-zinc-700" />
+                    <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-green-500/60" /> Response within 24h</span>
+                  </div>
                 </form>
               </div>
             </div>
