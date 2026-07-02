@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { ArrowRight, Sparkles, CheckCircle2, TrendingUp, Monitor } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
 import heroBg from "@/assets/bg_home_1782999734318.png";
 import { Link } from "react-router-dom";
 
@@ -28,7 +28,7 @@ export const Hero = () => {
       id="hero"
       ref={sectionRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen lg:h-screen lg:max-h-[1080px] w-full flex items-center justify-center overflow-hidden pt-36 pb-20 hero-image-overlay select-none"
+      className="relative min-h-screen lg:h-screen lg:max-h-[1080px] w-full flex items-center justify-center overflow-hidden pt-44 pb-24 lg:pt-48 hero-image-overlay select-none"
       style={{ backgroundImage: `url(${heroBg})` }}
     >
       {/* Dynamic Cursor Spotlight Glow */}
@@ -45,11 +45,11 @@ export const Hero = () => {
       <div className="absolute top-1/4 left-1/3 w-[550px] h-[550px] rounded-full opacity-10 bg-gradient-to-tr from-cyan-500 to-indigo-500 blur-[120px] pointer-events-none animate-[pulse_10s_infinite] will-change-transform" />
       <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] rounded-full opacity-10 bg-gradient-to-bl from-purple-500 to-pink-500 blur-[100px] pointer-events-none animate-[pulse_12s_infinite] will-change-transform" />
 
-      {/* Main Container */}
-      <div className="container relative z-20 mx-auto px-6 md:px-12 lg:px-16 h-full flex items-center">
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center w-full">
+      {/* Standardized Layout Grid */}
+      <div className="max-w-7xl w-full mx-auto px-6 md:px-8 relative z-20 h-full flex items-center">
+        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start w-full">
           
-          {/* ── Left Column: Value Proposition & Copywriting ── */}
+          {/* ── Left Column: Value Proposition & Spacing Rhythm ── */}
           <div className="lg:col-span-7 flex flex-col items-start text-left z-20 py-2 animate-in fade-in slide-in-from-bottom-8 duration-700">
             
             {/* Top Brand Badge */}
@@ -58,30 +58,25 @@ export const Hero = () => {
               <span>✨ Built for Ambitious Businesses</span>
             </div>
 
-            {/* Brand tagline */}
-            <p className="text-cyan-400 font-semibold text-xs md:text-sm uppercase tracking-widest mb-4 animate-[pulse_4s_infinite]">
-              ✦ Turning ambitious ideas into unforgettable digital experiences
-            </p>
-
             {/* H1 Heading */}
             <h1
-              className="font-extrabold text-white mb-6 leading-[0.98] tracking-[-0.04em] text-left drop-shadow-xl font-jost"
+              className="font-extrabold text-white mb-7 leading-[0.98] tracking-[-0.04em] text-left drop-shadow-xl font-jost"
               style={{ fontSize: "clamp(42px, 5.8vw, 76px)", maxWidth: "620px" }}
             >
               Build Digital <br />
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl font-jost">
                 Experiences
               </span> <br />
               That Drive Revenue.
             </h1>
 
-            {/* Subtext */}
+            {/* Subtext Description */}
             <p className="text-zinc-300 text-base md:text-[17px] leading-relaxed mb-6 max-w-xl font-normal drop-shadow-md">
               We design premium digital products that help ambitious businesses grow faster, convert better, and stand out in competitive markets.
             </p>
 
             {/* Service Chips */}
-            <div className="flex flex-wrap gap-2 mb-8 max-w-xl">
+            <div className="flex flex-wrap gap-2 mb-7 max-w-xl">
               {["Web Design", "Development", "Branding", "SEO", "AI Automation"].map((chip) => (
                 <span
                   key={chip}
@@ -92,8 +87,8 @@ export const Hero = () => {
               ))}
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-4">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-5">
               <button
                 onClick={handleStartProject}
                 className="btn-primary py-4 px-8 text-white font-bold flex items-center justify-center gap-2 group shadow-xl shadow-indigo-500/10 hover:shadow-indigo-500/20 hover:-translate-y-0.5 transition-all duration-300 rounded-xl"
@@ -111,7 +106,7 @@ export const Hero = () => {
             </div>
 
             {/* Friction Ticks & Trust info */}
-            <div className="flex flex-col space-y-3 mt-4 w-full max-w-xl border-t border-white/5 pt-5">
+            <div className="flex flex-col space-y-3 mb-6 w-full max-w-xl">
               <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-zinc-500 font-medium">
                 <span>✓ Free 30-Min Strategy Session</span>
                 <span className="hidden sm:inline">•</span>
@@ -124,8 +119,8 @@ export const Hero = () => {
               </p>
             </div>
 
-            {/* Why Choose WebsBond Trust Badges */}
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-bold text-zinc-500 mt-5 w-full max-w-xl">
+            {/* Why Choose Badges */}
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-bold text-zinc-500 w-full max-w-xl">
               <span className="flex items-center gap-1.5 hover:text-white transition-colors">⚡ Lightning Fast</span>
               <span className="flex items-center gap-1.5 hover:text-white transition-colors">🔒 Secure</span>
               <span className="flex items-center gap-1.5 hover:text-white transition-colors">📱 Mobile First</span>
@@ -135,8 +130,8 @@ export const Hero = () => {
 
           </div>
 
-          {/* ── Right Column: Digital Growth Dashboard (Shrunk & Spaced Out) ── */}
-          <div className="lg:col-span-5 hidden lg:flex items-center justify-center z-20 w-full animate-in fade-in slide-in-from-right-8 duration-800 delay-200 fill-mode-both">
+          {/* ── Right Column: Digital Growth Dashboard (Aligned Lower) ── */}
+          <div className="lg:col-span-5 hidden lg:flex items-center justify-center z-20 w-full animate-in fade-in slide-in-from-right-8 duration-800 delay-200 fill-mode-both lg:mt-12">
             <div className="relative w-full max-w-[430px] lg:ml-auto transition-transform duration-300 hover:scale-[1.02] hover:-rotate-1 will-change-transform group">
               
               {/* Soft layered background glow */}
@@ -265,9 +260,9 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Built With Stack partner logos — Pinned to the very bottom edge */}
+      {/* Built With Stack partner logos — Pinned to the absolute bottom */}
       <div className="absolute bottom-6 left-0 right-0 z-20 hidden lg:block">
-        <div className="container mx-auto px-16">
+        <div className="max-w-7xl mx-auto px-8">
           <div className="flex items-center gap-6 opacity-25 select-none hover:opacity-40 transition-opacity duration-300">
             <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-black shrink-0">Technologies We Use:</span>
             <div className="flex gap-8 text-white font-bold text-xs tracking-wider">
