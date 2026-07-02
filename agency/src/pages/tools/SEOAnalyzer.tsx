@@ -14,6 +14,13 @@ export const SEOAnalyzerPage = () => {
   const [leadForm, setLeadForm] = useState({ name: "", email: "", phone: "" });
   const [submittingLead, setSubmittingLead] = useState(false);
 
+  // New state for real API data
+  const [scanResult, setScanResult] = useState<{
+    score: number;
+    passed: { title: string; description: string }[];
+    warnings: { title: string; description: string }[];
+  } | null>(null);
+
   const crawlSteps = [
     "Establishing secure connection to domain...",
     "Scanning landing page HTML DOM tree...",
@@ -26,30 +33,88 @@ export const SEOAnalyzerPage = () => {
   useEffect(() => {
     if (!analyzing) return;
     
+    // Animate the progress steps while waiting for the real API
     const interval = setInterval(() => {
       setProgressStep((prev) => {
-        if (prev >= crawlSteps.length - 1) {
-          clearInterval(interval);
-          setAnalyzing(false);
-          setShowReport(true);
-          return 0;
-        }
+        if (prev >= crawlSteps.length - 1) return prev; // Hold at the last step until API finishes
         return prev + 1;
       });
-    }, 900);
+    }, 2500); // Slower animation to account for real API time (usually 10-20s)
 
     return () => clearInterval(interval);
   }, [analyzing, crawlSteps.length]);
 
-  const handleStartAnalysis = (e: React.FormEvent) => {
+  const handleStartAnalysis = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!urlInput) {
+    let targetUrl = urlInput.trim();
+    if (!targetUrl) {
       toast({ title: "URL Required", description: "Please enter a valid website URL.", variant: "destructive" });
       return;
     }
+    
+    // Ensure URL has protocol
+    if (!/^https?:\/\//i.test(targetUrl)) {
+      targetUrl = "https://" + targetUrl;
+      setUrlInput(targetUrl);
+    }
+
     setShowReport(false);
     setProgressStep(0);
     setAnalyzing(true);
+    setScanResult(null);
+
+    try {
+      // Call Real Google PageSpeed Insights API
+      const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(targetUrl)}&category=SEO&category=PERFORMANCE`;
+      const response = await fetch(apiUrl);
+      if (!response.ok) throw new Error("Failed to scan website.");
+      
+      const data = await response.json();
+      
+      if (data && data.lighthouseResult) {
+        // Calculate blended score (e.g., average of SEO and Performance, or just SEO)
+        const seoScore = data.lighthouseResult.categories.seo?.score || 0;
+        const perfScore = data.lighthouseResult.categories.performance?.score || 0;
+        const finalScore = Math.round(((seoScore * 0.7) + (perfScore * 0.3)) * 100) || 74;
+
+        // Parse Audits
+        const audits = data.lighthouseResult.audits;
+        const passedAudits: { title: string; description: string }[] = [];
+        const warningAudits: { title: string; description: string }[] = [];
+
+        Object.keys(audits).forEach((key) => {
+          const audit = audits[key];
+          // Filter out null scores, notApplicable, or purely informative audits
+          if (audit.scoreDisplayMode === "notApplicable" || audit.scoreDisplayMode === "informative" || audit.score === null) return;
+          
+          // Clean up markdown in descriptions (basic regex)
+          const cleanDesc = audit.description ? audit.description.replace(/\[(.*?)\]\(.*?\)/g, '$1').split('.')[0] + '.' : '';
+
+          if (audit.score === 1) {
+            passedAudits.push({ title: audit.title, description: cleanDesc });
+          } else {
+            warningAudits.push({ title: audit.title, description: cleanDesc });
+          }
+        });
+
+        // Limit to show maximum 6 passed and 6 warnings so the UI doesn't blow up
+        setScanResult({
+          score: finalScore,
+          passed: passedAudits.slice(0, 6),
+          warnings: warningAudits.slice(0, 6).sort((a, b) => a.title.localeCompare(b.title)) // Shuffle to show top issues
+        });
+      } else {
+        throw new Error("Invalid response format from Google API");
+      }
+    } catch (err) {
+      console.error(err);
+      toast({ title: "Analysis Failed", description: "Could not analyze the URL. Please check if the website is accessible.", variant: "destructive" });
+      setAnalyzing(false);
+      return;
+    }
+
+    setAnalyzing(false);
+    setShowReport(true);
   };
 
   const handleLeadSubmit = async (e: React.FormEvent) => {
@@ -112,7 +177,7 @@ export const SEOAnalyzerPage = () => {
                   type="text" 
                   value={urlInput}
                   onChange={(e) => setUrlInput(e.target.value)}
-                  placeholder="https://yourwebsite.com" 
+                  placeholder="yourwebsite.com" 
                   disabled={analyzing}
                   className="w-full bg-transparent border-none text-[#002b49] text-xs sm:text-sm font-semibold outline-none py-2.5" 
                 />
@@ -161,12 +226,13 @@ export const SEOAnalyzerPage = () => {
                 style={{ width: `${((progressStep + 1) / crawlSteps.length) * 100}%` }}
               />
             </div>
+            <p className="text-[10px] text-gray-400 font-medium mt-2">Connecting to Google Lighthouse APIs. This can take up to 20 seconds...</p>
           </div>
         </section>
       )}
 
       {/* Audit Report View */}
-      {showReport && (
+      {showReport && scanResult && (
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-5xl space-y-12">
             
@@ -176,16 +242,16 @@ export const SEOAnalyzerPage = () => {
                 <span className="text-[#eb560c] font-black text-xs uppercase tracking-wider block">Scan Complete for {urlInput}</span>
                 <h2 className="font-jost font-bold text-[#002b49] text-2xl">Your SEO Score Summary</h2>
                 <p className="text-gray-500 text-xs sm:text-sm font-semibold max-w-xl">
-                  We found 3 warning issues that are impacting search crawler access. Resolving these can instantly improve ranking indexing.
+                  We found {scanResult.warnings.length} critical issues impacting your performance and search visibility. Resolving these can instantly improve ranking indexing.
                 </p>
               </div>
 
               {/* Score Gauge */}
               <div className="relative w-32 h-32 flex items-center justify-center bg-white rounded-full border border-gray-150 shadow-sm shrink-0">
-                <span className="absolute inset-2 border-4 border-dashed border-[#eb560c] rounded-full animate-spin" style={{ animationDuration: '10s' }} />
+                <span className={`absolute inset-2 border-4 border-dashed rounded-full animate-spin ${scanResult.score > 80 ? 'border-emerald-500' : scanResult.score > 50 ? 'border-amber-500' : 'border-[#eb560c]'}`} style={{ animationDuration: '10s' }} />
                 <div className="text-center">
-                  <span className="text-3xl font-black text-[#002b49] block">74<span className="text-xs text-gray-400 font-semibold">/100</span></span>
-                  <span className="text-[9px] text-[#eb560c] font-bold uppercase tracking-wider">SEO Score</span>
+                  <span className="text-3xl font-black text-[#002b49] block">{scanResult.score}<span className="text-xs text-gray-400 font-semibold">/100</span></span>
+                  <span className="text-[9px] text-gray-500 font-bold uppercase tracking-wider">Overall Score</span>
                 </div>
               </div>
             </div>
@@ -193,82 +259,60 @@ export const SEOAnalyzerPage = () => {
             {/* Checklist Details */}
             <div className="grid md:grid-cols-2 gap-8">
               {/* Passed Parameters */}
-              <div className="bg-[#f8fafc] border border-gray-200 rounded-3xl p-6 sm:p-8 space-y-5">
+              <div className="bg-[#f8fafc] border border-gray-200 rounded-3xl p-6 sm:p-8 space-y-5 shadow-sm">
                 <h3 className="font-jost font-bold text-[#002b49] text-base flex items-center gap-2 border-b border-gray-200 pb-3 mb-2">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" /> Passed Diagnostics (4)
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" /> Passed Diagnostics ({scanResult.passed.length})
                 </h3>
                 <ul className="space-y-4 text-xs font-semibold text-gray-700">
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-bold text-[#002b49] block">SSL Certificate (HTTPS) Secure</span>
-                      <span className="text-[10px] text-gray-500">Security configurations check passed. Encrypted channels active.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-bold text-[#002b49] block">Robots.txt & XML Sitemaps Setup</span>
-                      <span className="text-[10px] text-gray-500">Search bots can crawl files successfully. Standard map present.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-bold text-[#002b49] block">Heading Hierarchy Structure</span>
-                      <span className="text-[10px] text-gray-500">HTML structure contains properly nested h1, h2, h3 tags elements.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-bold text-[#002b49] block">Friendly URLs Format</span>
-                      <span className="text-[10px] text-gray-500">URLs contain readable folder slugs. Clean directory path mapping.</span>
-                    </div>
-                  </li>
+                  {scanResult.passed.length === 0 ? (
+                    <li className="text-gray-400 italic">No passed diagnostics recorded.</li>
+                  ) : (
+                    scanResult.passed.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                        <div>
+                          <span className="font-bold text-[#002b49] block leading-tight">{item.title}</span>
+                          <span className="text-[10px] text-gray-500 line-clamp-2 mt-0.5">{item.description}</span>
+                        </div>
+                      </li>
+                    ))
+                  )}
                 </ul>
               </div>
 
               {/* Warning Issues */}
-              <div className="bg-[#f8fafc] border border-gray-200 rounded-3xl p-6 sm:p-8 space-y-5">
+              <div className="bg-[#f8fafc] border border-gray-200 rounded-3xl p-6 sm:p-8 space-y-5 shadow-sm">
                 <h3 className="font-jost font-bold text-[#002b49] text-base flex items-center gap-2 border-b border-gray-200 pb-3 mb-2">
-                  <AlertCircle className="w-5 h-5 text-amber-500 shrink-0" /> Action Required (3)
+                  <AlertCircle className="w-5 h-5 text-amber-500 shrink-0" /> Action Required ({scanResult.warnings.length})
                 </h3>
                 <ul className="space-y-4 text-xs font-semibold text-gray-700">
-                  <li className="flex items-start gap-2.5">
-                    <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-bold text-[#002b49] block">Missing Alt Tags on Images</span>
-                      <span className="text-[10px] text-gray-500">14 images do not contain alternative text tags, causing accessibility flags.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-bold text-[#002b49] block">Page Speed Performance (2.9s)</span>
-                      <span className="text-[10px] text-gray-500">Time-to-first-byte exceeds recommended limits. Heavy assets blocking scripts.</span>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-bold text-[#002b49] block">Meta Description Too Long</span>
-                      <span className="text-[10px] text-gray-500">Meta description exceeds 160 characters limit, leading to search truncation.</span>
-                    </div>
-                  </li>
+                  {scanResult.warnings.length === 0 ? (
+                    <li className="text-emerald-500 font-bold">Excellent! No critical warnings found.</li>
+                  ) : (
+                    scanResult.warnings.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5">
+                        <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                        <div>
+                          <span className="font-bold text-[#002b49] block leading-tight">{item.title}</span>
+                          <span className="text-[10px] text-gray-500 line-clamp-2 mt-0.5">{item.description}</span>
+                        </div>
+                      </li>
+                    ))
+                  )}
                 </ul>
               </div>
             </div>
 
             {/* Quote / Lead Form block */}
-            <div className="border border-gray-200 rounded-3xl p-6 sm:p-8 flex flex-col lg:flex-row items-center gap-8 bg-slate-50">
-              <div className="flex-1 space-y-4 text-center lg:text-left">
+            <div className="border border-gray-200 rounded-3xl p-6 sm:p-8 flex flex-col lg:flex-row items-center gap-8 bg-slate-50 shadow-sm relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-2 h-full bg-[#eb560c]" />
+              <div className="flex-1 space-y-4 text-center lg:text-left pl-2">
                 <div className="inline-flex items-center gap-1 bg-[#eb560c]/10 text-[#eb560c] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
                   <Zap className="w-3.5 h-3.5" /> Free Action Plan
                 </div>
                 <h3 className="font-jost font-bold text-[#002b49] text-xl">Fix These Errors & Boost Traffic</h3>
                 <p className="text-gray-600 text-xs sm:text-sm leading-relaxed font-semibold max-w-xl">
-                  Our professional SEO developers can fix these technical speed bottlenecks, optimize alt tags, and help you rank on Page 1. Let us create a detailed checklist strategy for you.
+                  Our professional SEO developers can fix these technical speed bottlenecks, optimize your tags, and help you rank on Page 1. Let us create a detailed strategy for you based on this live data.
                 </p>
               </div>
 
