@@ -86,6 +86,7 @@ const PARTNERS = [
 const CERT_GRID = [
   {
     name: "Google Partner",
+    bgImg: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=400&auto=format&fit=crop&q=80",
     icon: (
       <div className="flex items-center gap-1.5">
         <div className="relative" style={{ perspective: "200px" }}>
@@ -101,6 +102,7 @@ const CERT_GRID = [
   },
   {
     name: "Microsoft Certified",
+    bgImg: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&auto=format&fit=crop&q=80",
     icon: (
       <div className="flex items-center gap-1.5">
         <div style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.1))" }}>
@@ -119,6 +121,7 @@ const CERT_GRID = [
   },
   {
     name: "Clutch Top Agency",
+    bgImg: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&auto=format&fit=crop&q=80",
     icon: (
       <div className="flex items-center gap-1.5">
         <div style={{ filter: "drop-shadow(0 1px 4px rgba(255,59,48,0.2))" }}>
@@ -135,6 +138,7 @@ const CERT_GRID = [
   },
   {
     name: "Meta Business Partner",
+    bgImg: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&auto=format&fit=crop&q=80",
     icon: (
       <div className="flex items-center gap-1.5">
         <div style={{ filter: "drop-shadow(0 1px 4px rgba(24,119,242,0.2))" }}>
@@ -213,7 +217,7 @@ export const Process = () => (
           {CERT_GRID.map((cert) => (
             <div
               key={cert.name}
-              className="group relative bg-white rounded-2xl border border-zinc-100 p-6 transition-all duration-500 hover:shadow-[0_20px_60px_-10px_rgba(99,102,241,0.15)] hover:border-indigo-200/50"
+              className="group relative bg-white rounded-2xl border border-zinc-100 p-6 transition-all duration-500 hover:shadow-[0_20px_60px_-10px_rgba(99,102,241,0.15)] hover:border-indigo-200/50 overflow-hidden"
               style={{
                 transform: "perspective(800px) rotateX(0deg) translateZ(0px)",
                 transition: "transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.3s ease",
@@ -225,13 +229,24 @@ export const Process = () => (
                 e.currentTarget.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0px) translateZ(0px)";
               }}
             >
+              {/* Background Image */}
+              <div
+                className="absolute inset-0 rounded-2xl opacity-[0.06] group-hover:opacity-[0.1] transition-opacity duration-700"
+                style={{
+                  backgroundImage: `url(${cert.bgImg})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              />
+              {/* Overlay gradient to keep text fully readable */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/95 via-white/90 to-white/80" />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative">
+              <div className="relative z-10">
                 <div className="mb-3">{cert.icon}</div>
                 <h3 className="text-sm font-bold text-zinc-800 mb-1">{cert.name}</h3>
                 <p className="text-xs text-zinc-400 leading-relaxed">{cert.desc}</p>
               </div>
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-indigo-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-indigo-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-20" />
             </div>
           ))}
         </div>
