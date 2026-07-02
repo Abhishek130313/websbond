@@ -28,7 +28,7 @@ export const Hero = () => {
       id="hero"
       ref={sectionRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen w-full flex items-start justify-center overflow-hidden pt-36 pb-24 hero-image-overlay select-none"
+      className="relative min-h-screen w-full flex items-start justify-center overflow-hidden pt-48 lg:pt-56 pb-24 hero-image-overlay select-none"
       style={{ backgroundImage: `url(${heroBg})` }}
     >
       {/* Dynamic Cursor Spotlight Glow */}
@@ -46,7 +46,7 @@ export const Hero = () => {
       <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] rounded-full opacity-10 bg-gradient-to-bl from-purple-500 to-pink-500 blur-[100px] pointer-events-none animate-[pulse_12s_infinite] will-change-transform" />
 
       {/* Standardized Layout Grid */}
-      <div className="max-w-7xl w-full mx-auto px-6 md:px-8 relative z-20 pt-16 lg:pt-24">
+      <div className="max-w-7xl w-full mx-auto px-6 md:px-8 relative z-20 pt-20 lg:pt-28">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start w-full">
           
           {/* ── Left Column: Value Proposition & Spacing Rhythm ── */}
