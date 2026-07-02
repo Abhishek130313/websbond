@@ -104,7 +104,7 @@ export const Navbar = ({
       >
         <div className={scrolled ? "flex items-center justify-between gap-4 w-full" : "container flex items-center justify-between gap-4"}>
           {/* Logo */}
-          <Logo light={scrolled} size="md" />
+          <Logo light={scrolled} size={scrolled ? "sm" : "md"} />
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
