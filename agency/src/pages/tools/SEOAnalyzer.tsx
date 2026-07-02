@@ -65,7 +65,6 @@ export const SEOAnalyzerPage = () => {
     setScanResult(null);
 
     try {
-    try {
       const targetEncoded = encodeURIComponent(targetUrl);
       const apiUrl = getApiUrl(`/api/seo/audit?url=${targetEncoded}`);
       
