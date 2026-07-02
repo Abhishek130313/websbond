@@ -20,20 +20,29 @@ interface FormPayload {
 export const submitContactForm = async (data: FormPayload) => {
   const apiUrl = getApiUrl("/api/contact");
 
-  const res = await fetch(apiUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-
-  if (!res.ok) {
-    // Try PHP fallback
-    const fallbackRes = await fetch(CONTACT_FALLBACK_URL, {
+  let primaryOk = false;
+  try {
+    const res = await fetch(apiUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
+      signal: AbortSignal.timeout(10000),
     });
-    if (!fallbackRes.ok) {
+    primaryOk = res.ok;
+  } catch {
+    primaryOk = false;
+  }
+
+  if (!primaryOk) {
+    try {
+      const fallbackRes = await fetch(CONTACT_FALLBACK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+        signal: AbortSignal.timeout(10000),
+      });
+      if (!fallbackRes.ok) throw new Error("Fallback failed");
+    } catch {
       throw new Error("All endpoints failed");
     }
   }

@@ -4,46 +4,46 @@ import { useEffect, useRef, useState } from "react";
 
 const googleSvg = (
   <svg viewBox="0 0 48 48" className="w-10 h-10">
-    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
-    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
-    <path fill="#FBBC05" d="M10.53 28.59A14.5 14.5 0 0 1 9.5 24c0-1.59.28-3.14.76-4.59l-7.98-6.19A23.99 23.99 0 0 0 0 24c0 3.77.87 7.35 2.56 10.78l7.97-6.19z" />
-    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+    <path fill="#C5221F" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+    <path fill="#1967D2" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+    <path fill="#F9AB00" d="M10.53 28.59A14.5 14.5 0 0 1 9.5 24c0-1.59.28-3.14.76-4.59l-7.98-6.19A23.99 23.99 0 0 0 0 24c0 3.77.87 7.35 2.56 10.78l7.97-6.19z" />
+    <path fill="#137333" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
   </svg>
 );
 
 const microsoftSvg = (
   <svg viewBox="0 0 48 48" className="w-10 h-10">
-    <rect x="4" y="4" width="18" height="18" rx="2" fill="#F25022" />
-    <rect x="26" y="4" width="18" height="18" rx="2" fill="#7FBA00" />
-    <rect x="4" y="26" width="18" height="18" rx="2" fill="#00A4EF" />
-    <rect x="26" y="26" width="18" height="18" rx="2" fill="#FFB900" />
+    <rect x="4" y="4" width="18" height="18" rx="2" fill="#D43B1E" />
+    <rect x="26" y="4" width="18" height="18" rx="2" fill="#6B9E00" />
+    <rect x="4" y="26" width="18" height="18" rx="2" fill="#0086C7" />
+    <rect x="26" y="26" width="18" height="18" rx="2" fill="#DCA000" />
   </svg>
 );
 
 const metaSvg = (
   <svg viewBox="0 0 48 48" className="w-9 h-9">
-    <circle cx="24" cy="24" r="22" fill="#1877F2" />
+    <circle cx="24" cy="24" r="22" fill="#0E5FCC" />
     <path fill="#fff" d="M24 8c-8.84 0-16 7.16-16 16 0 7.55 5.2 13.86 12.2 15.63v-11.06h-3.67V24h3.67v-3.19c0-3.63 2.16-5.63 5.47-5.63 1.58 0 3.24.28 3.24.28v3.57h-1.83c-1.8 0-2.36 1.12-2.36 2.26V24h4.02l-.64 4.57H27.3v11.06C42.8 45.86 48 39.55 48 32c0-8.84-7.16-16-16-16h-4-4z" />
   </svg>
 );
 
 const clutchSvg = (
   <svg viewBox="0 0 48 48" className="w-9 h-9">
-    <rect x="2" y="2" width="44" height="44" rx="10" fill="#FF3B30" />
+    <rect x="2" y="2" width="44" height="44" rx="10" fill="#D62D20" />
     <text x="50%" y="53%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontSize="28" fontWeight="800" fontFamily="system-ui">C</text>
   </svg>
 );
 
 const hubspotSvg = (
   <svg viewBox="0 0 48 48" className="w-9 h-9">
-    <circle cx="24" cy="24" r="22" fill="#FF7A59" />
+    <circle cx="24" cy="24" r="22" fill="#D94F2E" />
     <path fill="#fff" d="M14 14h6v12l-3 2-3-2V14zm8 0h2c3 0 5 2 5 5s-2 5-5 5h-2v-2h2c1.66 0 3-1.34 3-3s-1.34-3-3-3h-2v-2zm10 0h2v10h4v2H32v-2h4v-10z" />
   </svg>
 );
 
 const semrushSvg = (
   <svg viewBox="0 0 48 48" className="w-9 h-9">
-    <rect x="2" y="2" width="44" height="44" rx="10" fill="#FF642D" />
+    <rect x="2" y="2" width="44" height="44" rx="10" fill="#CC4E1F" />
     <path fill="#fff" d="M14 18c0-6 4-10 10-10s10 4 10 10-4 10-10 10-10-4-10-10zm12 0c0-1.1-.9-2-2-2s-2 .9-2 2 .9 2 2 2 2-.9 2-2z" />
   </svg>
 );
@@ -63,72 +63,72 @@ const CERT_GRID = [
     bgImg: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=400&auto=format&fit=crop&q=80",
     icon: (
       <div className="flex items-center gap-1.5">
-        <div className="w-7 h-7 flex items-center justify-center" style={{ filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.15))" }}>
+        <div className="w-7 h-7 flex items-center justify-center bg-white rounded-lg shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
           <svg viewBox="0 0 48 48" className="w-full h-full">
-            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
-            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
-            <path fill="#FBBC05" d="M10.53 28.59A14.5 14.5 0 0 1 9.5 24c0-1.59.28-3.14.76-4.59l-7.98-6.19A23.99 23.99 0 0 0 0 24c0 3.77.87 7.35 2.56 10.78l7.97-6.19z" />
-            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+            <path fill="#C5221F" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+            <path fill="#1967D2" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+            <path fill="#F9AB00" d="M10.53 28.59A14.5 14.5 0 0 1 9.5 24c0-1.59.28-3.14.76-4.59l-7.98-6.19A23.99 23.99 0 0 0 0 24c0 3.77.87 7.35 2.56 10.78l7.97-6.19z" />
+            <path fill="#137333" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
           </svg>
         </div>
-        <span className="bg-[#4285F4]/10 text-[#4285F4] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#4285F4]/20" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.05)" }}>Partner</span>
+        <span className="bg-[#1967D2]/15 text-[#1967D2] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#1967D2]/25" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.05)" }}>Partner</span>
       </div>
     ),
     desc: "Google Ads certified partner delivering high-ROI campaigns.",
-    color: "#4285F4",
+    color: "#1967D2",
   },
   {
     name: "Microsoft Certified",
     bgImg: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&auto=format&fit=crop&q=80",
     icon: (
       <div className="flex items-center gap-1.5">
-        <div style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.1))" }}>
+        <div className="w-7 h-7 flex items-center justify-center bg-white rounded-lg shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
           <svg viewBox="0 0 48 48" className="w-7 h-7">
-            <rect x="4" y="4" width="18" height="18" rx="2" fill="#F25022" />
-            <rect x="26" y="4" width="18" height="18" rx="2" fill="#7FBA00" />
-            <rect x="4" y="26" width="18" height="18" rx="2" fill="#00A4EF" />
-            <rect x="26" y="26" width="18" height="18" rx="2" fill="#FFB900" />
+            <rect x="4" y="4" width="18" height="18" rx="2" fill="#D43B1E" />
+            <rect x="26" y="4" width="18" height="18" rx="2" fill="#6B9E00" />
+            <rect x="4" y="26" width="18" height="18" rx="2" fill="#0086C7" />
+            <rect x="26" y="26" width="18" height="18" rx="2" fill="#DCA000" />
           </svg>
         </div>
-        <span className="bg-[#00A4EF]/10 text-[#00A4EF] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#00A4EF]/20">Partner</span>
+        <span className="bg-[#0086C7]/15 text-[#0086C7] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#0086C7]/25">Partner</span>
       </div>
     ),
     desc: "Microsoft Certified Partner — Azure & enterprise solutions.",
-    color: "#00A4EF",
+    color: "#0086C7",
   },
   {
     name: "Clutch Top Agency",
     bgImg: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&auto=format&fit=crop&q=80",
     icon: (
       <div className="flex items-center gap-1.5">
-        <div style={{ filter: "drop-shadow(0 1px 4px rgba(255,59,48,0.2))" }}>
+        <div className="w-7 h-7 flex items-center justify-center bg-white rounded-lg shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
           <svg viewBox="0 0 48 48" className="w-7 h-7">
-            <rect x="2" y="2" width="44" height="44" rx="10" fill="#FF3B30" />
+            <rect x="2" y="2" width="44" height="44" rx="10" fill="#D62D20" />
             <text x="50%" y="53%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontSize="28" fontWeight="800" fontFamily="system-ui">C</text>
           </svg>
         </div>
-        <span className="bg-red-500/10 text-red-500 text-[10px] font-bold px-2 py-0.5 rounded-full border border-red-500/20">Top Rated</span>
+        <span className="bg-red-600/15 text-red-600 text-[10px] font-bold px-2 py-0.5 rounded-full border border-red-600/25">Top Rated</span>
       </div>
     ),
     desc: "Top-rated digital agency on Clutch with 4.9+ average reviews.",
-    color: "#FF3B30",
+    color: "#D62D20",
   },
   {
     name: "Meta Business Partner",
     bgImg: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&auto=format&fit=crop&q=80",
     icon: (
       <div className="flex items-center gap-1.5">
-        <div style={{ filter: "drop-shadow(0 1px 4px rgba(24,119,242,0.2))" }}>
+        <div className="w-7 h-7 flex items-center justify-center bg-white rounded-lg shadow-[0_1px_3px_rgba(0,0,0,0.08)]">
           <svg viewBox="0 0 48 48" className="w-7 h-7">
-            <circle cx="24" cy="24" r="22" fill="#1877F2" />
+            <circle cx="24" cy="24" r="22" fill="#0E5FCC" />
             <path fill="#fff" d="M24 8c-8.84 0-16 7.16-16 16 0 7.55 5.2 13.86 12.2 15.63v-11.06h-3.67V24h3.67v-3.19c0-3.63 2.16-5.63 5.47-5.63 1.58 0 3.24.28 3.24.28v3.57h-1.83c-1.8 0-2.36 1.12-2.36 2.26V24h4.02l-.64 4.57H27.3v11.06C42.8 45.86 48 39.55 48 32c0-8.84-7.16-16-16-16h-4-4z" />
           </svg>
         </div>
-        <span className="bg-[#1877F2]/10 text-[#1877F2] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#1877F2]/20">Partner</span>
+        <span className="bg-[#0E5FCC]/15 text-[#0E5FCC] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#0E5FCC]/25">Partner</span>
       </div>
     ),
     desc: "Meta Business Partner — expert social media advertising.",
-    color: "#1877F2",
+    color: "#0E5FCC",
   },
 ];
 
@@ -236,25 +236,25 @@ export const Process = () => (
           <div className="overflow-hidden">
             <div className="flex gap-10 animate-marquee" style={{ width: "max-content" }}>
               {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, i) => (
-                <div
-                  key={i}
-                  className="shrink-0 flex items-center gap-3 bg-white rounded-xl border border-zinc-100 px-5 py-3 shadow-[0_1px_4px_rgba(0,0,0,0.06)] transition-all duration-500 hover:shadow-[0_8px_25px_-5px_rgba(0,0,0,0.12)] hover:border-zinc-200"
-                  style={{
-                    transform: "perspective(400px) rotateY(0deg)",
-                    transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, border-color 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "perspective(400px) rotateY(-3deg) translateZ(8px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "perspective(400px) rotateY(0deg) translateZ(0px)";
-                  }}
-                >
-                  <div className="w-[36px] h-[36px] flex items-center justify-center">
-                    {partner.svg}
+                  <div
+                    key={i}
+                    className="shrink-0 flex items-center gap-3 bg-zinc-800/5 rounded-xl border border-zinc-200/60 px-5 py-3 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-500 hover:shadow-[0_8px_25px_-5px_rgba(0,0,0,0.1)] hover:border-zinc-300"
+                    style={{
+                      transform: "perspective(400px) rotateY(0deg)",
+                      transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, border-color 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "perspective(400px) rotateY(-3deg) translateZ(8px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "perspective(400px) rotateY(0deg) translateZ(0px)";
+                    }}
+                  >
+                    <div className="w-[36px] h-[36px] flex items-center justify-center bg-white rounded-lg shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
+                      {partner.svg}
+                    </div>
+                    <span className="text-sm font-semibold text-zinc-700 whitespace-nowrap">{partner.name}</span>
                   </div>
-                  <span className="text-sm font-semibold text-zinc-600 whitespace-nowrap">{partner.name}</span>
-                </div>
               ))}
             </div>
           </div>
