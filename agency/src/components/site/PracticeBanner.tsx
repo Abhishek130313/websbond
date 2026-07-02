@@ -34,7 +34,7 @@ export const PracticeBanner = () => {
               style={{ height: 350 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=80"
+loading="lazy" decoding="async"                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=80"
                 alt="Digital Marketing Strategy Consultation"
                 className="w-full h-full object-cover object-top"
               />

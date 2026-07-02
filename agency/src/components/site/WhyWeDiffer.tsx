@@ -54,7 +54,7 @@ export const WhyWeDiffer = () => {
               {/* Image Header with floating icon overlay */}
               <div className="relative overflow-hidden" style={{ height: 180 }}>
                 <img
-                  src={item.image}
+loading="lazy" decoding="async"                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />

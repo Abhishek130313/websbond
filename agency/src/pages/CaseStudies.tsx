@@ -193,7 +193,7 @@ export const CaseStudiesPage = () => {
                       className="relative rounded-xl overflow-hidden border border-white/20 shadow-lg max-w-[280px] w-full bg-slate-800"
                       style={{ height: 180 }}
                     >
-                      <img 
+                      <img loading="lazy" decoding="async" 
                         src={item.img} 
                         alt={`${item.name} website preview`}
                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 

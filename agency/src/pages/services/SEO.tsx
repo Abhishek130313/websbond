@@ -327,7 +327,7 @@ export const SEOPage = () => {
             </div>
 
             <div className="relative rounded-2xl overflow-hidden shadow-xl" style={{ height: 350 }}>
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80" 
                 alt="SEO audits" 
                 className="w-full h-full object-cover"

@@ -134,7 +134,7 @@ export const AdminPage = () => {
   };
 
   const fetchData = async (key: string, isLogin = false) => {
-    if (isLogin) {
+    if (isLogin || !isLoggedIn) {
       setLoginLoading(true);
     } else {
       setLoading(true);

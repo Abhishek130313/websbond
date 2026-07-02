@@ -211,7 +211,7 @@ export const SMMPage = () => {
             </div>
 
             <div className="relative rounded-3xl overflow-hidden shadow-xl" style={{ height: 350 }}>
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&auto=format&fit=crop&q=80" 
                 alt="Social ads" 
                 className="w-full h-full object-cover"

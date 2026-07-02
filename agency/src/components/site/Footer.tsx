@@ -35,7 +35,7 @@ export const Footer = () => (
             <div className="flex items-center gap-2.5 mb-6">
               <span className="inline-flex items-center justify-center rounded-xl overflow-hidden border border-white/10 bg-[#09090b] w-10 h-10">
                 <img
-                  src={logo3d}
+loading="lazy" decoding="async"                   src={logo3d}
                   alt="Websbond logo"
                   className="w-8 h-8 object-contain p-0.5"
                 />

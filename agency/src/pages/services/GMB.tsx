@@ -306,7 +306,7 @@ export const GMBPage = () => {
             </div>
 
             <div className="relative rounded-2xl overflow-hidden shadow-xl" style={{ height: 350 }}>
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=600&auto=format&fit=crop&q=80" 
                 alt="Local maps search optimization" 
                 className="w-full h-full object-cover"

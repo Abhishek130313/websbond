@@ -46,6 +46,7 @@ export const SEO = ({ title, description, path, keywords, jsonLd, ogImage }: SEO
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={img} />
       <meta name="twitter:site" content="@websbond" />
+      <meta name="twitter:creator" content="@websbond" />
 
       {/* Additional SEO */}
       <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />

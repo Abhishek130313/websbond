@@ -108,7 +108,7 @@ export const RecentWorks = () => (
           >
             {/* Image */}
             <div className="relative overflow-hidden" style={{ height: 220 }}>
-              <img
+              <imgloading="lazy" decoding="async" 
                 src={project.imageUrl}
                 alt={project.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

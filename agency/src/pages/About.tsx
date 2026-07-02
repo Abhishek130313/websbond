@@ -102,8 +102,8 @@ export const AboutPage = () => {
                 </div>
               </div>
               <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-100 h-80">
-                <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop&q=80" 
+                <img loading="lazy" decoding="async" 
+                  src="/about_founders.png" 
                   className="w-full h-full object-cover" 
                   alt="Websbond founders team" 
                 />
@@ -113,7 +113,7 @@ export const AboutPage = () => {
             {/* Row 2: Vision */}
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-100 h-80 md:order-last">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&auto=format&fit=crop&q=80" 
                   className="w-full h-full object-cover" 
                   alt="Vision chart illustration" 
@@ -146,7 +146,7 @@ export const AboutPage = () => {
                 </p>
               </div>
               <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-100 h-80">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80" 
                   className="w-full h-full object-cover" 
                   alt="Mission chart illustration" 
@@ -199,7 +199,7 @@ export const AboutPage = () => {
               </div>
             </div>
             <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200 h-[380px]">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&auto=format&fit=crop&q=80" 
                 className="w-full h-full object-cover" 
                 alt="Business collaboration" 
@@ -214,7 +214,7 @@ export const AboutPage = () => {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-150 h-[380px]">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&auto=format&fit=crop&q=80" 
                 className="w-full h-full object-cover" 
                 alt="Creative meeting" 

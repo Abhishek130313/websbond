@@ -51,7 +51,7 @@ export const GrowthConsole = () => (
             {/* Image with frosted "Since" badge */}
             <div className="relative overflow-hidden" style={{ height: 200 }}>
               <img
-                src={c.image}
+loading="lazy" decoding="async"                 src={c.image}
                 alt={c.name}
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />

@@ -327,7 +327,7 @@ export const GoogleAdsPage = () => {
             </div>
 
             <div className="relative rounded-2xl overflow-hidden shadow-xl" style={{ height: 350 }}>
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&auto=format&fit=crop&q=80" 
                 alt="PPC campaign analysis" 
                 className="w-full h-full object-cover"

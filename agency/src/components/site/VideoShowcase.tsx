@@ -55,7 +55,7 @@ export const VideoShowcase = () => {
                 {/* Person photo */}
                 <div className="relative overflow-hidden" style={{ height: 300 }}>
                   <img
-                    src={v.thumb}
+loading="lazy" decoding="async"                     src={v.thumb}
                     alt={v.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />

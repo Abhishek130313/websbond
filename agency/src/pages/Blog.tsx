@@ -14,7 +14,10 @@ export const BlogPage = () => {
   useEffect(() => {
     const loadBlogs = async () => {
       try {
-        const res = await fetch(getApiUrl("/api/blogs"));
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2000);
+        const res = await fetch(getApiUrl("/api/blogs"), { signal: controller.signal });
+        clearTimeout(timeoutId);
         if (!res.ok) throw new Error("Failed to fetch blogs");
         const data = await res.json();
         if (data.length > 0) {
@@ -73,7 +76,7 @@ export const BlogPage = () => {
                 >
                   {/* Blog Image */}
                   <div className="relative overflow-hidden h-[340px] bg-slate-100">
-                    <img 
+                    <img loading="lazy" decoding="async" 
                       src={post.coverImg} 
                       alt={post.title} 
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-103" 
@@ -170,7 +173,7 @@ export const BlogPage = () => {
                     <li key={idx} className="flex gap-3 border-b border-gray-100 pb-3 last:border-0 last:pb-0">
                       {/* Cover thumbnail */}
                       <Link to={`/blog/${post.slug}`} className="w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-slate-100 border border-gray-150">
-                        <img 
+                        <img loading="lazy" decoding="async" 
                           src={post.coverImg} 
                           alt={post.title} 
                           className="w-full h-full object-cover" 

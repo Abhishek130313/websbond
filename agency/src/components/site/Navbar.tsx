@@ -66,53 +66,43 @@ export const Navbar = ({
   }, []);
 
   return (
-    <div className="w-full relative z-50">
-      {/* ── Top Utility Bar — minimal, refined ── */}
+    <div className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ${scrolled ? "pt-4" : "pt-0"}`}>
+      {/* ── Top Utility Bar — Premium Gradient ── */}
       <div
-        className={`hidden md:block text-sm transition-all duration-300 overflow-hidden ${
-          scrolled ? "max-h-0 opacity-0 py-0" : "max-h-12 opacity-100 py-2"
+        className={`hidden md:block transition-all duration-500 overflow-hidden ${
+          scrolled ? "max-h-0 opacity-0 py-0" : "max-h-12 opacity-100 py-2.5"
         }`}
-        style={{ background: "#09090b" }}
+        style={{ background: "linear-gradient(90deg, #020617 0%, #1e1b4b 50%, #020617 100%)" }}
       >
-        <div className="container flex justify-between items-center">
-          {/* Left: contact info */}
+        <div className="container flex justify-between items-center text-white/90">
           <div className="flex gap-6 items-center">
-            <a
-              href="tel:+919306623619"
-              className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span className="font-medium text-xs">+91 9306623619</span>
+            <a href="tel:+919306623619" className="flex items-center gap-2 text-zinc-300 hover:text-cyan-400 font-semibold tracking-wide transition-colors">
+              <Phone className="w-3.5 h-3.5" /> <span className="text-xs">+91 9306623619</span>
             </a>
-            <a
-              href="mailto:websbond@websbond.com"
-              className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors"
-            >
-              <Mail className="w-3.5 h-3.5" />
-              <span className="font-medium text-xs">websbond@websbond.com</span>
+            <a href="mailto:websbond@websbond.com" className="flex items-center gap-2 text-zinc-300 hover:text-cyan-400 font-semibold tracking-wide transition-colors">
+              <Mail className="w-3.5 h-3.5" /> <span className="text-xs">websbond@websbond.com</span>
             </a>
           </div>
-          {/* Right: CTA */}
           <div className="flex items-center gap-3">
             <Link
               to="/seo-analyzer"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white text-[11px] font-semibold px-4 py-1.5 rounded-full transition-all duration-300"
+              className="group flex items-center gap-2 text-cyan-400 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all duration-300"
             >
-              Free SEO Audit →
+              Free SEO Audit <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </div>
       </div>
 
-      {/* ── Main Header — frosted glass on scroll ── */}
+      {/* ── Main Header — Floating Pill on Scroll ── */}
       <header
-        className={`z-50 w-full transition-all duration-300 ${
-          !scrolled
-            ? "absolute top-0 left-0 bg-transparent py-5 text-white"
-            : "sticky top-0 bg-white/90 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.06)] py-2.5 text-zinc-900"
+        className={`mx-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          scrolled
+            ? "w-[95%] max-w-6xl bg-white/85 backdrop-blur-2xl shadow-[0_16px_40px_rgba(0,0,0,0.12)] border border-white/60 rounded-full py-2.5 px-6 sm:px-8 text-zinc-900"
+            : "w-full bg-transparent py-5 text-white"
         }`}
       >
-        <div className="container flex items-center justify-between gap-4">
+        <div className={scrolled ? "flex items-center justify-between gap-4 w-full" : "container flex items-center justify-between gap-4"}>
           {/* Logo */}
           <Logo light={scrolled} size="md" />
 
@@ -120,60 +110,51 @@ export const Navbar = ({
           <nav className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) =>
               link.dropdown ? (
-                <div
-                  key={link.label}
-                  className="relative group py-2"
-                >
+                <div key={link.label} className="relative group py-2">
                   <NavLink
                     to={link.to}
                     className={({ isActive }) =>
-                      `flex items-center gap-1 px-3 py-2 text-[13px] font-medium transition-colors ${
+                      `flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all duration-300 rounded-full ${
                         isActive
-                          ? "text-indigo-600"
-                          : !scrolled
-                            ? "text-white/80 hover:text-white"
-                            : "text-zinc-600 hover:text-zinc-900"
+                          ? scrolled ? "text-indigo-600 bg-indigo-50/50" : "text-cyan-300 bg-white/10"
+                          : scrolled
+                            ? "text-zinc-600 hover:text-indigo-600 hover:bg-indigo-50/50"
+                            : "text-zinc-300 hover:text-white hover:bg-white/10"
                       }`
                     }
                   >
                     {link.label}
-                    <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
+                    <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
                   </NavLink>
                   
                   {link.label === "Services" ? (
-                    /* ── 2-Column Services Mega Dropdown — Frosted Glass ── */
-                    <div
-                      className="absolute top-full left-1/2 -translate-x-1/2 w-[680px] bg-white/90 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-zinc-200/60 rounded-2xl transition-all duration-200 opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 grid grid-cols-2 p-5 gap-x-4 gap-y-1 z-50"
-                    >
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-[680px] bg-white/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.15)] border border-zinc-200/80 rounded-3xl transition-all duration-300 opacity-0 invisible -translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-1 grid grid-cols-2 p-5 gap-x-4 gap-y-1 z-50">
                       {SERVICES_DROPDOWN.map((item) => {
                         const IconComponent = item.icon;
                         return (
                           <Link
                             key={item.to}
                             to={item.to}
-                            className="group/item flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-indigo-50/60 text-zinc-700 hover:text-indigo-600 transition-all duration-200"
+                            className="group/item flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-indigo-50/80 text-zinc-700 hover:text-indigo-600 transition-all duration-300"
                           >
-                            <span className="p-2 rounded-lg bg-zinc-100 text-zinc-500 group-hover/item:bg-indigo-100 group-hover/item:text-indigo-600 transition-all shrink-0">
+                            <span className="p-2.5 rounded-xl bg-zinc-100/80 text-zinc-500 group-hover/item:bg-indigo-100 group-hover/item:text-indigo-600 transition-all duration-300 shrink-0">
                               <IconComponent className="w-4 h-4" />
                             </span>
                             <div className="flex flex-col">
-                              <span className="text-sm font-medium leading-tight">{item.label}</span>
-                              <span className="text-[10px] text-zinc-400 mt-0.5 group-hover/item:text-indigo-400">{item.desc}</span>
+                              <span className="text-[13px] font-bold leading-tight mb-0.5">{item.label}</span>
+                              <span className="text-[10px] text-zinc-400 font-medium group-hover/item:text-indigo-400 transition-colors">{item.desc}</span>
                             </div>
                           </Link>
                         );
                       })}
                     </div>
                   ) : (
-                    /* ── Standard Dropdown ── */
-                    <div
-                      className="absolute top-full left-0 w-64 bg-white/90 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.1)] border border-zinc-200/60 rounded-xl transition-all duration-200 opacity-0 invisible -translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 z-50 py-2"
-                    >
+                    <div className="absolute top-full left-0 w-64 bg-white/95 backdrop-blur-3xl shadow-[0_30px_80px_rgba(0,0,0,0.15)] border border-zinc-200/80 rounded-2xl transition-all duration-300 opacity-0 invisible -translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-1 z-50 py-2.5">
                       {Array.isArray(link.dropdown) && link.dropdown.map((item) => (
                         <Link
                           key={item.to}
                           to={item.to}
-                          className="flex items-center gap-2 px-4 py-2.5 text-sm text-zinc-600 hover:text-indigo-600 hover:bg-indigo-50/50 transition-colors font-medium"
+                          className="flex items-center gap-2 px-5 py-2.5 text-[13px] text-zinc-600 hover:text-indigo-600 hover:bg-indigo-50/80 transition-all duration-300 font-bold"
                         >
                           {item.label}
                         </Link>
@@ -187,12 +168,12 @@ export const Navbar = ({
                   to={link.to}
                   end={link.to === "/"}
                   className={({ isActive }) =>
-                    `px-3 py-2 text-[13px] font-medium transition-colors ${
+                    `px-3 py-2 text-[13px] font-bold transition-all duration-300 rounded-full ${
                       isActive
-                        ? "text-indigo-600"
-                        : !scrolled
-                          ? "text-white/80 hover:text-white"
-                          : "text-zinc-600 hover:text-zinc-900"
+                        ? scrolled ? "text-indigo-600 bg-indigo-50/50" : "text-cyan-300 bg-white/10"
+                        : scrolled
+                          ? "text-zinc-600 hover:text-indigo-600 hover:bg-indigo-50/50"
+                          : "text-zinc-300 hover:text-white hover:bg-white/10"
                     }`
                   }
                 >
@@ -206,20 +187,20 @@ export const Navbar = ({
           <div className="flex items-center gap-3">
             <Link
               to="/contact-us"
-              className={`hidden sm:inline-flex items-center justify-center font-semibold text-xs px-5 py-2.5 rounded-full transition-all duration-300 ${
+              className={`hidden sm:inline-flex items-center justify-center font-bold text-[11px] uppercase tracking-wider px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 ${
                 !scrolled
-                  ? "bg-white text-zinc-900 hover:bg-zinc-100"
-                  : "bg-gradient-to-r from-indigo-600 to-violet-600 text-white hover:shadow-[0_4px_14px_rgba(99,102,241,0.3)]"
+                  ? "bg-white text-zinc-900 hover:bg-zinc-100 shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:shadow-[0_0_25px_rgba(255,255,255,0.3)]"
+                  : "bg-gradient-to-r from-indigo-600 to-violet-600 text-white hover:shadow-[0_8px_20px_rgba(99,102,241,0.4)]"
               }`}
             >
               Book a Call
             </Link>
             
             <button
-              className={`lg:hidden p-2.5 rounded-lg border transition-colors ${
+              className={`lg:hidden p-2.5 rounded-full border transition-all duration-300 ${
                 !scrolled
-                  ? "border-white/20 text-white hover:bg-white/10"
-                  : "border-zinc-200 text-zinc-700 hover:bg-zinc-50"
+                  ? "border-white/20 text-white hover:bg-white/10 backdrop-blur-sm"
+                  : "border-zinc-200 text-zinc-700 hover:bg-zinc-100 bg-white"
               }`}
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
@@ -231,18 +212,17 @@ export const Navbar = ({
 
         {/* Mobile Drawer */}
         <div
-          className={`lg:hidden overflow-y-auto transition-all duration-300 border-t border-zinc-100 bg-white ${
-            open ? "max-h-[85vh] opacity-100" : "max-h-0 opacity-0"
+          className={`lg:hidden overflow-y-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] absolute left-0 right-0 top-full mt-2 mx-4 rounded-3xl border border-zinc-100 bg-white/95 backdrop-blur-3xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] ${
+            open ? "max-h-[85vh] opacity-100 visible translate-y-0" : "max-h-0 opacity-0 invisible -translate-y-4"
           }`}
         >
-          <div className="container py-4 flex flex-col gap-1">
-            {/* Mobile contact */}
-            <div className="flex flex-col gap-2 mb-3 pb-3 border-b border-zinc-100">
-              <a href="tel:+919306623619" className="flex items-center gap-2 text-sm text-zinc-700 font-medium">
-                <Phone className="w-4 h-4 text-indigo-500" /> +91 9306623619
+          <div className="p-6 flex flex-col gap-1">
+            <div className="flex flex-col gap-3 mb-4 pb-4 border-b border-zinc-100">
+              <a href="tel:+919306623619" className="flex items-center gap-3 text-sm text-zinc-800 font-bold hover:text-indigo-600 transition-colors">
+                <span className="p-2 bg-indigo-50 text-indigo-600 rounded-lg"><Phone className="w-4 h-4" /></span> +91 9306623619
               </a>
-              <a href="mailto:websbond@websbond.com" className="flex items-center gap-2 text-sm text-zinc-700 font-medium">
-                <Mail className="w-4 h-4 text-indigo-500" /> websbond@websbond.com
+              <a href="mailto:websbond@websbond.com" className="flex items-center gap-3 text-sm text-zinc-800 font-bold hover:text-indigo-600 transition-colors">
+                <span className="p-2 bg-indigo-50 text-indigo-600 rounded-lg"><Mail className="w-4 h-4" /></span> websbond@websbond.com
               </a>
             </div>
             {NAV_LINKS.map((link) => {
@@ -251,17 +231,17 @@ export const Navbar = ({
                   ? SERVICES_DROPDOWN 
                   : (Array.isArray(link.dropdown) ? link.dropdown : []);
                 return (
-                  <div key={link.label} className="border-b border-zinc-50 py-1">
-                    <div className="flex justify-between items-center py-1.5 px-2 text-base font-semibold text-zinc-800">
+                  <div key={link.label} className="border-b border-zinc-50 py-2">
+                    <div className="flex justify-between items-center py-2 px-2 text-[15px] font-black text-zinc-900">
                       <span>{link.label}</span>
                     </div>
-                    <div className="pl-4 flex flex-col gap-1.5 pb-2">
+                    <div className="pl-4 flex flex-col gap-1 pb-2">
                       {sublinks.map((sub) => (
                         <Link
                           key={sub.to}
                           to={sub.to}
                           onClick={() => setOpen(false)}
-                          className="py-1 px-2 text-sm text-zinc-500 hover:text-indigo-600 font-medium"
+                          className="py-1.5 px-2 text-[13px] text-zinc-500 hover:text-indigo-600 font-bold transition-colors"
                         >
                           {sub.label}
                         </Link>
@@ -277,10 +257,10 @@ export const Navbar = ({
                   end={link.to === "/"}
                   onClick={() => setOpen(false)}
                   className={({ isActive }) =>
-                    `py-2.5 px-2 text-base font-semibold border-b border-zinc-50 transition-colors ${
+                    `py-3 px-2 text-[15px] font-black border-b border-zinc-50 transition-colors ${
                       isActive
                         ? "text-indigo-600"
-                        : "text-zinc-800 hover:text-indigo-600"
+                        : "text-zinc-900 hover:text-indigo-600"
                     }`
                   }
                 >
@@ -291,7 +271,7 @@ export const Navbar = ({
             <Link
               to="/seo-analyzer"
               onClick={() => setOpen(false)}
-              className="mt-3 flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold py-3.5 rounded-xl text-center transition-all shadow-[0_4px_14px_rgba(99,102,241,0.3)]"
+              className="mt-4 flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold py-4 rounded-2xl text-center transition-all shadow-[0_8px_20px_rgba(99,102,241,0.3)] hover:shadow-[0_8px_25px_rgba(99,102,241,0.5)]"
             >
               Free SEO Audit <ArrowRight className="w-4 h-4" />
             </Link>

@@ -188,7 +188,7 @@ export const ContactPage = () => {
                         I'm not a robot
                       </label>
                       <div className="flex flex-col items-center">
-                        <img 
+                        <img loading="lazy" decoding="async" 
                           src="https://www.gstatic.com/recaptcha/api2/logo_48.png" 
                           className="w-5.5 h-5.5 object-contain opacity-70" 
                           alt="recaptcha logo" 

@@ -180,7 +180,7 @@ export const TestimonialsPage = () => {
                       I'm not a robot
                     </label>
                     <div className="flex flex-col items-center">
-                      <img 
+                      <img loading="lazy" decoding="async" 
                         src="https://www.gstatic.com/recaptcha/api2/logo_48.png" 
                         className="w-5 h-5 object-contain opacity-75" 
                         alt="recaptcha logo" 
@@ -235,7 +235,7 @@ export const TestimonialsPage = () => {
               >
                 <div className="relative overflow-hidden" style={{ height: 260 }}>
                   <img
-                    src={v.thumb}
+loading="lazy" decoding="async"                     src={v.thumb}
                     alt={v.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />

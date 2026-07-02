@@ -68,7 +68,7 @@ export const BlogAdminPage = () => {
 
   // Fetch blogs from API
   const fetchBlogs = async (key: string, isLogin = false) => {
-    if (isLogin) setLoginLoading(true);
+    if (isLogin || !isLoggedIn) setLoginLoading(true);
     else setLoading(true);
     setLoginError("");
     try {
@@ -400,7 +400,7 @@ export const BlogAdminPage = () => {
                       <div className="flex gap-4 items-center min-w-0">
                         {/* Cover Thumbnail */}
                         <div className={`w-16 h-12 rounded-lg bg-slate-800 overflow-hidden shrink-0 border ${theme === "dark" ? "border-slate-800" : "border-slate-200"}`}>
-                          <img src={post.coverImg} alt={post.title} className="w-full h-full object-cover" />
+                          <img loading="lazy" decoding="async" src={post.coverImg} alt={post.title} className="w-full h-full object-cover" />
                         </div>
                         <div className="min-w-0">
                           <div className="flex items-center gap-2">

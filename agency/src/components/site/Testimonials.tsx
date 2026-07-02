@@ -100,7 +100,7 @@ export const Testimonials = () => {
               {/* Footer: avatar + name + stars */}
               <div className="flex items-center gap-3 pt-4 border-t border-zinc-50">
                 <img
-                  src={r.img}
+loading="lazy" decoding="async"                   src={r.img}
                   alt={r.name}
                   className="w-11 h-11 rounded-full object-cover"
                 />

@@ -159,7 +159,7 @@ export const OurWorkPage = () => {
                       I'm not a robot
                     </label>
                     <div className="flex flex-col items-center">
-                      <img 
+                      <img loading="lazy" decoding="async" 
                         src="https://www.gstatic.com/recaptcha/api2/logo_48.png" 
                         className="w-5 h-5 object-contain opacity-75" 
                         alt="recaptcha logo" 
@@ -207,7 +207,7 @@ export const OurWorkPage = () => {
                 {/* Poster Image */}
                 <div className="relative overflow-hidden h-64 bg-slate-100">
                   <img
-                    src={p.img}
+loading="lazy" decoding="async"                     src={p.img}
                     alt={p.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -249,7 +249,7 @@ export const OurWorkPage = () => {
                 {/* Responsive Mockup Header */}
                 <div className="relative overflow-hidden h-52 bg-[#f4f7fa] flex items-center justify-center p-4">
                   <img
-                    src={p.img}
+loading="lazy" decoding="async"                     src={p.img}
                     alt={p.name}
                     className="w-full h-full object-cover rounded-lg shadow-sm border border-gray-200 transition-transform duration-500 group-hover:scale-103"
                   />

@@ -307,7 +307,7 @@ export const ECommercePage = () => {
             </div>
 
             <div className="relative rounded-2xl overflow-hidden shadow-xl" style={{ height: 350 }}>
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&auto=format&fit=crop&q=80" 
                 alt="eCommerce dashboard management" 
                 className="w-full h-full object-cover"

@@ -41,7 +41,10 @@ export const BlogPostPage = () => {
       let currentPost = null;
       
       try {
-        const res = await fetch(getApiUrl(`/api/blogs/${slug}`));
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2000);
+        const res = await fetch(getApiUrl(`/api/blogs/${slug}`), { signal: controller.signal });
+        clearTimeout(timeoutId);
         if (!res.ok) throw new Error("Blog post not found");
         const data = await res.json();
         currentPost = {
@@ -60,7 +63,10 @@ export const BlogPostPage = () => {
 
       if (currentPost) {
         try {
-          const res = await fetch(getApiUrl("/api/blogs"));
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 2000);
+          const res = await fetch(getApiUrl("/api/blogs"), { signal: controller.signal });
+          clearTimeout(timeoutId);
           if (!res.ok) throw new Error();
           const data = await res.json();
           const filtered = data
