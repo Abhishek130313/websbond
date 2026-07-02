@@ -2,65 +2,85 @@ import { ArrowRight, Star, TrendingUp, Shield, Zap, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
+const google3d = (
+  <svg viewBox="0 0 48 48" className="w-10 h-10" style={{ filter: "drop-shadow(0 2px 6px rgba(234,67,53,0.25)) drop-shadow(0 4px 12px rgba(66,133,244,0.2))" }}>
+    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+    <path fill="#FBBC05" d="M10.53 28.59A14.5 14.5 0 0 1 9.5 24c0-1.59.28-3.14.76-4.59l-7.98-6.19A23.99 23.99 0 0 0 0 24c0 3.77.87 7.35 2.56 10.78l7.97-6.19z" />
+    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+  </svg>
+);
+
+const microsoft3d = (
+  <svg viewBox="0 0 48 48" className="w-10 h-10" style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.15))" }}>
+    <rect x="4" y="4" width="18" height="18" rx="2" fill="#F25022" style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.2))" }} />
+    <rect x="26" y="4" width="18" height="18" rx="2" fill="#7FBA00" style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.2))" }} />
+    <rect x="4" y="26" width="18" height="18" rx="2" fill="#00A4EF" style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.2))" }} />
+    <rect x="26" y="26" width="18" height="18" rx="2" fill="#FFB900" style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.2))" }} />
+  </svg>
+);
+
+const meta3d = (
+  <svg viewBox="0 0 48 48" className="w-9 h-9" style={{ filter: "drop-shadow(0 2px 8px rgba(24,119,242,0.35))" }}>
+    <defs>
+      <linearGradient id="metaGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#0063E8" />
+        <stop offset="100%" stopColor="#1877F2" />
+      </linearGradient>
+    </defs>
+    <circle cx="24" cy="24" r="22" fill="url(#metaGrad)" />
+    <path fill="#fff" d="M24 8c-8.84 0-16 7.16-16 16 0 7.55 5.2 13.86 12.2 15.63v-11.06h-3.67V24h3.67v-3.19c0-3.63 2.16-5.63 5.47-5.63 1.58 0 3.24.28 3.24.28v3.57h-1.83c-1.8 0-2.36 1.12-2.36 2.26V24h4.02l-.64 4.57H27.3v11.06C42.8 45.86 48 39.55 48 32c0-8.84-7.16-16-16-16h-4-4z" />
+  </svg>
+);
+
+const clutch3d = (
+  <svg viewBox="0 0 48 48" className="w-9 h-9" style={{ filter: "drop-shadow(0 2px 8px rgba(255,59,48,0.3))" }}>
+    <defs>
+      <linearGradient id="clutchGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#FF5E5E" />
+        <stop offset="100%" stopColor="#E02B2B" />
+      </linearGradient>
+    </defs>
+    <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#clutchGrad)" />
+    <text x="50%" y="53%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontSize="28" fontWeight="800" fontFamily="system-ui">C</text>
+  </svg>
+);
+
+const hubspot3d = (
+  <svg viewBox="0 0 48 48" className="w-9 h-9" style={{ filter: "drop-shadow(0 2px 8px rgba(255,122,89,0.35))" }}>
+    <defs>
+      <radialGradient id="hsGrad" cx="40%" cy="35%" r="60%">
+        <stop offset="0%" stopColor="#FF8F6E" />
+        <stop offset="100%" stopColor="#E86A4A" />
+      </radialGradient>
+    </defs>
+    <circle cx="24" cy="24" r="22" fill="url(#hsGrad)" />
+    <path fill="#fff" d="M14 14h6v12l-3 2-3-2V14zm8 0h2c3 0 5 2 5 5s-2 5-5 5h-2v-2h2c1.66 0 3-1.34 3-3s-1.34-3-3-3h-2v-2zm10 0h2v10h4v2H32v-2h4v-10z" />
+  </svg>
+);
+
+const semrush3d = (
+  <svg viewBox="0 0 48 48" className="w-9 h-9" style={{ filter: "drop-shadow(0 2px 8px rgba(15,43,70,0.3))" }}>
+    <defs>
+      <linearGradient id="srGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#1A3E5C" />
+        <stop offset="100%" stopColor="#0B1F33" />
+      </linearGradient>
+    </defs>
+    <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#srGrad)" />
+    <path fill="#fff" d="M16 16c0-4 3-8 8-8s8 4 8 8-3 8-8 8-8-4-8-8zm2 0c0 3.3 2.7 6 6 6s6-2.7 6-6-2.7-6-6-6-6 2.7-6 6z" opacity="0.9" />
+    <path fill="#fff" d="M20 36c0-4 1.5-8 4-8s4 4 4 8-1.5 8-4 8-4-4-4-8z" opacity="0.6" />
+    <path fill="#fff" d="M13 28c0-3 2-6 5-6s5 3 5 6-2 6-5 6-5-3-5-6z" opacity="0.8" />
+  </svg>
+);
+
 const PARTNERS = [
-  {
-    name: "Google",
-    svg: (
-      <svg viewBox="0 0 48 48" className="w-10 h-10">
-        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
-        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
-        <path fill="#FBBC05" d="M10.53 28.59A14.5 14.5 0 0 1 9.5 24c0-1.59.28-3.14.76-4.59l-7.98-6.19A23.99 23.99 0 0 0 0 24c0 3.77.87 7.35 2.56 10.78l7.97-6.19z" />
-        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Microsoft",
-    svg: (
-      <svg viewBox="0 0 48 48" className="w-10 h-10">
-        <rect x="4" y="4" width="18" height="18" rx="2" fill="#F25022" />
-        <rect x="26" y="4" width="18" height="18" rx="2" fill="#7FBA00" />
-        <rect x="4" y="26" width="18" height="18" rx="2" fill="#00A4EF" />
-        <rect x="26" y="26" width="18" height="18" rx="2" fill="#FFB900" />
-      </svg>
-    ),
-  },
-  {
-    name: "Meta",
-    svg: (
-      <svg viewBox="0 0 48 48" className="w-9 h-9">
-        <circle cx="24" cy="24" r="22" fill="#1877F2" />
-        <path fill="#fff" d="M24 8c-8.84 0-16 7.16-16 16 0 7.55 5.2 13.86 12.2 15.63v-11.06h-3.67V24h3.67v-3.19c0-3.63 2.16-5.63 5.47-5.63 1.58 0 3.24.28 3.24.28v3.57h-1.83c-1.8 0-2.36 1.12-2.36 2.26V24h4.02l-.64 4.57H27.3v11.06C42.8 45.86 48 39.55 48 32c0-8.84-7.16-16-16-16h-4-4z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Clutch",
-    svg: (
-      <svg viewBox="0 0 48 48" className="w-9 h-9">
-        <rect x="2" y="2" width="44" height="44" rx="10" fill="#FF3B30" />
-        <text x="50%" y="52%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontSize="28" fontWeight="800" fontFamily="sans-serif">C</text>
-      </svg>
-    ),
-  },
-  {
-    name: "HubSpot",
-    svg: (
-      <svg viewBox="0 0 48 48" className="w-9 h-9">
-        <rect x="2" y="2" width="44" height="44" rx="10" fill="#FF7A59" />
-        <text x="50%" y="52%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontSize="24" fontWeight="700" fontFamily="sans-serif">H</text>
-      </svg>
-    ),
-  },
-  {
-    name: "Semrush",
-    svg: (
-      <svg viewBox="0 0 48 48" className="w-9 h-9">
-        <rect x="2" y="2" width="44" height="44" rx="10" fill="#0F2B46" />
-        <text x="50%" y="52%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontSize="20" fontWeight="700" fontFamily="sans-serif">SR</text>
-      </svg>
-    ),
-  },
+  { name: "Google", svg: google3d },
+  { name: "Microsoft", svg: microsoft3d },
+  { name: "Meta", svg: meta3d },
+  { name: "Clutch", svg: clutch3d },
+  { name: "HubSpot", svg: hubspot3d },
+  { name: "Semrush", svg: semrush3d },
 ];
 
 const CERT_GRID = [
@@ -68,57 +88,66 @@ const CERT_GRID = [
     name: "Google Partner",
     icon: (
       <div className="flex items-center gap-1.5">
-        <svg viewBox="0 0 48 48" className="w-7 h-7">
-          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
-          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
-          <path fill="#FBBC05" d="M10.53 28.59A14.5 14.5 0 0 1 9.5 24c0-1.59.28-3.14.76-4.59l-7.98-6.19A23.99 23.99 0 0 0 0 24c0 3.77.87 7.35 2.56 10.78l7.97-6.19z" />
-          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
-        </svg>
-        <span className="bg-[#4285F4]/10 text-[#4285F4] text-[10px] font-bold px-2 py-0.5 rounded-full">Partner</span>
+        <div className="relative" style={{ perspective: "200px" }}>
+          <div className="transition-transform duration-300 hover:rotateY-6 hover:translate-z-1" style={{ transformStyle: "preserve-3d" }}>
+            {google3d}
+          </div>
+        </div>
+        <span className="bg-[#4285F4]/10 text-[#4285F4] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#4285F4]/20" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.05)" }}>Partner</span>
       </div>
     ),
     desc: "Google Ads certified partner delivering high-ROI campaigns.",
+    color: "#4285F4",
   },
   {
     name: "Microsoft Certified",
     icon: (
       <div className="flex items-center gap-1.5">
-        <svg viewBox="0 0 48 48" className="w-6 h-6">
-          <rect x="4" y="4" width="18" height="18" rx="2" fill="#F25022" />
-          <rect x="26" y="4" width="18" height="18" rx="2" fill="#7FBA00" />
-          <rect x="4" y="26" width="18" height="18" rx="2" fill="#00A4EF" />
-          <rect x="26" y="26" width="18" height="18" rx="2" fill="#FFB900" />
-        </svg>
-        <span className="bg-[#00A4EF]/10 text-[#00A4EF] text-[10px] font-bold px-2 py-0.5 rounded-full">Partner</span>
+        <div style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.1))" }}>
+          <svg viewBox="0 0 48 48" className="w-7 h-7">
+            <rect x="4" y="4" width="18" height="18" rx="2" fill="#F25022" />
+            <rect x="26" y="4" width="18" height="18" rx="2" fill="#7FBA00" />
+            <rect x="4" y="26" width="18" height="18" rx="2" fill="#00A4EF" />
+            <rect x="26" y="26" width="18" height="18" rx="2" fill="#FFB900" />
+          </svg>
+        </div>
+        <span className="bg-[#00A4EF]/10 text-[#00A4EF] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#00A4EF]/20">Partner</span>
       </div>
     ),
     desc: "Microsoft Certified Partner — Azure & enterprise solutions.",
+    color: "#00A4EF",
   },
   {
     name: "Clutch Top Agency",
     icon: (
       <div className="flex items-center gap-1.5">
-        <svg viewBox="0 0 48 48" className="w-6 h-6">
-          <rect x="2" y="2" width="44" height="44" rx="10" fill="#FF3B30" />
-          <text x="50%" y="52%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontSize="28" fontWeight="800" fontFamily="sans-serif">C</text>
-        </svg>
-        <span className="bg-red-500/10 text-red-500 text-[10px] font-bold px-2 py-0.5 rounded-full">Top Rated</span>
+        <div style={{ filter: "drop-shadow(0 1px 4px rgba(255,59,48,0.2))" }}>
+          <svg viewBox="0 0 48 48" className="w-7 h-7">
+            <rect x="2" y="2" width="44" height="44" rx="10" fill="#FF3B30" />
+            <text x="50%" y="53%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontSize="28" fontWeight="800" fontFamily="system-ui">C</text>
+          </svg>
+        </div>
+        <span className="bg-red-500/10 text-red-500 text-[10px] font-bold px-2 py-0.5 rounded-full border border-red-500/20">Top Rated</span>
       </div>
     ),
     desc: "Top-rated digital agency on Clutch with 4.9+ average reviews.",
+    color: "#FF3B30",
   },
   {
     name: "Meta Business Partner",
     icon: (
       <div className="flex items-center gap-1.5">
-        <svg viewBox="0 0 48 48" className="w-6 h-6">
-          <circle cx="24" cy="24" r="22" fill="#1877F2" />
-          <path fill="#fff" d="M24 8c-8.84 0-16 7.16-16 16 0 7.55 5.2 13.86 12.2 15.63v-11.06h-3.67V24h3.67v-3.19c0-3.63 2.16-5.63 5.47-5.63 1.58 0 3.24.28 3.24.28v3.57h-1.83c-1.8 0-2.36 1.12-2.36 2.26V24h4.02l-.64 4.57H27.3v11.06C42.8 45.86 48 39.55 48 32c0-8.84-7.16-16-16-16h-4-4z" />
-        </svg>
-        <span className="bg-[#1877F2]/10 text-[#1877F2] text-[10px] font-bold px-2 py-0.5 rounded-full">Partner</span>
+        <div style={{ filter: "drop-shadow(0 1px 4px rgba(24,119,242,0.2))" }}>
+          <svg viewBox="0 0 48 48" className="w-7 h-7">
+            <circle cx="24" cy="24" r="22" fill="#1877F2" />
+            <path fill="#fff" d="M24 8c-8.84 0-16 7.16-16 16 0 7.55 5.2 13.86 12.2 15.63v-11.06h-3.67V24h3.67v-3.19c0-3.63 2.16-5.63 5.47-5.63 1.58 0 3.24.28 3.24.28v3.57h-1.83c-1.8 0-2.36 1.12-2.36 2.26V24h4.02l-.64 4.57H27.3v11.06C42.8 45.86 48 39.55 48 32c0-8.84-7.16-16-16-16h-4-4z" />
+          </svg>
+        </div>
+        <span className="bg-[#1877F2]/10 text-[#1877F2] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#1877F2]/20">Partner</span>
       </div>
     ),
     desc: "Meta Business Partner — expert social media advertising.",
+    color: "#1877F2",
   },
 ];
 
@@ -181,19 +210,19 @@ export const Process = () => (
 
         {/* Certification Cards Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16">
-          {CERT_GRID.map((cert, i) => (
+          {CERT_GRID.map((cert) => (
             <div
               key={cert.name}
               className="group relative bg-white rounded-2xl border border-zinc-100 p-6 transition-all duration-500 hover:shadow-[0_20px_60px_-10px_rgba(99,102,241,0.15)] hover:border-indigo-200/50"
               style={{
-                transform: "perspective(800px) rotateX(0deg)",
+                transform: "perspective(800px) rotateX(0deg) translateZ(0px)",
                 transition: "transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.3s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "perspective(800px) rotateX(3deg) translateY(-4px)";
+                e.currentTarget.style.transform = "perspective(800px) rotateX(2deg) rotateY(2deg) translateY(-6px) translateZ(10px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "perspective(800px) rotateX(0deg) translateY(0px)";
+                e.currentTarget.style.transform = "perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0px) translateZ(0px)";
               }}
             >
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -217,9 +246,21 @@ export const Process = () => (
               {[...PARTNERS, ...PARTNERS, ...PARTNERS].map((partner, i) => (
                 <div
                   key={i}
-                  className="shrink-0 flex items-center gap-3 bg-white rounded-xl border border-zinc-100 px-5 py-3 shadow-[var(--shadow-card)] transition-all duration-300 hover:shadow-[var(--shadow-hover)] hover:border-zinc-200"
+                  className="shrink-0 flex items-center gap-3 bg-white rounded-xl border border-zinc-100 px-5 py-3 shadow-[var(--shadow-card)] transition-all duration-500 hover:shadow-[0_10px_30px_-5px_rgba(0,0,0,0.12)] hover:border-zinc-200"
+                  style={{
+                    transform: "perspective(400px) rotateY(0deg)",
+                    transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, border-color 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "perspective(400px) rotateY(-3deg) translateZ(8px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "perspective(400px) rotateY(0deg) translateZ(0px)";
+                  }}
                 >
-                  {partner.svg}
+                  <div className="transition-transform duration-300" style={{ perspective: "200px", transformStyle: "preserve-3d" }}>
+                    {partner.svg}
+                  </div>
                   <span className="text-sm font-semibold text-zinc-600 whitespace-nowrap">{partner.name}</span>
                 </div>
               ))}
@@ -274,13 +315,13 @@ export const Process = () => (
           </div>
 
           {/* Right: 3D Stats Cards */}
-          <div className="grid grid-cols-2 gap-4 perspective-[1000px]">
+          <div className="grid grid-cols-2 gap-4" style={{ perspective: "1000px" }}>
             {[
               { icon: TrendingUp, label: "Projects Delivered", value: 200, suffix: "+", color: "from-indigo-500 to-purple-600", delay: "0s" },
               { icon: Star, label: "Client Satisfaction", value: 99, suffix: "%", color: "from-amber-500 to-orange-600", delay: "0.15s" },
               { icon: Users, label: "Team Members", value: 25, suffix: "+", color: "from-emerald-500 to-teal-600", delay: "0.3s" },
               { icon: Shield, label: "Years Experience", value: 5, suffix: "+", color: "from-cyan-500 to-blue-600", delay: "0.45s" },
-            ].map((stat, idx) => (
+            ].map((stat) => (
               <div
                 key={stat.label}
                 className="group relative bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 md:p-6 overflow-hidden transition-all duration-500 hover:bg-white/[0.06] hover:border-white/[0.12]"
@@ -290,17 +331,17 @@ export const Process = () => (
                   animation: `fade-up 0.8s ease ${stat.delay} both`,
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "perspective(1000px) rotateY(-4deg) translateZ(20px)";
+                  e.currentTarget.style.transform = "perspective(1000px) rotateY(-4deg) translateZ(20px) scale(1.02)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "perspective(1000px) rotateY(0deg) translateZ(0px)";
+                  e.currentTarget.style.transform = "perspective(1000px) rotateY(0deg) translateZ(0px) scale(1)";
                 }}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-500`} />
                 <div className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-white/5 blur-2xl group-hover:bg-white/10 transition-all duration-500" />
 
                 <div className="relative">
-                  <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br ${stat.color} shadow-lg mb-3`}>
+                  <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br ${stat.color} shadow-lg mb-3`} style={{ filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.2))" }}>
                     <stat.icon className="w-5 h-5 text-white" />
                   </div>
                   <div className="text-3xl md:text-4xl font-black text-white mb-1 tracking-tight">
