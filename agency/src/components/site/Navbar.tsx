@@ -70,7 +70,7 @@ export const Navbar = ({
       {/* ── Top Utility Bar — Premium Gradient ── */}
       <div
         className={`hidden md:block transition-all duration-500 overflow-hidden ${
-          scrolled ? "max-h-0 opacity-0 py-0" : "max-h-12 opacity-100 py-2.5"
+          scrolled ? "max-h-0 opacity-0 py-0" : "max-h-16 opacity-100 py-3.5"
         }`}
         style={{ background: "linear-gradient(90deg, #020617 0%, #1e1b4b 50%, #020617 100%)" }}
       >

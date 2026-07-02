@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { ArrowRight, Sparkles, CheckCircle2, TrendingUp, Monitor } from "lucide-react";
 import heroBg from "@/assets/bg_home_1782999734318.png";
 import { Link } from "react-router-dom";
@@ -28,44 +28,45 @@ export const Hero = () => {
       id="hero"
       ref={sectionRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen lg:h-screen lg:max-h-[1080px] w-full flex items-center justify-center overflow-hidden pt-28 pb-16 hero-image-overlay select-none"
+      className="relative min-h-screen lg:h-screen lg:max-h-[1080px] w-full flex items-center justify-center overflow-hidden pt-36 pb-20 hero-image-overlay select-none"
       style={{ backgroundImage: `url(${heroBg})` }}
     >
       {/* Dynamic Cursor Spotlight Glow */}
       <div
-        className="absolute w-[600px] h-[600px] rounded-full opacity-25 bg-gradient-to-tr from-cyan-500/40 to-indigo-500/40 blur-[140px] pointer-events-none transition-all duration-300 ease-out hidden lg:block"
+        className="absolute w-[650px] h-[650px] rounded-full opacity-20 bg-gradient-to-tr from-cyan-500/30 to-indigo-500/30 blur-[130px] pointer-events-none transition-all duration-300 ease-out hidden lg:block"
         style={{
-          left: `${coords.x - 300}px`,
-          top: `${coords.y - 300}px`,
+          left: `${coords.x - 325}px`,
+          top: `${coords.y - 325}px`,
           willChange: "left, top",
         }}
       />
 
-      {/* Ambient Mesh Glows (For Mobile/Fallback & Depth) */}
-      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full opacity-10 bg-gradient-to-tr from-cyan-500 to-indigo-500 blur-[120px] pointer-events-none animate-[pulse_10s_infinite] will-change-transform" />
+      {/* Ambient Mesh Glows */}
+      <div className="absolute top-1/4 left-1/3 w-[550px] h-[550px] rounded-full opacity-10 bg-gradient-to-tr from-cyan-500 to-indigo-500 blur-[120px] pointer-events-none animate-[pulse_10s_infinite] will-change-transform" />
       <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] rounded-full opacity-10 bg-gradient-to-bl from-purple-500 to-pink-500 blur-[100px] pointer-events-none animate-[pulse_12s_infinite] will-change-transform" />
 
-      <div className="container relative z-20 mx-auto px-4 md:px-8 lg:px-12 h-full flex items-center">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
+      {/* Main Container */}
+      <div className="container relative z-20 mx-auto px-6 md:px-12 lg:px-16 h-full flex items-center">
+        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center w-full">
           
           {/* ── Left Column: Value Proposition & Copywriting ── */}
           <div className="lg:col-span-7 flex flex-col items-start text-left z-20 py-2 animate-in fade-in slide-in-from-bottom-8 duration-700">
             
-            {/* Trust Pill */}
-            <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] shadow-lg rounded-full px-4 py-2 text-[12px] text-zinc-300 font-medium mb-6 backdrop-blur-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>⭐⭐⭐⭐⭐ Rated by 200+ Businesses Across India</span>
+            {/* Top Brand Badge */}
+            <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] shadow-lg rounded-full px-4 py-2 text-[12px] text-zinc-300 font-semibold mb-6 backdrop-blur-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <span>✨ Built for Ambitious Businesses</span>
             </div>
 
-            {/* Brand Personality Tagline */}
-            <p className="text-cyan-400 font-semibold text-xs md:text-sm uppercase tracking-widest mb-3 animate-[pulse_4s_infinite]">
-              ✦ Built for businesses that refuse to look ordinary
+            {/* Brand tagline */}
+            <p className="text-cyan-400 font-semibold text-xs md:text-sm uppercase tracking-widest mb-4 animate-[pulse_4s_infinite]">
+              ✦ Turning ambitious ideas into unforgettable digital experiences
             </p>
 
-            {/* H1 Heading — balanced leading & tracking */}
+            {/* H1 Heading */}
             <h1
               className="font-extrabold text-white mb-6 leading-[0.98] tracking-[-0.04em] text-left drop-shadow-xl font-jost"
-              style={{ fontSize: "clamp(42px, 5.8vw, 76px)", maxWidth: "650px" }}
+              style={{ fontSize: "clamp(42px, 5.8vw, 76px)", maxWidth: "620px" }}
             >
               Build Digital <br />
               <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl">
@@ -79,7 +80,7 @@ export const Hero = () => {
               We design premium digital products that help ambitious businesses grow faster, convert better, and stand out in competitive markets.
             </p>
 
-            {/* Service Chips — Interactive */}
+            {/* Service Chips */}
             <div className="flex flex-wrap gap-2 mb-8 max-w-xl">
               {["Web Design", "Development", "Branding", "SEO", "AI Automation"].map((chip) => (
                 <span
@@ -95,7 +96,7 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-4">
               <button
                 onClick={handleStartProject}
-                className="btn-primary py-4 px-8 text-white font-bold flex items-center justify-center gap-2 group shadow-xl shadow-cyan-500/10 hover:shadow-cyan-500/25 transition-all duration-200 rounded-xl"
+                className="btn-primary py-4 px-8 text-white font-bold flex items-center justify-center gap-2 group shadow-xl shadow-indigo-500/10 hover:shadow-indigo-500/20 hover:-translate-y-0.5 transition-all duration-300 rounded-xl"
               >
                 Book Free Strategy Call
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-200" />
@@ -109,29 +110,34 @@ export const Hero = () => {
               </Link>
             </div>
 
-            {/* Friction Ticks */}
-            <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-zinc-500 font-medium mb-8">
-              <span>✓ Free 30-Min Strategy Session</span>
-              <span className="hidden sm:inline">•</span>
-              <span>✓ Response under 24h</span>
-              <span className="hidden sm:inline">•</span>
-              <span>✓ No Obligation</span>
+            {/* Friction Ticks & Trust info */}
+            <div className="flex flex-col space-y-3 mt-4 w-full max-w-xl border-t border-white/5 pt-5">
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-zinc-500 font-medium">
+                <span>✓ Free 30-Min Strategy Session</span>
+                <span className="hidden sm:inline">•</span>
+                <span>✓ Response under 24h</span>
+                <span className="hidden sm:inline">•</span>
+                <span>✓ No Obligation</span>
+              </div>
+              <p className="text-xs text-zinc-400 font-normal">
+                Trusted by startups, local businesses, and growing brands across India.
+              </p>
             </div>
 
-            {/* Trust Badges */}
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-bold text-zinc-400 pt-6 border-t border-white/5 w-full max-w-xl">
-              <span className="flex items-center gap-1.5">⚡ Lightning Fast</span>
-              <span className="flex items-center gap-1.5">🔒 Secure</span>
-              <span className="flex items-center gap-1.5">📱 Mobile First</span>
-              <span className="flex items-center gap-1.5">📈 SEO Optimized</span>
-              <span className="flex items-center gap-1.5">🤖 AI Powered</span>
+            {/* Why Choose WebsBond Trust Badges */}
+            <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-bold text-zinc-500 mt-5 w-full max-w-xl">
+              <span className="flex items-center gap-1.5 hover:text-white transition-colors">⚡ Lightning Fast</span>
+              <span className="flex items-center gap-1.5 hover:text-white transition-colors">🔒 Secure</span>
+              <span className="flex items-center gap-1.5 hover:text-white transition-colors">📱 Mobile First</span>
+              <span className="flex items-center gap-1.5 hover:text-white transition-colors">📈 SEO Optimized</span>
+              <span className="flex items-center gap-1.5 hover:text-white transition-colors">🤖 AI Powered</span>
             </div>
 
           </div>
 
-          {/* ── Right Column: Digital Growth Dashboard (Hidden on Mobile) ── */}
+          {/* ── Right Column: Digital Growth Dashboard (Shrunk & Spaced Out) ── */}
           <div className="lg:col-span-5 hidden lg:flex items-center justify-center z-20 w-full animate-in fade-in slide-in-from-right-8 duration-800 delay-200 fill-mode-both">
-            <div className="relative w-full max-w-lg transition-transform duration-300 hover:scale-[1.02] hover:-rotate-1 will-change-transform group">
+            <div className="relative w-full max-w-[430px] lg:ml-auto transition-transform duration-300 hover:scale-[1.02] hover:-rotate-1 will-change-transform group">
               
               {/* Soft layered background glow */}
               <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-r from-cyan-500/20 to-purple-600/20 opacity-20 blur-xl transition-opacity duration-300 group-hover:opacity-45" />
@@ -193,8 +199,15 @@ export const Hero = () => {
                       </span>
                     </div>
 
-                    {/* Chart visual with GPU accelerated dash path animation */}
+                    {/* Chart visual with GPU accelerated dash path animation and grid lines */}
                     <div className="h-32 w-full flex items-end relative overflow-hidden">
+                      {/* Grid Lines */}
+                      <div className="absolute inset-0 flex flex-col justify-between opacity-10 pointer-events-none">
+                        <div className="border-b border-dashed border-zinc-500 w-full h-px" />
+                        <div className="border-b border-dashed border-zinc-500 w-full h-px" />
+                        <div className="border-b border-dashed border-zinc-500 w-full h-px" />
+                      </div>
+
                       <svg className="w-full h-full text-cyan-500/80" viewBox="0 0 300 100" preserveAspectRatio="none">
                         <defs>
                           <linearGradient id="gradient-glow-dashboard" x1="0" y1="0" x2="0" y2="1">
@@ -215,6 +228,9 @@ export const Hero = () => {
                           className="animate-flow-dash"
                         />
                       </svg>
+
+                      {/* Pulse point along graph */}
+                      <div className="absolute left-[66%] bottom-[45%] w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(6,182,212,0.8)] animate-pulse" />
                     </div>
                   </div>
 
@@ -228,7 +244,7 @@ export const Hero = () => {
 
               </div>
 
-              {/* Simulated Client Showcase Widget (Clean Generic Labeling) */}
+              {/* Featured Project Showcase */}
               <div className="absolute -bottom-6 -left-6 bg-[#0f0f15]/95 border border-white/[0.12] backdrop-blur-xl rounded-2xl p-4 shadow-2xl flex items-center gap-3 animate-[bounce_6s_infinite] pointer-events-none select-none">
                 <span className="w-3.5 h-3.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                 <div className="text-left">
@@ -237,7 +253,7 @@ export const Hero = () => {
                 </div>
               </div>
 
-              {/* Floating tech stack tags */}
+              {/* Floating AI tag */}
               <div className="absolute -top-6 -right-6 bg-[#0f0f15]/95 border border-white/[0.12] backdrop-blur-xl rounded-2xl p-3.5 shadow-2xl flex items-center gap-2 animate-[bounce_5s_infinite] pointer-events-none select-none">
                 <span className="text-[10px] font-bold text-cyan-400 font-mono">LLM</span>
                 <span className="text-xs text-white font-semibold">AI Integrations</span>
@@ -249,29 +265,21 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Built With Stack partner logos (Clean Stack Vitals) */}
-      <div className="absolute bottom-8 left-0 right-0 z-20 hidden lg:block">
-        <div className="container mx-auto px-12">
-          <div className="flex items-center gap-6 opacity-30 select-none">
+      {/* Built With Stack partner logos — Pinned to the very bottom edge */}
+      <div className="absolute bottom-6 left-0 right-0 z-20 hidden lg:block">
+        <div className="container mx-auto px-16">
+          <div className="flex items-center gap-6 opacity-25 select-none hover:opacity-40 transition-opacity duration-300">
             <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-black shrink-0">Technologies We Use:</span>
             <div className="flex gap-8 text-white font-bold text-xs tracking-wider">
-              <span>REACT</span>
-              <span>NEXT.JS</span>
-              <span>TYPESCRIPT</span>
-              <span>TAILWIND</span>
-              <span>POSTGRESQL</span>
-              <span>SUPABASE</span>
-              <span>CLOUDFLARE</span>
+              <span className="hover:text-cyan-400 transition-colors cursor-pointer">REACT</span>
+              <span className="hover:text-cyan-400 transition-colors cursor-pointer">NEXT.JS</span>
+              <span className="hover:text-cyan-400 transition-colors cursor-pointer">TYPESCRIPT</span>
+              <span className="hover:text-cyan-400 transition-colors cursor-pointer">TAILWIND</span>
+              <span className="hover:text-cyan-400 transition-colors cursor-pointer">POSTGRESQL</span>
+              <span className="hover:text-cyan-400 transition-colors cursor-pointer">SUPABASE</span>
+              <span className="hover:text-cyan-400 transition-colors cursor-pointer">CLOUDFLARE</span>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Animated scroll down indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 select-none pointer-events-none opacity-60">
-        <span className="text-[9px] text-zinc-500 uppercase tracking-widest font-medium">Scroll to explore</span>
-        <div className="w-5 h-8 rounded-full border border-zinc-600 flex justify-center p-1.5">
-          <div className="w-1 h-1.5 rounded-full bg-cyan-400 animate-bounce" />
         </div>
       </div>
 
