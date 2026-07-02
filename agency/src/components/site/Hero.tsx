@@ -66,18 +66,28 @@ export const Hero = () => {
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden select-none"
       style={{
         backgroundColor: "#030305",
-        backgroundImage: `url(https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop)`,
+        backgroundImage: `url(https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070&auto=format&fit=crop)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* Dark overlay — keeps image clearly visible */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#030305]/50 via-[#030305]/20 to-transparent z-0" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/30 via-transparent to-transparent z-0" />
+      {/* Heavy left gradient — text area stays solid dark */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#030305] via-[#030305]/85 to-[#030305]/30 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#030305] via-[#030305]/50 to-transparent z-0" />
 
-      {/* Decorative gradient orbs */}
-      <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full bg-indigo-500/15 blur-[140px] pointer-events-none z-0" />
-      <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none z-0" />
+      {/* Premium warm + cool accent glows — Indian premium aesthetic */}
+      <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-amber-500/8 blur-[150px] pointer-events-none z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-indigo-500/12 blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 right-1/3 w-[300px] h-[300px] rounded-full bg-rose-500/5 blur-[100px] pointer-events-none z-0" />
+
+      {/* Subtle Indian geometric pattern overlay */}
+      <div className="absolute inset-0 opacity-[0.03] z-0" style={{
+        backgroundImage: `
+          linear-gradient(45deg, #fff 1px, transparent 1px),
+          linear-gradient(-45deg, #fff 1px, transparent 1px)
+        `,
+        backgroundSize: "60px 60px",
+      }} />
 
       <div className="max-w-7xl w-full mx-auto px-6 md:px-8 relative z-10 pt-36 lg:pt-44 pb-24">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -85,20 +95,23 @@ export const Hero = () => {
           {/* ── Left Column ── */}
           <div className="lg:col-span-7 flex flex-col items-start text-left hero-fu">
             <div className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/[0.08] rounded-full px-4 py-1.5 text-[11px] text-zinc-300 font-semibold mb-6 tracking-wide backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
               Delhi NCR's Premium Digital Agency
             </div>
 
             <h1 className="font-extrabold text-white mb-5 leading-[1.05] tracking-[-0.04em] font-jost"
-              style={{ fontSize: "clamp(40px, 5.5vw, 72px)" }}>
+              style={{
+                fontSize: "clamp(40px, 5.5vw, 72px)",
+                textShadow: "0 4px 40px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.4)",
+              }}>
               We Build{" "}
-              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
                 Digital Growth
               </span>
               {" "}Machines
             </h1>
 
-            <p className="text-zinc-300 text-base md:text-[17px] leading-relaxed mb-8 max-w-xl font-normal drop-shadow-lg">
+            <p className="text-zinc-200 text-base md:text-[17px] leading-relaxed mb-8 max-w-xl font-medium drop-shadow-2xl" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.6)" }}>
               From high-performance websites to SEO that actually ranks — we engineer digital products that drive revenue, not just likes.
             </p>
 
@@ -122,12 +135,12 @@ export const Hero = () => {
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-medium text-zinc-400 w-full max-w-xl">
               {[
                 { icon: Zap, label: "100/100 PageSpeed" },
-                { icon: Shield, label: "SEO Guaranteed" },
+                { icon: Shield, label: "Rank Guarantee" },
                 { icon: TrendingUp, label: "ROI Focused" },
                 { icon: BarChart3, label: "Data Driven" },
               ].map(({ icon: Icon, label }) => (
-                <span key={label} className="flex items-center gap-1.5 hover:text-zinc-200 transition-colors">
-                  <Icon className="w-3.5 h-3.5 text-indigo-400" />
+                <span key={label} className="flex items-center gap-1.5 hover:text-amber-200 transition-colors">
+                  <Icon className="w-3.5 h-3.5 text-amber-400" />
                   {label}
                 </span>
               ))}
@@ -142,7 +155,7 @@ export const Hero = () => {
               <div className="relative bg-[#09090b]/90 border border-white/[0.08] backdrop-blur-3xl rounded-[2rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
                 <div className="px-6 py-5 border-b border-white/[0.04]">
                   <div className="flex items-center gap-2 mb-1">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                    <CheckCircle2 className="w-4 h-4 text-amber-400" />
                     <span className="text-sm font-bold text-white">Free Strategy Session</span>
                   </div>
                   <p className="text-[11px] text-zinc-500">Get a custom growth roadmap — no obligation.</p>
@@ -201,7 +214,7 @@ export const Hero = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 py-3.5 px-6 rounded-xl text-white font-bold flex items-center justify-center gap-2 group transition-all duration-300 disabled:opacity-50 hover:brightness-110 shadow-lg shadow-indigo-500/20 text-sm mt-1"
+                    className="w-full bg-gradient-to-r from-amber-500 to-orange-600 py-3.5 px-6 rounded-xl text-white font-bold flex items-center justify-center gap-2 group transition-all duration-300 disabled:opacity-50 hover:brightness-110 shadow-lg shadow-amber-500/20 text-sm mt-1"
                   >
                     {isSubmitting ? "Submitting..." : "Claim Your Free Session"}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
