@@ -77,9 +77,9 @@ export const Hero = () => {
         <source src="https://labs.google/fx/api/og-video/shared/57512328-33d9-49b3-b7c0-e5b401a78106" type="video/mp4" />
       </video>
 
-      {/* Light gradient overlay — keeps video visible */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#030305]/40 via-[#030305]/15 to-transparent z-0" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/20 via-transparent to-transparent z-0" />
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#030305]/55 via-[#030305]/25 to-transparent z-0" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/30 via-transparent to-transparent z-0" />
 
       {/* Premium warm + cool accent glows — Indian premium aesthetic */}
       <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-amber-500/8 blur-[150px] pointer-events-none z-0" />
