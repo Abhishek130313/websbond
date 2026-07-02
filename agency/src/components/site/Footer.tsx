@@ -59,22 +59,26 @@ loading="lazy" decoding="async"                   src={logo3d}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-zinc-500 transition-all duration-300 border border-zinc-800 hover:-translate-y-0.5"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-300"
                   style={{
+                    color: s.color,
+                    background: `${s.color}12`,
+                    border: `1px solid ${s.color}25`,
+                    boxShadow: `0 0 12px ${s.color}15`,
                     transition: "transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = "#fff";
                     e.currentTarget.style.background = s.color;
                     e.currentTarget.style.borderColor = s.color;
-                    e.currentTarget.style.boxShadow = `0 4px 15px ${s.color}40`;
-                    e.currentTarget.style.transform = "perspective(200px) rotateX(-2deg) rotateY(2deg) translateY(-2px)";
+                    e.currentTarget.style.boxShadow = `0 0 25px ${s.color}60, 0 4px 15px ${s.color}30`;
+                    e.currentTarget.style.transform = "perspective(200px) rotateX(-3deg) rotateY(3deg) translateY(-3px) scale(1.08)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "";
-                    e.currentTarget.style.background = "";
-                    e.currentTarget.style.borderColor = "";
-                    e.currentTarget.style.boxShadow = "";
+                    e.currentTarget.style.color = s.color;
+                    e.currentTarget.style.background = `${s.color}12`;
+                    e.currentTarget.style.borderColor = `${s.color}25`;
+                    e.currentTarget.style.boxShadow = `0 0 12px ${s.color}15`;
                     e.currentTarget.style.transform = "";
                   }}
                 >

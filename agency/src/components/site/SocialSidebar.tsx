@@ -34,22 +34,26 @@ export const SocialSidebar = () => (
         target="_blank"
         rel="noopener noreferrer"
         aria-label={s.label}
-        className="w-9 h-9 rounded-full flex items-center justify-center text-white/50 bg-white/[0.03] border border-white/10 backdrop-blur-md transition-all duration-300 shadow-md"
+        className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-md"
         style={{
+          color: s.color,
+          background: `${s.color}12`,
+          border: `1px solid ${s.color}25`,
+          boxShadow: `0 0 15px ${s.color}10, 0 4px 12px rgba(0,0,0,0.15)`,
           transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.color = "#fff";
           e.currentTarget.style.background = s.color;
           e.currentTarget.style.borderColor = s.color;
-          e.currentTarget.style.boxShadow = `0 0 20px ${s.color}50`;
-          e.currentTarget.style.transform = "perspective(200px) rotateX(-3deg) rotateY(3deg) translateY(-2px) scale(1.08)";
+          e.currentTarget.style.boxShadow = `0 0 30px ${s.color}60, 0 8px 20px ${s.color}20`;
+          e.currentTarget.style.transform = "perspective(200px) rotateX(-4deg) rotateY(4deg) translateY(-3px) scale(1.1)";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.color = "";
-          e.currentTarget.style.background = "";
-          e.currentTarget.style.borderColor = "";
-          e.currentTarget.style.boxShadow = "";
+          e.currentTarget.style.color = s.color;
+          e.currentTarget.style.background = `${s.color}12`;
+          e.currentTarget.style.borderColor = `${s.color}25`;
+          e.currentTarget.style.boxShadow = `0 0 15px ${s.color}10, 0 4px 12px rgba(0,0,0,0.15)`;
           e.currentTarget.style.transform = "";
         }}
       >

@@ -4,22 +4,26 @@ export const WhatsAppButton = () => (
     <a
       href="tel:+919306623619"
       aria-label="Call Websbond support"
-      className="fixed bottom-20 left-4 z-50 w-10 h-10 rounded-full flex items-center justify-center bg-white/5 border border-white/10 backdrop-blur-md text-white/50 shadow-lg transition-all duration-300"
+      className="fixed bottom-20 left-4 z-50 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300"
       style={{
+        color: "#ff6b35",
+        background: "rgba(255,107,53,0.08)",
+        border: "1px solid rgba(255,107,53,0.25)",
+        boxShadow: "0 0 15px rgba(255,107,53,0.12), 0 4px 12px rgba(0,0,0,0.15)",
         transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.color = "#fff";
         e.currentTarget.style.background = "#ff6b35";
         e.currentTarget.style.borderColor = "#ff6b35";
-        e.currentTarget.style.boxShadow = "0 0 20px rgba(255,107,53,0.4), 0 4px 15px rgba(255,107,53,0.2)";
-        e.currentTarget.style.transform = "perspective(200px) rotateX(-3deg) rotateY(3deg) translateY(-2px) scale(1.08)";
+        e.currentTarget.style.boxShadow = "0 0 30px rgba(255,107,53,0.5), 0 8px 20px rgba(255,107,53,0.2)";
+        e.currentTarget.style.transform = "perspective(200px) rotateX(-4deg) rotateY(4deg) translateY(-3px) scale(1.1)";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.color = "";
-        e.currentTarget.style.background = "";
-        e.currentTarget.style.borderColor = "";
-        e.currentTarget.style.boxShadow = "";
+        e.currentTarget.style.color = "#ff6b35";
+        e.currentTarget.style.background = "rgba(255,107,53,0.08)";
+        e.currentTarget.style.borderColor = "rgba(255,107,53,0.25)";
+        e.currentTarget.style.boxShadow = "0 0 15px rgba(255,107,53,0.12), 0 4px 12px rgba(0,0,0,0.15)";
         e.currentTarget.style.transform = "";
       }}
     >
@@ -34,22 +38,26 @@ export const WhatsAppButton = () => (
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp with Websbond"
-      className="fixed bottom-6 left-4 z-50 w-10 h-10 rounded-full flex items-center justify-center bg-white/5 border border-white/10 backdrop-blur-md text-white/50 shadow-lg transition-all duration-300"
+      className="fixed bottom-6 left-4 z-50 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300"
       style={{
+        color: "#25D366",
+        background: "rgba(37,211,102,0.08)",
+        border: "1px solid rgba(37,211,102,0.25)",
+        boxShadow: "0 0 15px rgba(37,211,102,0.12), 0 4px 12px rgba(0,0,0,0.15)",
         transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.color = "#fff";
         e.currentTarget.style.background = "#25D366";
         e.currentTarget.style.borderColor = "#25D366";
-        e.currentTarget.style.boxShadow = "0 0 20px rgba(37,211,102,0.4), 0 4px 15px rgba(37,211,102,0.2)";
-        e.currentTarget.style.transform = "perspective(200px) rotateX(-3deg) rotateY(3deg) translateY(-2px) scale(1.08)";
+        e.currentTarget.style.boxShadow = "0 0 30px rgba(37,211,102,0.5), 0 8px 20px rgba(37,211,102,0.2)";
+        e.currentTarget.style.transform = "perspective(200px) rotateX(-4deg) rotateY(4deg) translateY(-3px) scale(1.1)";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.color = "";
-        e.currentTarget.style.background = "";
-        e.currentTarget.style.borderColor = "";
-        e.currentTarget.style.boxShadow = "";
+        e.currentTarget.style.color = "#25D366";
+        e.currentTarget.style.background = "rgba(37,211,102,0.08)";
+        e.currentTarget.style.borderColor = "rgba(37,211,102,0.25)";
+        e.currentTarget.style.boxShadow = "0 0 15px rgba(37,211,102,0.12), 0 4px 12px rgba(0,0,0,0.15)";
         e.currentTarget.style.transform = "";
       }}
     >
