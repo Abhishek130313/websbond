@@ -14,11 +14,11 @@ export const SEOAnalyzerPage = () => {
   const [leadForm, setLeadForm] = useState({ name: "", email: "", phone: "" });
   const [submittingLead, setSubmittingLead] = useState(false);
 
-  // New state for real API data
   const [scanResult, setScanResult] = useState<{
     score: number;
     passed: { title: string; description: string }[];
     warnings: { title: string; description: string }[];
+    isEstimated?: boolean;
   } | null>(null);
 
   const crawlSteps = [
@@ -67,43 +67,38 @@ export const SEOAnalyzerPage = () => {
       let html = "";
       let isEstimated = false;
 
+      // Fetch raw HTML using multiple CORS proxies in parallel for maximum reliability and speed
       try {
-        // Try fetching via AllOrigins CORS proxy first
-        const allOriginsUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
-        
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-        
-        const res = await fetch(allOriginsUrl, { signal: controller.signal });
-        clearTimeout(timeoutId);
-
-        if (res.ok) {
-          const json = await res.json();
-          if (json.contents) {
-            html = json.contents;
-          }
-        }
-      } catch (e) {
-        console.warn("AllOrigins proxy failed, trying fallback...", e);
-      }
-
-      if (!html) {
-        try {
-          // Try corsproxy.io as a fallback
-          const corsProxyUrl = `https://corsproxy.io/?url=${encodeURIComponent(targetUrl)}`;
-          
+        const fetchWithTimeout = async (url: string, timeoutMs: number): Promise<string> => {
           const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
-          
-          const res = await fetch(corsProxyUrl, { signal: controller.signal });
-          clearTimeout(timeoutId);
-
-          if (res.ok) {
-            html = await res.text();
+          const id = setTimeout(() => controller.abort(), timeoutMs);
+          try {
+            const res = await fetch(url, { signal: controller.signal });
+            clearTimeout(id);
+            if (!res.ok) throw new Error("Status " + res.status);
+            
+            if (url.includes("allorigins")) {
+              const json = await res.json();
+              if (json.contents) return json.contents;
+              throw new Error("No contents in AllOrigins");
+            }
+            return await res.text();
+          } catch (e) {
+            clearTimeout(id);
+            throw e;
           }
-        } catch (e) {
-          console.warn("Fallback proxy failed as well. Using diagnostic estimation.", e);
-        }
+        };
+
+        const targetEncoded = encodeURIComponent(targetUrl);
+        
+        // Race the proxies to grab the page content as fast as possible
+        html = await Promise.any([
+          fetchWithTimeout(`https://api.allorigins.win/get?url=${targetEncoded}`, 8000),
+          fetchWithTimeout(`https://corsproxy.io/?url=${targetEncoded}`, 8000)
+        ]);
+        
+      } catch (e) {
+        console.warn("All parallel CORS proxies failed or timed out. Falling back to estimation.", e);
       }
 
       if (!html || html.length < 200 || html.toLowerCase().includes("cloudflare") || html.includes("Just a moment...")) {
@@ -388,7 +383,8 @@ export const SEOAnalyzerPage = () => {
       setScanResult({
         score: score,
         passed: passedAudits.slice(0, 6),
-        warnings: warningAudits.slice(0, 6).sort((a, b) => a.title.localeCompare(b.title))
+        warnings: warningAudits.slice(0, 6).sort((a, b) => a.title.localeCompare(b.title)),
+        isEstimated: isEstimated
       });
 
     } catch (err: any) {
@@ -524,6 +520,19 @@ export const SEOAnalyzerPage = () => {
       {showReport && scanResult && (
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-5xl space-y-12">
+            
+            {scanResult.isEstimated && (
+              <div className="bg-amber-50 border border-amber-200 rounded-3xl p-5 flex items-start gap-4 text-amber-800 text-xs sm:text-sm font-semibold shadow-sm relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1.5 h-full bg-amber-500" />
+                <AlertCircle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                <div className="space-y-1 pl-1">
+                  <span className="font-bold block text-amber-950 text-sm">Diagnostic Estimate Mode</span>
+                  <p className="text-amber-800/90 leading-relaxed font-semibold">
+                    A direct crawl was blocked by the website's security firewall (e.g. Cloudflare / DDoS protection). We have generated a standard diagnostic estimation based on domain specifications. Enter your contact details below to receive a full manual audit from our SEO developers.
+                  </p>
+                </div>
+              </div>
+            )}
             
             {/* Score Summary Box */}
             <div className="bg-[#f8fafc] border border-gray-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row justify-between items-center gap-8">
