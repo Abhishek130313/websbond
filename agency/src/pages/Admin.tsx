@@ -5,7 +5,7 @@ import {
   ChevronUp, CheckCircle, Star, StarOff, ExternalLink,
   Filter, X, Sun, Moon, Inbox
 } from "lucide-react";
-import { getApiUrl } from "@/lib/api";
+import { getApiUrl, CONTACT_FALLBACK_URL } from "@/lib/api";
 
 interface ContactSubmission {
   id: number;
@@ -149,7 +149,22 @@ export const AdminPage = () => {
       setIsLoggedIn(true);
       localStorage.setItem("wb_admin_key", key);
       setApiKey(key);
-    } catch { setLoginError("Cannot connect to backend."); }
+      return;
+    } catch { /* primary backend unreachable */ }
+
+    // Fallback: try local PHP-stored leads
+    try {
+      const fallbackRes = await fetch(`${CONTACT_FALLBACK_URL}?key=${encodeURIComponent(key)}`);
+      if (fallbackRes.status === 401) { setLoginError("Invalid admin key."); setIsLoggedIn(false); return; }
+      if (!fallbackRes.ok) throw new Error();
+      const data = await fallbackRes.json();
+      setSubs(data);
+      setIsLoggedIn(true);
+      localStorage.setItem("wb_admin_key", key);
+      setApiKey(key);
+    } catch {
+      setLoginError("Cannot connect to backend. Form submissions go to the local fallback and will appear here once the backend is back online.");
+    }
     finally { setLoginLoading(false); setLoading(false); }
   };
 

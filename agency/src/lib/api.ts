@@ -1,5 +1,5 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL || "";
-const CONTACT_FALLBACK_URL = import.meta.env.VITE_CONTACT_API_URL || "/send-contact.php";
+export const CONTACT_FALLBACK_URL = import.meta.env.VITE_CONTACT_API_URL || "/send-contact.php";
 const WA_TOKEN = import.meta.env.VITE_WHATSAPP_TOKEN || "";
 const WA_PHONE = import.meta.env.VITE_WHATSAPP_PHONE || "919306623619";
 

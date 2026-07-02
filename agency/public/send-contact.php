@@ -1,11 +1,56 @@
 <?php
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, X-Admin-Key');
+
+$adminKey = getenv('ADMIN_KEY') ?: 'websbond-admin-2024';
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
+    exit;
+}
+
+// GET — return stored leads for admin dashboard
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $key = $_GET['key'] ?? '';
+    if ($key !== $adminKey) {
+        http_response_code(401);
+        echo json_encode(['error' => 'Invalid admin key']);
+        exit;
+    }
+
+    $logDir = __DIR__ . '/leads';
+    $allLeads = [];
+    if (is_dir($logDir)) {
+        $files = glob($logDir . '/*.json');
+        sort($files);
+        foreach ($files as $file) {
+            $leads = json_decode(file_get_contents($file), true) ?? [];
+            foreach ($leads as $lead) {
+                $allLeads[] = $lead;
+            }
+        }
+    }
+
+    usort($allLeads, function ($a, $b) {
+        return strcmp($b['submittedAt'] ?? '', $a['submittedAt'] ?? '');
+    });
+
+    $result = [];
+    foreach ($allLeads as $i => $lead) {
+        $result[] = [
+            'id'          => $i + 1,
+            'name'        => $lead['name'] ?? '',
+            'email'       => $lead['email'] ?? '',
+            'phone'       => $lead['phone'] ?? '',
+            'subject'     => $lead['subject'] ?? '',
+            'message'     => $lead['message'] ?? '',
+            'submittedAt' => $lead['submittedAt'] ?? '',
+        ];
+    }
+
+    echo json_encode($result);
     exit;
 }
 
