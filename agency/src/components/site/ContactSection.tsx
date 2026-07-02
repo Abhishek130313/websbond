@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
-import { getApiUrl } from "@/lib/api";
+import { submitContactForm } from "@/lib/api";
 import { ArrowRight, Phone, Mail, User, MessageCircle, CheckCircle2 } from "lucide-react";
 
 export const ContactSection = () => {
@@ -35,18 +35,13 @@ export const ContactSection = () => {
 
     setIsSubmitting(true);
     try {
-      const res = await fetch(getApiUrl("/api/contact"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: "Strategy Call - " + formData.service,
-          message: "Requested Service: " + formData.service,
-        }),
+      await submitContactForm({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: "Strategy Call - " + formData.service,
+        message: "Requested Service: " + formData.service,
       });
-      if (!res.ok) throw new Error("Failed");
       toast({
         title: "Strategy Call Booked! 🎉",
         description: "Thank you! Our digital expert will contact you shortly.",
@@ -54,13 +49,10 @@ export const ContactSection = () => {
       setFormData({ name: "", email: "", phone: "", service: "Website Design" });
     } catch {
       toast({
-        title: "Server Unavailable",
-        description: "Redirecting to WhatsApp...",
+        title: "Submission Failed",
+        description: "Please try again or call us directly at +91 9306623619.",
+        variant: "destructive",
       });
-      const waMsg = encodeURIComponent(
-        `Hi Websbond! I need a strategy call.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nService: ${formData.service}`
-      );
-      window.open(`https://wa.me/919306623619?text=${waMsg}`, "_blank");
     } finally {
       setIsSubmitting(false);
     }

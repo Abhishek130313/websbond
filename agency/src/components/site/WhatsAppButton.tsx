@@ -6,24 +6,24 @@ export const WhatsAppButton = () => (
       aria-label="Call Websbond support"
       className="fixed bottom-20 left-4 z-50 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300"
       style={{
-        color: "#ff6b35",
-        background: "rgba(255,107,53,0.08)",
-        border: "1px solid rgba(255,107,53,0.25)",
-        boxShadow: "0 0 15px rgba(255,107,53,0.12), 0 4px 12px rgba(0,0,0,0.15)",
+        color: "#E85520",
+        background: "linear-gradient(135deg, rgba(255,107,53,0.15), rgba(232,85,32,0.1))",
+        border: "1px solid rgba(255,107,53,0.3)",
+        boxShadow: "0 0 15px rgba(255,107,53,0.2), inset 0 1px 0 rgba(255,107,53,0.15), 0 4px 12px rgba(0,0,0,0.15)",
         transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.color = "#fff";
-        e.currentTarget.style.background = "#ff6b35";
-        e.currentTarget.style.borderColor = "#ff6b35";
-        e.currentTarget.style.boxShadow = "0 0 30px rgba(255,107,53,0.5), 0 8px 20px rgba(255,107,53,0.2)";
+        e.currentTarget.style.background = "linear-gradient(135deg, #ff6b35, #E85520)";
+        e.currentTarget.style.borderColor = "#E85520";
+        e.currentTarget.style.boxShadow = "0 0 30px rgba(255,107,53,0.5), 0 8px 20px rgba(255,107,53,0.2), inset 0 1px 0 rgba(255,255,255,0.2)";
         e.currentTarget.style.transform = "perspective(200px) rotateX(-4deg) rotateY(4deg) translateY(-3px) scale(1.1)";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.color = "#ff6b35";
-        e.currentTarget.style.background = "rgba(255,107,53,0.08)";
-        e.currentTarget.style.borderColor = "rgba(255,107,53,0.25)";
-        e.currentTarget.style.boxShadow = "0 0 15px rgba(255,107,53,0.12), 0 4px 12px rgba(0,0,0,0.15)";
+        e.currentTarget.style.color = "#E85520";
+        e.currentTarget.style.background = "linear-gradient(135deg, rgba(255,107,53,0.15), rgba(232,85,32,0.1))";
+        e.currentTarget.style.borderColor = "rgba(255,107,53,0.3)";
+        e.currentTarget.style.boxShadow = "0 0 15px rgba(255,107,53,0.2), inset 0 1px 0 rgba(255,107,53,0.15), 0 4px 12px rgba(0,0,0,0.15)";
         e.currentTarget.style.transform = "";
       }}
     >
@@ -40,24 +40,24 @@ export const WhatsAppButton = () => (
       aria-label="Chat on WhatsApp with Websbond"
       className="fixed bottom-6 left-4 z-50 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300"
       style={{
-        color: "#25D366",
-        background: "rgba(37,211,102,0.08)",
-        border: "1px solid rgba(37,211,102,0.25)",
-        boxShadow: "0 0 15px rgba(37,211,102,0.12), 0 4px 12px rgba(0,0,0,0.15)",
+        color: "#1DA959",
+        background: "linear-gradient(135deg, rgba(37,211,102,0.15), rgba(29,169,89,0.1))",
+        border: "1px solid rgba(37,211,102,0.3)",
+        boxShadow: "0 0 15px rgba(37,211,102,0.2), inset 0 1px 0 rgba(37,211,102,0.15), 0 4px 12px rgba(0,0,0,0.15)",
         transition: "transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.color = "#fff";
-        e.currentTarget.style.background = "#25D366";
-        e.currentTarget.style.borderColor = "#25D366";
-        e.currentTarget.style.boxShadow = "0 0 30px rgba(37,211,102,0.5), 0 8px 20px rgba(37,211,102,0.2)";
+        e.currentTarget.style.background = "linear-gradient(135deg, #25D366, #1DA959)";
+        e.currentTarget.style.borderColor = "#1DA959";
+        e.currentTarget.style.boxShadow = "0 0 30px rgba(37,211,102,0.5), 0 8px 20px rgba(37,211,102,0.2), inset 0 1px 0 rgba(255,255,255,0.2)";
         e.currentTarget.style.transform = "perspective(200px) rotateX(-4deg) rotateY(4deg) translateY(-3px) scale(1.1)";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.color = "#25D366";
-        e.currentTarget.style.background = "rgba(37,211,102,0.08)";
-        e.currentTarget.style.borderColor = "rgba(37,211,102,0.25)";
-        e.currentTarget.style.boxShadow = "0 0 15px rgba(37,211,102,0.12), 0 4px 12px rgba(0,0,0,0.15)";
+        e.currentTarget.style.color = "#1DA959";
+        e.currentTarget.style.background = "linear-gradient(135deg, rgba(37,211,102,0.15), rgba(29,169,89,0.1))";
+        e.currentTarget.style.borderColor = "rgba(37,211,102,0.3)";
+        e.currentTarget.style.boxShadow = "0 0 15px rgba(37,211,102,0.2), inset 0 1px 0 rgba(37,211,102,0.15), 0 4px 12px rgba(0,0,0,0.15)";
         e.currentTarget.style.transform = "";
       }}
     >
