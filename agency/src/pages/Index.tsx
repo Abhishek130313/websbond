@@ -5,6 +5,8 @@ import { Hero } from "@/components/site/Hero";
 import { StatsBar } from "@/components/site/StatsBar";
 import { CtaBanner } from "@/components/site/CtaBanner";
 
+import { ContactSection } from "@/components/site/ContactSection";
+
 // Below-the-fold components: lazy-loaded to reduce initial bundle/parse time
 const Process = lazy(() => import("@/components/site/Process").then(m => ({ default: m.Process })));
 const Services = lazy(() => import("@/components/site/Services").then(m => ({ default: m.Services })));
@@ -103,6 +105,9 @@ const Index = () => (
     <Suspense fallback={<SectionSkeleton />}>
       <Testimonials />
     </Suspense>
+
+    {/* 12.5. Dedicated Consultation Contact Form */}
+    <ContactSection />
 
     {/* 13. FAQ Section — Premium SaaS style */}
     <section className="py-24 bg-white">

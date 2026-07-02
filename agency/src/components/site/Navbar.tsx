@@ -116,10 +116,10 @@ export const Navbar = ({
                     className={({ isActive }) =>
                       `flex items-center gap-1 px-3 py-2 text-[13px] font-bold transition-all duration-300 rounded-full ${
                         isActive
-                          ? scrolled ? "text-indigo-600 bg-indigo-50/50" : "text-cyan-300 bg-white/10"
+                          ? scrolled ? "text-indigo-600" : "text-cyan-400"
                           : scrolled
-                            ? "text-zinc-600 hover:text-indigo-600 hover:bg-indigo-50/50"
-                            : "text-zinc-300 hover:text-white hover:bg-white/10"
+                            ? "text-zinc-600 hover:text-indigo-600"
+                            : "text-zinc-300 hover:text-white"
                       }`
                     }
                   >
@@ -170,10 +170,10 @@ export const Navbar = ({
                   className={({ isActive }) =>
                     `px-3 py-2 text-[13px] font-bold transition-all duration-300 rounded-full ${
                       isActive
-                        ? scrolled ? "text-indigo-600 bg-indigo-50/50" : "text-cyan-300 bg-white/10"
+                        ? scrolled ? "text-indigo-600" : "text-cyan-400"
                         : scrolled
-                          ? "text-zinc-600 hover:text-indigo-600 hover:bg-indigo-50/50"
-                          : "text-zinc-300 hover:text-white hover:bg-white/10"
+                          ? "text-zinc-600 hover:text-indigo-600"
+                          : "text-zinc-300 hover:text-white"
                     }`
                   }
                 >
