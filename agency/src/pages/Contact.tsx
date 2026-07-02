@@ -4,7 +4,7 @@ import { Layout } from "@/components/site/Layout";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 import { Phone, Mail, MapPin, Loader2, Send } from "lucide-react";
-import heroBg from "@/assets/bg_contact_1782999749090.png";
+
 
 const SERVICES_OPTIONS = [
   "Website Design & Development",
@@ -68,10 +68,22 @@ export const ContactPage = () => {
       />
 
       {/* ── Page Hero Header ── */}
-      <section 
-        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-image-overlay"
-        style={{ backgroundImage: `url(${heroBg})` }}
+      <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center"
+        style={{ backgroundColor: "#030305" }}
       >
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="https://labs.google/fx/api/og-video/shared/cae9b9bb-a28d-4eb4-8d3e-a97411f24f80" type="video/mp4" />
+        </video>
+
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030305]/55 via-[#030305]/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/30 via-transparent to-transparent" />
+
         <div className="container relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
           <h1 className="font-jost font-black text-4xl md:text-6xl leading-tight mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl">
             Contact Us
