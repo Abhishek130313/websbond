@@ -96,7 +96,8 @@ export const Navbar = ({
 
       {/* ── Main Header — Floating Pill on Scroll ── */}
       <header
-        className={`mx-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
+        className={`mx-auto transition-all duration-500 ${
           scrolled
             ? "w-[95%] max-w-6xl bg-white/85 backdrop-blur-2xl shadow-[0_16px_40px_rgba(0,0,0,0.12)] border border-white/60 rounded-full py-2.5 px-6 sm:px-8 text-zinc-900"
             : "w-full bg-transparent py-5 text-white"
@@ -212,7 +213,8 @@ export const Navbar = ({
 
         {/* Mobile Drawer */}
         <div
-          className={`lg:hidden overflow-y-auto transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] absolute left-0 right-0 top-full mt-2 mx-4 rounded-3xl border border-zinc-100 bg-white/95 backdrop-blur-3xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] ${
+          style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
+          className={`lg:hidden overflow-y-auto transition-all duration-500 absolute left-0 right-0 top-full mt-2 mx-4 rounded-3xl border border-zinc-100 bg-white/95 backdrop-blur-3xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] ${
             open ? "max-h-[85vh] opacity-100 visible translate-y-0" : "max-h-0 opacity-0 invisible -translate-y-4"
           }`}
         >

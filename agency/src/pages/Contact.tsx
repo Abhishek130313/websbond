@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { toast } from "@/hooks/use-toast";
-import { getApiUrl } from "@/lib/api";
+import { submitContactForm } from "@/lib/api";
 import { Phone, Mail, MapPin, Loader2, Send } from "lucide-react";
 
 
@@ -38,18 +38,13 @@ export const ContactPage = () => {
 
     setIsSubmitting(true);
     try {
-      const res = await fetch(getApiUrl("/api/contact"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          phone,
-          email,
-          subject: "Inquiry - " + service,
-          message: `Requested Service: ${service}\n\nClient Message:\n${message || "No message provided."}`
-        }),
+      await submitContactForm({
+        name,
+        phone,
+        email,
+        subject: "Inquiry - " + service,
+        message: `Requested Service: ${service}\n\nClient Message:\n${message || "No message provided."}`
       });
-      if (!res.ok) throw new Error("Failed");
       toast({ title: "🎉 Message Sent Successfully!", description: "Our expert team will contact you shortly." });
       form.reset();
     } catch {

@@ -5,7 +5,7 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { Search, ChevronDown, Check, Star, Shield, Target, Award, Cpu, Send, Loader2 } from "lucide-react";
 import heroBg from "@/assets/hero_seo_bg_1782993517221.png";
 import { toast } from "@/hooks/use-toast";
-import { getApiUrl } from "@/lib/api";
+import { submitContactForm } from "@/lib/api";
 
 const stats = [
   { val: "70%", label: "Marketers prioritize SEO for long-term presence" },
@@ -86,18 +86,13 @@ export const SEOPage = () => {
     }
     setSubmitting(true);
     try {
-      const response = await fetch(getApiUrl("/api/contact"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: "Quote Request: SEO Services",
-          message: formData.message || "Requested search engine optimization consultation"
-        })
+      await submitContactForm({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: "Quote Request: SEO Services",
+        message: formData.message || "Requested search engine optimization consultation"
       });
-      if (!response.ok) throw new Error("API fail");
       toast({ title: "Request Received!", description: "We will contact you shortly to review your website SEO." });
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch {

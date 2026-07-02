@@ -5,7 +5,7 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { Search, ChevronDown, Check, Star, Shield, Target, TrendingUp, DollarSign, Send, Loader2 } from "lucide-react";
 import heroBg from "@/assets/hero_ads_bg_1782993547465.png";
 import { toast } from "@/hooks/use-toast";
-import { getApiUrl } from "@/lib/api";
+import { submitContactForm } from "@/lib/api";
 
 const stats = [
   { val: "200%+", label: "Average ROI on Google Ads campaigns" },
@@ -86,18 +86,13 @@ export const GoogleAdsPage = () => {
     }
     setSubmitting(true);
     try {
-      const response = await fetch(getApiUrl("/api/contact"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: "Quote Request: Google Ads Services",
-          message: formData.message || "Requested Google Ads PPC consulting"
-        })
+      await submitContactForm({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: "Quote Request: Google Ads Services",
+        message: formData.message || "Requested Google Ads PPC consulting"
       });
-      if (!response.ok) throw new Error("API fail");
       toast({ title: "Request Received!", description: "We will contact you shortly to review your Google Ads strategy." });
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch {

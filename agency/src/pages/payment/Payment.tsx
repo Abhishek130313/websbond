@@ -6,7 +6,7 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { CreditCard, Landmark, Check, Send, ShieldCheck, Loader2, Info } from "lucide-react";
 import heroBg from "@/assets/bg_payment_1782999830420.png";
 import { toast } from "@/hooks/use-toast";
-import { getApiUrl } from "@/lib/api";
+import { submitContactForm } from "@/lib/api";
 
 export const PaymentPage = () => {
   const location = useLocation();
@@ -43,19 +43,13 @@ export const PaymentPage = () => {
     }
     setLoading(true);
     try {
-      const response = await fetch(getApiUrl("/api/contact"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: `Payment Notification (${formData.currency} ${formData.amount})`,
-          message: `Method: ${activeTab.toUpperCase()}\nCurrency: ${formData.currency}\nAmount: ${formData.amount}\nComments: ${formData.comments || "No comments"}`
-        })
+      await submitContactForm({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: `Payment Notification (${formData.currency} ${formData.amount})`,
+        message: `Method: ${activeTab.toUpperCase()}\nCurrency: ${formData.currency}\nAmount: ${formData.amount}\nComments: ${formData.comments || "No comments"}`
       });
-      
-      if (!response.ok) throw new Error("API call failed");
       
       toast({ 
         title: "Payment Logged!", 

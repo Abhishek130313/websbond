@@ -5,7 +5,7 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { PenTool, ChevronDown, Check, Star, Shield, FileText, Target, Users, Send, Loader2 } from "lucide-react";
 import heroBg from "@/assets/hero_social_bg_1782993537411.png";
 import { toast } from "@/hooks/use-toast";
-import { getApiUrl } from "@/lib/api";
+import { submitContactForm } from "@/lib/api";
 
 const contentTypes = [
   {
@@ -70,18 +70,13 @@ export const ContentMarketing = () => {
     }
     setSubmitting(true);
     try {
-      const response = await fetch(getApiUrl("/api/contact"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: "Quote Request: Content Marketing Services",
-          message: formData.message || "Requested content marketing consultation"
-        })
+      await submitContactForm({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: "Quote Request: Content Marketing Services",
+        message: formData.message || "Requested content marketing consultation"
       });
-      if (!response.ok) throw new Error("API fail");
       toast({ title: "Request Received!", description: "We will contact you shortly to build your content strategy." });
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch {

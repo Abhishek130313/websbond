@@ -5,7 +5,7 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { ShoppingCart, ChevronDown, Check, Star, Shield, Lock, CreditCard, Send, Loader2 } from "lucide-react";
 import heroBg from "@/assets/hero_web_bg_1782993527550.png";
 import { toast } from "@/hooks/use-toast";
-import { getApiUrl } from "@/lib/api";
+import { submitContactForm } from "@/lib/api";
 
 const stats = [
   { val: "70%+", label: "Shopping sessions occurring on mobile screens" },
@@ -85,18 +85,13 @@ export const ECommercePage = () => {
     }
     setSubmitting(true);
     try {
-      const response = await fetch(getApiUrl("/api/contact"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: "Quote Request: ECommerce Services",
-          message: formData.message || "Requested eCommerce store development consultation"
-        })
+      await submitContactForm({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: "Quote Request: ECommerce Services",
+        message: formData.message || "Requested eCommerce store development consultation"
       });
-      if (!response.ok) throw new Error("API fail");
       toast({ title: "Request Received!", description: "We will contact you shortly to review your eCommerce project." });
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch {

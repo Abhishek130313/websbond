@@ -6,7 +6,7 @@ import { Phone, Mail, ArrowRight, Check, ChevronDown, Monitor, Cpu, Laptop, Star
 import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero_web_bg_1782993527550.png";
 import { toast } from "@/hooks/use-toast";
-import { getApiUrl } from "@/lib/api";
+import { submitContactForm } from "@/lib/api";
 
 const websiteTypes = [
   {
@@ -105,18 +105,13 @@ export const WebDesign = () => {
     }
     setSubmitting(true);
     try {
-      const response = await fetch(getApiUrl("/api/contact"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: "Quote Request: Website Design Services",
-          message: formData.message || "Requested website design consultation"
-        })
+      await submitContactForm({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: "Quote Request: Website Design Services",
+        message: formData.message || "Requested website design consultation"
       });
-      if (!response.ok) throw new Error("API fail");
       toast({ title: "Request Received!", description: "We will contact you shortly to discuss your website." });
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch {
@@ -165,9 +160,12 @@ export const WebDesign = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <input 
                     type="text" 
-                    name="name"  
-                  required 
-                  className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-xs sm:text-sm text-[#002b49] outline-none focus:border-[#eb560c] font-sans" 
+                    name="name" 
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="Your Name *"
+                    required 
+                    className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-xs sm:text-sm text-[#002b49] outline-none focus:border-[#eb560c] font-sans" 
                 />
                 <input 
                   type="email" 

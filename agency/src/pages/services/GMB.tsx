@@ -2,10 +2,10 @@ import { useState } from "react";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import { MapPin, ChevronDown, Check, Star, Shield, Search, TrendingUp, Navigation, Send, Loader2 } from "lucide-react";
+import { MapPin, ChevronDown, Check, Star, Shield, Search, TrendingUp, Navigation, Send, Loader2, AlertTriangle } from "lucide-react";
 import heroBg from "@/assets/hero_seo_bg_1782993517221.png";
 import { toast } from "@/hooks/use-toast";
-import { getApiUrl } from "@/lib/api";
+import { submitContactForm } from "@/lib/api";
 
 const stats = [
   { val: "46%", label: "Of all Google searches have local user intent" },
@@ -84,18 +84,13 @@ export const GMBPage = () => {
     }
     setSubmitting(true);
     try {
-      const response = await fetch(getApiUrl("/api/contact"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          subject: "Quote Request: GMB Optimization Services",
-          message: formData.message || "Requested Google My Business consultation"
-        })
+      await submitContactForm({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: "Quote Request: GMB Optimization Services",
+        message: formData.message || "Requested Google My Business consultation"
       });
-      if (!response.ok) throw new Error("API fail");
       toast({ title: "Request Received!", description: "We will contact you shortly to review your local map GMB strategy." });
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch {

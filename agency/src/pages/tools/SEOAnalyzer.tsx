@@ -5,7 +5,7 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { Search, Loader2, CheckCircle2, AlertCircle, ShieldAlert, Zap, Globe, Sparkles, Send } from "lucide-react";
 import heroBg from "@/assets/bg_seoanalyzer_1782999841354.png";
 import { toast } from "@/hooks/use-toast";
-import { getApiUrl } from "@/lib/api";
+import { getApiUrl, submitContactForm } from "@/lib/api";
 
 export const SEOAnalyzerPage = () => {
   const [urlInput, setUrlInput] = useState("");
@@ -105,18 +105,13 @@ export const SEOAnalyzerPage = () => {
     }
     setSubmittingLead(true);
     try {
-      const response = await fetch(getApiUrl("/api/contact"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: leadForm.name,
-          email: leadForm.email,
-          phone: leadForm.phone,
-          subject: `SEO Audit Request for ${urlInput}`,
-          message: `Client requested full audit results consultation for website: ${urlInput}`
-        })
+      await submitContactForm({
+        name: leadForm.name,
+        email: leadForm.email,
+        phone: leadForm.phone,
+        subject: `SEO Audit Request for ${urlInput}`,
+        message: `Client requested full audit results consultation for website: ${urlInput}`
       });
-      if (!response.ok) throw new Error("API fail");
       toast({ title: "Audit Consultation Booked!", description: "An SEO specialist will contact you to explain the audit results." });
       setLeadForm({ name: "", email: "", phone: "" });
     } catch {
