@@ -66,14 +66,14 @@ export const Hero = () => {
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden select-none"
       style={{
         backgroundColor: "#030305",
-        backgroundImage: `url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop)`,
+        backgroundImage: `url(https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#030305] via-[#030305]/90 to-[#030305]/70 z-0" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#030305] via-transparent to-[#030305]/30 z-0" />
+      {/* Dark overlay — keeps image clearly visible */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#030305]/50 via-[#030305]/20 to-transparent z-0" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/30 via-transparent to-transparent z-0" />
 
       {/* Decorative gradient orbs */}
       <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full bg-indigo-500/15 blur-[140px] pointer-events-none z-0" />
