@@ -64,15 +64,22 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden select-none"
-      style={{
-        backgroundColor: "#030305",
-        backgroundImage: `url(https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070&auto=format&fit=crop)`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      style={{ backgroundColor: "#030305" }}
     >
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        style={{ filter: "brightness(0.7)" }}
+      >
+        <source src="https://labs.google/fx/api/og-video/shared/57512328-33d9-49b3-b7c0-e5b401a78106" type="video/mp4" />
+      </video>
+
       {/* Heavy left gradient — text area stays solid dark */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#030305] via-[#030305]/85 to-[#030305]/30 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#030305] via-[#030305]/85 to-[#030305]/20 z-0" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#030305] via-[#030305]/50 to-transparent z-0" />
 
       {/* Premium warm + cool accent glows — Indian premium aesthetic */}
@@ -80,14 +87,7 @@ export const Hero = () => {
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-indigo-500/12 blur-[120px] pointer-events-none z-0" />
       <div className="absolute top-1/2 right-1/3 w-[300px] h-[300px] rounded-full bg-rose-500/5 blur-[100px] pointer-events-none z-0" />
 
-      {/* Subtle Indian geometric pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.03] z-0" style={{
-        backgroundImage: `
-          linear-gradient(45deg, #fff 1px, transparent 1px),
-          linear-gradient(-45deg, #fff 1px, transparent 1px)
-        `,
-        backgroundSize: "60px 60px",
-      }} />
+
 
       <div className="max-w-7xl w-full mx-auto px-6 md:px-8 relative z-10 pt-36 lg:pt-44 pb-24">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
