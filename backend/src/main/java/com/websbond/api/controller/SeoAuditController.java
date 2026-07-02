@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @RequestMapping("/api/seo")
-@CrossOrigin(origins = "*") // Usually we limit this, but let's allow all for now or the same as others
 public class SeoAuditController {
 
     private final SeoAuditService seoAuditService;

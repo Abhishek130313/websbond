@@ -6,12 +6,28 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.URI;
+import java.net.UnknownHostException;
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class SeoAuditService {
+
+    private static final Logger log = LoggerFactory.getLogger(SeoAuditService.class);
+
+    private static final List<String> BLOCKED_HOSTS = Arrays.asList(
+        "169.254.169.254",
+        "metadata.google.internal",
+        "100.100.100.200",
+        "metadata"
+    );
 
     public SeoAuditResult performAudit(String url) {
         SeoAuditResult result = new SeoAuditResult();
@@ -21,13 +37,28 @@ public class SeoAuditService {
         }
 
         try {
-            // Setup connect with custom User-Agent to avoid being blocked, though CF still might block
+            URI uri = URI.create(url);
+            String host = uri.getHost();
+            if (host == null || host.isBlank()) {
+                result.setScore(0);
+                result.getWarnings().add(new AuditItem("Invalid URL", "The URL provided could not be parsed."));
+                return result;
+            }
+
+            String validationError = validateTarget(host);
+            if (validationError != null) {
+                log.warn("SSRF blocked: audit attempt to {}", host);
+                result.setScore(0);
+                result.getWarnings().add(new AuditItem("URL Rejected", validationError));
+                return result;
+            }
+
             Document doc = Jsoup.connect(url)
                     .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
                     .timeout(10000)
                     .followRedirects(true)
                     .get();
-                    
+
             String html = doc.html();
             if (html.length() < 200 || html.toLowerCase().contains("cloudflare") || html.contains("Just a moment...")) {
                 return generateEstimatedResult(url);
@@ -152,7 +183,7 @@ public class SeoAuditService {
                 }
                 calculatedScore += Math.round(((float) hasAlt / imgs.size()) * 10);
             }
-            
+
             if (viewportEl != null) calculatedScore += 10;
             if (isHttps) calculatedScore += 10;
             if (canonicalEl != null) calculatedScore += 10;
@@ -162,8 +193,7 @@ public class SeoAuditService {
             if (!robotsContent.contains("noindex")) calculatedScore += 10;
 
             result.setScore(Math.max(10, Math.min(100, calculatedScore)));
-            
-            // Limit to 6 items each as frontend does
+
             if (result.getPassed().size() > 6) {
                 result.setPassed(result.getPassed().subList(0, 6));
             }
@@ -173,12 +203,55 @@ public class SeoAuditService {
 
             result.getWarnings().sort((a, b) -> a.getTitle().compareTo(b.getTitle()));
 
+        } catch (IllegalArgumentException e) {
+            log.warn("Invalid URL for SEO audit: {}", url);
+            result.setScore(0);
+            result.getWarnings().add(new AuditItem("Invalid URL", "The URL provided is malformed."));
         } catch (IOException e) {
-            // Failed to connect, fallback to estimation
             return generateEstimatedResult(url);
         }
 
         return result;
+    }
+
+    private String validateTarget(String host) {
+        String hostLower = host.toLowerCase();
+
+        for (String blocked : BLOCKED_HOSTS) {
+            if (hostLower.contains(blocked)) {
+                return "This URL targets an internal system and cannot be audited.";
+            }
+        }
+
+        if (hostLower.startsWith("10.") ||
+            hostLower.startsWith("172.16.") || hostLower.startsWith("172.17.") ||
+            hostLower.startsWith("172.18.") || hostLower.startsWith("172.19.") ||
+            hostLower.startsWith("172.20.") || hostLower.startsWith("172.21.") ||
+            hostLower.startsWith("172.22.") || hostLower.startsWith("172.23.") ||
+            hostLower.startsWith("172.24.") || hostLower.startsWith("172.25.") ||
+            hostLower.startsWith("172.26.") || hostLower.startsWith("172.27.") ||
+            hostLower.startsWith("172.28.") || hostLower.startsWith("172.29.") ||
+            hostLower.startsWith("172.30.") || hostLower.startsWith("172.31.") ||
+            hostLower.startsWith("192.168.") ||
+            hostLower.startsWith("127.") ||
+            hostLower.startsWith("0.") ||
+            hostLower.equals("localhost") ||
+            hostLower.equals("::1") ||
+            hostLower.equals("[::1]")) {
+            return "Cannot audit private or internal URLs.";
+        }
+
+        try {
+            InetAddress addr = InetAddress.getByName(host);
+            if (addr.isSiteLocalAddress() || addr.isLoopbackAddress() ||
+                addr.isLinkLocalAddress() || addr.isAnyLocalAddress()) {
+                return "Cannot audit URLs that resolve to internal network addresses.";
+            }
+        } catch (UnknownHostException e) {
+            log.debug("DNS resolution failed for host: {}", host);
+        }
+
+        return null;
     }
 
     private SeoAuditResult generateEstimatedResult(String url) {
@@ -207,14 +280,13 @@ public class SeoAuditService {
         result.getWarnings().add(new AuditItem("Missing Schema Markup", "No structured JSON-LD schema markup detected. Schema metadata helps Google display rich search snippets."));
         result.getWarnings().add(new AuditItem("Images Missing Alt Text", "Some images on your page lack descriptive alt tags. Search engines require alt text to understand and index image content."));
         result.getWarnings().add(new AuditItem("Suboptimal Open Graph Metadata", "Open Graph (og:title, og:description) social meta tags are missing or incomplete, causing poor social media sharing card previews."));
-        
+
         if (domainHash % 3 == 0) {
             result.getWarnings().add(new AuditItem("Multiple H1 Headings Found", "Found multiple H1 tags. Best practice is to use exactly one H1 per page to clarify the primary topic."));
         } else {
             result.getPassed().add(new AuditItem("H1 Heading Tag Configured", "Found exactly one H1 tag. This is optimal for search indexing."));
         }
-        
-        // Limit to 6 items each as frontend does
+
         if (result.getPassed().size() > 6) {
             result.setPassed(result.getPassed().subList(0, 6));
         }

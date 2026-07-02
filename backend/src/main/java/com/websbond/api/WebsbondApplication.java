@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication
 public class WebsbondApplication {
@@ -14,6 +15,7 @@ public class WebsbondApplication {
     }
 
     @Bean
+    @Profile("dev")
     public CommandLineRunner demo(ClientReviewRepository repository) {
         return (args) -> {
             if (repository.count() == 0) {

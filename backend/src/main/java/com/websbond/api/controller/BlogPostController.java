@@ -4,7 +4,6 @@ import com.websbond.api.model.BlogPost;
 import com.websbond.api.repository.BlogPostRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +20,6 @@ import java.util.Optional;
 public class BlogPostController {
 
     private final BlogPostRepository repository;
-
-    @Value("${admin.secret-key:websbond-admin-2024}")
-    private String adminSecretKey;
 
     @Autowired
     public BlogPostController(BlogPostRepository repository) {
@@ -53,16 +49,8 @@ public class BlogPostController {
 
     // Admin: Create blog post
     @PostMapping("/admin/blogs")
-    public ResponseEntity<?> createBlogPost(
-            @RequestHeader(value = "X-Admin-Key", required = false) String adminKey,
-            @Valid @RequestBody BlogPost blogPost) {
+    public ResponseEntity<?> createBlogPost(@Valid @RequestBody BlogPost blogPost) {
         
-        if (adminKey == null || !adminKey.equals(adminSecretKey)) {
-            Map<String, String> err = new HashMap<>();
-            err.put("error", "Unauthorized");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(err);
-        }
-
         if (repository.existsBySlug(blogPost.getSlug())) {
             Map<String, String> err = new HashMap<>();
             err.put("error", "Slug already exists. Please choose a unique slug.");
@@ -94,14 +82,7 @@ public class BlogPostController {
     @PutMapping("/admin/blogs/{id}")
     public ResponseEntity<?> updateBlogPost(
             @PathVariable Long id,
-            @RequestHeader(value = "X-Admin-Key", required = false) String adminKey,
             @Valid @RequestBody BlogPost blogDetails) {
-
-        if (adminKey == null || !adminKey.equals(adminSecretKey)) {
-            Map<String, String> err = new HashMap<>();
-            err.put("error", "Unauthorized");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(err);
-        }
 
         Optional<BlogPost> optionalBlog = repository.findById(id);
         if (optionalBlog.isEmpty()) {
@@ -150,15 +131,7 @@ public class BlogPostController {
 
     // Admin: Delete blog post
     @DeleteMapping("/admin/blogs/{id}")
-    public ResponseEntity<?> deleteBlogPost(
-            @PathVariable Long id,
-            @RequestHeader(value = "X-Admin-Key", required = false) String adminKey) {
-
-        if (adminKey == null || !adminKey.equals(adminSecretKey)) {
-            Map<String, String> err = new HashMap<>();
-            err.put("error", "Unauthorized");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(err);
-        }
+    public ResponseEntity<?> deleteBlogPost(@PathVariable Long id) {
 
         Optional<BlogPost> optionalBlog = repository.findById(id);
         if (optionalBlog.isEmpty()) {

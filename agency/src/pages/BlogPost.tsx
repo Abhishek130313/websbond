@@ -5,6 +5,7 @@ import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { blogPosts, getPostBySlug, getRelatedPosts } from "@/data/blogPosts";
 import { getApiUrl } from "@/lib/api";
+import DOMPurify from "dompurify";
 
 const categoryColors: Record<string, string> = {
   "Web Development": "bg-cyan-500/10 border-cyan-500/20 text-cyan-700 dark:text-cyan-300",
@@ -210,7 +211,7 @@ export const BlogPostPage = () => {
               prose-ul:text-muted-foreground prose-ol:text-muted-foreground
               prose-li:mb-2 prose-strong:text-foreground prose-strong:font-bold
               prose-a:text-amber-500 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }}
           />
 
           {/* Sidebar */}

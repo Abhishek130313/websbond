@@ -37,7 +37,7 @@ public class SitemapController {
         // 2. Dynamic Blog Pages
         List<BlogPost> blogs = blogRepository.findAll();
         for (BlogPost blog : blogs) {
-            String blogUrl = "https://websbond.com/blog/" + blog.getSlug();
+            String blogUrl = "https://websbond.com/blog/" + escapeXml(blog.getSlug());
             String lastmod = (blog.getDateISO() != null && !blog.getDateISO().isBlank()) ? blog.getDateISO() : "2024-06-20";
             appendUrl(xml, blogUrl, "monthly", "0.8", lastmod);
         }
@@ -48,10 +48,20 @@ public class SitemapController {
 
     private void appendUrl(StringBuilder xml, String loc, String changefreq, String priority, String lastmod) {
         xml.append("  <url>\n");
-        xml.append("    <loc>").append(loc).append("</loc>\n");
-        xml.append("    <lastmod>").append(lastmod).append("</lastmod>\n");
-        xml.append("    <changefreq>").append(changefreq).append("</changefreq>\n");
-        xml.append("    <priority>").append(priority).append("</priority>\n");
+        xml.append("    <loc>").append(escapeXml(loc)).append("</loc>\n");
+        xml.append("    <lastmod>").append(escapeXml(lastmod)).append("</lastmod>\n");
+        xml.append("    <changefreq>").append(escapeXml(changefreq)).append("</changefreq>\n");
+        xml.append("    <priority>").append(escapeXml(priority)).append("</priority>\n");
         xml.append("  </url>\n");
+    }
+
+    private String escapeXml(String input) {
+        if (input == null) return "";
+        return input
+            .replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+            .replace("\"", "&quot;")
+            .replace("'", "&apos;");
     }
 }

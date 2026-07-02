@@ -82,7 +82,7 @@ export const SEOAnalyzerPage = () => {
         isEstimated: data.estimated
       });
 
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("API Error:", err);
       toast({ 
         title: "Analysis Failed", 
