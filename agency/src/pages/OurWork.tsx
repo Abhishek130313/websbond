@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { Loader2, Phone } from "lucide-react";
-import heroBg from "@/assets/hero_web_bg_1782993527550.png";
+import heroBg from "@/assets/bg_ourwork_1782999773414.png";
 import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";

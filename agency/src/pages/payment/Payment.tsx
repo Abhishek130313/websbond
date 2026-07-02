@@ -4,7 +4,7 @@ import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { CreditCard, Landmark, Check, Send, ShieldCheck, Loader2, Info } from "lucide-react";
-import heroBg from "@/assets/hero_general_bg_1782993559099.png";
+import heroBg from "@/assets/bg_payment_1782999830420.png";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 

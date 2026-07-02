@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { Eye, Target, Sparkles, ChevronDown, Star } from "lucide-react";
-import heroBg from "@/assets/hero_general_bg_1782993559099.png";
+import heroBg from "@/assets/bg_about_1782999762437.png";
 import { Link } from "react-router-dom";
 
 const REVIEWS = [

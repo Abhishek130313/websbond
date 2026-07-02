@@ -1,6 +1,6 @@
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
-import heroBg from "@/assets/hero_web_bg_1782993527550.png";
+import heroBg from "@/assets/bg_casestudies_1782999786982.png";
 import { Link } from "react-router-dom";
 
 interface CaseStudy {

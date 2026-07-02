@@ -2,7 +2,7 @@ import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 import { ArrowRight, Send } from "lucide-react";
-import heroBg from "@/assets/hero_index_bg_1782993504800.png";
+import heroBg from "@/assets/bg_home_1782999734318.png";
 
 export const Hero = () => {
   const [formData, setFormData] = useState({

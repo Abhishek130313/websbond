@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/site/SEO";
-import heroBg from "@/assets/hero_general_bg_1782993559099.png";
+import heroBg from "@/assets/bg_blog_1782999806403.png";
 import { BlogCard } from "@/components/site/BlogCard";
 import { Layout } from "@/components/site/Layout";
 import { toast } from "@/hooks/use-toast";

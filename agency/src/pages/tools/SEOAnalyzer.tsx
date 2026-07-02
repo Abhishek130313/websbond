@@ -3,7 +3,7 @@ import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Search, Loader2, CheckCircle2, AlertCircle, ShieldAlert, Zap, Globe, Sparkles, Send } from "lucide-react";
-import heroBg from "@/assets/hero_general_bg_1782993559099.png";
+import heroBg from "@/assets/bg_seoanalyzer_1782999841354.png";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 

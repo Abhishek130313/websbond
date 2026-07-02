@@ -4,7 +4,7 @@ import { Layout } from "@/components/site/Layout";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 import { Phone, Mail, MapPin, Loader2, Send } from "lucide-react";
-import heroBg from "@/assets/hero_general_bg_1782993559099.png";
+import heroBg from "@/assets/bg_contact_1782999749090.png";
 
 const SERVICES_OPTIONS = [
   "Website Design & Development",
