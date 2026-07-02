@@ -3,7 +3,7 @@ import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Search, ChevronDown, Check, Star, Shield, Target, Award, Cpu, Send, Loader2 } from "lucide-react";
-import heroServicesBg from "@/assets/hero_seo_vibrant.png";
+import heroBg from "@/assets/hero_seo_bg_1782993517221.png";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 
@@ -117,7 +117,8 @@ export const SEOPage = () => {
 
       {/* ── Hero section ── */}
       <section 
-        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-premium-bg"
+        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-image-overlay"
+        style={{ backgroundImage: `url(${heroBg})` }}
       >
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center max-w-6xl mx-auto">

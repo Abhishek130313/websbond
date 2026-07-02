@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 import { ArrowRight, Send } from "lucide-react";
+import heroBg from "@/assets/hero_index_bg_1782993504800.png";
 
 export const Hero = () => {
   const [formData, setFormData] = useState({
@@ -65,7 +66,8 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen lg:h-screen lg:max-h-[1080px] w-full flex items-center justify-center overflow-hidden pt-28 pb-16 hero-premium-bg"
+      className="relative min-h-screen lg:h-screen lg:max-h-[1080px] w-full flex items-center justify-center overflow-hidden pt-28 pb-16 hero-image-overlay"
+      style={{ backgroundImage: `url(${heroBg})` }}
     >
 
       <div className="container relative z-20 mx-auto px-4 md:px-8 lg:px-12 h-full flex items-center">

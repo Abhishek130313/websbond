@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { Loader2, Phone } from "lucide-react";
+import heroBg from "@/assets/hero_web_bg_1782993527550.png";
 import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
@@ -81,7 +82,8 @@ export const OurWorkPage = () => {
 
       {/* ── Page Hero Header ── */}
       <section 
-        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-premium-bg"
+        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-image-overlay"
+        style={{ backgroundImage: `url(${heroBg})` }}
       >
         <div className="absolute inset-0 bg-[#002b49]/90" />
         <div className="container relative z-10">

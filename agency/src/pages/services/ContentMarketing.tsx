@@ -3,7 +3,7 @@ import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { PenTool, ChevronDown, Check, Star, Shield, FileText, Target, Users, Send, Loader2 } from "lucide-react";
-import heroServicesBg from "@/assets/hero_ads_vibrant.png";
+import heroBg from "@/assets/hero_social_bg_1782993537411.png";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 
@@ -101,7 +101,8 @@ export const ContentMarketing = () => {
 
       {/* ── Hero section ── */}
       <section 
-        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-premium-bg"
+        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-image-overlay"
+        style={{ backgroundImage: `url(${heroBg})` }}
       >
         <div className="absolute inset-0 bg-black/70 pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">

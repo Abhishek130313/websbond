@@ -3,7 +3,7 @@ import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { ShoppingCart, ChevronDown, Check, Star, Shield, Lock, CreditCard, Send, Loader2 } from "lucide-react";
-import heroServicesBg from "@/assets/hero_web_vibrant.png";
+import heroBg from "@/assets/hero_web_bg_1782993527550.png";
 import { toast } from "@/hooks/use-toast";
 import { getApiUrl } from "@/lib/api";
 
@@ -116,7 +116,8 @@ export const ECommercePage = () => {
 
       {/* Hero Section */}
       <section 
-        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-premium-bg"
+        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-image-overlay"
+        style={{ backgroundImage: `url(${heroBg})` }}
       >
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center max-w-6xl mx-auto">
