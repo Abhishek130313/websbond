@@ -1,6 +1,5 @@
 import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
-import heroBg from "@/assets/bg_casestudies_1782999786982.png";
 import { Link } from "react-router-dom";
 
 interface CaseStudy {
@@ -143,10 +142,22 @@ export const CaseStudiesPage = () => {
       />
 
       {/* ── Page Hero Header ── */}
-      <section 
-        className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-image-overlay"
-        style={{ backgroundImage: `url(${heroBg})` }}
+      <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center"
+        style={{ backgroundColor: "#030305" }}
       >
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="https://labs.google/fx/api/og-video/shared/9454819d-1a62-4925-b89c-49cb77882c07" type="video/mp4" />
+        </video>
+
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030305]/55 via-[#030305]/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/30 via-transparent to-transparent" />
+
         <div className="container relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
           <h1 className="font-jost font-black text-4xl md:text-6xl leading-tight mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent drop-shadow-2xl">
             Case Studies
