@@ -58,8 +58,9 @@ export const ContactPage = () => {
     <Layout>
       <SEO 
         title="Contact Us | Best Digital Marketing Agency Delhi NCR | Websbond" 
-        description="Connect with Websbond today! Submit your query or call us at +91 9306623619 to grow your business with expert SEO, PPC, SMO & Web Development." 
-        path="/contact-us" 
+        description="Connect with Websbond today. Submit your project inquiry or call +91 9306623619. We offer expert SEO, PPC, SMO, and Web Development across Delhi NCR and Haryana." 
+        path="/contact-us"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Contact Us", path: "/contact-us" }]}
       />
 
       {/* ── Page Hero Header ── */}

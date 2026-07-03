@@ -28,10 +28,10 @@ const NAV_LINKS = [
   },
   {
     label: "Packages",
-    to: "#",
+    to: "/seo-service-in-delhi",
     dropdown: [
-      { label: "SEO (Search Engine Optimization)", to: "#" },
-      { label: "SMO (Social Media Optimization)", to: "#" },
+      { label: "SEO Packages", to: "/seo-service-in-delhi" },
+      { label: "SMO Packages", to: "/smo-service-in-delhi" },
     ],
   },
   {
@@ -108,7 +108,7 @@ export const Navbar = ({
           <Logo light={scrolled} size={scrolled ? "sm" : "md"} />
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
             {NAV_LINKS.map((link) =>
               link.dropdown ? (
                 <div key={link.label} className="relative group py-2">
@@ -205,6 +205,7 @@ export const Navbar = ({
               }`}
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
+              aria-expanded={open}
             >
               {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -212,7 +213,8 @@ export const Navbar = ({
         </div>
 
         {/* Mobile Drawer */}
-        <div
+        <nav
+          aria-label="Mobile navigation"
           style={{ transitionTimingFunction: "cubic-bezier(0.16,1,0.3,1)" }}
           className={`lg:hidden overflow-y-auto transition-all duration-500 absolute left-0 right-0 top-full mt-2 mx-4 rounded-3xl border border-zinc-100 bg-white/95 backdrop-blur-3xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] ${
             open ? "max-h-[85vh] opacity-100 visible translate-y-0" : "max-h-0 opacity-0 invisible -translate-y-4"
@@ -278,7 +280,7 @@ export const Navbar = ({
               Free SEO Audit <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-        </div>
+        </nav>
       </header>
     </div>
   );

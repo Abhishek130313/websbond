@@ -17,17 +17,18 @@ const SERVICES_OPTIONS = [
   "Google My Business",
 ];
 
+// Placeholder video IDs — replace with actual client testimonial video IDs
 const VIDEOS = [
-  { id: "dQw4w9WgXcQ", name: "Rajesh Kumar", role: "Business Owner, Delhi", thumb: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80" },
-  { id: "dQw4w9WgXcQ", name: "Sunita Mehta", role: "Clinic Director, Gurgaon", thumb: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&auto=format&fit=crop&q=80" },
-  { id: "dQw4w9WgXcQ", name: "Priya Sharma", role: "E-Commerce Brand, NCR", thumb: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&auto=format&fit=crop&q=80" },
-  { id: "dQw4w9WgXcQ", name: "Dr. Anil Gupta", role: "Medical Practice, Delhi", thumb: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&auto=format&fit=crop&q=80" },
-  { id: "dQw4w9WgXcQ", name: "Dr. Neha Khandelwal", role: "Aesthetic Doctor, Noida", thumb: "https://images.unsplash.com/photo-1594824813573-246434de83fb?w=400&auto=format&fit=crop&q=80" },
-  { id: "dQw4w9WgXcQ", name: "Ajeet Tiwari", role: "Consultant Physician, Delhi", thumb: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&auto=format&fit=crop&q=80" },
-  { id: "dQw4w9WgXcQ", name: "Vikram Singh", role: "Gym Founder, Sonipat", thumb: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80" },
-  { id: "dQw4w9WgXcQ", name: "Sawan Bopanna", role: "Hospital Director, Delhi", thumb: "https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?w=400&auto=format&fit=crop&q=80" },
-  { id: "dQw4w9WgXcQ", name: "Rohit Verma", role: "Hotelier, Gurgaon", thumb: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=80" },
-  { id: "dQw4w9WgXcQ", name: "Amit Patel", role: "Kirana Business, Faridabad", thumb: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80" },
+  { id: "placeholder", name: "Rajesh Kumar", role: "Business Owner, Delhi", thumb: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80" },
+  { id: "placeholder", name: "Sunita Mehta", role: "Clinic Director, Gurgaon", thumb: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&auto=format&fit=crop&q=80" },
+  { id: "placeholder", name: "Priya Sharma", role: "E-Commerce Brand, NCR", thumb: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&auto=format&fit=crop&q=80" },
+  { id: "placeholder", name: "Dr. Anil Gupta", role: "Medical Practice, Delhi", thumb: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&auto=format&fit=crop&q=80" },
+  { id: "placeholder", name: "Dr. Neha Khandelwal", role: "Aesthetic Doctor, Noida", thumb: "https://images.unsplash.com/photo-1594824813573-246434de83fb?w=400&auto=format&fit=crop&q=80" },
+  { id: "placeholder", name: "Ajeet Tiwari", role: "Consultant Physician, Delhi", thumb: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&auto=format&fit=crop&q=80" },
+  { id: "placeholder", name: "Vikram Singh", role: "Gym Founder, Sonipat", thumb: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80" },
+  { id: "placeholder", name: "Sawan Bopanna", role: "Hospital Director, Delhi", thumb: "https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?w=400&auto=format&fit=crop&q=80" },
+  { id: "placeholder", name: "Rohit Verma", role: "Hotelier, Gurgaon", thumb: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=80" },
+  { id: "placeholder", name: "Amit Patel", role: "Kirana Business, Faridabad", thumb: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80" },
 ];
 
 const REVIEWS = [
@@ -98,8 +99,9 @@ export const TestimonialsPage = () => {
     <Layout>
       <SEO 
         title="Client Reviews & Testimonials | Websbond" 
-        description="Hear what our clients say about their digital growth journey with Websbond. Verified reviews for SEO, SMO, website development, and PPC." 
-        path="/testimonials" 
+        description="Hear what our clients say about their digital growth journey with Websbond. Verified reviews for SEO, SMO, website development, and PPC across Delhi NCR and Haryana." 
+        path="/testimonials"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Testimonials", path: "/testimonials" }]}
       />
 
       {/* ── Page Hero Header ── */}
@@ -228,12 +230,14 @@ export const TestimonialsPage = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {VIDEOS.map((v, i) => (
+            {VIDEOS.map((v, i) => {
+              const isPlaceholder = v.id === "placeholder";
+              return (
               <button
                 key={i}
-                onClick={() => setPlaying(v.id)}
+                onClick={() => !isPlaceholder && setPlaying(v.id)}
                 className="group relative overflow-hidden rounded-2xl text-left w-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-white border border-gray-150"
-                style={{ boxShadow: "0 4px 15px rgba(0,0,0,0.03)" }}
+                style={{ boxShadow: "0 4px 15px rgba(0,0,0,0.03)", cursor: isPlaceholder ? "default" : "pointer" }}
               >
                 <div className="relative overflow-hidden" style={{ height: 260 }}>
                   <img
@@ -243,16 +247,21 @@ loading="lazy" decoding="async"                     src={v.thumb}
                   />
                   <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition-all" />
 
-                  {/* Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 bg-[#FF0000]"
-                    >
-                      <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
+                  {isPlaceholder ? (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                      <span className="text-white text-xs font-semibold uppercase tracking-wider bg-black/50 px-3 py-1.5 rounded-full">
+                        Video Coming Soon
+                      </span>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 bg-[#FF0000]">
+                        <svg viewBox="0 0 24 24" fill="white" width="20" height="20">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 
                 {/* Details Footer */}
@@ -261,7 +270,8 @@ loading="lazy" decoding="async"                     src={v.thumb}
                   <p className="text-gray-400 text-xs font-semibold mt-0.5">{v.role}</p>
                 </div>
               </button>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -334,7 +344,7 @@ loading="lazy" decoding="async"                     src={v.thumb}
         </div>
       </section>
 
-      {/* YouTube Modal */}
+      {/* Video Modal */}
       {playing && (
         <div
           className="fixed inset-0 z-[200] flex items-center justify-center p-4"
@@ -342,9 +352,18 @@ loading="lazy" decoding="async"                     src={v.thumb}
           onClick={() => setPlaying(null)}
         >
           <div
-            className="w-full max-w-3xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl"
+            className="w-full max-w-3xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
+            {playing === "placeholder" ? (
+              <div className="text-center text-white p-8">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-white/10 flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M8 5v14l11-7z" /></svg>
+                </div>
+                <p className="text-lg font-semibold">Real client video coming soon</p>
+                <p className="text-sm text-white/60 mt-2">We are recording authentic testimonial videos with this client.</p>
+              </div>
+            ) : (
             <iframe
               src={`https://www.youtube.com/embed/${playing}?autoplay=1`}
               allow="autoplay; encrypted-media"
@@ -352,6 +371,7 @@ loading="lazy" decoding="async"                     src={v.thumb}
               className="w-full h-full"
               title="Client Testimonial Video"
             />
+            )}
           </div>
           <button
             className="absolute top-6 right-6 text-white/80 hover:text-white text-3xl font-bold"

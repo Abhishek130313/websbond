@@ -124,9 +124,9 @@ export const WebDesign = () => {
     <Layout>
       <SEO 
         title="Website Design Services in Delhi NCR | Top Web Design Agency | Websbond" 
-        description="Unleash your business potential with Websbond's premier web design services in Delhi NCR. Custom React systems, eCommerce, and mobile-responsive websites that rank."
+        description="Unleash your business potential with Websbond's premier web design services in Delhi NCR. Custom React websites, eCommerce stores, and mobile-responsive designs that rank."
         path="/website-design-service-in-delhi"
-        keywords="website design delhi, web development NCR, corporate website haryana, ecommerce developer Gurgaon"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Web Design Services", path: "/website-design-service-in-delhi" }]}
       />
 
       {/* ── Hero section ── */}

@@ -89,9 +89,9 @@ export const ContentMarketing = () => {
     <Layout>
       <SEO 
         title="Content Writing Services in Delhi NCR | Copywriters | Websbond" 
-        description="Boost rankings and customer trust with Websbond's professional content writing services in Delhi NCR. Blogs, copy, infographics and visual assets."
+        description="Boost rankings and customer trust with Websbond's professional content writing services in Delhi NCR. SEO blogs, website copy, infographics, and brand storytelling."
         path="/content-writing-service-in-delhi"
-        keywords="content writing delhi, copywriters Gurgaon, content marketing haryana, blog writing Noida"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Content Writing Services", path: "/content-writing-service-in-delhi" }]}
       />
 
       {/* ── Hero section ── */}

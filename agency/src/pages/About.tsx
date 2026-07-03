@@ -49,8 +49,9 @@ export const AboutPage = () => {
     <Layout>
       <SEO 
         title="About Us | Best Digital Marketing Agency Delhi NCR | Websbond" 
-        description="Learn about Websbond, the top digital marketing agency in Delhi NCR and Haryana. Meet our leadership, explore our vision and values." 
-        path="/about-us" 
+        description="Learn about Websbond, the top digital marketing agency in Delhi NCR and Haryana. Meet our leadership, explore our vision, mission, and core values." 
+        path="/about-us"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "About Us", path: "/about-us" }]}
       />
 
       {/* ── Page Hero Header ── */}

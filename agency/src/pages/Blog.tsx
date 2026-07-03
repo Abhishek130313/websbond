@@ -43,9 +43,10 @@ export const BlogPage = () => {
   return (
     <Layout>
       <SEO 
-        title="Blog & Digital Insights | Websbond" 
-        description="Stay updated with the latest digital marketing trends, SEO tips, and proven strategies to grow your business online effectively." 
-        path="/blog" 
+        title="Digital Marketing Blog | SEO Tips & Growth Strategies | Websbond" 
+        description="Stay updated with the latest digital marketing trends, actionable SEO tips, and proven strategies to grow your business online effectively. Read Websbond's expert insights." 
+        path="/blog"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }]}
       />
 
       {/* ── Page Hero Header ── */}

@@ -76,8 +76,9 @@ export const OurWorkPage = () => {
     <Layout>
       <SEO 
         title="Our Portfolio | Web Design & SEO Success Stories | Websbond" 
-        description="Browse our creative brand campaigns and responsive web design projects. See verified success cases crafted by Websbond." 
-        path="/our-portfolio" 
+        description="Browse our creative brand campaigns, responsive web design projects, and SEO success stories. See verified case studies crafted by Websbond for Delhi NCR clients." 
+        path="/our-portfolio"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Our Portfolio", path: "/our-portfolio" }]}
       />
 
       {/* ── Page Hero Header ── */}

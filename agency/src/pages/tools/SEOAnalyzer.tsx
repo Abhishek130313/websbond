@@ -124,9 +124,9 @@ export const SEOAnalyzerPage = () => {
     <Layout>
       <SEO 
         title="Free Website SEO Analyzer & Audit Tool | Websbond" 
-        description="Analyze your website SEO score instantly. Use Websbond's free SEO analyzer to audit page speed, heading structures, metadata issues, and index visibility."
+        description="Analyze your website SEO score instantly. Use Websbond's free SEO analyzer to audit page speed, headings, metadata, and index visibility for better Google rankings."
         path="/seo-analyzer"
-        keywords="free seo tool, website crawler, check rankings delhi, seo analyzer online"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "SEO Analyzer", path: "/seo-analyzer" }]}
       />
 
       {/* Hero Header */}

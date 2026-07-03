@@ -137,8 +137,9 @@ export const CaseStudiesPage = () => {
     <Layout>
       <SEO 
         title="Case Studies & Success Stories | Websbond" 
-        description="Explore our case studies showcasing successful projects, client satisfaction, innovative strategies, and measurable results across various industries." 
-        path="/case-studies" 
+        description="Explore our portfolio of successful SEO, web design, and digital marketing projects. See measurable results for real clients across healthcare, FMCG, and professional services." 
+        path="/case-studies"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Case Studies", path: "/case-studies" }]}
       />
 
       {/* ── Page Hero Header ── */}
@@ -171,6 +172,7 @@ export const CaseStudiesPage = () => {
       {/* ── Case Study Cards Vertical List ── */}
       <section className="py-20 bg-white">
         <div className="container">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 text-gray-900">Our Client Success Stories</h2>
           <div className="max-w-5xl mx-auto space-y-12">
             {CASES.map((item, idx) => (
               <div

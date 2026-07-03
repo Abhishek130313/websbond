@@ -102,10 +102,10 @@ export const GMBPage = () => {
   return (
     <Layout>
       <SEO 
-        title="GMB Optimization Services in Delhi NCR | Google My Business Expert | Websbond" 
-        description="Boost your local maps search rankings with expert GMB optimization services in Delhi NCR & Haryana by Websbond. Dominate the local 3-pack and get more calls."
+        title="GMB Optimization Services in Delhi NCR | Google Business Profile Expert | Websbond" 
+        description="Boost local map pack rankings with expert GMB optimization services in Delhi NCR and Haryana by Websbond. Dominate the local 3-pack and get more customer calls."
         path="/gmb-service-in-delhi"
-        keywords="gmb optimization services delhi, google my business agency gurgaon, local business profile optimization noida, google maps listing optimization"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "GMB Services", path: "/gmb-service-in-delhi" }]}
       />
 
       {/* Hero Section */}

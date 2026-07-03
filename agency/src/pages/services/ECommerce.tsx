@@ -104,9 +104,9 @@ export const ECommercePage = () => {
     <Layout>
       <SEO 
         title="ECommerce Website Development Company in Delhi NCR | Websbond" 
-        description="Build high-converting online stores with Websbond, the leading eCommerce web design company in Delhi NCR. Custom designs, Shopify, WooCommerce, and payment gateway setups."
+        description="Build high-converting online stores with Websbond, the leading eCommerce web design company in Delhi NCR. Custom designs, Shopify, WooCommerce, and payment gateway integration."
         path="/e-commerce-website-services-in-delhi"
-        keywords="ecommerce website development delhi, shopify store design gurgaon, woocommerce development noida, best ecommerce web design company"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "ECommerce Services", path: "/e-commerce-website-services-in-delhi" }]}
       />
 
       {/* Hero Section */}

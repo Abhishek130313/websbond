@@ -105,9 +105,9 @@ export const SEOPage = () => {
     <Layout>
       <SEO 
         title="SEO Services in Delhi NCR | Search Engine Optimization Company | Websbond" 
-        description="Rank higher and capture search leads with Websbond's result-oriented SEO services in Delhi NCR. Technical audits, keywords mapping, and authority link building."
+        description="Rank higher and capture search leads with Websbond's result-oriented SEO services in Delhi NCR. Technical audits, keyword mapping, and authority link building."
         path="/seo-service-in-delhi"
-        keywords="seo services delhi, search engine optimization Gurgaon, local seo Haryana, best seo company Janakpuri"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "SEO Services", path: "/seo-service-in-delhi" }]}
       />
 
       {/* ── Hero section ── */}

@@ -78,9 +78,9 @@ export const SMMPage = () => {
     <Layout>
       <SEO 
         title="Social Media Marketing Agency in Delhi NCR | Websbond" 
-        description="Launch high-ROI Meta & LinkedIn ad campaigns with Websbond's professional SMM services in Delhi NCR. Visual ad copywriting and lead tracking integrations."
+        description="Launch high-ROI Meta and LinkedIn ad campaigns with Websbond's professional SMM services in Delhi NCR. Ad copywriting, creative design, and lead tracking integrations."
         path="/smm-service-in-delhi"
-        keywords="smm services delhi, social media marketing NCR, meta ads Gurgaon, lead generation ads India"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "SMM Services", path: "/smm-service-in-delhi" }]}
       />
 
       {/* ── Hero section ── */}

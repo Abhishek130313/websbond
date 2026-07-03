@@ -32,21 +32,61 @@ const Index = () => (
       jsonLd={[
         {
           "@context": "https://schema.org",
-          "@type": "ProfessionalService",
+          "@type": "LocalBusiness",
           "name": "Websbond",
           "@id": "https://websbond.com/#organization",
           "url": "https://websbond.com",
+          "email": "websbond@websbond.com",
           "telephone": "+919306623619",
+          "description": "Websbond is a premium digital marketing agency in Delhi NCR offering website development, SEO, Google Ads, social media marketing, and app development.",
+          "image": "https://websbond.com/og-image.jpg",
+          "priceRange": "₹₹",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Sector 48, Sohna Road",
             "addressLocality": "Gurugram",
             "addressRegion": "Haryana",
             "postalCode": "122018",
             "addressCountry": "IN"
           },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 28.4595,
+            "longitude": 77.0266
+          },
+          "openingHoursSpecification": [
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "09:00", "closes": "19:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "09:00", "closes": "19:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:00", "closes": "19:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "09:00", "closes": "19:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "19:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "16:00" }
+          ],
+          "areaServed": [
+            { "@type": "City", "name": "Delhi" },
+            { "@type": "City", "name": "Gurugram" },
+            { "@type": "City", "name": "Noida" },
+            { "@type": "City", "name": "Faridabad" },
+            { "@type": "City", "name": "Ghaziabad" },
+            { "@type": "State", "name": "Haryana" }
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Digital Marketing Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Design & Development" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Search Engine Optimization" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads & PPC" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Marketing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content Marketing" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Commerce Development" } }
+            ]
+          },
           "sameAs": [
             "https://facebook.com/websbond",
-            "https://instagram.com/websbond"
+            "https://instagram.com/websbond",
+            "https://linkedin.com/company/websbond",
+            "https://youtube.com/@websbond"
           ]
         }
       ]}

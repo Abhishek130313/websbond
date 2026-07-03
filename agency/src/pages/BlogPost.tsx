@@ -108,6 +108,12 @@ export const BlogPostPage = () => {
         title={`${post.title} | Websbond Blog`}
         description={post.excerpt}
         path={`/blog/${post.slug}`}
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog" }, { name: post.title, path: `/blog/${post.slug}` }]}
+        article={{
+          publishedTime: post.dateISO,
+          author: post.author,
+          tags: Array.isArray(post.tags) ? post.tags : [post.category],
+        }}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "BlogPosting",

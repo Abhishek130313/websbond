@@ -1,8 +1,11 @@
 ﻿User-agent: *
 Allow: /
 
-# Block admin / private paths
+# Block private / admin paths
 Disallow: /api/
+Disallow: /admin
+Disallow: /blog-admin
+Disallow: /leads/
 
 # Sitemap
 Sitemap: https://websbond.com/sitemap.xml

@@ -70,9 +70,9 @@ export const PaymentPage = () => {
     <Layout>
       <SEO 
         title="Secure Online Payment | Websbond" 
-        description="Make secure online payments to Websbond. We support ICICI Bank transfer, domestic cards, UPI, net banking, and PayPal for international clients."
+        description="Make secure online payments to Websbond. We accept ICICI Bank transfer, debit and credit cards, UPI, net banking, and PayPal for international clients."
         path="/payment"
-        keywords="websbond payment, pay online websbond, icici bank transfer websbond, paypal websbond"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Payment", path: "/payment" }]}
       />
 
       {/* Hero Section */}

@@ -105,9 +105,9 @@ export const GoogleAdsPage = () => {
     <Layout>
       <SEO 
         title="Google Ads Services in Delhi NCR | PPC Management Company | Websbond" 
-        description="Maximize your ROI with expert Google Ads and PPC services in Delhi NCR by Websbond. Drive instant targeted traffic, generate high-quality leads, and increase sales."
+        description="Maximize ROI with expert Google Ads and PPC services in Delhi NCR by Websbond. Drive targeted traffic, generate high-quality leads, and increase sales with data-driven campaigns."
         path="/google-ads-services"
-        keywords="google ads services delhi, ppc management company Gurgaon, pay per click services Noida, google adwords agency Delhi"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Google Ads Services", path: "/google-ads-services" }]}
       />
 
       {/* Hero Section */}

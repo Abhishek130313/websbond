@@ -81,9 +81,9 @@ export const SMOPage = () => {
     <Layout>
       <SEO 
         title="Social Media Optimization Services in Delhi NCR | Websbond" 
-        description="Enhance organic social reach with top SMO services in Delhi NCR. Custom templates, handles audits, trending hashtags search and profiles setup."
+        description="Enhance organic social reach with top SMO services in Delhi NCR. Custom templates, handle audits, trending hashtag research, and complete profile optimization."
         path="/smo-service-in-delhi"
-        keywords="smo services delhi, social media optimization haryana, instagram growth Gurgaon, brand visibility NCR"
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "SMO Services", path: "/smo-service-in-delhi" }]}
       />
 
       {/* ── Hero section ── */}
