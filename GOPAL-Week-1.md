@@ -1,401 +1,283 @@
-# 📱 GOPAL - Week 1 Growth Plan (Social Media Marketing)
-**Role:** Social Media Executive | **Experience:** Fresher (Sikhna hai)
-**Goal:** Week 1 me social media basics seekho, content banana sikho, engagement badhao
-**Dates:** Sat 4 Jul → Fri 10 Jul (Sunday OFF)
+# GOPAL - Week 1 Growth Plan (Team Member - Social Media)
+**Team Target:** INR 46,994+ combined revenue
+**Your Focus:** Learn social media basics, create content, build engagement
+**Dates:** Sat 4 Jul -> Fri 10 Jul (Sunday OFF)
 
 ---
 
-## ⚠️ Pehle Yeh Samajh Le (Important)
+## Important - Read This First
 
-**Tum naye ho — isliye tasks very simple rakhe hain.**
-- Har din ka kaam 2-3 hour max hai
-- Canva use karna seekhoge (free hai)
-- Post banana, hashtag dalna, engagement karna — sab seekhoge
-- Ghabrana nahi — mistake karna allowed hai
+You are new, so tasks are kept simple. Max 2-3 hrs per day.
+- If something is not clear, ask any team member
+- Making mistakes is allowed - that is how you learn
+- Start slow, speed will come naturally
+- Daily update in team Google Sheet is mandatory
 
 ---
 
-## 📅 Day 1 — Saturday, 4 July 2026 (Samajhne Ka Din)
+## Day 1 — Saturday, 4 July (Learn the Basics)
 
-### Task 1: Social Media Accounts Check (30 min)
-- Check karo ki Websbond ke accounts exist karte hain ya nahi:
-  - Instagram: @websbond (search karo)
-  - Facebook: /websbond (search karo)
-  - LinkedIn: /company/websbond
-  - YouTube: @websbond
-- **Agar koi account nahi mila to ABHISHEK bhai ko batao**
+### [HIGH] Task 1: Check Existing Accounts (30 min)
+- Verify these accounts exist:
+  - Instagram: search @websbond
+  - Facebook: search /websbond
+  - LinkedIn: search /company/websbond
+  - YouTube: search @websbond
+- If any account is missing, inform the team
 
-### Task 2: 5 Competitors Ko Dekho (1 hour)
-- Instagram pe search karo:
-  - "web designing company in Gurugram"
+### [HIGH] Task 2: Analyze 5 Competitors (1 hr)
+- On Instagram, search:
+  - "web designing company Gurugram"
   - "digital marketing agency Gurugram"
-  - "SEO services Gurugram"
-- Jo 5-6 pages dikhe, unki profile dekho:
-  - Kitni followers hain?
-  - Kis type ki post daalte hain?
-  - Kya caption likhte hain?
-  - Kitne hashtags use karte hain?
-- **Sab kuch notebook me likho** — template banega
+- For each competitor page, note:
+  - Follower count
+  - Type of content they post
+  - Caption style
+  - Hashtags used
+- Write findings in your notebook
 
-### Task 3: Canva Introduction (1 hour)
-- Canva.com kholo (free account banao agar nahi hai)
-- "Instagram Post" template select karo
-- Kuch bhi design banao — practice hai:
-  - Background color select karo
-  - Text daalo "Websbond - Digital Solutions"
-  - 3-4 designs banao (acha bura koi baat nahi)
-- **Screen recording lo** taake baar baar dekh sako
-
----
-
-## 🎯 Day 1 Ka Target: Canva basics seekhna aur 5 competitors analyze karna ✅
+### [MEDIUM] Task 3: Canva Quick Start (1 hr)
+- Go to canva.com (create free account if needed)
+- Click "Instagram Post" template
+- Create 3 practice designs:
+  - One with solid background + text
+  - One with photo + overlay text
+  - One with gradient + logo
+- Do not worry about quality - just learn the tool
 
 ---
 
-## 📅 Day 2 — Monday, 6 July 2026 (Content Banana Seekho)
+## Day 2 — Monday, 6 July (Content Planning)
 
-### Task 1: Brand Voice Samjho (30 min)
-- Website padho: websbond.com
-- Websbond ka tone kya hai? Professional? Friendly? Young?
-- **Likho:** "Websbond ki baat karne ka style yeh hai: _____"
-- Hint: We are professional but friendly — "We grow your business"
+### [HIGH] Task 1: Understand Brand Voice (30 min)
+- Read websbond.com homepage and services pages
+- Note the tone: Is it professional? Friendly? Young?
+- Summary: "Websbond talks like a trusted expert who is also approachable"
 
-### Task 2: Content Calendar Banana Seekho (30 min)
-- Google Sheets / Excel kholo
-- Column banao: Date | Day | Post Type | Topic | Caption | Image | Status
-- Aaj ke liye 7 posts ka plan banao (1 week)
-- Post types:
-  - **Monday:** Tip/Knowledge post (e.g., "SEO tips")
-  - **Tuesday:** Client work showcase
-  - **Wednesday:** Motivational / Industry news
-  - **Thursday:** Product/Service post
-  - **Friday:** Fun / Behind the scenes
-  - **Saturday:** Offer / Discount post
+### [HIGH] Task 2: Create Content Calendar (30 min)
+- Open Google Sheets
+- Columns: Date | Day | Post Type | Topic | Caption | Image | Status
+- Plan 7 posts for next week (one per day):
+  - Monday: Tip/Educational
+  - Tuesday: Client work showcase
+  - Wednesday: Industry insight
+  - Thursday: Service highlight
+  - Friday: Behind the scenes
+  - Saturday: Engagement post
 
-### Task 3: 2 Posts Banao in Canva (1.5 hours)
-- Pehla post: **"5 Signs Your Business Needs A Website"**
-  - Background: Simple color
-  - Text: 5 points likho
-  - Font: Bada rakho taki mobile pe dikhe
-- Doosra post: **"We are Websbond - Your Digital Partner"**
-  - Logo daalo
-  - Tagline daalo
-  - Contact info daalo
-- **ABHISHEK bhai ko dikhao** — approve karwayo
+### [HIGH] Task 3: Design 2 Posts in Canva (1.5 hr)
+- Post 1: "5 Signs Your Business Needs a Website"
+  - Simple background, big text, bullet points
+- Post 2: "Websbond - Your Digital Growth Partner"
+  - Include logo, tagline, contact info
+- Show to team for approval before posting
 
 ---
 
-## 🎯 Day 2 Ka Target: Content calendar ready + 2 posts designed ✅
+## Day 3 — Tuesday, 7 July (First Posts Go Live)
 
----
-
-## 📅 Day 3 — Tuesday, 7 July 2026 (Post Karna Seekho)
-
-### Task 1: Instagram Post Daalo (1 hour)
-- Instagram kholo (@websbond)
-- Kal ka pehla post upload karo
-- Caption likho (Hinglish me):
+### [HIGH] Task 1: Publish on Instagram (1 hr)
+- Upload Post 1 from yesterday
+- Caption (Hinglish):
 ```
-🚀 5 Signs Your Business Needs a Website!
+5 signs your business needs a website in 2026:
 
-1. Log Google pe search karte hain aur aap nahi milte ❌
-2. Customers aapke competitors ko online dekh rahe hain
-3. Aapka business local hai — lekin online nahi
-4. Aap roj same questions sunte ho ("location kya hai?")
-5. Sales badh rahi hai? Usse double kar sakte ho!
+1. Customers search Google but cannot find you
+2. Your competitors are already online
+3. You answer the same questions daily ("where are you located?")
+4. Your business is local but not visible online
+5. Sales are growing? A website can double them
 
-👉 Hum banate hain aisi websites jo customers laaye
-Contact us: websbond.com
+We build websites that bring customers.
+Based in Gurugram, serving local businesses.
 
-#Websbond #Gurugram #WebsiteDesign #DigitalMarketing
-#GurugramBusiness #SmallBusiness #LocalBusiness
+#Gurugram #WebsiteDesign #DigitalMarketing #GurugramBusiness
+#LocalBusiness #SmallBusiness #WebDevelopment #SEO
 ```
-- Hashtags: 10-15 daalo (relevant rakho)
-- Location tag: "Gurugram" daalo
+- Add 15 hashtags total
+- Tag location: Gurugram
 
-### Task 2: Facebook pe Bhi Post Karo (30 min)
-- Same post Facebook pe bhi daalo
-- Facebook page: "Websbond"
-- Caption same rakh lo (thoda customize kar sakte ho)
+### [MEDIUM] Task 2: Cross-post to Facebook (30 min)
+- Same post and caption on Websbond Facebook page
 
-### Task 3: 1 Aur Post Banao (1 hour)
-- Topic: **"Why Google My Business is Important"**
-- Canva me design karo
-- Kal post karna hai
+### [MEDIUM] Task 3: Design Tomorrow's Post (30 min)
+- Topic: "Why Google My Business Matters"
+- Have it ready for tomorrow
 
 ---
 
-## 🎯 Day 3 Ka Target: 1 post live karna (Instagram + Facebook) ✅
+## Day 4 — Wednesday, 8 July (Engagement)
 
----
+### [HIGH] Task 1: Reply to Comments (30 min)
+- Check all old posts for comments
+- Reply to every single one
+- Style: Friendly + professional
+  - "Thank you! Connect with us anytime."
+  - "Yes, we are based in Gurugram. Happy to help!"
 
-## 📅 Day 4 — Wednesday, 8 July 2026 (Engagement Seekho)
+### [HIGH] Task 2: Active Engagement (1 hr)
+- On Instagram, search "digital marketing Gurugram"
+- Find 20 recent posts/reels
+- Leave genuine comments:
+  - "Great insight!"
+  - "Very helpful for local businesses"
+- Do NOT spam. Be genuine.
 
-### Task 1: Comments ka Reply Karo (30 min)
-- Purani posts pe jo comments hain, unko reply karo
-- New posts pe bhi comments aaye to unka jawab do
-- **Reply style:** Friendly + Professional
-  - "Thank you! 🙏 Connect karte rahiye"
-  - "Haan bilkul, hum Gurugram me hi hain. Aap batao kaise help kar sakte hain?"
-
-### Task 2: Active Engagement (1 hour)
-- Instagram pe "digital marketing Gurugram" search karo
-- 20 posts / reels dekho
-- Har post pe relevant comment karo:
-  - "Great tips! 🙌"
-  - "Bahut helpful content!"
-  - "Gurugram me yeh services available hain, aap check karo"
-- **⚠️ SPAM mat karo** — genuine comment karo
-
-### Task 3: LinkedIn Post (30 min)
-- LinkedIn pe bhi same content daalo
-- LinkedIn ka tone thoda professional rakho:
+### [MEDIUM] Task 3: LinkedIn Post (30 min)
+- Take the same content, make it professional:
 ```
 5 signs your business needs a website in 2026.
-If you're still relying on word-of-mouth...
+If you are still relying only on word-of-mouth, you are losing customers.
 [content]
-#BusinessGrowth #DigitalMarketing #Gurugram
+#BusinessGrowth #DigitalMarketing #Gurugram #WebDesign
 ```
 
-### Task 4: Analytics Check (30 min)
-- Post ke kitne views, likes, shares aaye?
-- Instagram insights check karo (business account hona chahiye)
-- Screenshot lo
-- Excel me daalo: Post | Date | Likes | Comments | Shares
+### [MEDIUM] Task 4: Track Performance (15 min)
+- Check Instagram insights
+- Note: views, likes, comments, shares
+- Enter in tracking sheet
 
 ---
 
-## 🎯 Day 4 Ka Target: 20 comments karna aur engagement badhana ✅
+## Day 5 — Thursday, 9 July (Content Creation)
+
+### [HIGH] Task 1: Create 3 Reels (2 hr)
+- Reel 1: Quick intro about Websbond (30 sec)
+  - Hold phone, introduce: "We are Websbond, a Gurugram-based digital agency..."
+  - Show laptop/workspace in background
+- Reel 2: Problem-solution format (30 sec)
+  - "Your business not showing on Google? Here is the fix..."
+- Reel 3: Behind the scenes (15 sec)
+  - Team working, coffee, laptop vibes
+
+### [HIGH] Task 2: Hashtag Research (30 min)
+- Research 30 hashtags in 3 sets:
+  - Set 1: #Websbond #Gurugram #DigitalMarketing #GurugramBusiness
+  - Set 2: #WebsiteDesign #SEO #GoogleAds #SocialMediaMarketing
+  - Set 3: #LocalBusiness #SmallBusinessIndia #GrowYourBusiness
+- Rotate sets between posts
+
+### [MEDIUM] Task 3: Schedule Tomorrow's Post (15 min)
+- Thursday's post ready in Canva
+- Caption ready
+- Schedule via Meta Business Suite if possible
 
 ---
 
-## 📅 Day 5 — Thursday, 9 July 2026 (Content Creation Day)
+## Day 6 — Friday, 10 July (Review & Plan)
 
-### Task 1: 3 Reels Banaye (2 hours)
-**Reel 1: "Websbond Intro" (30 sec)**
-- Mobile camera use karo
-- Apna phone rakh do, bolna start karo:
-  "Websbond ek Gurugram based digital marketing agency hai..."
-- Background me office / laptop dikhao
+### [HIGH] Task 1: Full Performance Review (1 hr)
+- Instagram insights report:
+  - New followers gained: ___
+  - Best performing post: ___
+  - Total engagement: ___
+  - Reel views: ___
+- Take screenshots of everything
+- Enter data in team Google Sheet
 
-**Reel 2: "Client Problem Solution" (30 sec)**
-- "Aapka business Google pe nahi dikhta? Yeh lo solution..."
-- Simple explainer
-
-**Reel 3: "Behind the Scenes" (15 sec)**
-- Team ka kaam karne ka video
-- Laptop pe kaam + coffee vibes
-
-### Task 2: Post Ka Design Finalize (30 min)
-- Kal ka post (Thursday) edit karo
-- Content: Humari services ka overview
-- Caption ready rakho
-
-### Task 3: Hashtag Research (30 min)
-- Instagram pe relevant hashtags search karo
-- 30 hashtags ki list banao (3 sets of 10)
-  - Set 1: #Websbond #Gurugram #DigitalMarketing #...
-  - Set 2: #WebsiteDesign #SEO #GoogleAds #...
-  - Set 3: #SmallBusiness #GurugramBusiness #LocalSEO #...
-
----
-
-## 🎯 Day 5 Ka Target: 3 Reels bana ke edit karna ✅
-
----
-
-## 📅 Day 6 — Friday, 10 July 2026 (Review & Strategy)
-
-### Task 1: Week Ka Performance Check (1 hour)
-- Instagram insights kholo
-- Check karo:
-  - Kitne new followers aaye?
-  - Kis post ko sabse zyada engagement mila?
-  - Reels ne kaisa performance diya?
-- **Screenshots lo sabke**
-
-### Task 2: Weekly Report Banao (30 min)
-- Excel me daalo:
+### [HIGH] Task 2: Weekly Report (30 min)
+- Summary for team:
   - Total posts: ___
   - Total reels: ___
   - Followers gained: ___
-  - Total engagement (likes+comments+shares): ___
-- ABHISHEK bhai ko bhejo
+  - Total engagement: ___
 
-### Task 3: Next Week Ka Plan (30 min)
-- Agle week ke 7 posts ka theme decide karo
-- Monday: Tip
-- Tuesday: Client testimonial
-- Wednesday: Industry news
-- Thursday: Service highlight
-- Friday: Fun/BTS
-- Saturday: Offer
+### [MEDIUM] Task 3: Plan Next Week (30 min)
+- Decide themes for 7 posts:
+  - Monday: Tip
+  - Tuesday: Testimonial/client result
+  - Wednesday: Industry trend
+  - Thursday: Service highlight
+  - Friday: Fun/BTS
+  - Saturday: Offer/discount
 
-### Task 4: Learning Resources (15 min)
-- YouTube pe "Canva tutorial in Hindi" search karo
-- 2-3 videos dekho
-- Kuch naya technique seekho
-
----
-
-## 🎯 Day 6 Ka Target: Week review + next week ka plan ready ✅
+### [LOW] Task 4: Learn One New Skill (15 min)
+- YouTube search "Canva tutorial Hindi"
+- Watch 1-2 videos
+- Practice one new technique
 
 ---
 
-## 📋 Summary Sheet (Roz Dekhna)
+## Daily Checklist
 
-| Din | Date | Kya Karna Hai | Time | Done? |
-|-----|------|--------------|------|-------|
-| Sat | 4 Jul | Canva seekho + 5 competitors analyze | 2.5 hr | ☐ |
-| Sun | 5 Jul | **CHHUTTI 🎉** | - | ☐ |
-| Mon | 6 Jul | Content calendar + 2 posts design | 2.5 hr | ☐ |
-| Tue | 7 Jul | Post publish (IG+FB) + 1 aur post banao | 2.5 hr | ☐ |
-| Wed | 8 Jul | Comments karo + LinkedIn post + analytics | 2.5 hr | ☐ |
-| Thu | 9 Jul | 3 Reels banao + hashtag research | 2.5 hr | ☐ |
-| Fri | 10 Jul | Performance review + next week plan | 2 hr | ☐ |
-
----
-
-## 🌟 Important Tips for GOPAL
-
-### ❌ Yeh Mat Karo
-- Fake followers mat khareedo (barbaad hoga page)
-- Spam comments mat karo
-- Ek hi hashtag har post mat lagao
-- Bina permission ke client ka kaam mat dikhao
-
-### ✅ Yeh Karo
-- Har post pe local hashtags daalo (#Gurugram, #DelhiNCR)
-- Stories daalo (Instagram stories se engagement badhta hai)
-- Reply har comment ko karo
-- Consistent raho — ek din chhoda to algorithm nuksan karega
-
-### 🎨 Canva Tips
-- **Templates use karo:** "Social Media" → "Instagram Post" me search karo
-- **Free fonts:** "Poppins", "Montserrat" use karo
-- **Brand kit:** Apna brand color + logo set karo (Settings → Brand Kit)
-- **Resize:** Ek post banao, phir "Resize" button se FB/LinkedIn me convert karo
-
-### 📊 Post Karne Ka Best Time (Indian Audience)
-| Day | Best Time |
-|-----|-----------|
-| Mon-Fri | Subah 9-11 AM ya raat 7-9 PM |
-| Saturday | Dopahar 12-2 PM |
-| Sunday | Raat 6-8 PM |
-
-### 🏷️ Hashtag Strategy
-- 10 small hashtags (<50k posts) — #GurugramBusiness
-- 10 medium hashtags (50k-500k) — #DigitalMarketing
-- 5 large hashtags (>500k) — #Marketing
-- **Total: 25-30 hashtags per post**
+Day  | Date  | Focus                              | Status
+---  | ----  | -----                              | ------
+Sat  | 4 Jul | Canva basics + competitor analysis | [ ]
+Sun  | 5 Jul | OFF                                | [ ]
+Mon  | 6 Jul | Content calendar + 2 posts designed| [ ]
+Tue  | 7 Jul | First post live (IG + FB)          | [ ]
+Wed  | 8 Jul | Engagement + LinkedIn + analytics  | [ ]
+Thu  | 9 Jul | 3 reels + hashtag research         | [ ]
+Fri  | 10 Jul | Performance review + next week    | [ ]
 
 ---
 
-## 🤖 AI Kaise Use Karein (Free Tools) — GOPAL
-
-Social media marketing me AI tumhara secret weapon hai. Har tool free hai. Bas prompt dena seekho.
-
-### 1. ChatGPT (chatgpt.com) — FREE
-
-**Captions likhna:**
-```
-ChatGPT me likho:
-"Ek Instagram caption likho Hinglish me for a post about
-'5 signs your business needs a website'.
-Keep it short, engaging, and add relevant hashtags.
-Target audience: Gurugram local business owners."
-```
-
-**Content Ideas:**
-```
-"10 Instagram post ideas do for a digital marketing agency.
-Target: local businesses in Gurugram.
-Mix karo: tips, client results, behind the scenes."
-```
-
-**Hashtag Research:**
-```
-"30 hashtags do for a digital marketing post targeting Gurugram.
-Mix of small, medium, large hashtags.
-Format: comma separated."
-```
-
-**Reel Script:**
-```
-"Ek 30-sec Instagram Reel ka script likho Hinglish me.
-Topic: 'Aapki website kyun important hai'.
-Opening hook, body, CTA — teeno parts clearly likho."
-```
-
-**Competitor Analysis:**
-```
-"Analyze karo is Instagram profile: [competitor handle].
-Kya acha hai, kya improve kar sakte hain.
-Unki best 3 posts kyun viral hui?"
-```
-
-### 2. Canva AI (canva.com) — FREE
-**AI features jo kaam aayenge:**
-- **Magic Design:** Text daalo, AI design bana dega
-- **Magic Write:** Caption likh dega directly Canva me
-- **Background Remover:** Ek click me background hatao
-- **Magic Eraser:** Photo me se unwanted object hatao
-- **Text to Image:** "Ek modern office dikhao" likho, AI image banayega
-
-### 3. CapCut (capcut.com) — FREE
-**Video editing ke liye best:**
-- **Auto Captions:** Ek click me Hindi/English captions aa jayenge
-- **Text to Speech:** Natural voiceovers bana sakte ho
-- **Auto Cut:** Silence auto remove karo
-- **Templates:** Pre-made reel templates use karo
-- **AI Effects:** Trending effects apply karo
-
-### 4. Google Gemini (gemini.google.com) — FREE
-- ChatGPT ka alternative
-- Google Trends ke saath connect hai — trending topics pata karo
-- "What's trending in digital marketing 2026" search karo
-
-### 5. Perplexity (perplexity.ai) — FREE
-**Research ke liye:**
-- *"Best Instagram posting times 2026 India"*
-- *"Viral reel ideas for digital marketing agency"*
-- *"Latest social media trends India 2026"*
-
-### 6. Remove.bg (remove.bg) — FREE
-- Product photos / client photos se background hatao
-- Ek click me kaam ho jayega
-
-### 📌 Tumhara Daily AI Workflow
-```
-✅ Post se pehle: ChatGPT se caption + hashtags likhwao
-✅ Design: Canva AI use karo (Magic Design)
-✅ Video: CapCut me auto captions daalo
-✅ Post ke baad: Perplexity pe trends check karo
-✅ Shaam: ChatGPT se analytics report likhwao
-```
-
-### ⚡ Quick Prompts (Copy-Paste karo)
-
-| Kaam | Prompt (ChatGPT me daalo) |
-|------|--------------------------|
-| Caption | "Instagram caption likho Hinglish me — websbond services" |
-| Hashtags | "30 hashtags Gurugram digital marketing" |
-| Reel idea | "5 reel ideas do for web design agency" |
-| Bio | "Instagram bio likho Websbond ke liye" |
-| Post idea | "10 post ideas for digital agency — local focus" |
-| Reply | "Comment ka reply likho: 'Kitne me banti hai website?'" |
-| Story | "Instagram story idea do — humne naya project start kiya" |
-
-> **Yaad rakhna:** AI sirf tool hai. Tumhara creativity + AI = best results. Har post me apna personal touch daalna mat bhoolna.
+## Progress Tracker
+Update daily: https://docs.google.com/spreadsheets/d/1WbN3oFCDvV_6gO7JxH7sOfEaNo2FBsYFfoZqWC3o2V4/edit?usp=sharing
 
 ---
 
-## 🚀 Week 2 Me Kya Hoga?
-- Khud se post banane lagoge (bina help ke)
-- Daily 1 reel banoge
-- Stories daalni shuru karoge
-- Engagement double karna hai
+## Tips for GOPAL
+
+### Don't
+- Do not buy fake followers (ruins the account)
+- Do not spam comments on other pages
+- Do not use same hashtags on every post
+- Do not post client work without permission
+
+### Do
+- Always use local hashtags (#Gurugram, #DelhiNCR)
+- Post Instagram Stories daily (boosts engagement)
+- Reply to every single comment
+- Stay consistent - skipping one day hurts the algorithm
+
+### Canva Tips
+- Use templates: "Social Media" > "Instagram Post" > search
+- Set up Brand Kit: Colors + Logo (Settings > Brand Kit)
+- Use resize button to convert post for FB/LinkedIn
+- Recommended free fonts: Poppins, Montserrat
+
+### Best Posting Times (Indian Audience)
+
+Day         | Best Time
+---         | ---------
+Mon-Fri     | 9-11 AM or 7-9 PM
+Saturday    | 12-2 PM
+Sunday      | 6-8 PM
+
+### Hashtag Strategy Per Post
+- 10 small hashtags (under 50k posts) - #GurugramBusiness
+- 10 medium hashtags (50k-500k) - #DigitalMarketing
+- 5 large hashtags (over 500k) - #Marketing
+- Total: 25 hashtags per post
 
 ---
 
-**Yeh plan follow karo. Pehla week seekhne ka hai — pressure mat lo! 💪**
+## AI Tools for Social Media
+
+| Tool | How to Use | Free? |
+|------|-----------|-------|
+| ChatGPT | Write captions, hashtag research, reel scripts | Yes |
+| Canva AI | Magic Design, Magic Write, BG remover | Yes |
+| CapCut | Auto captions, text-to-speech, auto-cut | Yes |
+| Gemini | Content ideas, trend research | Yes |
+| Perplexity | Latest social media trends | Yes |
+| Remove.bg | Remove image backgrounds | Yes |
+
+Sample ChatGPT prompts (copy-paste):
+- "Write a Hinglish Instagram caption for a post about website design services. Target: Gurugram business owners. Include 15 hashtags."
+- "Give me 5 reel ideas for a digital marketing agency based in Gurugram"
+- "Write a reply to this comment: 'Kitne me banti hai website?'"
+- "Analyze this competitor Instagram profile and tell me 3 things they do well: [handle]"
+
+---
+
+## What Week 2 Looks Like
+- Create posts independently (no hand-holding)
+- Daily 1 reel
+- Start posting Stories
+- Double the engagement
+
+---
+
+**First week is about learning the tools. Week 2 is about creating. Go step by step.**
