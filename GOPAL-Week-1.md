@@ -1,304 +1,302 @@
-# 🚀 Gopal — Digital Marketing & Social Media Head | Week 1 Action Plan
-
-> **Mission:** 1 week = 1 month of brand growth. Virality, followers, leads, views.
-> **Role:** Content Creation, Social Media, Ads, Brand Building
-> **Motto:** "Har post lead laaye. Har reel viral ho. Har view convert ho."
-
----
-
-## 🎯 Weekly Target
-| Platform | Followers Target | Views Target | Leads Target |
-|---|---|---|---|
-| Instagram | +200 | 10,000+ reel views | 10+ |
-| LinkedIn | +100 | 5,000+ post views | 5+ |
-| Facebook | +50 | 5,000+ reach | 5+ |
-| YouTube | +50 subs | 2,000+ views | 3+ |
-| **Total** | **+400** | **22,000+** | **23+** |
+# 📱 GOPAL - Week 1 Growth Plan (Social Media Marketing)
+**Role:** Social Media Executive | **Experience:** Fresher (Sikhna hai)
+**Goal:** Week 1 me social media basics seekho, content banana sikho, engagement badhao
+**Dates:** Sat 4 Jul → Fri 10 Jul (Sunday OFF)
 
 ---
 
-## 📅 Day 1 (MON) — Foundation & Content Bank
+## ⚠️ Pehle Yeh Samajh Le (Important)
 
-### ☀️ Morning — Content Planning (2 hrs)
-- [ ] **Create 10 viral hooks** (write in notebook):
-  1. "₹7,999 mein professional website? 😱"
-  2. "Your website is LOSING you customers"
-  3. "Google pe #1 kaise aaye? Free hack"
-  4. "Delhi NCR businesses ki 99% websites FAIL"
-  5. "Website kharidne se pehle yeh dekho"
-  6. "Client ne ₹7,999 ka website banwaya — result? 300% growth"
-  7. "SEO vs Google Ads — Kya sahi hai?"
-  8. "Business owners ignore karte hain yeh 5 cheezein"
-  9. "Websbond ne [Client] ka business badal diya"
-  10. "Free website audit — kaam karta hai ya nahi?"
-
-- [ ] **Design 10 Canva templates** (consistent brand):
-  - Color: #6366f1 (indigo) + #0a0b13 (dark)
-  - Font: Inter / Poppins
-  - Logo placement: top-left
-  - CTA button: "DM for Free Audit" / "Link in Bio"
-  - File format: 1080x1080 (IG feed), 1080x1920 (reels/stories)
-
-### 📸 Afternoon — Content Creation (2 hrs)
-- [ ] **Record 5 raw videos** (phone camera, well-lit, clear audio):
-  1. "Who is Websbond?" (30 sec intro)
-  2. "₹7,999 website tour" (60 sec walkthrough)
-  3. "Client testimonial — call recording clip" (30 sec)
-  4. "3 SEO tips for small business" (60 sec)
-  5. "Office/workspace tour" (15 sec, relatable)
-
-- [ ] **Edit videos** using CapCut / InShot:
-  - Add captions (auto-generate)
-  - Add trending background music
-  - Add end screen: "Follow for more" + "Link in Bio"
-  - Export in 1080x1920, MP4, 30fps
-
-### 🌙 Evening — Setup (1 hr)
-- [ ] **Instagram Bio update:**
-  ```
-  🚀 Delhi NCR's Digital Growth Partner
-  🌐 Websites | SEO | Ads | SMM
-  📞 Free Consultation ⬇️
-  wa.me/919306623619
-  ```
-- [ ] **Link in Bio:** Set to websbond.com
-- [ ] **Create 3 Highlights:** "Our Work" / "Testimonials" / "Services"
-- [ ] **LinkedIn banner:** Create with Canva — "Websbond — Digital Solutions That Drive Real Results"
-- [ ] Report to Abhishek: content ready for tomorrow
+**Tum naye ho — isliye tasks very simple rakhe hain.**
+- Har din ka kaam 2-3 hour max hai
+- Canva use karna seekhoge (free hai)
+- Post banana, hashtag dalna, engagement karna — sab seekhoge
+- Ghabrana nahi — mistake karna allowed hai
 
 ---
 
-## 📅 Day 2 (TUE) — Instagram Reel Launch 🚀
+## 📅 Day 1 — Saturday, 4 July 2026 (Samajhne Ka Din)
 
-### ☀️ Morning — Post 1st Reel (30 min)
-- [ ] **Post Reel 1** at 8 AM: "₹7,999 mein website 😱" 
-  - Caption: "Delhi NCR mein website banwana hai? Websbond ₹7,999 se banata hai. Link in bio 📌"
-  - Hashtags: #websitedesign #delhibusiness #smallbusinessindia #websbond #digitalmarketing
-  - Location tag: Gurugram, Haryana
-  - Tag: @websbond (your account)
-  - Cross-post to Facebook
+### Task 1: Social Media Accounts Check (30 min)
+- Check karo ki Websbond ke accounts exist karte hain ya nahi:
+  - Instagram: @websbond (search karo)
+  - Facebook: /websbond (search karo)
+  - LinkedIn: /company/websbond
+  - YouTube: @websbond
+- **Agar koi account nahi mila to ABHISHEK bhai ko batao**
 
-### 📞 Engagement — 1 Hour After Post (30 min)
-- [ ] Reply to every comment within 1 hr
-- [ ] Like & comment on 30 reels from: #websitedesign #delhistartup #businessowner
-- [ ] Follow 50 relevant accounts
+### Task 2: 5 Competitors Ko Dekho (1 hour)
+- Instagram pe search karo:
+  - "web designing company in Gurugram"
+  - "digital marketing agency Gurugram"
+  - "SEO services Gurugram"
+- Jo 5-6 pages dikhe, unki profile dekho:
+  - Kitni followers hain?
+  - Kis type ki post daalte hain?
+  - Kya caption likhte hain?
+  - Kitne hashtags use karte hain?
+- **Sab kuch notebook me likho** — template banega
 
-### 📸 Afternoon — Post 2nd Content (1 hr)
-- [ ] **Post 1 Carousel** on Instagram Feed:
-  - 5 slides: "5 signs your website is FAILING"
-  - Design tips in Canva
-  - Last slide: "DM for Free Audit"
-- [ ] **Post same carousel on LinkedIn** as document post
-
-### 🌙 Evening — Post 2nd Reel (30 min)
-- [ ] **Post Reel 2** at 8 PM: "Client testimonial — result dikhta hai"
-- [ ] Share to Facebook
-
----
-
-## 📅 Day 3 (WED) — LinkedIn Authority + Instagram Growth
-
-### ☀️ Morning — LinkedIn Deep Post (1 hr)
-- [ ] **Write & post LinkedIn article:** 
-  - Title: "How We Help Delhi NCR Small Businesses Grow Online"
-  - Content: 400 words, bullet points, 2 images
-  - Tag 5 connections
-  - Hashtags: #SEO #DigitalMarketing #Delhi #SmallBusiness #Webbond
-- [ ] Send article link to Sumit → he sends to prospects
-
-### 📸 Afternoon — Instagram Reel 3 (1 hr)
-- [ ] **Post Reel 3:** "SEO tips for small business" (60 sec)
-- [ ] **Create 2 Instagram Stories:**
-  1. Poll: "Website banwani chahiye? 😊 / 👍"
-  2. "Behind the scenes — Abhishek coding" (relatable)
-
-### 📞 Engagement 2.0 (1 hr)
-- [ ] DM 20 followers with a genuine compliment:
-  ```
-  Hey! Love your content. We help businesses like yours grow online.
-  Free audit chahiye toh batao! 😊
-  ```
-- [ ] Reply to all story mentions
-- [ ] Share 3 client screenshots on story with "W" sticker
-
-### 🌙 Evening (30 min)
-- [ ] Report metrics to Abhishek:
-  - Reel 1 views: ___
-  - Reel 2 views: ___
-  - New followers: ___
-  - DM inquiries: ___
-  - LinkedIn impressions: ___
+### Task 3: Canva Introduction (1 hour)
+- Canva.com kholo (free account banao agar nahi hai)
+- "Instagram Post" template select karo
+- Kuch bhi design banao — practice hai:
+  - Background color select karo
+  - Text daalo "Websbond - Digital Solutions"
+  - 3-4 designs banao (acha bura koi baat nahi)
+- **Screen recording lo** taake baar baar dekh sako
 
 ---
 
-## 📅 Day 4 (THU) — Viral Push + Facebook Groups
-
-### ☀️ Morning — Facebook Groups Blitz (1.5 hrs)
-- [ ] Join & post in 10 Indian business Facebook groups:
-  - "Delhi Entrepreneurs"
-  - "Small Business India Network"
-  - "Digital Marketing India"
-  - "Startup India"
-  - "Gurugram Business Community"
-  - "Noida Business Owners"
-  
-  **Post template:**
-  ```
-  🚀 Free Website SEO Audit for Small Business Owners!
-  
-  Main Websbond se hoon — hum Delhi NCR businesses ki website banate hain
-  aur Google pe rank karwate hain.
-  
-  👉 First 5 comments ko FREE SEO audit — bilkul free.
-  
-  Kya aapki website Google pe aati hai? Comment karo "ME" aur main aapko audit bhejunga.
-  ```
-- [ ] Reply to every comment within 30 min
-- [ ] DM anyone who shows interest
-
-### 📸 Afternoon — Instagram Reel 4 (1 hr)
-- [ ] **Post Reel 4:** "Before/After website transformation" (30 sec)
-  - Show a bad website → Websbond's version
-  - Fast cuts, trending audio
-  - Caption: "Same business. Better website. More customers."
-
-### 🤳 Viral Challenge (1 hr)
-- [ ] **Start a challenge:** Post on story:
-  ```
-  🚨 Challenge Time!
-  Tag 3 business friends jo website banwana chahte hain.
-  Main unhe FREE website audit dunga.
-  Let's help Delhi NCR businesses grow! 💪
-  ```
-- [ ] DM everyone who gets tagged
-
-### 🌙 Evening (30 min)
-- [ ] Track & report analytics to Abhishek
-- [ ] Plan next day's content
+## 🎯 Day 1 Ka Target: Canva basics seekhna aur 5 competitors analyze karna ✅
 
 ---
 
-## 📅 Day 5 (FRI) — YouTube Channel Launch
+## 📅 Day 2 — Monday, 6 July 2026 (Content Banana Seekho)
 
-### ☀️ Morning — YouTube Setup (1 hr)
-- [ ] **YouTube Channel**: "Websbond"
-  - Profile pic: Websbond logo
-  - Banner: Create in Canva
-  - About: "Websbond is a digital marketing agency helping Delhi NCR businesses grow online. Websites, SEO, Google Ads and more."
-  - Links: Website + Instagram
+### Task 1: Brand Voice Samjho (30 min)
+- Website padho: websbond.com
+- Websbond ka tone kya hai? Professional? Friendly? Young?
+- **Likho:** "Websbond ki baat karne ka style yeh hai: _____"
+- Hint: We are professional but friendly — "We grow your business"
 
-### 📹 Video Upload (1 hr)
-- [ ] **Upload 2 videos:**
-  1. "₹7,999 Website Tour — Websbond Showcase" (long-form, 5 min)
-  2. "SEO Kya Hai? Small Business Ke Liye Complete Guide" (10 min)
-- [ ] **YouTube SEO per video:**
-  - Title: include keyword + "Delhi NCR"
-  - Description: 2 paragraphs + link to websbond.com + timestamps
-  - Tags: digital marketing agency Delhi, website design, SEO services India
-  - Thumbnail: custom Canva design with text overlay
-  - End screen: subscribe + website link
+### Task 2: Content Calendar Banana Seekho (30 min)
+- Google Sheets / Excel kholo
+- Column banao: Date | Day | Post Type | Topic | Caption | Image | Status
+- Aaj ke liye 7 posts ka plan banao (1 week)
+- Post types:
+  - **Monday:** Tip/Knowledge post (e.g., "SEO tips")
+  - **Tuesday:** Client work showcase
+  - **Wednesday:** Motivational / Industry news
+  - **Thursday:** Product/Service post
+  - **Friday:** Fun / Behind the scenes
+  - **Saturday:** Offer / Discount post
 
-### 📸 Afternoon — Instagram Reel 5 (1 hr)
-- [ ] **Post Reel 5:** "Client project walkthrough" (45 sec)
-  - Screen recording of completed website
-  - Voiceover: "Yeh website humne 3 din mein banayi. Client kaisa laga?"
-
-### 🌙 Evening (30 min)
-- [ ] Cross-promote YouTube videos on Instagram story + LinkedIn post
-- [ ] Report week's total metrics
-
----
-
-## 📅 Day 6 (SAT) — Content Repurpose + Weekend Push
-
-### ☀️ Morning — Repurpose Best Content (2 hrs)
-- [ ] Take THIS WEEK's best-performing reel → convert to:
-  - YouTube Short (same video, reupload)
-  - Facebook Reel (cross-post)
-  - LinkedIn video post (native upload)
-  - WhatsApp status
-- [ ] Turn best LinkedIn post into a Twitter/X thread (5 tweets)
-- [ ] Turn best carousel into a blog post snippet
-
-### 📸 Afternoon — User-Generated Content Push (1 hr)
-- [ ] **Ask 3 happy clients** to send a 15-sec video testimonial
-- [ ] Edit into a compilation → post as Reel 6
-- [ ] Tag them → they share → their followers see Websbond
-
-### 🌙 Evening — Weekend Offer Post (30 min)
-- [ ] **Post on ALL platforms:**
-  ```
-  🚀 WEEKEND OFFER 🚀
-  Sirf is weekend:
-  ✅ Website — ₹7,999 (free domain + hosting)
-  ✅ SEO — ₹2,999/month (limited slots)
-  ✅ Combo — ₹9,999 (save ₹1,000)
-  
-  DM "WEBSITE" to book yours! 🔥
-  ```
+### Task 3: 2 Posts Banao in Canva (1.5 hours)
+- Pehla post: **"5 Signs Your Business Needs A Website"**
+  - Background: Simple color
+  - Text: 5 points likho
+  - Font: Bada rakho taki mobile pe dikhe
+- Doosra post: **"We are Websbond - Your Digital Partner"**
+  - Logo daalo
+  - Tagline daalo
+  - Contact info daalo
+- **ABHISHEK bhai ko dikhao** — approve karwayo
 
 ---
 
-## 📅 Day 7 (SUN) — Analytics, Review & Week 2 Prep
-
-### 📊 Full Analytics Review (1 hr)
-- [ ] **Instagram:**
-  - Reels — total views, avg views per reel, top reel
-  - Followers — gained, lost, net growth
-  - Profile visits
-  - DM inquiries count
-- [ ] **LinkedIn:**
-  - Post impressions
-  - Profile views
-  - Connection requests accepted
-- [ ] **YouTube:**
-  - Total views
-  - Subscribers gained
-  - Watch time
-
-### 📈 Content Scorecard
-| Content | Platform | Views | Likes | Comments | Shares | Leads |
-|---|---|---|---|---|---|---|
-| Reel 1: ₹7,999 website | IG | | | | | |
-| Reel 2: Testimonial | IG | | | | | |
-| Carousel: 5 signs | IG+LI | | | | | |
-| Reel 3: SEO tips | IG | | | | | |
-| Video 1: Website tour | YT | | | | | |
-| Video 2: SEO guide | YT | | | | | |
-| Reel 4: Before/After | IG | | | | | |
-| Reel 5: Walkthrough | IG | | | | | |
-| Reel 6: Compilation | IG | | | | | |
-
-### 🎯 Week 2 Strategy (30 min)
-- [ ] Which content type got the MOST views? → Do more of that
-- [ ] Which content type got the MOST leads? → Double down
-- [ ] Plan 10 new content ideas based on data
-- [ ] Set higher targets for week 2
+## 🎯 Day 2 Ka Target: Content calendar ready + 2 posts designed ✅
 
 ---
 
-## ⚡ Quick Wins (Do TODAY)
+## 📅 Day 3 — Tuesday, 7 July 2026 (Post Karna Seekho)
 
-1. Update all social bios with clear CTA + WhatsApp link
-2. Post 1 Instagram reel (trending audio, captions, CTA)
-3. Join 5 Facebook business groups
-4. Create 5 Canva templates for the week
-5. Send "Good morning" to 10 followers (build community)
-6. DM 10 potential clients with genuine compliment + soft pitch
-7. Post 1 WhatsApp status: "Free SEO audit — DM me"
+### Task 1: Instagram Post Daalo (1 hour)
+- Instagram kholo (@websbond)
+- Kal ka pehla post upload karo
+- Caption likho (Hinglish me):
+```
+🚀 5 Signs Your Business Needs a Website!
+
+1. Log Google pe search karte hain aur aap nahi milte ❌
+2. Customers aapke competitors ko online dekh rahe hain
+3. Aapka business local hai — lekin online nahi
+4. Aap roj same questions sunte ho ("location kya hai?")
+5. Sales badh rahi hai? Usse double kar sakte ho!
+
+👉 Hum banate hain aisi websites jo customers laaye
+Contact us: websbond.com
+
+#Websbond #Gurugram #WebsiteDesign #DigitalMarketing
+#GurugramBusiness #SmallBusiness #LocalBusiness
+```
+- Hashtags: 10-15 daalo (relevant rakho)
+- Location tag: "Gurugram" daalo
+
+### Task 2: Facebook pe Bhi Post Karo (30 min)
+- Same post Facebook pe bhi daalo
+- Facebook page: "Websbond"
+- Caption same rakh lo (thoda customize kar sakte ho)
+
+### Task 3: 1 Aur Post Banao (1 hour)
+- Topic: **"Why Google My Business is Important"**
+- Canva me design karo
+- Kal post karna hai
 
 ---
 
-## 📊 Content Calendar Summary
+## 🎯 Day 3 Ka Target: 1 post live karna (Instagram + Facebook) ✅
 
-| Day | Task | Platform |
-|---|---|---|
-| Mon | Create hooks + 10 templates + record 5 videos | Planning |
-| Tue | Reel 1 (₹7,999 site) + Carousel (5 signs) + Reel 2 (testimonial) | IG, FB, LI |
-| Wed | LinkedIn article + Reel 3 (SEO tips) + Stories + DMs | LI, IG |
-| Thu | FB Groups (10 posts) + Reel 4 (Before/After) + Challenge | FB, IG |
-| Fri | YouTube channel launch (2 videos) + Reel 5 (walkthrough) | YT, IG |
-| Sat | Repurpose best content + compilations + Weekend offer | All platforms |
-| Sun | Analytics review + Week 2 plan | Strategy |
+---
 
-*"Content hai toh business hai. Har din 2 posts. Har post mein value. Har value se lead."*
+## 📅 Day 4 — Wednesday, 8 July 2026 (Engagement Seekho)
+
+### Task 1: Comments ka Reply Karo (30 min)
+- Purani posts pe jo comments hain, unko reply karo
+- New posts pe bhi comments aaye to unka jawab do
+- **Reply style:** Friendly + Professional
+  - "Thank you! 🙏 Connect karte rahiye"
+  - "Haan bilkul, hum Gurugram me hi hain. Aap batao kaise help kar sakte hain?"
+
+### Task 2: Active Engagement (1 hour)
+- Instagram pe "digital marketing Gurugram" search karo
+- 20 posts / reels dekho
+- Har post pe relevant comment karo:
+  - "Great tips! 🙌"
+  - "Bahut helpful content!"
+  - "Gurugram me yeh services available hain, aap check karo"
+- **⚠️ SPAM mat karo** — genuine comment karo
+
+### Task 3: LinkedIn Post (30 min)
+- LinkedIn pe bhi same content daalo
+- LinkedIn ka tone thoda professional rakho:
+```
+5 signs your business needs a website in 2026.
+If you're still relying on word-of-mouth...
+[content]
+#BusinessGrowth #DigitalMarketing #Gurugram
+```
+
+### Task 4: Analytics Check (30 min)
+- Post ke kitne views, likes, shares aaye?
+- Instagram insights check karo (business account hona chahiye)
+- Screenshot lo
+- Excel me daalo: Post | Date | Likes | Comments | Shares
+
+---
+
+## 🎯 Day 4 Ka Target: 20 comments karna aur engagement badhana ✅
+
+---
+
+## 📅 Day 5 — Thursday, 9 July 2026 (Content Creation Day)
+
+### Task 1: 3 Reels Banaye (2 hours)
+**Reel 1: "Websbond Intro" (30 sec)**
+- Mobile camera use karo
+- Apna phone rakh do, bolna start karo:
+  "Websbond ek Gurugram based digital marketing agency hai..."
+- Background me office / laptop dikhao
+
+**Reel 2: "Client Problem Solution" (30 sec)**
+- "Aapka business Google pe nahi dikhta? Yeh lo solution..."
+- Simple explainer
+
+**Reel 3: "Behind the Scenes" (15 sec)**
+- Team ka kaam karne ka video
+- Laptop pe kaam + coffee vibes
+
+### Task 2: Post Ka Design Finalize (30 min)
+- Kal ka post (Thursday) edit karo
+- Content: Humari services ka overview
+- Caption ready rakho
+
+### Task 3: Hashtag Research (30 min)
+- Instagram pe relevant hashtags search karo
+- 30 hashtags ki list banao (3 sets of 10)
+  - Set 1: #Websbond #Gurugram #DigitalMarketing #...
+  - Set 2: #WebsiteDesign #SEO #GoogleAds #...
+  - Set 3: #SmallBusiness #GurugramBusiness #LocalSEO #...
+
+---
+
+## 🎯 Day 5 Ka Target: 3 Reels bana ke edit karna ✅
+
+---
+
+## 📅 Day 6 — Friday, 10 July 2026 (Review & Strategy)
+
+### Task 1: Week Ka Performance Check (1 hour)
+- Instagram insights kholo
+- Check karo:
+  - Kitne new followers aaye?
+  - Kis post ko sabse zyada engagement mila?
+  - Reels ne kaisa performance diya?
+- **Screenshots lo sabke**
+
+### Task 2: Weekly Report Banao (30 min)
+- Excel me daalo:
+  - Total posts: ___
+  - Total reels: ___
+  - Followers gained: ___
+  - Total engagement (likes+comments+shares): ___
+- ABHISHEK bhai ko bhejo
+
+### Task 3: Next Week Ka Plan (30 min)
+- Agle week ke 7 posts ka theme decide karo
+- Monday: Tip
+- Tuesday: Client testimonial
+- Wednesday: Industry news
+- Thursday: Service highlight
+- Friday: Fun/BTS
+- Saturday: Offer
+
+### Task 4: Learning Resources (15 min)
+- YouTube pe "Canva tutorial in Hindi" search karo
+- 2-3 videos dekho
+- Kuch naya technique seekho
+
+---
+
+## 🎯 Day 6 Ka Target: Week review + next week ka plan ready ✅
+
+---
+
+## 📋 Summary Sheet (Roz Dekhna)
+
+| Din | Date | Kya Karna Hai | Time | Done? |
+|-----|------|--------------|------|-------|
+| Sat | 4 Jul | Canva seekho + 5 competitors analyze | 2.5 hr | ☐ |
+| Sun | 5 Jul | **CHHUTTI 🎉** | - | ☐ |
+| Mon | 6 Jul | Content calendar + 2 posts design | 2.5 hr | ☐ |
+| Tue | 7 Jul | Post publish (IG+FB) + 1 aur post banao | 2.5 hr | ☐ |
+| Wed | 8 Jul | Comments karo + LinkedIn post + analytics | 2.5 hr | ☐ |
+| Thu | 9 Jul | 3 Reels banao + hashtag research | 2.5 hr | ☐ |
+| Fri | 10 Jul | Performance review + next week plan | 2 hr | ☐ |
+
+---
+
+## 🌟 Important Tips for GOPAL
+
+### ❌ Yeh Mat Karo
+- Fake followers mat khareedo (barbaad hoga page)
+- Spam comments mat karo
+- Ek hi hashtag har post mat lagao
+- Bina permission ke client ka kaam mat dikhao
+
+### ✅ Yeh Karo
+- Har post pe local hashtags daalo (#Gurugram, #DelhiNCR)
+- Stories daalo (Instagram stories se engagement badhta hai)
+- Reply har comment ko karo
+- Consistent raho — ek din chhoda to algorithm nuksan karega
+
+### 🎨 Canva Tips
+- **Templates use karo:** "Social Media" → "Instagram Post" me search karo
+- **Free fonts:** "Poppins", "Montserrat" use karo
+- **Brand kit:** Apna brand color + logo set karo (Settings → Brand Kit)
+- **Resize:** Ek post banao, phir "Resize" button se FB/LinkedIn me convert karo
+
+### 📊 Post Karne Ka Best Time (Indian Audience)
+| Day | Best Time |
+|-----|-----------|
+| Mon-Fri | Subah 9-11 AM ya raat 7-9 PM |
+| Saturday | Dopahar 12-2 PM |
+| Sunday | Raat 6-8 PM |
+
+### 🏷️ Hashtag Strategy
+- 10 small hashtags (<50k posts) — #GurugramBusiness
+- 10 medium hashtags (50k-500k) — #DigitalMarketing
+- 5 large hashtags (>500k) — #Marketing
+- **Total: 25-30 hashtags per post**
+
+---
+
+## 🚀 Week 2 Me Kya Hoga?
+- Khud se post banane lagoge (bina help ke)
+- Daily 1 reel banoge
+- Stories daalni shuru karoge
+- Engagement double karna hai
+
+---
+
+**Yeh plan follow karo. Pehla week seekhne ka hai — pressure mat lo! 💪**
