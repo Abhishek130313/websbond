@@ -239,6 +239,90 @@ Aapne kaha tha ki aage discuss karenge. Kya aaj 10 min mil sakte hain?"
 
 ---
 
+## 🤖 AI Kaise Use Karein (Free Tools) — SUMIT
+
+AI tumhara personal assistant hai. Free me kaam karta hai. Bas prompt dena seekh lo.
+
+### 1. ChatGPT (chatgpt.com) — FREE
+
+**Call Script banana:**
+```
+ChatGPT me likho:
+"Main ek digital marketing agency ke liye client relations executive hu.
+Mujhe Gurugram ke salon owners ko call karna hai.
+Ek Hinglish call script banao:
+1) introduction
+2) problem batana (unke paas website nahi hai)
+3) solution dena (hum banayenge)
+4) closing (kal follow-up)
+Script short rakhna — 30 sec ki."
+```
+
+**WhatsApp Message Draft:**
+```
+"Ek WhatsApp message likho Hinglish me:
+Main Websbond se hu. Hum Gurugram me local businesses ki website banate hain.
+Client ko lage ki hum sincere hain, spam nahi."
+```
+
+**Objection Handle karna seekho:**
+```
+ChatGPT me likho:
+"Agar client bole 'paise nahi hai' to muje kya bolna chahiye?
+3 options do Hinglish me."
+```
+
+**Translation (English → Hinglish):**
+```
+"Is sentence ko Hinglish me bolo:
+We are a Gurugram based digital agency helping local businesses grow online."
+```
+
+**Follow-up Messages:**
+```
+"Client ne kaha 'kal baat karte hain'. Kal ka follow-up message likho Hinglish me."
+```
+
+### 2. Google Gemini (gemini.google.com) — FREE
+- ChatGPT ka same alternative hai
+- Agar ChatGPT slow ho to Gemini use karo
+- Google search ke saath integrated hai
+
+### 3. Perplexity (perplexity.ai) — FREE
+**Client research ke liye:**
+Call karne se pehle client ke business ke baare me search karo:
+- *"Best hair salon in Gurugram Sector 48"*
+- *"[Business name] reviews Google"*
+- Is tarah se client ko lagega ki tumne homework kiya hai
+
+### 4. ChatGPT Mobile App (Phone pe bhi use karo)
+- Google Play Store se "ChatGPT" download karo
+- Call karne se pehle 1 min me script ready kar lo
+- Client ne kuch khaas kaha to turant reply draft kar lo
+
+### 📌 Tumhara Daily AI Workflow
+```
+✅ Subah 9am: ChatGPT → "Aaj 10 leads dhoondhni hai. Ek plan bata."
+✅ Lead dhoondhne se pehle: Perplexity pe area search karo
+✅ Call se pehle: ChatGPT se script banao (30 sec me)
+✅ Call ke baad: ChatGPT se follow-up message draft karwao
+✅ Shaam: ChatGPT se daily report likhwao
+```
+
+### ⚡ Quick Prompts (Copy karo, paste karo, use karo)
+
+| Kaam | Prompt (ChatGPT me daalo) |
+|------|--------------------------|
+| Script banana | "Ek short Hinglish call script banao for web design agency" |
+| Objection handle | "Client bole paise nahi hai — 3 replies do Hinglish me" |
+| Follow-up msg | "Follow-up message likho — client ne kal baat karne ko kaha tha" |
+| Lead list | "10 types of businesses in Gurugram that need websites" |
+| Confidence | "Muje call karne me dar lagta hai — 3 tips do" |
+
+> **Yaad rakhna:** AI se puche bina koi bhi message mat bhejo. Pehle AI se draft karwao, phir bhejo. Professional lagega.
+
+---
+
 ## 🚀 Agle Week (Week 2) Kya Hoga?
 - Roz 15 calls karoge
 - Script apni bana loge (apne style me)

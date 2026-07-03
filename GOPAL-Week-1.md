@@ -291,6 +291,105 @@ If you're still relying on word-of-mouth...
 
 ---
 
+## 🤖 AI Kaise Use Karein (Free Tools) — GOPAL
+
+Social media marketing me AI tumhara secret weapon hai. Har tool free hai. Bas prompt dena seekho.
+
+### 1. ChatGPT (chatgpt.com) — FREE
+
+**Captions likhna:**
+```
+ChatGPT me likho:
+"Ek Instagram caption likho Hinglish me for a post about
+'5 signs your business needs a website'.
+Keep it short, engaging, and add relevant hashtags.
+Target audience: Gurugram local business owners."
+```
+
+**Content Ideas:**
+```
+"10 Instagram post ideas do for a digital marketing agency.
+Target: local businesses in Gurugram.
+Mix karo: tips, client results, behind the scenes."
+```
+
+**Hashtag Research:**
+```
+"30 hashtags do for a digital marketing post targeting Gurugram.
+Mix of small, medium, large hashtags.
+Format: comma separated."
+```
+
+**Reel Script:**
+```
+"Ek 30-sec Instagram Reel ka script likho Hinglish me.
+Topic: 'Aapki website kyun important hai'.
+Opening hook, body, CTA — teeno parts clearly likho."
+```
+
+**Competitor Analysis:**
+```
+"Analyze karo is Instagram profile: [competitor handle].
+Kya acha hai, kya improve kar sakte hain.
+Unki best 3 posts kyun viral hui?"
+```
+
+### 2. Canva AI (canva.com) — FREE
+**AI features jo kaam aayenge:**
+- **Magic Design:** Text daalo, AI design bana dega
+- **Magic Write:** Caption likh dega directly Canva me
+- **Background Remover:** Ek click me background hatao
+- **Magic Eraser:** Photo me se unwanted object hatao
+- **Text to Image:** "Ek modern office dikhao" likho, AI image banayega
+
+### 3. CapCut (capcut.com) — FREE
+**Video editing ke liye best:**
+- **Auto Captions:** Ek click me Hindi/English captions aa jayenge
+- **Text to Speech:** Natural voiceovers bana sakte ho
+- **Auto Cut:** Silence auto remove karo
+- **Templates:** Pre-made reel templates use karo
+- **AI Effects:** Trending effects apply karo
+
+### 4. Google Gemini (gemini.google.com) — FREE
+- ChatGPT ka alternative
+- Google Trends ke saath connect hai — trending topics pata karo
+- "What's trending in digital marketing 2026" search karo
+
+### 5. Perplexity (perplexity.ai) — FREE
+**Research ke liye:**
+- *"Best Instagram posting times 2026 India"*
+- *"Viral reel ideas for digital marketing agency"*
+- *"Latest social media trends India 2026"*
+
+### 6. Remove.bg (remove.bg) — FREE
+- Product photos / client photos se background hatao
+- Ek click me kaam ho jayega
+
+### 📌 Tumhara Daily AI Workflow
+```
+✅ Post se pehle: ChatGPT se caption + hashtags likhwao
+✅ Design: Canva AI use karo (Magic Design)
+✅ Video: CapCut me auto captions daalo
+✅ Post ke baad: Perplexity pe trends check karo
+✅ Shaam: ChatGPT se analytics report likhwao
+```
+
+### ⚡ Quick Prompts (Copy-Paste karo)
+
+| Kaam | Prompt (ChatGPT me daalo) |
+|------|--------------------------|
+| Caption | "Instagram caption likho Hinglish me — websbond services" |
+| Hashtags | "30 hashtags Gurugram digital marketing" |
+| Reel idea | "5 reel ideas do for web design agency" |
+| Bio | "Instagram bio likho Websbond ke liye" |
+| Post idea | "10 post ideas for digital agency — local focus" |
+| Reply | "Comment ka reply likho: 'Kitne me banti hai website?'" |
+| Story | "Instagram story idea do — humne naya project start kiya" |
+
+> **Yaad rakhna:** AI sirf tool hai. Tumhara creativity + AI = best results. Har post me apna personal touch daalna mat bhoolna.
+
+---
+
 ## 🚀 Week 2 Me Kya Hoga?
 - Khud se post banane lagoge (bina help ke)
 - Daily 1 reel banoge

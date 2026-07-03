@@ -195,4 +195,60 @@ Aapki website ke baare me baat karni thi. Kya aapke paas 5 min hain?"
 
 ---
 
-**Yeh plan follow karo to ₹50,000+ possible hai. All the best bhai! 🚀**
+## 🤖 AI Kaise Use Karein (Free Tools) — ABHISHEK
+
+AI tumhara kaam aadha kar degi. Har tool free hai. Bas seekhna hai kaise use karna hai.
+
+### 1. ChatGPT (chatgpt.com) — FREE
+**Kab use karein:**
+- Blog post likhna ho: *"5 signs your business needs a website topic pe 800 words ka blog likho. Hinglish me."*
+- Meta description chahiye: *"Websbond homepage ke liye 155 chars ki meta description likho."*
+- Code me error aa raha hai: error copy karo, ChatGPT me paste karo, *"Yeh error fix karo"* bolo
+- Outreach message: *"Ek cold WhatsApp message likho Gurugram ke salon owner ke liye."*
+- JSON-LD generate karna ho: *"Mere business ka LocalBusiness schema JSON-LD banao"*
+
+**Kaise prompt do:** "Tum ek senior developer ho. Muje [task] karna hai. Help karo." — is tarah prompt doge to best answer aayega.
+
+### 2. Claude (claude.ai) — FREE
+**Kab use karein:**
+- Bada code likhna ho (ChatGPT se better)
+- Strategy documents banana
+- Code review karna
+- API documentation samajhni ho
+
+### 3. Google Gemini (gemini.google.com) — FREE
+**Kab use karein:**
+- ChatGPT ka backup (agar ChatGPT down ho)
+- Google search results ke saath answer chahiye
+- Latest tech news / updates
+
+### 4. Perplexity (perplexity.ai) — FREE
+**Kab use karein:**
+- Research ke liye: *"Best SEO tools 2026"* search karo
+- Competitor analysis: *"Top web agencies in Gurugrum"*
+- Industry trends: *"Latest Google algorithm changes"*
+
+### 5. GitHub Copilot (VS Code me) — Free trial hai
+**Kab use karein:**
+- Code likhte waqt auto-suggestions
+- Boilerplate code turant bana deta hai
+- Comment likho aur code generate karo
+
+### 6. Canva AI (canva.com) — FREE
+**Kab use karein:**
+- Blog featured images banani ho
+- Social media graphics
+- "Magic Design" se ek click me design ban jayega
+
+### 📌 Tumhara Daily AI Workflow
+```
+✅ Subah 9am: ChatGPT kholo → "Aaj ka task breakdown de" bolo
+✅ Code likhna: Pehle Claude se approach pucho, phir code karo
+✅ Problem aaye: AI se pucho — Google pe time mat lagao
+✅ Shaam: Perplexity pe industry news check karo
+✅ Content: ChatGPT se blog draft likhwao, phir edit karo
+```
+
+> **Mantra:** Koi bhi kaam ho — pehle AI se pucho ki kaise karna hai. Time bachega, quality badegi.
+
+---
