@@ -66,37 +66,49 @@ export default function Settings() {
             <span className="badge badge-green" style={{ marginLeft: 'auto' }}>FREE</span>
           </div>
 
-          <div style={{ marginBottom: 14 }}>
-            <label style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: 6 }}>
-              CLOUDFLARE ACCOUNT ID
-            </label>
-            <input
-              className="input"
-              value={cfAccountId} onChange={e => setCfAccountId(e.target.value)}
-              placeholder="e.g. 023e105f4ecef8ad9ca31a8372d0c353"
-            />
-          </div>
-
-          <div style={{ marginBottom: 12 }}>
-            <label style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: 6 }}>
-              API TOKEN (with Workers AI permission)
-            </label>
-            <div style={{ display: 'flex', gap: 10 }}>
-              <input
-                className="input" type="password"
-                value={cfToken} onChange={e => setCfToken(e.target.value)}
-                placeholder="Your Cloudflare API token..."
-                style={{ flex: 1 }}
-              />
-              <button className="btn btn-secondary" onClick={testConnection} disabled={testing}>
-                {testing ? <div className="spinner" style={{ width: 16, height: 16 }} /> : 'Test'}
-              </button>
+          {(cfToken && cfAccountId && !testing && !saved) ? (
+            <div style={{ padding: '16px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius)', border: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontWeight: 600, fontSize: 14 }}>Keys Configured ✅</div>
+                <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Cloudflare API is ready to use</div>
+              </div>
+              <button className="btn btn-secondary" onClick={() => { setCfToken(''); setCfAccountId(''); }}>Change Keys</button>
             </div>
-          </div>
+          ) : (
+            <>
+              <div style={{ marginBottom: 14 }}>
+                <label style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: 6 }}>
+                  CLOUDFLARE ACCOUNT ID
+                </label>
+                <input
+                  className="input"
+                  value={cfAccountId} onChange={e => setCfAccountId(e.target.value)}
+                  placeholder="e.g. 023e105f4ecef8ad9ca31a8372d0c353"
+                />
+              </div>
+
+              <div style={{ marginBottom: 12 }}>
+                <label style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: 6 }}>
+                  API TOKEN (with Workers AI permission)
+                </label>
+                <div style={{ display: 'flex', gap: 10 }}>
+                  <input
+                    className="input" type="password"
+                    value={cfToken} onChange={e => setCfToken(e.target.value)}
+                    placeholder="Your Cloudflare API token..."
+                    style={{ flex: 1 }}
+                  />
+                  <button className="btn btn-secondary" onClick={testConnection} disabled={testing}>
+                    {testing ? <div className="spinner" style={{ width: 16, height: 16 }} /> : 'Test'}
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
 
           {testResult && (
             <div style={{
-              padding: '10px 14px', borderRadius: 'var(--radius)', fontSize: 13,
+              padding: '10px 14px', borderRadius: 'var(--radius)', fontSize: 13, marginTop: 12,
               background: testResult.ok ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)',
               border: `1px solid ${testResult.ok ? 'rgba(16,185,129,0.3)' : 'rgba(239,68,68,0.3)'}`,
               color: testResult.ok ? 'var(--success)' : 'var(--danger)',
@@ -127,24 +139,36 @@ export default function Settings() {
             <span className="badge badge-green" style={{ marginLeft: 'auto' }}>Connected ✅</span>
           </div>
 
-          <div style={{ marginBottom: 14 }}>
-            <label style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: 6 }}>
-              LONG-LIVED ACCESS TOKEN (60-day)
-            </label>
-            <input className="input" type="password" value={igToken} onChange={e => setIgToken(e.target.value)}
-              placeholder="EAAxxxxx..." />
-          </div>
+          {(igToken && igUserId && !saved) ? (
+            <div style={{ padding: '16px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius)', border: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontWeight: 600, fontSize: 14 }}>Graph API Configured ✅</div>
+                <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Instagram permissions active</div>
+              </div>
+              <button className="btn btn-secondary" onClick={() => { setIgToken(''); setIgUserId(''); }}>Change Token</button>
+            </div>
+          ) : (
+            <>
+              <div style={{ marginBottom: 14 }}>
+                <label style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: 6 }}>
+                  LONG-LIVED ACCESS TOKEN (60-day)
+                </label>
+                <input className="input" type="password" value={igToken} onChange={e => setIgToken(e.target.value)}
+                  placeholder="EAAxxxxx..." />
+              </div>
 
-          <div style={{ marginBottom: 16 }}>
-            <label style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: 6 }}>
-              INSTAGRAM BUSINESS ACCOUNT USER ID
-            </label>
-            <input className="input" value={igUserId} onChange={e => setIgUserId(e.target.value)}
-              placeholder="17841XXXXXXXXXX" />
-          </div>
+              <div style={{ marginBottom: 16 }}>
+                <label style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: 6 }}>
+                  INSTAGRAM BUSINESS ACCOUNT USER ID
+                </label>
+                <input className="input" value={igUserId} onChange={e => setIgUserId(e.target.value)}
+                  placeholder="17841XXXXXXXXXX" />
+              </div>
+            </>
+          )}
 
           <div style={{
-            padding: '14px 16px', background: 'var(--bg-secondary)',
+            marginTop: 12, padding: '14px 16px', background: 'var(--bg-secondary)',
             borderRadius: 'var(--radius)', fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.8,
           }}>
             <strong style={{ color: 'var(--text-primary)', display: 'block', marginBottom: 6 }}>Token Info:</strong>
