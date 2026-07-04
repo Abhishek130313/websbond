@@ -51,23 +51,23 @@ export async function generateReelIdeas(apiKey, niche = "web design agency India
     throw new Error("Add Cloudflare API Token & Account ID in Settings");
   }
 
-  const systemPrompt = `You are a top Instagram growth strategist for a ${niche} called WebsBond, based in Delhi, India. 
-  You specialize in creating viral Reels that generate real business leads. 
-  Always give ideas that are:
-  - Shootable with just a phone + screen recording
-  - Targeted at Indian business owners, entrepreneurs, startups
-  - Include a "Comment TRIGGER" CTA to boost engagement algorithm
-  - Based on current Instagram trends (short, punchy, pattern-interrupting)`;
+  const systemPrompt = `You are a top Instagram growth strategist for a ${niche} called WebsBond. 
+  You act as an Autonomous Social Media Manager. Analyze current trends in the digital space and create a highly actionable viral content plan.
+  Reels must be:
+  - 15 seconds max (High Retention)
+  - 3-second visual text hook
+  - End with a comment trigger CTA (e.g. "Comment SEO")`;
 
-  const userPrompt = `Give me ${count} Instagram Reel ideas for today. For each idea return JSON with:
+  const userPrompt = `Give me ${count} Instagram Reel trend plans for today. For each plan return JSON with:
   - title: Short punchy title
-  - hook: First 3-second line (must stop the scroll)
-  - script: 5-step outline (each step 1 sentence)
-  - cta: Call to action (include a comment trigger keyword like AUDIT, SEO, SPEED)
-  - caption: Full Instagram caption (150-200 chars) with the CTA
+  - trend_reason: 1 sentence explaining why this specific topic/format is trending right now
+  - hook: First 3-second text on screen (must be curiosity inducing)
+  - script: 4-step short script/visuals outline
+  - caption: Full Instagram caption (include value + the comment CTA)
+  - hashtags: Array of 5 highly targeted hashtags
   - type: One of [educational, transformation, humor, case_study, resource]
   
-  Return ONLY a valid JSON array, no markdown formatting, no explanation.`;
+  Return ONLY a valid JSON array, no markdown formatting.`;
 
   const content = await callCFAI(token, accountId, systemPrompt, userPrompt);
 

@@ -47,18 +47,18 @@ export default function ReelIdeas() {
     <div className="fade-in">
       <div style={{ marginBottom: 28 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6 }}>
-          <span style={{ fontSize: 28 }}>🎬</span>
-          <h1 style={{ fontSize: 24, fontWeight: 800 }}>Reel Idea Generator</h1>
+          <span style={{ fontSize: 28 }}>🔥</span>
+          <h1 style={{ fontSize: 24, fontWeight: 800 }}>Trend Automation Hub</h1>
         </div>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>
-          AI generates 3 viral-optimized Reel ideas for today — complete with hooks, scripts, and captions.
+          AI analyzes current trends and generates complete viral content pipelines (Hook + Script + Caption + Hashtags).
         </p>
       </div>
 
       {/* Generate Button */}
       <div style={{ display: 'flex', gap: 12, marginBottom: 28 }}>
-        <button className="btn btn-primary" onClick={generateIdeas} disabled={loading}>
-          {loading ? <><div className="spinner" style={{ width: 16, height: 16 }} /> Generating...</> : '✨ Generate Today\'s Reel Ideas'}
+        <button className="btn btn-primary" onClick={generateIdeas} disabled={loading} style={{ background: 'var(--gradient-1)', border: 'none' }}>
+          {loading ? <><div className="spinner" style={{ width: 16, height: 16 }} /> Analyzing Trends...</> : '🔥 Analyze Trends & Generate Master Plan'}
         </button>
         {!apiKey && (
           <div style={{
@@ -97,8 +97,11 @@ export default function ReelIdeas() {
                     <span className={`badge ${TYPE_COLORS[idea.type] || 'badge-purple'}`}>{idea.type}</span>
                   </div>
                   <h3 style={{ fontSize: 16, fontWeight: 700 }}>{idea.title}</h3>
-                  <p style={{ color: 'var(--text-secondary)', fontSize: 13, marginTop: 4 }}>
-                    🎯 Hook: {idea.hook}
+                  <div style={{ color: 'var(--success)', fontSize: 13, marginTop: 4, display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <span style={{fontSize: 16}}>📈</span> <strong>Why it's trending:</strong> {idea.trend_reason}
+                  </div>
+                  <p style={{ color: 'var(--text-secondary)', fontSize: 13, marginTop: 4, fontWeight: 600 }}>
+                    🎯 3-Second Hook: <span style={{ color: 'var(--text-primary)' }}>"{idea.hook}"</span>
                   </p>
                 </div>
                 <span style={{ fontSize: 20, color: 'var(--text-muted)', marginLeft: 16 }}>
@@ -123,23 +126,13 @@ export default function ReelIdeas() {
                     ))}
                   </div>
 
-                  {/* CTA */}
-                  <div style={{
-                    padding: '12px 14px',
-                    background: 'rgba(236,72,153,0.08)', border: '1px solid rgba(236,72,153,0.2)',
-                    borderRadius: 'var(--radius)', marginBottom: 16,
-                  }}>
-                    <span style={{ fontWeight: 700, fontSize: 12, color: 'var(--accent-2)', marginRight: 8 }}>📣 CTA:</span>
-                    <span style={{ fontSize: 13 }}>{idea.cta}</span>
-                  </div>
-
-                  {/* Caption */}
+                  {/* Caption & Hashtags */}
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-                      <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--accent)' }}>📝 CAPTION</div>
+                      <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--accent)' }}>📝 AUTO-CAPTION & HASHTAGS</div>
                       <button className="btn btn-secondary" style={{ padding: '6px 12px', fontSize: 12 }}
-                        onClick={() => copyCaption(idea.caption, idx)}>
-                        {copied === idx ? '✓ Copied!' : '📋 Copy Caption'}
+                        onClick={() => copyCaption(`${idea.caption}\n\n${(idea.hashtags || []).join(' ')}`, idx)}>
+                        {copied === idx ? '✓ Copied!' : '📋 Copy All'}
                       </button>
                     </div>
                     <div style={{
@@ -148,6 +141,8 @@ export default function ReelIdeas() {
                       whiteSpace: 'pre-line', fontFamily: 'monospace',
                     }}>
                       {idea.caption}
+                      <br /><br />
+                      <span style={{ color: 'var(--accent-2)' }}>{(idea.hashtags || []).join(' ')}</span>
                     </div>
                   </div>
                 </div>

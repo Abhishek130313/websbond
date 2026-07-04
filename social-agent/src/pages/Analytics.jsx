@@ -105,30 +105,48 @@ export default function Analytics() {
         </div>
       )}
 
-      {/* Growth Chart (Sample until API connected) */}
-      <div className="card">
+      {/* AI Strategist */}
+      <div className="card" style={{ marginBottom: 24, border: '1px solid rgba(16,185,129,0.3)', background: 'linear-gradient(135deg, rgba(16,185,129,0.08), rgba(6,182,212,0.06))' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20 }}>
-          <div>
-            <h2 style={{ fontSize: 16, fontWeight: 700 }}>Follower Growth (Sample Preview)</h2>
-            <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>Connect Instagram API to see real data</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <span style={{ fontSize: 24 }}>🧠</span>
+            <div>
+              <h2 style={{ fontSize: 16, fontWeight: 700, color: 'var(--success)' }}>AI Strategist</h2>
+              <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>Analyzing your live Instagram data...</p>
+            </div>
           </div>
-          <span className="badge badge-amber">SAMPLE DATA</span>
+          <span className="badge badge-green">LIVE ANALYSIS</span>
         </div>
 
-        {/* Simple bar chart */}
-        <div style={{ display: 'flex', alignItems: 'flex-end', gap: 8, height: 120 }}>
-          {SAMPLE_DATA.map((d, i) => (
-            <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-              <div style={{
-                width: '100%', borderRadius: '4px 4px 0 0',
-                height: `${Math.max(4, (d.reach / 350) * 100)}px`,
-                background: i === SAMPLE_DATA.length - 1 ? 'var(--gradient-1)' : 'rgba(139,92,246,0.3)',
-                transition: 'height 0.3s ease',
-              }} />
-              <div style={{ fontSize: 10, color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>{d.date}</div>
-            </div>
-          ))}
-        </div>
+        {!igStats ? (
+          <div style={{ padding: '20px 0', color: 'var(--text-muted)', fontSize: 14 }}>
+            Connect your Instagram API above to activate the AI Strategist.
+          </div>
+        ) : (
+          <div>
+             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+               <div style={{ padding: 16, background: 'var(--bg-secondary)', borderRadius: 'var(--radius)' }}>
+                 <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: 4 }}>Current Trajectory</div>
+                 <div style={{ fontSize: 20, fontWeight: 700, color: 'var(--accent)' }}>Aggressive Growth Required</div>
+                 <div style={{ fontSize: 12, marginTop: 4 }}>You need {Math.ceil((100000 - igStats.followers_count)/180)} followers/day to hit 100k in 6 months. Current estimated pace requires optimization.</div>
+               </div>
+               <div style={{ padding: 16, background: 'var(--bg-secondary)', borderRadius: 'var(--radius)' }}>
+                 <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: 4 }}>Primary Metric Focus</div>
+                 <div style={{ fontSize: 20, fontWeight: 700, color: 'var(--accent-2)' }}>Engagement & Retention</div>
+                 <div style={{ fontSize: 12, marginTop: 4 }}>Focus purely on saves and shares. Stop optimizing for likes. The algorithm pushes high-retention Reels.</div>
+               </div>
+             </div>
+             
+             <div style={{ padding: 16, background: 'rgba(139,92,246,0.1)', borderLeft: '4px solid var(--accent)', borderRadius: '0 var(--radius) var(--radius) 0' }}>
+               <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 8, color: 'var(--text-primary)' }}>🤖 Today's Action Plan:</h3>
+               <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, lineHeight: 1.6, color: 'var(--text-secondary)' }}>
+                 <li><strong>Stop broad content:</strong> Your total posts ({igStats.media_count}) is good, but you need higher retention formats.</li>
+                 <li><strong>Action:</strong> Shoot a 15-second Reel using the "Trend Analyzer" tool on the dashboard.</li>
+                 <li><strong>Hook constraint:</strong> Keep the primary text hook on screen for only 3 seconds to force re-watches.</li>
+               </ul>
+             </div>
+          </div>
+        )}
       </div>
 
       <hr className="glow-divider" />

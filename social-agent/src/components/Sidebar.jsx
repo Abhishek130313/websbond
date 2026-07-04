@@ -1,10 +1,10 @@
 const NAV = [
-  { id: 'dashboard', icon: '📊', label: 'Dashboard' },
-  { id: 'reels', icon: '🎬', label: 'Reel Ideas' },
-  { id: 'captions', icon: '✍️', label: 'Caption Writer' },
-  { id: 'hashtags', icon: '#️⃣', label: 'Hashtag Sets' },
+  { id: 'dashboard', icon: '📊', label: 'Command Center' },
+  { id: 'reels', icon: '🔥', label: 'Trend Automation Hub' },
+  { id: 'captions', icon: '✍️', label: 'Auto-Content Pipeline' },
+  { id: 'hashtags', icon: '📌', label: 'Hook Database' },
   { id: 'calendar', icon: '📅', label: 'Content Calendar' },
-  { id: 'analytics', icon: '📈', label: 'Analytics' },
+  { id: 'analytics', icon: '🧠', label: 'AI Strategist' },
   { id: 'settings', icon: '⚙️', label: 'Settings' },
 ]
 

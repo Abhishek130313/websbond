@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 import { format } from 'date-fns'
 
-const TASKS = [
-  { id: 1, time: '09:00', task: 'Post Morning Reel', icon: '🎬', done: false },
-  { id: 2, time: '11:00', task: 'Reply to all comments (within 60 min)', icon: '💬', done: false },
-  { id: 3, time: '13:00', task: 'Post 3-5 Stories (poll/quiz/tip)', icon: '📸', done: false },
-  { id: 4, time: '16:00', task: 'Engage: Comment on 10 niche posts', icon: '❤️', done: false },
-  { id: 5, time: '19:00', task: 'Post Evening Reel or Carousel', icon: '🎥', done: false },
-  { id: 6, time: '21:00', task: 'Check analytics & log performance', icon: '📊', done: false },
+const AI_TASKS = [
+  { id: 1, time: 'High Priority', task: 'Review AI Strategy for today', icon: '🧠', done: false },
+  { id: 2, time: 'Automated', task: 'Analyze Trending Topics (Web Design)', icon: '🔍', done: false },
+  { id: 3, time: 'Action', task: 'Generate 15s High-Retention Reel Script', icon: '🎬', done: false },
+  { id: 4, time: 'Monitor', task: 'Track Engagement Rate of last 3 posts', icon: '📈', done: false },
+  { id: 5, time: 'Action', task: 'Shoot & Post AI-Generated Reel', icon: '🎥', done: false },
 ]
 
 
@@ -30,13 +29,13 @@ export default function Dashboard({ onNavigate }) {
   
   const dynamicStats = [
     { label: 'Followers', value: igStats ? igStats.followers_count : '—', change: igStats ? 'Live Data' : 'Connect API', icon: '👥', color: 'var(--accent)' },
-    { label: 'Total Posts', value: igStats ? igStats.media_count : '—', change: igStats ? 'Live Data' : 'Connect API', icon: '📤', color: 'var(--accent-2)' },
-    { label: 'Username', value: igStats ? `@${igStats.name}` : '—', change: 'Connected Account', icon: '✅', color: 'var(--success)' },
-    { label: 'AI Agent', value: 'Active', change: 'Cloudflare AI Ready', icon: '🤖', color: 'var(--accent-3)' },
+    { label: 'Goal Tracker', value: '100K', change: '6 Month Target', icon: '🎯', color: 'var(--accent-2)' },
+    { label: 'Daily Target', value: igStats ? Math.ceil((100000 - igStats.followers_count)/180) : '—', change: 'Followers/Day', icon: '📈', color: 'var(--success)' },
+    { label: 'AI Manager', value: 'Active', change: 'Autonomous Mode', icon: '🤖', color: 'var(--accent-3)' },
   ]
   const [tasks, setTasks] = useState(() => {
     const saved = localStorage.getItem('wb_tasks_' + format(new Date(), 'yyyy-MM-dd'))
-    return saved ? JSON.parse(saved) : TASKS
+    return saved ? JSON.parse(saved) : AI_TASKS
   })
   const [tipIndex] = useState(() => Math.floor(Math.random() * TIPS.length))
 
@@ -66,17 +65,33 @@ export default function Dashboard({ onNavigate }) {
         </div>
       </div>
 
-      {/* Daily Tip */}
+      {/* 100k Mission Tracker */}
       <div style={{
-        background: 'linear-gradient(135deg, rgba(139,92,246,0.12), rgba(236,72,153,0.08))',
-        border: '1px solid rgba(139,92,246,0.25)',
-        borderRadius: 'var(--radius-lg)', padding: '16px 20px',
-        marginBottom: 28, display: 'flex', gap: 14, alignItems: 'flex-start',
+        background: 'linear-gradient(135deg, rgba(16,185,129,0.12), rgba(6,182,212,0.08))',
+        border: '1px solid rgba(16,185,129,0.25)',
+        borderRadius: 'var(--radius-lg)', padding: '20px',
+        marginBottom: 28,
       }}>
-        <span style={{ fontSize: 24, flexShrink: 0 }}>💡</span>
-        <div>
-          <div style={{ fontWeight: 600, fontSize: 13, color: 'var(--accent)', marginBottom: 4 }}>TODAY'S GROWTH TIP</div>
-          <p style={{ fontSize: 14, color: 'var(--text-primary)', lineHeight: 1.5 }}>{TIPS[tipIndex]}</p>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 12 }}>
+          <div>
+            <div style={{ fontWeight: 800, fontSize: 13, color: 'var(--success)', marginBottom: 4, textTransform: 'uppercase', letterSpacing: 1 }}>THE 100K MISSION</div>
+            <p style={{ fontSize: 14, color: 'var(--text-primary)', lineHeight: 1.5 }}>
+              Followers Needed: <strong style={{ fontSize: 16 }}>{igStats ? (100000 - igStats.followers_count).toLocaleString() : '—'}</strong> 
+              <span style={{ color: 'var(--text-muted)', margin: '0 8px' }}>|</span>
+              Target Pace: <strong style={{ color: 'var(--accent)' }}>~{igStats ? Math.ceil((100000 - igStats.followers_count)/180) : '—'}/day</strong>
+            </p>
+          </div>
+          <div style={{ fontSize: 24, fontWeight: 800, color: 'var(--text-primary)' }}>
+            {igStats ? ((igStats.followers_count / 100000) * 100).toFixed(2) : 0}%
+          </div>
+        </div>
+        <div style={{ width: '100%', height: 12, background: 'var(--bg-secondary)', borderRadius: 999, overflow: 'hidden' }}>
+          <div style={{ 
+            width: `${igStats ? (igStats.followers_count / 100000) * 100 : 0}%`, 
+            height: '100%', 
+            background: 'linear-gradient(90deg, var(--success), #06b6d4)', 
+            borderRadius: 999 
+          }} />
         </div>
       </div>
 
@@ -95,10 +110,10 @@ export default function Dashboard({ onNavigate }) {
       {/* Two Column */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 24 }}>
 
-        {/* Today's Task List */}
+        {/* AI Action Plan */}
         <div className="card">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-            <h2 style={{ fontSize: 16, fontWeight: 700 }}>Today's Tasks</h2>
+            <h2 style={{ fontSize: 16, fontWeight: 700 }}>AI Manager Action Plan</h2>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>{completedCount}/{tasks.length}</span>
               <div style={{
@@ -131,7 +146,7 @@ export default function Dashboard({ onNavigate }) {
               }}>
                 {t.done ? '✓' : ''}
               </div>
-              <span style={{ fontSize: 13, color: 'var(--text-muted)', minWidth: 44, fontWeight: 500 }}>{t.time}</span>
+              <span style={{ fontSize: 13, color: 'var(--text-muted)', minWidth: 80, fontWeight: 500 }}>{t.time}</span>
               <span style={{ fontSize: 14 }}>{t.icon}</span>
               <span style={{
                 fontSize: 13, color: 'var(--text-primary)', fontWeight: 500,
@@ -146,10 +161,10 @@ export default function Dashboard({ onNavigate }) {
           <h2 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>Quick Actions</h2>
 
           {[
-            { icon: '🎬', title: 'Generate Reel Ideas', subtitle: 'AI creates 3 ideas for today', page: 'reels', badge: 'AI', color: 'var(--accent)' },
-            { icon: '#️⃣', title: 'Get Hashtag Set', subtitle: 'Copy-paste ready sets by niche', page: 'hashtags', badge: 'REAL DATA', color: 'var(--accent-2)' },
-            { icon: '✍️', title: 'Write Caption', subtitle: 'AI-generated with hook + CTA', page: 'captions', badge: 'AI', color: 'var(--accent-3)' },
-            { icon: '📅', title: 'View Content Calendar', subtitle: 'Plan next 7 days of content', page: 'calendar', badge: 'PLANNER', color: 'var(--success)' },
+            { icon: '🔥', title: 'Trend Analyzer', subtitle: 'Find viral topics for today', page: 'reels', badge: 'AI', color: 'var(--accent)' },
+            { icon: '🧠', title: 'AI Strategist', subtitle: 'Get personalized growth strategy', page: 'analytics', badge: 'PRO', color: 'var(--success)' },
+            { icon: '✍️', title: 'Auto-Content Pipeline', subtitle: 'Hook + Script + Caption in 1-click', page: 'captions', badge: 'AI', color: 'var(--accent-3)' },
+            { icon: '📊', title: 'Engagement Tracking', subtitle: 'Monitor retention metrics', page: 'analytics', badge: 'DATA', color: 'var(--accent-2)' },
           ].map(a => (
             <button key={a.page} onClick={() => onNavigate(a.page)} style={{
               background: 'var(--bg-card)', border: '1px solid var(--border)',
