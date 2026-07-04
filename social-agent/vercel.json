@@ -5,6 +5,10 @@
       "destination": "https://api.cloudflare.com/$1"
     },
     {
+      "source": "/hf-api/(.*)",
+      "destination": "https://api-inference.huggingface.co/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

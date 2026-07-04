@@ -29,21 +29,25 @@ export default function MagicCreator() {
       // Step 1: Idea & Script
       setLoadingStep(1)
       const ideas = await generateReelIdeas(apiToken, "web design & digital marketing", 1)
+        .catch(e => { throw new Error('Failed to brainstorm ideas: ' + e.message) })
       const idea = ideas[0]
 
       // Step 2: Caption
       setLoadingStep(2)
       const caption = await generateCaption(apiToken, idea.title || topic, idea.type || 'educational', idea.hashtags || [])
+        .catch(e => { throw new Error('Failed to write caption: ' + e.message) })
 
       // Step 3: Avatar
       setLoadingStep(3)
       const avatarPrompt = `Indian professional digital marketing expert talking about ${topic}, cinematic lighting, hyper-realistic, 4k`
       const avatarUrl = await generateAvatar(avatarPrompt)
+        .catch(e => { throw new Error('Failed to generate avatar: ' + e.message) })
 
       // Step 4: Voice
       setLoadingStep(4)
       const voiceScript = `${idea.hook || 'Hey there!'} ${idea.script || 'Let us talk about ' + topic}`.substring(0, 200) // Keep it short for free tier
       const voiceUrl = await generateVoice(voiceScript)
+        .catch(e => { throw new Error('Failed to synthesize voice: ' + e.message) })
 
       setResults({
         idea,

@@ -1,6 +1,6 @@
 // Hugging Face Inference API integration
 
-const HF_API_BASE = "https://api-inference.huggingface.co/models";
+const HF_API_BASE = "/hf-api/models";
 
 function getHFToken() {
   return import.meta.env.VITE_HF_TOKEN || localStorage.getItem('wb_hf_token') || '';
