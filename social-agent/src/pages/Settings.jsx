@@ -4,11 +4,13 @@ import { testCFConnection } from '../lib/api.js'
 export default function Settings() {
   const isGlobalCF = !!import.meta.env.VITE_CF_TOKEN
   const isGlobalIG = !!import.meta.env.VITE_IG_TOKEN
+  const isGlobalHF = !!import.meta.env.VITE_HF_TOKEN
 
   const [cfToken, setCfToken] = useState('')
   const [cfAccountId, setCfAccountId] = useState('')
   const [igToken, setIgToken] = useState('')
   const [igUserId, setIgUserId] = useState('')
+  const [hfToken, setHfToken] = useState('')
   const [saved, setSaved] = useState(false)
   const [testResult, setTestResult] = useState(null)
   const [testing, setTesting] = useState(false)
@@ -18,6 +20,7 @@ export default function Settings() {
     setCfAccountId(localStorage.getItem('wb_cf_account_id') || '')
     setIgToken(localStorage.getItem('wb_ig_token') || '')
     setIgUserId(localStorage.getItem('wb_ig_user_id') || '')
+    setHfToken(localStorage.getItem('wb_hf_token') || '')
   }, [])
 
   const save = () => {
@@ -28,6 +31,9 @@ export default function Settings() {
     if (!isGlobalIG) {
       localStorage.setItem('wb_ig_token', igToken.trim())
       localStorage.setItem('wb_ig_user_id', igUserId.trim())
+    }
+    if (!isGlobalHF) {
+      localStorage.setItem('wb_hf_token', hfToken.trim())
     }
     setSaved(true)
     setTimeout(() => setSaved(false), 2500)
@@ -209,6 +215,56 @@ export default function Settings() {
           )}
         </div>
 
+        {/* Hugging Face API */}
+        <div className="card">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
+            <span style={{ fontSize: 22 }}>🤗</span>
+            <div>
+              <h2 style={{ fontSize: 15, fontWeight: 700 }}>Hugging Face AI (Free)</h2>
+              <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>For AI Avatar & Voice Generation</p>
+            </div>
+            <span className="badge badge-green" style={{ marginLeft: 'auto' }}>FREE</span>
+          </div>
+
+          {isGlobalHF ? (
+             <div style={{ padding: '16px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius)', border: '1px solid var(--success)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+               <div>
+                 <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--success)' }}>Globally Connected ✅</div>
+                 <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Configured securely via Environment Variables</div>
+               </div>
+             </div>
+          ) : (hfToken && !saved) ? (
+            <div style={{ padding: '16px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius)', border: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontWeight: 600, fontSize: 14 }}>Hugging Face Configured ✅</div>
+                <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>AI Studio is ready to use</div>
+              </div>
+              <button className="btn btn-secondary" onClick={() => setHfToken('')}>Change Token</button>
+            </div>
+          ) : (
+            <>
+              <div style={{ marginBottom: 14 }}>
+                <label style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: 6 }}>
+                  HUGGING FACE ACCESS TOKEN (Read)
+                </label>
+                <input className="input" type="password" value={hfToken} onChange={e => setHfToken(e.target.value)}
+                  placeholder="hf_xxxxx..." />
+              </div>
+            </>
+          )}
+
+          {!isGlobalHF && (
+            <div style={{
+              marginTop: 12, padding: '14px 16px', background: 'var(--bg-secondary)',
+              borderRadius: 'var(--radius)', fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.8,
+            }}>
+              <strong style={{ color: 'var(--text-primary)', display: 'block', marginBottom: 6 }}>How to get:</strong>
+              1. Sign up for free at <a href="https://huggingface.co" target="_blank" rel="noreferrer" style={{color: 'var(--accent)'}}>huggingface.co</a><br />
+              2. Go to Settings → Access Tokens → Create New Token (Read permission).
+            </div>
+          )}
+        </div>
+
         {/* Account Info */}
         <div className="card" style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.08), rgba(236,72,153,0.05))' }}>
           <h2 style={{ fontSize: 15, fontWeight: 700, marginBottom: 14 }}>🏷️ Account Info</h2>
@@ -228,14 +284,14 @@ export default function Settings() {
         </div>
 
         {/* Save Button */}
-        {(!isGlobalCF || !isGlobalIG) && (
+        {(!isGlobalCF || !isGlobalIG || !isGlobalHF) && (
           <button className="btn btn-primary" style={{ justifyContent: 'center', padding: '14px', fontSize: 15 }} onClick={save}>
             {saved ? '✅ Settings Saved!' : '💾 Save All Settings'}
           </button>
         )}
 
         <div style={{ fontSize: 12, color: 'var(--text-muted)', textAlign: 'center', lineHeight: 1.6 }}>
-          {isGlobalCF && isGlobalIG ? (
+          {isGlobalCF && isGlobalIG && isGlobalHF ? (
             <>🔒 Keys are securely stored in global environment variables.</>
           ) : (
             <>🔒 All keys stored in your browser localStorage only.<br />Never transmitted anywhere except directly to the respective API.</>

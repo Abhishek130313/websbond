@@ -7,6 +7,7 @@ import CaptionWriter from './pages/CaptionWriter.jsx'
 import ContentCalendar from './pages/ContentCalendar.jsx'
 import Analytics from './pages/Analytics.jsx'
 import Settings from './pages/Settings.jsx'
+import AIStudio from './pages/AIStudio.jsx'
 import './index.css'
 
 export default function App() {
@@ -56,11 +57,12 @@ export default function App() {
 
   const pages = {
     dashboard: Dashboard,
-    hashtags: HashtagGenerator,
-    reels: ReelIdeas,
-    captions: CaptionWriter,
+    'hashtag-gen': HashtagGenerator,
+    'reel-ideas': ReelIdeas,
+    'caption-writer': CaptionWriter,
     calendar: ContentCalendar,
     analytics: Analytics,
+    'ai-studio': AIStudio,
     settings: Settings,
   }
 
