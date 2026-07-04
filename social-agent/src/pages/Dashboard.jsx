@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { format } from 'date-fns'
+import MagicCreator from '../components/MagicCreator.jsx'
 
 const AI_TASKS = [
   { id: 1, time: 'High Priority', task: 'Review AI Strategy for today', icon: '🧠', done: false },
@@ -95,6 +96,9 @@ export default function Dashboard({ onNavigate }) {
         </div>
       </div>
 
+      {/* Magic Content Pipeline */}
+      <MagicCreator />
+
       {/* Stats Row */}
       <div className="grid-4" style={{ marginBottom: 28 }}>
         {dynamicStats.map(s => (
@@ -156,37 +160,7 @@ export default function Dashboard({ onNavigate }) {
           ))}
         </div>
 
-        {/* Quick Actions */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <h2 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>Quick Actions</h2>
-
-          {[
-            { icon: '🔥', title: 'Trend Analyzer', subtitle: 'Find viral topics for today', page: 'reels', badge: 'AI', color: 'var(--accent)' },
-            { icon: '🧠', title: 'AI Strategist', subtitle: 'Get personalized growth strategy', page: 'analytics', badge: 'PRO', color: 'var(--success)' },
-            { icon: '✍️', title: 'Auto-Content Pipeline', subtitle: 'Hook + Script + Caption in 1-click', page: 'captions', badge: 'AI', color: 'var(--accent-3)' },
-            { icon: '📊', title: 'Engagement Tracking', subtitle: 'Monitor retention metrics', page: 'analytics', badge: 'DATA', color: 'var(--accent-2)' },
-          ].map(a => (
-            <button key={a.page} onClick={() => onNavigate(a.page)} style={{
-              background: 'var(--bg-card)', border: '1px solid var(--border)',
-              borderRadius: 'var(--radius-lg)', padding: '14px 16px',
-              cursor: 'pointer', textAlign: 'left', fontFamily: 'inherit',
-              display: 'flex', alignItems: 'center', gap: 14, transition: 'all 0.2s',
-              color: 'inherit',
-            }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--border-glow)'; e.currentTarget.style.transform = 'translateX(4px)' }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = 'none' }}
-            >
-              <span style={{ fontSize: 24 }}>{a.icon}</span>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontWeight: 600, fontSize: 14 }}>{a.title}</div>
-                <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>{a.subtitle}</div>
-              </div>
-              <span className="badge badge-purple" style={{ background: 'transparent', border: `1px solid ${a.color}30`, color: a.color }}>
-                {a.badge}
-              </span>
-            </button>
-          ))}
-        </div>
+        {/* Quick Actions removed since Magic Creator is added */}
       </div>
 
       {/* AI Human Agent Auto-Responder */}
