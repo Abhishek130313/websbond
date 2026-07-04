@@ -12,7 +12,10 @@ const SAMPLE_DATA = [
 ]
 
 export default function Analytics() {
-  const [igStats, setIgStats] = useState(null)
+  const [igStats, setIgStats] = useState(() => {
+    const saved = localStorage.getItem('wb_ig_stats')
+    return saved ? JSON.parse(saved) : null
+  })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
@@ -28,6 +31,7 @@ export default function Analytics() {
     try {
       const stats = await getIGAccountStats(accessToken, igUserId)
       setIgStats(stats)
+      localStorage.setItem('wb_ig_stats', JSON.stringify(stats))
     } catch (e) { setError(e.message) }
     finally { setLoading(false) }
   }
