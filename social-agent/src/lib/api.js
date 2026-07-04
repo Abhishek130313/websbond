@@ -194,3 +194,35 @@ export async function getPostInsights(accessToken, mediaId) {
   }
   return res.json();
 }
+
+// ── Instagram Graph API: Get Comments ─────────────────────
+export async function getIGComments(accessToken, mediaId) {
+  const fields = "id,text,timestamp,username,like_count,replies{id,text,username,timestamp}";
+  const res = await fetch(
+    `${IG_GRAPH_BASE}/${mediaId}/comments?fields=${fields}&access_token=${accessToken}`
+  );
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.error?.message || "Instagram Comments API error");
+  }
+  return res.json();
+}
+
+// ── Instagram Graph API: Reply to Comment ─────────────────
+export async function replyToIGComment(accessToken, commentId, message) {
+  const res = await fetch(
+    `${IG_GRAPH_BASE}/${commentId}/replies?access_token=${accessToken}`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message })
+    }
+  );
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.error?.message || "Failed to post reply. Check if you have 'instagram_manage_comments' permission.");
+  }
+  return res.json();
+}
