@@ -110,11 +110,14 @@ export const AboutPage = () => {
                 </div>
               </div>
               <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-100 h-80">
-                <img loading="lazy" decoding="async" 
-                  src="/about_founders.png" 
-                  className="w-full h-full object-cover" 
-                  alt="Websbond founders team" 
-                />
+                <picture>
+                  <source srcSet="/about_founders.webp" type="image/webp" />
+                  <img loading="lazy" decoding="async" 
+                    src="/about_founders.png" 
+                    className="w-full h-full object-cover" 
+                    alt="Websbond founders team" 
+                  />
+                </picture>
               </div>
             </div>
 
