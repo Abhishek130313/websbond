@@ -327,12 +327,15 @@ export const AboutPage = () => {
                 >
                   <button 
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${idx}`}
                     className="w-full text-left p-5 flex items-center justify-between gap-4 font-bold text-[#002b49] hover:bg-orange-50/20 transition-colors focus:outline-none"
                   >
                     <span className="text-sm sm:text-base font-jost select-none">{faq.q}</span>
                     <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-180" : ""}`} />
                   </button>
                   <div 
+                    id={`faq-answer-${idx}`}
                     className={`transition-all duration-300 ease-in-out overflow-hidden ${
                       isOpen ? "max-h-48 opacity-100 border-t border-gray-100 bg-gray-50/30" : "max-h-0 opacity-0"
                     }`}

@@ -9,18 +9,30 @@ export const LazyVideo = ({ src, className = "absolute inset-0 w-full h-full obj
   const [loadVideo, setLoadVideo] = useState(false);
 
   useEffect(() => {
-    const checkScreen = () => {
-      // Load video only for desktop screens (width >= 1024px)
-      if (window.innerWidth >= 1024) {
-        setLoadVideo(true);
-      } else {
-        setLoadVideo(false);
-      }
+    // Mount the video after 4 seconds, or immediately on first user interaction (scroll/click/touch)
+    const timer = setTimeout(() => {
+      setLoadVideo(true);
+    }, 4000);
+
+    const triggerEvents = ["scroll", "click", "touchstart", "mousemove"];
+    const handleInteraction = () => {
+      setLoadVideo(true);
+      clearTimeout(timer);
+      triggerEvents.forEach((event) => {
+        window.removeEventListener(event, handleInteraction);
+      });
     };
-    
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-    return () => window.removeEventListener("resize", checkScreen);
+
+    triggerEvents.forEach((event) => {
+      window.addEventListener(event, handleInteraction, { passive: true });
+    });
+
+    return () => {
+      clearTimeout(timer);
+      triggerEvents.forEach((event) => {
+        window.removeEventListener(event, handleInteraction);
+      });
+    };
   }, []);
 
   if (loadVideo) {
