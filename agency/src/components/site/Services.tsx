@@ -5,55 +5,55 @@ const SERVICES = [
   {
     title: "Social Media Marketing",
     icon: Globe,
-    link: "/services#smm",
+    link: "/smm-service-in-delhi",
     desc: "Build a massive following and generate leads through strategic campaigns on Instagram, Facebook, LinkedIn & YouTube.",
   },
   {
     title: "Search Engine Optimization",
     icon: Search,
-    link: "/services#seo",
+    link: "/seo-service-in-delhi",
     desc: "Dominate Google results with technical SEO, quality backlinks, and schema markup that drives organic traffic.",
   },
   {
     title: "Content Marketing",
     icon: FileText,
-    link: "/services#content",
+    link: "/content-writing-service-in-delhi",
     desc: "Compelling blogs, landing pages, and videos crafted to rank, convert, and engage your audience.",
   },
   {
     title: "Web Development",
     icon: Code,
-    link: "/services#web-design",
+    link: "/website-design-service-in-delhi",
     desc: "Super-fast, mobile-friendly websites built on modern frameworks that create a strong online presence.",
   },
   {
     title: "Pay Per Click (PPC)",
     icon: Target,
-    link: "/services#ppc",
+    link: "/google-ads-services",
     desc: "High-ROI Google & Meta ad campaigns with precise audience targeting and transparent reporting.",
   },
   {
     title: "Social Media Optimization",
     icon: Share2,
-    link: "/services#smm",
+    link: "/smo-service-in-delhi",
     desc: "Optimize social profiles for maximum organic reach, brand authority, and consistent engagement.",
   },
   {
     title: "App Development",
     icon: Smartphone,
-    link: "/services#apps",
+    link: "/contact-us",
     desc: "Custom mobile-first web and hybrid apps for iOS & Android with seamless UX and scalable architecture.",
   },
   {
     title: "Google My Business",
     icon: MapPin,
-    link: "/services#gmb",
+    link: "/gmb-service-in-delhi",
     desc: "Dominate local search results, get more calls, reviews, and foot traffic to your business.",
   },
 ];
 
 export const Services = () => (
-  <section className="py-24 md:py-28 bg-[#fafafa]">
+  <section id="services" className="py-24 md:py-28 bg-[#fafafa]">
     <div className="container">
       {/* Section Header */}
       <div className="text-center mb-16">
@@ -97,7 +97,7 @@ export const Services = () => (
       {/* View All CTA */}
       <div className="text-center mt-14">
         <Link
-          to="/services"
+          to="/seo-service-in-delhi"
           className="btn-primary inline-flex"
         >
           View All Services <ArrowRight className="w-4 h-4" />

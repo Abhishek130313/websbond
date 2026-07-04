@@ -4,6 +4,7 @@ import { Layout } from "@/components/site/Layout";
 import { toast } from "@/hooks/use-toast";
 import { submitContactForm } from "@/lib/api";
 import { Phone, Mail, MapPin, Loader2, Send } from "lucide-react";
+import { LazyVideo } from "@/components/site/LazyVideo";
 
 
 const SERVICES_OPTIONS = [
@@ -67,15 +68,7 @@ export const ContactPage = () => {
       <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center"
         style={{ backgroundColor: "#030305" }}
       >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/contact.mp4" type="video/mp4" />
-        </video>
+        <LazyVideo src="/videos/contact.mp4" className="absolute inset-0 w-full h-full object-cover" />
 
         <div className="absolute inset-0 bg-gradient-to-r from-[#030305]/55 via-[#030305]/25 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/30 via-transparent to-transparent" />

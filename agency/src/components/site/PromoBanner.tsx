@@ -26,13 +26,13 @@ export const PromoBanner = () => (
         
         <div className="mt-8 flex flex-wrap gap-4">
           <Link 
-            to="/contact" 
+            to="/contact-us" 
             className="inline-flex items-center gap-2 bg-white text-slate-950 hover:bg-slate-100 font-semibold px-6 py-3.5 rounded-xl transition-all"
           >
             Apply for Pilot Slot <ArrowRight className="w-4 h-4" />
           </Link>
           <Link 
-            to="/services" 
+            to="/seo-service-in-delhi" 
             className="inline-flex items-center gap-2 border border-white/10 hover:border-white/20 text-white font-semibold px-6 py-3.5 rounded-xl transition-all"
           >
             Pricing Packages

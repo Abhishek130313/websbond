@@ -134,7 +134,7 @@ export const Navbar = ({
                         const IconComponent = item.icon;
                         return (
                           <Link
-                            key={item.to}
+                            key={item.label}
                             to={item.to}
                             className="group/item flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-indigo-50/80 text-zinc-700 hover:text-indigo-600 transition-all duration-300"
                           >
@@ -242,7 +242,7 @@ export const Navbar = ({
                     <div className="pl-4 flex flex-col gap-1 pb-2">
                       {sublinks.map((sub) => (
                         <Link
-                          key={sub.to}
+                          key={sub.label}
                           to={sub.to}
                           onClick={() => setOpen(false)}
                           className="py-1.5 px-2 text-[13px] text-zinc-500 hover:text-indigo-600 font-bold transition-colors"

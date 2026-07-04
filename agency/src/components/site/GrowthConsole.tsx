@@ -7,21 +7,21 @@ const CASES = [
     since: "2022",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&auto=format&fit=crop&q=80",
     desc: "Increased patient appointments by 280% through targeted local SEO and Google My Business optimization for this Delhi-based medical practice.",
-    slug: "/our-work",
+    slug: "/our-portfolio",
   },
   {
     name: "Golden Masala Co.",
     since: "2021",
     image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&auto=format&fit=crop&q=80",
     desc: "Boosted organic traffic by 300% for this spice brand through content marketing, SEO, and a fully revamped e-commerce website.",
-    slug: "/our-work",
+    slug: "/our-portfolio",
   },
   {
     name: "Metro Real Estate",
     since: "2023",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&auto=format&fit=crop&q=80",
     desc: "Generated 500+ qualified property leads per month using hyper-targeted Meta and Google ad campaigns with landing page optimization.",
-    slug: "/our-work",
+    slug: "/our-portfolio",
   },
 ];
 

@@ -28,11 +28,27 @@ public class SitemapController {
 
         // 1. Static Pages
         appendUrl(xml, "https://websbond.com/", "weekly", "1.0", "2024-06-20");
-        appendUrl(xml, "https://websbond.com/services", "monthly", "0.9", "2024-06-20");
-        appendUrl(xml, "https://websbond.com/our-work", "monthly", "0.8", "2024-06-20");
-        appendUrl(xml, "https://websbond.com/about", "monthly", "0.7", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/our-portfolio", "monthly", "0.9", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/about-us", "monthly", "0.8", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/contact-us", "monthly", "0.9", "2024-06-20");
         appendUrl(xml, "https://websbond.com/blog", "weekly", "0.8", "2024-06-20");
-        appendUrl(xml, "https://websbond.com/contact", "monthly", "0.9", "2024-06-20");
+
+        // Service Pages
+        appendUrl(xml, "https://websbond.com/seo-service-in-delhi", "monthly", "0.9", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/smo-service-in-delhi", "monthly", "0.8", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/smm-service-in-delhi", "monthly", "0.8", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/website-design-service-in-delhi", "monthly", "0.9", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/content-writing-service-in-delhi", "monthly", "0.8", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/google-ads-services", "monthly", "0.9", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/gmb-service-in-delhi", "monthly", "0.8", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/e-commerce-website-services-in-delhi", "monthly", "0.9", "2024-06-20");
+
+        // Tools, testimonials, payment, case-studies
+        appendUrl(xml, "https://websbond.com/seo-analyzer", "monthly", "0.8", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/testimonials", "monthly", "0.7", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/case-studies", "monthly", "0.7", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/payment", "monthly", "0.5", "2024-06-20");
+        appendUrl(xml, "https://websbond.com/paypal", "monthly", "0.5", "2024-06-20");
 
         // 2. Dynamic Blog Pages
         List<BlogPost> blogs = blogRepository.findAll();

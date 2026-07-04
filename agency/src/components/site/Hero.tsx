@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, TrendingUp, Zap, Shield, BarChart3, CheckCircle2, User, Phone, Mail, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { LazyVideo } from "./LazyVideo";
 import { submitContactForm } from "@/lib/api";
 import { toast } from "@/hooks/use-toast";
 
@@ -63,15 +64,7 @@ export const Hero = () => {
       style={{ backgroundColor: "#030305" }}
     >
       {/* Background Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-      </video>
+      <LazyVideo src="/videos/hero.mp4" className="absolute inset-0 w-full h-full object-cover z-0" />
 
       <div className="absolute inset-0 bg-gradient-to-r from-[#030305]/55 via-[#030305]/25 to-transparent z-0" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/30 via-transparent to-transparent z-0" />

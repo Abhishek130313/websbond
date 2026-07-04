@@ -83,7 +83,7 @@ export const RecentWorks = () => (
           <div className="section-underline-left mt-4" />
         </div>
         <Link
-          to="/our-work"
+          to="/our-portfolio"
           className="inline-flex items-center gap-2 font-bold text-sm px-6 py-3 rounded-lg border-2 transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap self-start sm:self-auto"
           style={{ borderColor: "#002b49", color: "#002b49" }}
           onMouseEnter={(e) => {
