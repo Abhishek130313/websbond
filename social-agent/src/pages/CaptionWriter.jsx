@@ -125,7 +125,7 @@ export default function CaptionWriter() {
 
       {/* Caption Generator */}
       {mode === 'caption' && (
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+        <div className="grid-2">
           {/* Input */}
           <div className="card">
             <h2 style={{ fontSize: 15, fontWeight: 700, marginBottom: 16 }}>Caption Settings</h2>
@@ -217,7 +217,7 @@ export default function CaptionWriter() {
                </p>
              </div>
           ) : (
-            <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr', gap: 24, alignItems: 'start' }}>
+            <div className="grid-content-sidebar" style={{ alignItems: 'start' }}>
               
               {/* Left Side: Recent Posts */}
               <div className="card" style={{ padding: 16 }}>

@@ -96,7 +96,7 @@ export default function Dashboard({ onNavigate }) {
       </div>
 
       {/* Stats Row */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 28 }}>
+      <div className="grid-4" style={{ marginBottom: 28 }}>
         {dynamicStats.map(s => (
           <div key={s.label} className="card" style={{ textAlign: 'center', padding: '20px 16px' }}>
             <div style={{ fontSize: 28, marginBottom: 8 }}>{s.icon}</div>
@@ -107,8 +107,8 @@ export default function Dashboard({ onNavigate }) {
         ))}
       </div>
 
-      {/* Two Column */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 24 }}>
+      {/* Two Column Layout */}
+      <div className="grid-2" style={{ marginBottom: 24 }}>
 
         {/* AI Action Plan */}
         <div className="card">

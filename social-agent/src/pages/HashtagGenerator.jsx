@@ -72,7 +72,7 @@ export default function HashtagGenerator() {
 
       {/* By Niche Mode */}
       {mode === 'niche' && (
-        <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: 20 }}>
+        <div className="grid-sidebar-content">
           {/* Niche Picker */}
           <div className="card" style={{ padding: 12 }}>
             <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', marginBottom: 10, padding: '0 8px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
@@ -132,7 +132,7 @@ export default function HashtagGenerator() {
 
       {/* By Reel Type Mode */}
       {mode === 'reel' && (
-        <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr', gap: 20 }}>
+        <div className="grid-sidebar-content">
           <div className="card" style={{ padding: 12 }}>
             <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', marginBottom: 10, padding: '0 8px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               Reel Type
@@ -201,7 +201,7 @@ export default function HashtagGenerator() {
             </button>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 16 }}>
+          <div className="grid-2">
             {NICHE_KEYS.filter(k => HASHTAG_DB[k].sets.mega).map(key => {
               const tags = [
                 HASHTAG_DB[key].sets.mega[0],

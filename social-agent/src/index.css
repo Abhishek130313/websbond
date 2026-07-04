@@ -177,3 +177,94 @@ select.input { cursor: pointer; }
 
 .slide-in { animation: slideIn 0.25s ease; }
 @keyframes slideIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: none; } }
+
+/* ── Responsive Layout & Grid System ── */
+.app-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 240px;
+  padding: 32px;
+  max-width: calc(100vw - 240px);
+  overflow-x: hidden;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: 240px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+/* Mobile Header (Hidden on Desktop) */
+.mobile-header {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+
+/* Grid Utilities */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.grid-7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+.grid-sidebar-content { display: grid; grid-template-columns: 220px 1fr; gap: 20px; }
+.grid-content-sidebar { display: grid; grid-template-columns: 320px 1fr; gap: 24px; }
+.grid-auto-1 { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+
+/* Mobile Overrides */
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-sidebar-content { grid-template-columns: 1fr; }
+  .grid-content-sidebar { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .app-wrapper { flex-direction: column; }
+  
+  .main-content {
+    margin-left: 0;
+    max-width: 100vw;
+    padding: 20px 16px;
+  }
+  
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .mobile-header {
+    display: flex;
+  }
+  
+  /* Stack all grids on mobile */
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .grid-7 { grid-template-columns: repeat(3, 1fr); } /* Allow calendar to wrap better */
+  
+  /* Reduce huge text on mobile */
+  h1 { font-size: 20px !important; }
+  
+  /* Fix tabs */
+  .tabs {
+    flex-wrap: wrap;
+  }
+}

@@ -14,6 +14,7 @@ export default function App() {
   const [auth, setAuth] = useState(() => localStorage.getItem('wb_auth') === 'true')
   const [passInput, setPassInput] = useState('')
   const [error, setError] = useState('')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -27,8 +28,8 @@ export default function App() {
 
   if (!auth) {
     return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'var(--bg-primary)' }}>
-        <div className="card" style={{ width: 400, textAlign: 'center', padding: '40px 32px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'var(--bg-primary)', padding: 16 }}>
+        <div className="card" style={{ width: '100%', maxWidth: 400, textAlign: 'center', padding: '40px 32px' }}>
           <div style={{ fontSize: 48, marginBottom: 16 }}>🔒</div>
           <h1 style={{ fontSize: 24, fontWeight: 800, marginBottom: 8 }}>Secure Access</h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: 14, marginBottom: 24 }}>
@@ -66,15 +67,32 @@ export default function App() {
   const Page = pages[page] || Dashboard
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh' }}>
-      <Sidebar active={page} onNavigate={setPage} />
-      <main style={{
-        flex: 1,
-        marginLeft: '240px',
-        padding: '32px',
-        maxWidth: 'calc(100vw - 240px)',
-        overflowX: 'hidden',
-      }}>
+    <div className="app-wrapper">
+      {/* Mobile Header */}
+      <header className="mobile-header">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ width: 28, height: 28, borderRadius: 8, background: 'var(--gradient-1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14 }}>📱</div>
+          <div style={{ fontWeight: 800, fontSize: 14 }}>WebsBond</div>
+        </div>
+        <button className="btn btn-ghost" style={{ padding: '6px 10px', fontSize: 18 }} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? '✕' : '☰'}
+        </button>
+      </header>
+
+      {/* Overlay to close sidebar on mobile */}
+      {isMobileMenuOpen && (
+        <div 
+          style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.5)', zIndex: 95 }}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      <Sidebar 
+        active={page} 
+        onNavigate={(p) => { setPage(p); setIsMobileMenuOpen(false) }} 
+        isOpen={isMobileMenuOpen} 
+      />
+      <main className="main-content">
         <Page onNavigate={setPage} />
       </main>
     </div>

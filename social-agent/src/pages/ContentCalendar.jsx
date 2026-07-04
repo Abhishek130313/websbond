@@ -95,9 +95,9 @@ export default function ContentCalendar() {
 
       {/* Add Post Form */}
       {showAdd && (
-        <div className="card fade-in" style={{ marginBottom: 24, border: '1px solid var(--border-glow)' }}>
+        <div className="card" style={{ marginBottom: 24 }}>
           <h3 style={{ fontWeight: 700, fontSize: 15, marginBottom: 16 }}>Add New Post</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12, marginBottom: 14 }}>
+          <div className="grid-4" style={{ marginBottom: 14 }}>
             <div>
               <label style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: 6 }}>DAY</label>
               <select className="input" value={newPost.day} onChange={e => setNewPost({ ...newPost, day: +e.target.value })}>
@@ -125,8 +125,8 @@ export default function ContentCalendar() {
         </div>
       )}
 
-      {/* Week Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 10 }}>
+      {/* Calendar Grid */}
+      <div className="grid-7">
         {days.map(day => {
           const dayPosts = posts
             .map((p, i) => ({ ...p, idx: i }))

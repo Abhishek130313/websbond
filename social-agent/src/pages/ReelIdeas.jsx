@@ -160,7 +160,7 @@ export default function ReelIdeas() {
         <p style={{ fontSize: 13, color: 'var(--text-muted)', marginBottom: 16 }}>
           Researched hooks that work in web design niche — no API needed. Click to copy.
         </p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 12 }}>
+        <div className="grid-2">
           {REEL_HOOKS.map((item, i) => (
             <div key={i} className="card" style={{ cursor: 'pointer', padding: '14px 16px' }}
               onClick={() => { navigator.clipboard.writeText(item.hook); setCopied('hook_' + i); setTimeout(() => setCopied(null), 1500) }}>

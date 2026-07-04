@@ -36,6 +36,10 @@ export default function Analytics() {
     finally { setLoading(false) }
   }
 
+  // Generate basic static strategy object to mock the AI part
+  const aiStrategy = { score: 45 }
+  const stats = igStats
+
   return (
     <div className="fade-in">
       <div style={{ marginBottom: 28 }}>
@@ -88,9 +92,9 @@ export default function Analytics() {
         </div>
       )}
 
-      {/* Live IG Stats */}
-      {igStats && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16, marginBottom: 24 }}>
+      {/* Key Metrics Row */}
+      {stats && (
+        <div className="grid-3" style={{ marginBottom: 24 }}>
           {[
             { label: 'Followers', value: igStats.followers_count, icon: '👥', color: 'var(--accent)' },
             { label: 'Posts', value: igStats.media_count, icon: '📤', color: 'var(--accent-2)' },
@@ -108,23 +112,22 @@ export default function Analytics() {
       {/* AI Strategist */}
       <div className="card" style={{ marginBottom: 24, border: '1px solid rgba(16,185,129,0.3)', background: 'linear-gradient(135deg, rgba(16,185,129,0.08), rgba(6,182,212,0.06))' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <span style={{ fontSize: 24 }}>🧠</span>
-            <div>
-              <h2 style={{ fontSize: 16, fontWeight: 700, color: 'var(--success)' }}>AI Strategist</h2>
-              <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>Analyzing your live Instagram data...</p>
-            </div>
+          <div>
+            <h2 style={{ fontSize: 16, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontSize: 20 }}>🧠</span> AI Growth Strategist
+            </h2>
+            <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 4 }}>Live data analysis & actionable advice</p>
           </div>
-          <span className="badge badge-green">LIVE ANALYSIS</span>
+          {loading ? (
+            <div className="spinner" style={{ width: 24, height: 24 }} />
+          ) : (
+             <div style={{ fontSize: 24 }}>{aiStrategy.score >= 80 ? '🔥' : aiStrategy.score >= 50 ? '📈' : '⚠️'}</div>
+          )}
         </div>
 
-        {!igStats ? (
-          <div style={{ padding: '20px 0', color: 'var(--text-muted)', fontSize: 14 }}>
-            Connect your Instagram API above to activate the AI Strategist.
-          </div>
-        ) : (
-          <div>
-             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
+        {stats && (
+          <div className="fade-in">
+             <div className="grid-2" style={{ marginBottom: 16 }}>
                <div style={{ padding: 16, background: 'var(--bg-secondary)', borderRadius: 'var(--radius)' }}>
                  <div style={{ fontSize: 11, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: 4 }}>Current Trajectory</div>
                  <div style={{ fontSize: 20, fontWeight: 700, color: 'var(--accent)' }}>Aggressive Growth Required</div>
@@ -190,7 +193,7 @@ function PostLogger() {
 
       {showForm && (
         <div className="card fade-in" style={{ marginBottom: 16, border: '1px solid var(--border-glow)' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 10, marginBottom: 10 }}>
+          <div className="grid-4" style={{ marginBottom: 10 }}>
             <div>
               <label style={{ fontSize: 11, fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: 4 }}>DATE</label>
               <input type="date" className="input" value={form.date} onChange={e => setForm({ ...form, date: e.target.value })} />
@@ -210,7 +213,7 @@ function PostLogger() {
               <input className="input" type="number" placeholder="0" value={form.saves} onChange={e => setForm({ ...form, saves: e.target.value })} />
             </div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 10 }}>
+          <div className="grid-auto-1">
             <input className="input" placeholder="Post topic..." value={form.topic} onChange={e => setForm({ ...form, topic: e.target.value })} />
             <button className="btn btn-primary" onClick={addLog}>Save Log</button>
           </div>

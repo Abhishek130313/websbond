@@ -8,15 +8,9 @@ const NAV = [
   { id: 'settings', icon: '⚙️', label: 'Settings' },
 ]
 
-export default function Sidebar({ active, onNavigate }) {
+export default function Sidebar({ active, onNavigate, isOpen }) {
   return (
-    <aside style={{
-      position: 'fixed', top: 0, left: 0, bottom: 0, width: '240px',
-      background: 'var(--bg-secondary)',
-      borderRight: '1px solid var(--border)',
-      display: 'flex', flexDirection: 'column',
-      zIndex: 100,
-    }}>
+    <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       {/* Logo */}
       <div style={{ padding: '24px 20px 20px', borderBottom: '1px solid var(--border)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
