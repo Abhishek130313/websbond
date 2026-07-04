@@ -112,6 +112,7 @@ export const ContactPage = () => {
                           type="text"
                           required
                           placeholder="Full Name*"
+                          aria-label="Full Name"
                           className="w-full px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-[#eb560c]"
                           style={{
                             background: "rgba(255,255,255,0.1)",
@@ -126,6 +127,7 @@ export const ContactPage = () => {
                           type="tel"
                           required
                           placeholder="Phone*"
+                          aria-label="Phone Number"
                           className="w-full px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-[#eb560c]"
                           style={{
                             background: "rgba(255,255,255,0.1)",
@@ -142,6 +144,7 @@ export const ContactPage = () => {
                       type="email"
                       required
                       placeholder="Email*"
+                      aria-label="Email Address"
                       className="w-full px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-[#eb560c]"
                       style={{
                         background: "rgba(255,255,255,0.1)",
@@ -154,6 +157,7 @@ export const ContactPage = () => {
                     <select
                       name="service"
                       required
+                      aria-label="Select Services"
                       className="w-full px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-[#eb560c]"
                       style={{
                         background: "rgba(255,255,255,0.1)",
@@ -172,6 +176,7 @@ export const ContactPage = () => {
                       name="message"
                       rows={4}
                       placeholder="Message"
+                      aria-label="Your Message"
                       className="w-full px-4 py-3.5 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-[#eb560c] resize-none"
                       style={{
                         background: "rgba(255,255,255,0.1)",

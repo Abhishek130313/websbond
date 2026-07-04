@@ -157,12 +157,13 @@ export const Hero = () => {
                 <form onSubmit={handleSubmit} className="p-6 space-y-3.5">
                   {/* Name */}
                   <div className="relative">
-                    <label className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "name" ? "text-amber-400" : "text-zinc-500"}`}>
+                    <label htmlFor="hero-name" className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "name" ? "text-amber-400" : "text-zinc-500"}`}>
                       Full Name
                     </label>
                     <div className="relative">
                       <User className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors duration-300 ${focused === "name" ? "text-amber-400" : "text-zinc-600"}`} />
                       <input
+                        id="hero-name"
                         type="text"
                         required
                         placeholder="Your name"
@@ -177,12 +178,13 @@ export const Hero = () => {
 
                   {/* Phone */}
                   <div className="relative">
-                    <label className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "phone" ? "text-amber-400" : "text-zinc-500"}`}>
+                    <label htmlFor="hero-phone" className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "phone" ? "text-amber-400" : "text-zinc-500"}`}>
                       Phone Number
                     </label>
                     <div className="relative">
                       <Phone className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors duration-300 ${focused === "phone" ? "text-amber-400" : "text-zinc-600"}`} />
                       <input
+                        id="hero-phone"
                         type="tel"
                         required
                         placeholder="+91 XXXXX XXXXX"
@@ -197,12 +199,13 @@ export const Hero = () => {
 
                   {/* Email */}
                   <div className="relative">
-                    <label className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "email" ? "text-amber-400" : "text-zinc-500"}`}>
+                    <label htmlFor="hero-email" className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "email" ? "text-amber-400" : "text-zinc-500"}`}>
                       Email Address
                     </label>
                     <div className="relative">
                       <Mail className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors duration-300 ${focused === "email" ? "text-amber-400" : "text-zinc-600"}`} />
                       <input
+                        id="hero-email"
                         type="email"
                         required
                         placeholder="name@company.com"
@@ -217,10 +220,11 @@ export const Hero = () => {
 
                   {/* Service */}
                   <div className="relative">
-                    <label className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "service" ? "text-amber-400" : "text-zinc-500"}`}>
+                    <label htmlFor="hero-service" className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "service" ? "text-amber-400" : "text-zinc-500"}`}>
                       I'm interested in
                     </label>
                     <select
+                      id="hero-service"
                       value={formData.service}
                       onFocus={() => setFocused("service")}
                       onBlur={() => setFocused(null)}

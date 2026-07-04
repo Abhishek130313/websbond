@@ -129,12 +129,13 @@ export const ContactSection = () => {
                   <div className="grid md:grid-cols-2 gap-4">
                     {/* Name */}
                     <div>
-                      <label className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "name" ? "text-indigo-400" : "text-zinc-500"}`}>
+                      <label htmlFor="contact-name" className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "name" ? "text-indigo-400" : "text-zinc-500"}`}>
                         Full Name
                       </label>
                       <div className="relative">
                         <User className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors duration-300 ${focused === "name" ? "text-indigo-400" : "text-zinc-600"}`} />
                         <input
+                          id="contact-name"
                           type="text"
                           required
                           placeholder="Enter your name"
@@ -149,12 +150,13 @@ export const ContactSection = () => {
 
                     {/* Phone */}
                     <div>
-                      <label className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "phone" ? "text-indigo-400" : "text-zinc-500"}`}>
+                      <label htmlFor="contact-phone" className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "phone" ? "text-indigo-400" : "text-zinc-500"}`}>
                         Phone Number
                       </label>
                       <div className="relative">
                         <Phone className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors duration-300 ${focused === "phone" ? "text-indigo-400" : "text-zinc-600"}`} />
                         <input
+                          id="contact-phone"
                           type="tel"
                           required
                           placeholder="+91 XXXXX XXXXX"
@@ -170,12 +172,13 @@ export const ContactSection = () => {
 
                   {/* Email */}
                   <div>
-                    <label className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "email" ? "text-indigo-400" : "text-zinc-500"}`}>
+                    <label htmlFor="contact-email" className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "email" ? "text-indigo-400" : "text-zinc-500"}`}>
                       Email Address
                     </label>
                     <div className="relative">
                       <Mail className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors duration-300 ${focused === "email" ? "text-indigo-400" : "text-zinc-600"}`} />
                       <input
+                        id="contact-email"
                         type="email"
                         required
                         placeholder="name@company.com"
@@ -190,10 +193,11 @@ export const ContactSection = () => {
 
                   {/* Service */}
                   <div>
-                    <label className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "service" ? "text-indigo-400" : "text-zinc-500"}`}>
+                    <label htmlFor="contact-service" className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "service" ? "text-indigo-400" : "text-zinc-500"}`}>
                       Interested Service
                     </label>
                     <select
+                      id="contact-service"
                       value={formData.service}
                       onFocus={() => setFocused("service")}
                       onBlur={() => setFocused(null)}
