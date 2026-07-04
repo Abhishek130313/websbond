@@ -70,6 +70,23 @@ export default function Sidebar({ active, onNavigate }) {
         borderTop: '1px solid var(--border)',
         fontSize: 11, color: 'var(--text-muted)',
       }}>
+        <button 
+          onClick={() => {
+            localStorage.removeItem('wb_auth');
+            window.location.reload();
+          }}
+          style={{
+            width: '100%', padding: '8px', marginBottom: '12px',
+            background: 'transparent', border: '1px solid var(--danger)',
+            color: 'var(--danger)', borderRadius: 'var(--radius)',
+            cursor: 'pointer', fontSize: 12, fontWeight: 600,
+            transition: 'all 0.2s'
+          }}
+          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(239,68,68,0.1)' }}
+          onMouseLeave={e => { e.currentTarget.style.background = 'transparent' }}
+        >
+          🚪 Logout
+        </button>
         <div>🚀 Safe • No ban risk</div>
         <div style={{ marginTop: 4 }}>Uses ManyChat + Cloudflare AI</div>
       </div>
