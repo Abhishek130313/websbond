@@ -68,6 +68,7 @@ export const Testimonials = () => {
             <button
               onClick={() => setPage((p) => Math.max(0, p - 1))}
               disabled={page === 0}
+              aria-label="Previous testimonials"
               className="w-10 h-10 rounded-xl border border-zinc-200 flex items-center justify-center transition-all hover:border-indigo-300 hover:text-indigo-600 disabled:opacity-30 text-zinc-600"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -75,6 +76,7 @@ export const Testimonials = () => {
             <button
               onClick={() => setPage((p) => Math.min(pairs.length - 1, p + 1))}
               disabled={page === pairs.length - 1}
+              aria-label="Next testimonials"
               className="w-10 h-10 rounded-xl border border-zinc-200 flex items-center justify-center transition-all hover:border-indigo-300 hover:text-indigo-600 disabled:opacity-30 text-zinc-600"
             >
               <ChevronRight className="w-4 h-4" />
@@ -105,10 +107,10 @@ loading="lazy" decoding="async"                   src={r.img}
                   className="w-11 h-11 rounded-full object-cover"
                 />
                 <div className="flex-1">
-                  <h4 className="font-semibold text-sm text-zinc-900" style={{ marginBottom: 2 }}>
+                  <p className="font-semibold text-sm text-zinc-900" style={{ marginBottom: 2 }}>
                     {r.name}
-                  </h4>
-                  <p className="text-zinc-400 text-xs" style={{ marginBottom: 0 }}>{r.role}</p>
+                  </p>
+                  <p className="text-zinc-500 text-xs" style={{ marginBottom: 0 }}>{r.role}</p>
                 </div>
                 <StarRow count={r.rating} />
               </div>
@@ -122,6 +124,7 @@ loading="lazy" decoding="async"                   src={r.img}
             <button
               key={i}
               onClick={() => setPage(i)}
+              aria-label={`Go to testimonial page ${i + 1}`}
               className={`w-2 h-2 rounded-full transition-all ${
                 i === page ? "bg-indigo-500 w-6" : "bg-zinc-300"
               }`}

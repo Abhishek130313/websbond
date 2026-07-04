@@ -37,7 +37,7 @@ loading="lazy" decoding="async"                 src={p.coverImg}
             <div className="p-6">
               {/* Category pill + Date */}
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-indigo-800 bg-indigo-50 px-2.5 py-1 rounded-full">
                   {p.category}
                 </span>
                 <div className="flex items-center gap-1.5 text-zinc-400 text-xs">

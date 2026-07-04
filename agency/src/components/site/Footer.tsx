@@ -35,7 +35,9 @@ export const Footer = () => (
             <div className="flex items-center gap-2.5 mb-6">
               <span className="inline-flex items-center justify-center rounded-xl overflow-hidden border border-white/10 bg-[#09090b] w-10 h-10">
                 <img
-loading="lazy" decoding="async"                   src={logo3d}
+                  loading="lazy"
+                  decoding="async"
+                  src={logo3d}
                   alt="Websbond logo"
                   className="w-8 h-8 object-contain p-0.5"
                 />
@@ -44,7 +46,7 @@ loading="lazy" decoding="async"                   src={logo3d}
                 websbond<span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">.com</span>
               </span>
             </div>
-            <p className="text-zinc-500 text-sm leading-relaxed mb-6" style={{ marginBottom: 24 }}>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-6" style={{ marginBottom: 24 }}>
               Websbond is always considered for its high valued and supportive services that make clients gratifying when it comes to real time solutions.
             </p>
             {/* Social icons */}
@@ -90,15 +92,15 @@ loading="lazy" decoding="async"                   src={logo3d}
 
           {/* Column 2: Quick Links */}
           <div>
-            <h4 className="font-semibold text-white text-sm uppercase tracking-wider mb-6">
+            <div className="font-semibold text-white text-sm uppercase tracking-wider mb-6">
               Quick Links
-            </h4>
+            </div>
             <ul className="space-y-2.5">
               {QUICK_LINKS.map((l) => (
                 <li key={l.label}>
                   <Link
                     to={l.to}
-                    className="flex items-center gap-2 text-zinc-500 text-sm hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-zinc-400 text-sm hover:text-white transition-colors"
                   >
                     <ChevronRight className="w-3 h-3 text-indigo-500 flex-shrink-0" />
                     {l.label}
@@ -110,9 +112,9 @@ loading="lazy" decoding="async"                   src={logo3d}
 
           {/* Column 3: Contact Us */}
           <div>
-            <h4 className="font-semibold text-white text-sm uppercase tracking-wider mb-6">
+            <div className="font-semibold text-white text-sm uppercase tracking-wider mb-6">
               Contact Us
-            </h4>
+            </div>
             <div className="space-y-5">
               {/* Phone */}
               <div className="flex items-center gap-3">
@@ -120,7 +122,7 @@ loading="lazy" decoding="async"                   src={logo3d}
                   <Phone className="w-4 h-4 text-zinc-400" />
                 </div>
                 <div>
-                  <div className="text-zinc-600 text-[10px] uppercase tracking-wider mb-0.5">Phone</div>
+                  <div className="text-zinc-400 text-[10px] uppercase tracking-wider mb-0.5">Phone</div>
                   <a href="tel:+919306623619" className="text-zinc-300 text-sm font-medium hover:text-white transition-colors">
                     +91 9306623619
                   </a>
@@ -133,7 +135,7 @@ loading="lazy" decoding="async"                   src={logo3d}
                   <Mail className="w-4 h-4 text-zinc-400" />
                 </div>
                 <div>
-                  <div className="text-zinc-600 text-[10px] uppercase tracking-wider mb-0.5">E-mail</div>
+                  <div className="text-zinc-400 text-[10px] uppercase tracking-wider mb-0.5">E-mail</div>
                   <a href="mailto:websbond@websbond.com" className="text-zinc-300 text-sm font-medium hover:text-white transition-colors">
                     websbond@websbond.com
                   </a>
@@ -146,7 +148,7 @@ loading="lazy" decoding="async"                   src={logo3d}
                   <MapPin className="w-4 h-4 text-zinc-400" />
                 </div>
                 <div>
-                  <div className="text-zinc-600 text-[10px] uppercase tracking-wider mb-0.5">Location</div>
+                  <div className="text-zinc-400 text-[10px] uppercase tracking-wider mb-0.5">Location</div>
                   <p className="text-zinc-300 text-sm font-medium" style={{ marginBottom: 0 }}>
                     Delhi NCR & Haryana, India
                   </p>
@@ -160,12 +162,12 @@ loading="lazy" decoding="async"                   src={logo3d}
       {/* ── Bottom bar — ultra minimal ── */}
       <div className="border-t border-zinc-800/50 py-4">
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-zinc-600 text-xs text-center" style={{ marginBottom: 0 }}>
+          <p className="text-zinc-400 text-xs text-center" style={{ marginBottom: 0 }}>
             © {new Date().getFullYear()} Websbond. All rights reserved.
             <span className="opacity-15 hover:opacity-100 transition-opacity text-[10px] ml-4 space-x-2">
-              <Link to="/admin" className="text-zinc-500">Admin</Link>
-              <span className="text-zinc-700">|</span>
-              <Link to="/blog-admin" className="text-zinc-500">Blog Admin</Link>
+              <Link to="/admin" className="text-zinc-400">Admin</Link>
+              <span className="text-zinc-500">|</span>
+              <Link to="/blog-admin" className="text-zinc-400">Blog Admin</Link>
             </span>
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-2 justify-center">
@@ -178,7 +180,7 @@ loading="lazy" decoding="async"                   src={logo3d}
               <Link
                 key={link.label}
                 to={link.to}
-                className="text-zinc-600 text-xs hover:text-zinc-300 transition-colors"
+                className="text-zinc-400 text-xs hover:text-zinc-200 transition-colors"
               >
                 {link.label}
               </Link>
