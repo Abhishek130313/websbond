@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { generateCaption, generateCommentReply, getIGRecentPosts, getIGComments, replyToIGComment } from '../lib/api.js'
+import { generateCaption, generateCommentReply, getIGRecentPosts, getIGComments, replyToIGComment, getCFCredentials, getIGCredentials } from '../lib/api.js'
 import { REEL_HASHTAG_SETS } from '../data/hashtags.js'
 import { formatDistanceToNow } from 'date-fns'
 
@@ -25,9 +25,8 @@ export default function CaptionWriter() {
   const [error, setError] = useState(null)
   const [copied, setCopied] = useState(null)
 
-  const apiKey = localStorage.getItem('wb_cf_token') || ''
-  const igToken = localStorage.getItem('wb_ig_token') || ''
-  const igUserId = localStorage.getItem('wb_ig_user_id') || ''
+  const { apiToken: apiKey } = getCFCredentials()
+  const { igToken, igUserId } = getIGCredentials()
 
   useEffect(() => {
     if (mode === 'reply' && igToken && igUserId && posts.length === 0) {

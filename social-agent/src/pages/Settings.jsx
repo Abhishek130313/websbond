@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react'
 import { testCFConnection } from '../lib/api.js'
 
 export default function Settings() {
+  const isGlobalCF = !!import.meta.env.VITE_CF_TOKEN
+  const isGlobalIG = !!import.meta.env.VITE_IG_TOKEN
+
   const [cfToken, setCfToken] = useState('')
   const [cfAccountId, setCfAccountId] = useState('')
   const [igToken, setIgToken] = useState('')
@@ -18,22 +21,29 @@ export default function Settings() {
   }, [])
 
   const save = () => {
-    localStorage.setItem('wb_cf_token', cfToken.trim())
-    localStorage.setItem('wb_cf_account_id', cfAccountId.trim())
-    localStorage.setItem('wb_ig_token', igToken.trim())
-    localStorage.setItem('wb_ig_user_id', igUserId.trim())
+    if (!isGlobalCF) {
+      localStorage.setItem('wb_cf_token', cfToken.trim())
+      localStorage.setItem('wb_cf_account_id', cfAccountId.trim())
+    }
+    if (!isGlobalIG) {
+      localStorage.setItem('wb_ig_token', igToken.trim())
+      localStorage.setItem('wb_ig_user_id', igUserId.trim())
+    }
     setSaved(true)
     setTimeout(() => setSaved(false), 2500)
   }
 
   const testConnection = async () => {
-    if (!cfToken.trim() || !cfAccountId.trim()) {
+    const token = isGlobalCF ? import.meta.env.VITE_CF_TOKEN : cfToken.trim()
+    const acc = isGlobalCF ? import.meta.env.VITE_CF_ACCOUNT_ID : cfAccountId.trim()
+    
+    if (!token || !acc) {
       setTestResult({ ok: false, msg: 'Enter both API Token and Account ID first' })
       return
     }
     setTesting(true); setTestResult(null)
     try {
-      await testCFConnection(cfToken.trim(), cfAccountId.trim())
+      await testCFConnection(token, acc)
       setTestResult({ ok: true, msg: '✅ Cloudflare Workers AI is connected and working!' })
     } catch (e) {
       setTestResult({ ok: false, msg: `❌ ${e.message}` })
@@ -49,7 +59,9 @@ export default function Settings() {
           <h1 style={{ fontSize: 24, fontWeight: 800 }}>Settings</h1>
         </div>
         <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>
-          Configure your API keys. All data is stored locally in your browser — never sent anywhere.
+          {isGlobalCF && isGlobalIG 
+            ? "API keys are securely configured globally for the entire team."
+            : "Configure your API keys. All data is stored locally in your browser — never sent anywhere."}
         </p>
       </div>
 
@@ -66,7 +78,17 @@ export default function Settings() {
             <span className="badge badge-green" style={{ marginLeft: 'auto' }}>FREE</span>
           </div>
 
-          {(cfToken && cfAccountId && !testing && !saved) ? (
+          {isGlobalCF ? (
+            <div style={{ padding: '16px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius)', border: '1px solid var(--success)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--success)' }}>Globally Connected ✅</div>
+                <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Configured securely via Environment Variables</div>
+              </div>
+              <button className="btn btn-secondary" onClick={testConnection} disabled={testing}>
+                {testing ? <div className="spinner" style={{ width: 16, height: 16 }} /> : 'Test API'}
+              </button>
+            </div>
+          ) : (cfToken && cfAccountId && !testing && !saved) ? (
             <div style={{ padding: '16px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius)', border: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <div style={{ fontWeight: 600, fontSize: 14 }}>Keys Configured ✅</div>
@@ -117,15 +139,17 @@ export default function Settings() {
             </div>
           )}
 
-          <div style={{
-            marginTop: 12, padding: '10px 14px', background: 'var(--bg-secondary)',
-            borderRadius: 'var(--radius)', fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.8,
-          }}>
-            <strong style={{ color: 'var(--text-primary)', display: 'block', marginBottom: 4 }}>How to get these:</strong>
-            1. <a href="https://dash.cloudflare.com" target="_blank" rel="noreferrer" style={{ color: 'var(--accent)' }}>dash.cloudflare.com</a> → Account ID is in the right sidebar of Overview page<br />
-            2. <a href="https://dash.cloudflare.com/profile/api-tokens" target="_blank" rel="noreferrer" style={{ color: 'var(--accent)' }}>Profile → API Tokens</a> → Create Token → Workers AI (Read) permission<br />
-            <span style={{ color: 'var(--success)' }}>💡 Model: Meta Llama 3.3 70B — fast, smart, completely free!</span>
-          </div>
+          {!isGlobalCF && (
+            <div style={{
+              marginTop: 12, padding: '10px 14px', background: 'var(--bg-secondary)',
+              borderRadius: 'var(--radius)', fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.8,
+            }}>
+              <strong style={{ color: 'var(--text-primary)', display: 'block', marginBottom: 4 }}>How to get these:</strong>
+              1. <a href="https://dash.cloudflare.com" target="_blank" rel="noreferrer" style={{ color: 'var(--accent)' }}>dash.cloudflare.com</a> → Account ID is in the right sidebar of Overview page<br />
+              2. <a href="https://dash.cloudflare.com/profile/api-tokens" target="_blank" rel="noreferrer" style={{ color: 'var(--accent)' }}>Profile → API Tokens</a> → Create Token → Workers AI (Read) permission<br />
+              <span style={{ color: 'var(--success)' }}>💡 Model: Meta Llama 3.3 70B — fast, smart, completely free!</span>
+            </div>
+          )}
         </div>
 
         {/* Instagram Graph API */}
@@ -136,10 +160,16 @@ export default function Settings() {
               <h2 style={{ fontSize: 15, fontWeight: 700 }}>Instagram Graph API</h2>
               <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>For real analytics: followers, reach, impressions</p>
             </div>
-            <span className="badge badge-green" style={{ marginLeft: 'auto' }}>Connected ✅</span>
           </div>
 
-          {(igToken && igUserId && !saved) ? (
+          {isGlobalIG ? (
+             <div style={{ padding: '16px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius)', border: '1px solid var(--success)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+               <div>
+                 <div style={{ fontWeight: 600, fontSize: 14, color: 'var(--success)' }}>Globally Connected ✅</div>
+                 <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>Configured securely via Environment Variables</div>
+               </div>
+             </div>
+          ) : (igToken && igUserId && !saved) ? (
             <div style={{ padding: '16px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius)', border: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <div style={{ fontWeight: 600, fontSize: 14 }}>Graph API Configured ✅</div>
@@ -167,14 +197,16 @@ export default function Settings() {
             </>
           )}
 
-          <div style={{
-            marginTop: 12, padding: '14px 16px', background: 'var(--bg-secondary)',
-            borderRadius: 'var(--radius)', fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.8,
-          }}>
-            <strong style={{ color: 'var(--text-primary)', display: 'block', marginBottom: 6 }}>Token Info:</strong>
-            Token expires every 60 days. Set a calendar reminder to refresh it.<br />
-            To refresh: Go to Graph API Explorer → Generate new token → Exchange for long-lived token.
-          </div>
+          {!isGlobalIG && (
+            <div style={{
+              marginTop: 12, padding: '14px 16px', background: 'var(--bg-secondary)',
+              borderRadius: 'var(--radius)', fontSize: 12, color: 'var(--text-muted)', lineHeight: 1.8,
+            }}>
+              <strong style={{ color: 'var(--text-primary)', display: 'block', marginBottom: 6 }}>Token Info:</strong>
+              Token expires every 60 days. Set a calendar reminder to refresh it.<br />
+              To refresh: Go to Graph API Explorer → Generate new token → Exchange for long-lived token.
+            </div>
+          )}
         </div>
 
         {/* Account Info */}
@@ -196,13 +228,18 @@ export default function Settings() {
         </div>
 
         {/* Save Button */}
-        <button className="btn btn-primary" style={{ justifyContent: 'center', padding: '14px', fontSize: 15 }} onClick={save}>
-          {saved ? '✅ Settings Saved!' : '💾 Save All Settings'}
-        </button>
+        {(!isGlobalCF || !isGlobalIG) && (
+          <button className="btn btn-primary" style={{ justifyContent: 'center', padding: '14px', fontSize: 15 }} onClick={save}>
+            {saved ? '✅ Settings Saved!' : '💾 Save All Settings'}
+          </button>
+        )}
 
         <div style={{ fontSize: 12, color: 'var(--text-muted)', textAlign: 'center', lineHeight: 1.6 }}>
-          🔒 All keys stored in your browser localStorage only.<br />
-          Never transmitted anywhere except directly to the respective API.
+          {isGlobalCF && isGlobalIG ? (
+            <>🔒 Keys are securely stored in global environment variables.</>
+          ) : (
+            <>🔒 All keys stored in your browser localStorage only.<br />Never transmitted anywhere except directly to the respective API.</>
+          )}
         </div>
       </div>
     </div>

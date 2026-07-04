@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { generateReelIdeas } from '../lib/api.js'
+import { generateReelIdeas, getCFCredentials } from '../lib/api.js'
 import { REEL_HOOKS } from '../data/hashtags.js'
 
 const TYPE_COLORS = {
@@ -17,7 +17,7 @@ export default function ReelIdeas() {
   const [expanded, setExpanded] = useState(null)
   const [copied, setCopied] = useState(null)
 
-  const apiKey = localStorage.getItem('wb_cf_token') || ''
+  const { apiToken: apiKey } = getCFCredentials()
 
   const generateIdeas = async () => {
     if (!apiKey) {

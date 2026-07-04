@@ -35,11 +35,18 @@ async function callCFAI(apiToken, accountId, systemPrompt, userPrompt) {
   return data.choices?.[0]?.message?.content || data.result?.response || "";
 }
 
-// ── Get API credentials from localStorage ────────────────
-function getCFCredentials() {
-  const apiToken = localStorage.getItem("wb_cf_token") || "";
-  const accountId = localStorage.getItem("wb_cf_account_id") || "";
+// ── Get API credentials from environment or localStorage ────────────────
+export function getCFCredentials() {
+  const apiToken = import.meta.env.VITE_CF_TOKEN || localStorage.getItem("wb_cf_token") || "";
+  const accountId = import.meta.env.VITE_CF_ACCOUNT_ID || localStorage.getItem("wb_cf_account_id") || "";
   return { apiToken, accountId };
+}
+
+// ── Get IG credentials from environment or localStorage ────────────────
+export function getIGCredentials() {
+  const igToken = import.meta.env.VITE_IG_TOKEN || localStorage.getItem('wb_ig_token') || "";
+  const igUserId = import.meta.env.VITE_IG_USER_ID || localStorage.getItem('wb_ig_user_id') || "";
+  return { igToken, igUserId };
 }
 
 // ── Cloudflare AI: Generate Reel Ideas ──────────────────

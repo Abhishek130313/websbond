@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { getIGAccountStats, getIGInsights } from '../lib/api.js'
+import { getIGAccountStats, getIGInsights, getIGCredentials } from '../lib/api.js'
 
 const SAMPLE_DATA = [
   { date: 'Jun 28', followers: 5, reach: 0 },
@@ -19,8 +19,7 @@ export default function Analytics() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  const accessToken = localStorage.getItem('wb_ig_token') || ''
-  const igUserId = localStorage.getItem('wb_ig_user_id') || ''
+  const { igToken: accessToken, igUserId } = getIGCredentials()
 
   const fetchStats = async () => {
     if (!accessToken || !igUserId) {
