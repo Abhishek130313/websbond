@@ -31,14 +31,23 @@ export default function HashtagGenerator() {
   }
 
   const getRecommendedSet = () => {
-    if (!currentNiche) return []
+    if (!currentNiche || !currentNiche.sets.mega) {
+      // Fallback if the selected niche (like reelBoost) doesn't support Smart Mix
+      const fallbackNiche = HASHTAG_DB.webDesign.sets
+      return [
+        fallbackNiche.mega[0], fallbackNiche.mega[1], fallbackNiche.mega[2],
+        fallbackNiche.large[0], fallbackNiche.large[1],
+        fallbackNiche.medium[0], fallbackNiche.medium[1], fallbackNiche.medium[2],
+        fallbackNiche.niche[0], fallbackNiche.niche[1],
+      ]
+    }
     const sets = currentNiche.sets
     return [
       sets.mega[0], sets.mega[1], sets.mega[2],
       sets.large[0], sets.large[1],
       sets.medium[0], sets.medium[1], sets.medium[2],
       sets.niche[0], sets.niche[1],
-    ]
+    ].filter(Boolean)
   }
 
   return (
@@ -193,13 +202,13 @@ export default function HashtagGenerator() {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 16 }}>
-            {NICHE_KEYS.map(key => {
+            {NICHE_KEYS.filter(k => HASHTAG_DB[k].sets.mega).map(key => {
               const tags = [
                 HASHTAG_DB[key].sets.mega[0],
                 HASHTAG_DB[key].sets.large[0],
                 HASHTAG_DB[key].sets.medium[0],
                 HASHTAG_DB[key].sets.niche[0],
-              ]
+              ].filter(Boolean)
               return (
                 <div key={key} style={{ background: 'var(--bg-secondary)', borderRadius: 'var(--radius)', padding: 14 }}>
                   <div style={{ fontWeight: 600, fontSize: 13, marginBottom: 8 }}>{HASHTAG_DB[key].label}</div>
