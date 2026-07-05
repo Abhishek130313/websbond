@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Button } from './ui/button';
+import { Download, Play, Square } from 'lucide-react';
 import { Download, Play, Square } from 'lucide-react';
 
 // Advanced Canvas Video Engine
@@ -212,32 +212,32 @@ export default function VideoEngine({ scenes, audioUrl, onComplete }) {
 
       <div className="flex space-x-3 w-full justify-center">
         {!isPlaying ? (
-          <Button onClick={() => startVideo(false)} className="bg-white/10 hover:bg-white/20 px-8">
+          <button onClick={() => startVideo(false)} className="btn btn-secondary px-8">
             <Play className="w-4 h-4 mr-2" /> Preview Reel
-          </Button>
+          </button>
         ) : (
-          <Button onClick={stopVideo} variant="destructive" className="px-8">
+          <button onClick={stopVideo} className="btn btn-danger px-8">
             <Square className="w-4 h-4 mr-2" /> Stop
-          </Button>
+          </button>
         )}
         
-        <Button 
+        <button 
           onClick={() => startVideo(true)} 
           disabled={isRecording || isPlaying}
-          className="bg-gradient-to-r from-pink-600 to-violet-600 px-8"
+          className="btn btn-primary px-8"
         >
           {isRecording ? "Recording..." : "Export MP4"}
-        </Button>
+        </button>
 
         {videoUrl && (
-          <Button onClick={() => {
+          <button onClick={() => {
             const a = document.createElement('a');
             a.href = videoUrl;
             a.download = 'faceless_reel.webm';
             a.click();
-          }} className="bg-emerald-600 hover:bg-emerald-700">
+          }} className="btn btn-success">
             <Download className="w-4 h-4 mr-2" /> Download
-          </Button>
+          </button>
         )}
       </div>
     </div>
