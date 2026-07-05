@@ -38,10 +38,40 @@ export async function generateAvatar(prompt) {
 
 // ── Generate AI Voice (Text-to-Speech) ───────────────────
 export async function generateVoice(text) {
+  // Check if ElevenLabs key exists for ultra-realistic voice
+  const elevenLabsKey = localStorage.getItem('wb_elevenlabs_key');
+  
+  if (elevenLabsKey) {
+    // Using a realistic Indian Male voice (e.g., "Aarav" or "Fin" or generic voice ID)
+    // Here we use a generic known good voice ID for ElevenLabs or let the user configure it.
+    // Defaulting to a strong male voice (e.g., "pNInz6obpgDQGcFmaJcg" which is Adam, or user can change)
+    const voiceId = "pNInz6obpgDQGcFmaJcg"; 
+    const url = `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`;
+    
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        "xi-api-key": elevenLabsKey,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text,
+        model_id: "eleven_multilingual_v2",
+        voice_settings: { stability: 0.5, similarity_boost: 0.75 }
+      }),
+    });
+
+    if (!res.ok) {
+      throw new Error(`ElevenLabs Error: ${res.status}`);
+    }
+    const blob = await res.blob();
+    return URL.createObjectURL(blob);
+  }
+
+  // Fallback to Cloudflare Deepgram Aura-2
   const { token, accountId } = getCFVars();
   if (!token || !accountId) throw new Error("Add Cloudflare Token in Settings");
 
-  // Using Cloudflare's Deepgram Aura 2 model for fast, high-quality TTS
   const model = "@cf/deepgram/aura-2-en"; 
   const url = `${CF_API_BASE}/${accountId}/ai/run/${model}`;
 

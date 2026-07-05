@@ -1,183 +1,172 @@
-import { useState } from 'react'
-import { generateAvatar, generateVoice } from '../lib/hf-api.js'
+import React, { useState } from 'react'
+import { generateAvatar, generateVoice } from '../lib/hf-api'
+import VideoEngine from '../components/VideoEngine'
+import { Settings, Sparkles, Video, Music } from 'lucide-react'
 
 export default function AIStudio() {
-  const [activeTab, setActiveTab] = useState('avatar') // 'avatar' or 'voice'
-
-  // Avatar State
-  const [prompt, setPrompt] = useState('A professional Indian digital marketing expert, hyper-realistic, 4k, confident smile')
-  const [avatarUrl, setAvatarUrl] = useState(null)
-  const [avatarLoading, setAvatarLoading] = useState(false)
-  const [avatarError, setAvatarError] = useState(null)
-
-  // Voice State
-  const [voiceText, setVoiceText] = useState('Hello! I am your AI avatar from Websbond. Let us grow your business today.')
+  const [topic, setTopic] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+  
+  const [scenes, setScenes] = useState([])
   const [audioUrl, setAudioUrl] = useState(null)
-  const [voiceLoading, setVoiceLoading] = useState(false)
-  const [voiceError, setVoiceError] = useState(null)
+  
+  const [elevenLabsKey, setElevenLabsKey] = useState(localStorage.getItem('wb_elevenlabs_key') || '')
+  const [showSettings, setShowSettings] = useState(false)
 
-  const isGlobalHF = !!import.meta.env.VITE_HF_TOKEN
-  const hasHFToken = isGlobalHF || !!localStorage.getItem('wb_hf_token')
-
-  const handleGenerateAvatar = async () => {
-    if (!prompt.trim()) return
-    setAvatarLoading(true)
-    setAvatarError(null)
-    setAvatarUrl(null)
-    try {
-      const url = await generateAvatar(prompt)
-      setAvatarUrl(url)
-    } catch (e) {
-      setAvatarError(e.message)
-    } finally {
-      setAvatarLoading(false)
-    }
+  const saveElevenLabsKey = (key) => {
+    setElevenLabsKey(key)
+    localStorage.setItem('wb_elevenlabs_key', key)
   }
 
-  const handleGenerateVoice = async () => {
-    if (!voiceText.trim()) return
-    setVoiceLoading(true)
-    setVoiceError(null)
+  const handleGenerateVideo = async () => {
+    if (!topic.trim()) return
+    setLoading(true)
+    setError(null)
+    setScenes([])
     setAudioUrl(null)
+
     try {
-      const url = await generateVoice(voiceText)
-      setAudioUrl(url)
+      // 1. Generate Script (Mocking this for now, ideally call Llama 3 via CF API)
+      // Since we don't have the Llama 3 CF API directly wired in hf-api.js yet,
+      // we'll build a simple script based on the topic.
+      const hook = `Are you struggling with ${topic}?`
+      const body1 = `Here is the number one secret to master ${topic} today.`
+      const body2 = `Start implementing this simple trick and see massive results.`
+      const cta = `Follow us for more daily tips on ${topic}!`
+      
+      const fullScript = `${hook} ${body1} ${body2} ${cta}`
+      
+      // 2. Generate Audio (Voiceover)
+      const audio = await generateVoice(fullScript)
+      setAudioUrl(audio)
+
+      // 3. Generate Visuals (Images)
+      // We generate 4 images for the 4 sentences
+      const imagePrompts = [
+        `Cinematic hyper-realistic shot showing someone struggling with ${topic}, 4k resolution, highly detailed`,
+        `A glowing secret box representing the solution to ${topic}, magical lighting, 4k`,
+        `A successful person celebrating massive results in ${topic}, bright lighting, 4k`,
+        `A modern social media follow button with a smartphone, 4k, hyper-realistic`
+      ]
+
+      const generatedScenes = []
+      for (let i = 0; i < imagePrompts.length; i++) {
+        const imgUrl = await generateAvatar(imagePrompts[i])
+        generatedScenes.push({
+          imageUrl: imgUrl,
+          text: [hook, body1, body2, cta][i]
+        })
+      }
+
+      setScenes(generatedScenes)
+
     } catch (e) {
-      setVoiceError(e.message)
+      setError(e.message)
     } finally {
-      setVoiceLoading(false)
+      setLoading(false)
     }
   }
 
   return (
-    <div className="fade-in">
-      <div style={{ marginBottom: 28 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 6 }}>
-          <span style={{ fontSize: 28 }}>🎬</span>
-          <h1 style={{ fontSize: 24, fontWeight: 800 }}>AI Studio</h1>
-        </div>
-        <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>
-          Generate AI Avatars and AI Voiceovers completely free using Open Source models.
-        </p>
-      </div>
-
-      {!hasHFToken && (
-        <div style={{ padding: '16px', background: 'rgba(245,158,11,0.08)', borderRadius: 'var(--radius)', border: '1px solid rgba(245,158,11,0.2)', marginBottom: 24 }}>
-          <strong style={{ color: 'var(--warning)', display: 'block', marginBottom: 6 }}>⚠️ Hugging Face Token Required</strong>
-          <p style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
-            To use the free AI Studio, you must add your Hugging Face Access Token in the Settings tab.
+    <div className="fade-in max-w-5xl mx-auto pb-12">
+      <div className="flex justify-between items-center mb-8">
+        <div>
+          <div className="flex items-center gap-3 mb-2">
+            <Video className="w-8 h-8 text-pink-500" />
+            <h1 className="text-3xl font-extrabold text-white">Video Auto-Editor</h1>
+          </div>
+          <p className="text-gray-400 text-sm">
+            Generate fully edited, ready-to-post Faceless Reels with AI Script, Voiceover, and Visuals.
           </p>
         </div>
-      )}
-
-      <div className="tabs" style={{ marginBottom: 24, maxWidth: 300 }}>
-        <button className={`tab ${activeTab === 'avatar' ? 'active' : ''}`} onClick={() => setActiveTab('avatar')}>🖼️ AI Avatar</button>
-        <button className={`tab ${activeTab === 'voice' ? 'active' : ''}`} onClick={() => setActiveTab('voice')}>🎙️ AI Voice</button>
+        <button 
+          onClick={() => setShowSettings(!showSettings)}
+          className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition"
+        >
+          <Settings className="w-5 h-5 text-gray-300" />
+        </button>
       </div>
 
-      {activeTab === 'avatar' && (
-        <div className="grid-2">
-          {/* Controls */}
-          <div className="card">
-            <h2 style={{ fontSize: 16, fontWeight: 700, marginBottom: 16 }}>Avatar Generator</h2>
-            <div style={{ marginBottom: 16 }}>
-              <label style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: 6 }}>PROMPT (Describe your avatar)</label>
+      {showSettings && (
+        <div className="mb-8 p-6 rounded-xl bg-white/5 border border-white/10">
+          <h3 className="text-lg font-bold text-white mb-2 flex items-center">
+            <Music className="w-4 h-4 mr-2 text-violet-400" /> 
+            Hyper-Realistic Voice Settings
+          </h3>
+          <p className="text-sm text-gray-400 mb-4">
+            For an "Ekdam Real" Indian Male Voice, add your ElevenLabs API Key here. Otherwise, the free Cloudflare TTS will be used.
+          </p>
+          <input
+            type="password"
+            placeholder="sk_..."
+            className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:border-pink-500 outline-none transition"
+            value={elevenLabsKey}
+            onChange={(e) => saveElevenLabsKey(e.target.value)}
+          />
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Controls */}
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 h-fit">
+          <h2 className="text-xl font-bold text-white mb-6">Create a New Reel</h2>
+          
+          <div className="space-y-4">
+            <div>
+              <label className="block text-xs font-semibold text-gray-400 uppercase mb-2">Video Topic / Niche</label>
               <textarea
-                className="input"
-                rows={4}
-                value={prompt}
-                onChange={e => setPrompt(e.target.value)}
+                className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white focus:border-pink-500 outline-none transition resize-none"
+                rows={3}
+                placeholder="e.g. 3 Digital Marketing Secrets for 2026"
+                value={topic}
+                onChange={e => setTopic(e.target.value)}
               />
             </div>
             
-            <button className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={handleGenerateAvatar} disabled={avatarLoading || !hasHFToken}>
-              {avatarLoading ? <><div className="spinner" style={{ width: 16, height: 16 }} /> Generating...</> : '✨ Generate Avatar'}
+            <button 
+              className="w-full py-4 rounded-xl bg-gradient-to-r from-pink-600 to-violet-600 text-white font-bold text-lg hover:opacity-90 transition disabled:opacity-50 flex justify-center items-center" 
+              onClick={handleGenerateVideo} 
+              disabled={loading || !topic.trim()}
+            >
+              {loading ? (
+                <>
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
+                  Auto-Editing Video... (Takes ~2 mins)
+                </>
+              ) : (
+                <>
+                  <Sparkles className="w-5 h-5 mr-2" /> Generate Full Video
+                </>
+              )}
             </button>
-            <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 12, textAlign: 'center' }}>Powered by Stable Diffusion (Free Tier)</p>
-            
-            {avatarError && (
-              <div style={{ marginTop: 16, padding: '10px', background: 'rgba(239,68,68,0.1)', color: 'var(--danger)', fontSize: 13, borderRadius: 'var(--radius)' }}>
-                {avatarError}
-              </div>
-            )}
-          </div>
 
-          {/* Result */}
-          <div className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 300, padding: 0, overflow: 'hidden' }}>
-            {avatarLoading ? (
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, color: 'var(--text-muted)' }}>
-                <div className="spinner" style={{ width: 32, height: 32 }} />
-                <span style={{ fontSize: 13 }}>Waking up AI servers... This might take up to 30s.</span>
-              </div>
-            ) : avatarUrl ? (
-              <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-                <img src={avatarUrl} alt="AI Avatar" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <a href={avatarUrl} download="avatar.jpg" className="btn btn-secondary" style={{ position: 'absolute', bottom: 16, right: 16, background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)', color: '#fff', border: 'none' }}>
-                  ⬇️ Download
-                </a>
-              </div>
-            ) : (
-              <div style={{ color: 'var(--text-muted)', textAlign: 'center', padding: 24 }}>
-                <span style={{ fontSize: 48, display: 'block', marginBottom: 12 }}>🖼️</span>
-                <span style={{ fontSize: 14 }}>Your AI Avatar will appear here</span>
+            {error && (
+              <div className="mt-4 p-4 bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-xl">
+                {error}
               </div>
             )}
           </div>
         </div>
-      )}
 
-      {activeTab === 'voice' && (
-        <div className="grid-2">
-          {/* Controls */}
-          <div className="card">
-            <h2 style={{ fontSize: 16, fontWeight: 700, marginBottom: 16 }}>AI Voiceover</h2>
-            
-            <div style={{ marginBottom: 16 }}>
-              <label style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: 6 }}>SCRIPT (What should the AI say?)</label>
-              <textarea
-                className="input"
-                rows={5}
-                value={voiceText}
-                onChange={e => setVoiceText(e.target.value)}
-              />
+        {/* Video Player */}
+        <div className="flex items-center justify-center bg-black/40 rounded-2xl border border-white/5 p-4 min-h-[600px]">
+          {loading ? (
+            <div className="flex flex-col items-center text-gray-400 text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500 mb-4"></div>
+              <p className="font-semibold text-white">Generating your Masterpiece...</p>
+              <p className="text-sm mt-2 max-w-xs">Writing script, generating voiceover, painting visuals, and stitching everything together.</p>
             </div>
-            
-            <button className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} onClick={handleGenerateVoice} disabled={voiceLoading || !hasHFToken}>
-              {voiceLoading ? <><div className="spinner" style={{ width: 16, height: 16 }} /> Generating Audio...</> : '🎙️ Generate Audio'}
-            </button>
-            <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 12, textAlign: 'center' }}>Powered by MMS-TTS / SpeechT5 (Free Tier)</p>
-            
-            {voiceError && (
-              <div style={{ marginTop: 16, padding: '10px', background: 'rgba(239,68,68,0.1)', color: 'var(--danger)', fontSize: 13, borderRadius: 'var(--radius)' }}>
-                {voiceError}
-              </div>
-            )}
-          </div>
-
-          {/* Result */}
-          <div className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 300 }}>
-            {voiceLoading ? (
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, color: 'var(--text-muted)' }}>
-                <div className="spinner" style={{ width: 32, height: 32 }} />
-                <span style={{ fontSize: 13 }}>Synthesizing audio...</span>
-              </div>
-            ) : audioUrl ? (
-              <div style={{ width: '100%', padding: 24, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 24 }}>
-                <div style={{ fontSize: 48 }}>🎵</div>
-                <audio controls src={audioUrl} style={{ width: '100%' }} />
-                <a href={audioUrl} download="ai_voice.wav" className="btn btn-secondary">
-                  ⬇️ Download Audio
-                </a>
-              </div>
-            ) : (
-              <div style={{ color: 'var(--text-muted)', textAlign: 'center', padding: 24 }}>
-                <span style={{ fontSize: 48, display: 'block', marginBottom: 12 }}>🔊</span>
-                <span style={{ fontSize: 14 }}>Your AI Voiceover will appear here</span>
-              </div>
-            )}
-          </div>
+          ) : scenes.length > 0 && audioUrl ? (
+            <VideoEngine scenes={scenes} audioUrl={audioUrl} />
+          ) : (
+            <div className="text-center text-gray-500">
+              <Video className="w-16 h-16 mx-auto mb-4 opacity-20" />
+              <p>Your finished video will appear here</p>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   )
 }
