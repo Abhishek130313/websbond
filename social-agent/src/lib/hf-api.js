@@ -1,7 +1,5 @@
 // Hugging Face Inference API integration
 
-const HF_API_BASE = "https://api-inference.huggingface.co/models";
-
 function getHFToken() {
   return import.meta.env.VITE_HF_TOKEN || localStorage.getItem('wb_hf_token') || '';
 }
@@ -13,15 +11,13 @@ export async function generateAvatar(prompt) {
 
   // Using a solid free model for image generation
   const model = "stabilityai/stable-diffusion-xl-base-1.0"; 
-  const url = `${HF_API_BASE}/${model}`;
 
-  const res = await fetch(url, {
+  const res = await fetch("/api/hf", {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ inputs: prompt }),
+    body: JSON.stringify({ model, inputs: prompt }),
   });
 
   if (!res.ok) {
@@ -41,15 +37,13 @@ export async function generateVoice(text) {
   // A free TTS model. For Hindi, MMS is good, but for English/General, SpeechT5 is fast.
   // Using a fast model to avoid timeouts on free tier.
   const model = "facebook/mms-tts-hin"; 
-  const url = `${HF_API_BASE}/${model}`;
 
-  const res = await fetch(url, {
+  const res = await fetch("/api/hf", {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${token}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ inputs: text }),
+    body: JSON.stringify({ model, inputs: text }),
   });
 
   if (!res.ok) {
