@@ -1,6 +1,6 @@
 // Hugging Face Inference API integration
 
-const HF_API_BASE = "/hf-api/models";
+const HF_API_BASE = "https://api-inference.huggingface.co/models";
 
 function getHFToken() {
   return import.meta.env.VITE_HF_TOKEN || localStorage.getItem('wb_hf_token') || '';
@@ -12,7 +12,7 @@ export async function generateAvatar(prompt) {
   if (!token) throw new Error("Add Hugging Face Token in Settings");
 
   // Using a solid free model for image generation
-  const model = "stabilityai/stable-diffusion-3.5-large"; 
+  const model = "stabilityai/stable-diffusion-xl-base-1.0"; 
   const url = `${HF_API_BASE}/${model}`;
 
   const res = await fetch(url, {
