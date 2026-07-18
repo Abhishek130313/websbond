@@ -63,8 +63,7 @@ export const Hero = () => {
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden select-none"
       style={{ backgroundColor: "#030305" }}
     >
-      {/* Background Video */}
-      <LazyVideo src="/videos/hero.mp4" className="absolute inset-0 w-full h-full object-cover z-0" />
+      {/* Background Video Removed */}
 
       <div className="absolute inset-0 bg-gradient-to-r from-[#030305]/55 via-[#030305]/25 to-transparent z-0" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/30 via-transparent to-transparent z-0" />
