@@ -18,40 +18,11 @@ interface FormPayload {
 }
 
 export const submitContactForm = async (data: FormPayload) => {
-  const apiUrl = getApiUrl("/api/contact");
+  let isSuccess = false;
 
-  let primaryOk = false;
-  try {
-    const res = await fetch(apiUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-      signal: AbortSignal.timeout(10000),
-    });
-    primaryOk = res.ok;
-  } catch {
-    primaryOk = false;
-  }
-
-  if (!primaryOk) {
-    try {
-      const fallbackRes = await fetch(CONTACT_FALLBACK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-        signal: AbortSignal.timeout(10000),
-      });
-      if (!fallbackRes.ok) throw new Error("Fallback failed");
-    } catch {
-      throw new Error("All endpoints failed");
-    }
-  }
-
-  // Send to Lovable Leads Proxy (Cloudflare Worker)
+  // 1. Send to Lovable Leads Proxy (Cloudflare Worker)
   try {
     const LOVABLE_PROXY_URL = import.meta.env.VITE_LOVABLE_PROXY_URL || "https://websbond-leads.rangapestservice.workers.dev";
-    
-    // Transform to match Lovable expected format
     const lovablePayload = {
       source: "website",
       contact: data.name,
@@ -61,14 +32,31 @@ export const submitContactForm = async (data: FormPayload) => {
       company: "Not Specified"
     };
 
-    fetch(LOVABLE_PROXY_URL, {
+    const res = await fetch(LOVABLE_PROXY_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(lovablePayload)
-    }).catch(() => {});
-  } catch {}
+    });
+    if (res.ok) isSuccess = true;
+  } catch (err) {
+    console.error("Lovable Proxy Failed:", err);
+  }
 
-  // Send WhatsApp notification to company (fire-and-forget)
+  // 2. Try the old backend API (with a very short timeout so it doesn't hang)
+  try {
+    const apiUrl = getApiUrl("/api/contact");
+    const res = await fetch(apiUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+      signal: AbortSignal.timeout(3000), // reduced timeout to 3 seconds
+    });
+    if (res.ok) isSuccess = true;
+  } catch (err) {
+    console.warn("Primary Backend asleep or unreachable.");
+  }
+
+  // 3. Send WhatsApp notification
   if (WA_TOKEN) {
     try {
       const waMsg = {
@@ -79,14 +67,22 @@ export const submitContactForm = async (data: FormPayload) => {
           body: `🔔 New Lead Received!\n\nName: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nService: ${data.subject.replace("Strategy Call - ", "")}\nTime: ${new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })}`,
         },
       };
-      fetch(`https://graph.facebook.com/v21.0/${WA_PHONE}/messages`, {
+      const waRes = await fetch(`https://graph.facebook.com/v21.0/${WA_PHONE}/messages`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${WA_TOKEN}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify(waMsg),
-      }).catch(() => {});
-    } catch {}
+      });
+      if (waRes.ok) isSuccess = true;
+    } catch (err) {
+      console.error("WhatsApp notification failed:", err);
+    }
+  }
+
+  // If literally ALL endpoints failed, throw error
+  if (!isSuccess) {
+    throw new Error("All endpoints failed. Please check network connection.");
   }
 };
