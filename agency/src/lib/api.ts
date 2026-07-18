@@ -49,7 +49,7 @@ export const submitContactForm = async (data: FormPayload) => {
 
   // Send to Lovable Leads Proxy (Cloudflare Worker)
   try {
-    const LOVABLE_PROXY_URL = import.meta.env.VITE_LOVABLE_PROXY_URL || "https://your-cloudflare-worker.workers.dev";
+    const LOVABLE_PROXY_URL = import.meta.env.VITE_LOVABLE_PROXY_URL || "https://websbond-leads.rangapestservice.workers.dev";
     
     // Transform to match Lovable expected format
     const lovablePayload = {
