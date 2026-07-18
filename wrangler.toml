@@ -1,0 +1,5 @@
+name = "websbond-leads"
+main = "cloudflare-worker.js"
+compatibility_date = "2024-03-01"
+
+# We will securely set WEBSBOND_LEAD_WEBHOOK_SECRET via CLI instead of keeping it in plaintext here.
