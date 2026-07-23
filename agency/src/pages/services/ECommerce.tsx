@@ -129,7 +129,7 @@ export const ECommercePage = () => {
               </p>
               <div className="flex flex-wrap items-center gap-4 text-xs font-bold pt-2">
                 <a href="tel:+919306623619" className="btn-orange">Call Now +91 9306623619</a>
-                <a href="mailto:websbond@websbond.com" className="btn-outline">Send Email</a>
+                <a href="mailto:connect@websbond.com" className="btn-outline">Send Email</a>
               </div>
             </div>
 

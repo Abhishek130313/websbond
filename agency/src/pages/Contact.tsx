@@ -273,10 +273,10 @@ export const ContactPage = () => {
                   <div>
                     <h4 className="text-gray-400 font-bold uppercase tracking-wider text-[10px]">Write email</h4>
                     <a 
-                      href="mailto:websbond@websbond.com" 
-                      className="font-jost font-black text-lg text-[#002b49] hover:text-[#eb560c] transition-colors mt-1 block"
+                      href="mailto:connect@websbond.com" 
+                      className="text-base font-bold text-[#0F172A] dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                     >
-                      websbond@websbond.com
+                      connect@websbond.com
                     </a>
                   </div>
                 </div>

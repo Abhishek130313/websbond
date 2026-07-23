@@ -1,275 +1,108 @@
-import { useState } from "react";
-import { ArrowRight, TrendingUp, Zap, Shield, BarChart3, CheckCircle2, User, Phone, Mail, MessageCircle } from "lucide-react";
+import { useState, useEffect } from "react";
+import { MessageSquare, Send } from "lucide-react";
 import { Link } from "react-router-dom";
-import { LazyVideo } from "./LazyVideo";
-import { submitContactForm } from "@/lib/api";
-import { toast } from "@/hooks/use-toast";
+import { HexagonBadges } from "./HexagonBadges";
 
 export const Hero = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    service: "Website Design",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [focused, setFocused] = useState<string | null>(null);
+  const words = ["Web Design", "Mobile Apps", "Brand Strategy", "Digital Growth"];
+  const [wordIndex, setWordIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
-  const SERVICES = [
-    "Website Design",
-    "SEO & Ranking",
-    "Social Media Optimization",
-    "Google Ads / PPC",
-    "Social Media Marketing",
-    "App Development",
-  ];
+  useEffect(() => {
+    const currentWord = words[wordIndex];
+    const typingSpeed = isDeleting ? 35 : 70;
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.email) {
-      toast({
-        title: "Fields Required",
-        description: "Please fill in your Name, Phone, and Email.",
-        variant: "destructive",
-      });
-      return;
-    }
-    setIsSubmitting(true);
-    try {
-      await submitContactForm({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        subject: "Strategy Call - " + formData.service,
-        message: "Requested Service: " + formData.service,
-      });
-      toast({
-        title: "Strategy Call Booked! 🎉",
-        description: "Thank you! Our team will contact you within 24 hours.",
-      });
-      setFormData({ name: "", phone: "", email: "", service: "Website Design" });
-    } catch {
-      toast({
-        title: "Submission Failed",
-        description: "Please try again or call us directly at +91 9306623619.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        setDisplayText(currentWord.substring(0, displayText.length + 1));
+        if (displayText === currentWord) {
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        setDisplayText(currentWord.substring(0, displayText.length - 1));
+        if (displayText === "") {
+          setIsDeleting(false);
+          setWordIndex((prev) => (prev + 1) % words.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, wordIndex]);
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden select-none"
-      style={{ backgroundColor: "#030305" }}
-    >
-      {/* Background Video Removed */}
+    <section className="relative w-full bg-[#F8FAFC] pt-36 md:pt-44 pb-16 md:pb-24 select-none overflow-hidden text-center border-b border-slate-200/80">
+      {/* Background Soft Ambient Light */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-indigo-500/8 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/3 w-[550px] h-[300px] bg-cyan-400/8 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-[#030305]/55 via-[#030305]/25 to-transparent z-0" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#030305]/30 via-transparent to-transparent z-0" />
+      <div className="max-w-4xl mx-auto px-6 relative z-10 flex flex-col items-center">
 
-      <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-amber-500/8 blur-[150px] pointer-events-none z-0" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-indigo-500/12 blur-[120px] pointer-events-none z-0" />
-      <div className="absolute top-1/2 right-1/3 w-[300px] h-[300px] rounded-full bg-rose-500/5 blur-[100px] pointer-events-none z-0" />
+        {/* Subtitle Eyebrow Line (Larger & Prominent) */}
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[34px] font-semibold text-slate-800 tracking-tight mb-4 font-sans leading-tight">
+          Global Digital Partner For
+        </h2>
 
-      <div className="max-w-7xl w-full mx-auto px-6 md:px-8 relative z-10 pt-36 lg:pt-44 pb-24">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Main Title (Creative Cursive/Italic Serif Accent for Animated Word) */}
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[52px] font-medium text-slate-900 leading-[1.25] tracking-tight mb-6 max-w-4xl font-sans">
+          <span>Digital Marketing & </span>
+          <span 
+            className="inline-block whitespace-nowrap italic font-bold text-[#4B2874] dark:text-indigo-600 px-1.5"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          >
+            {displayText}
+          </span>
+          <span className="animate-pulse text-indigo-600 font-light ml-0.5">|</span>
+        </h1>
 
-          {/* ── Left Column ── */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left hero-fu">
-            <div className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/[0.08] rounded-full px-4 py-1.5 text-[11px] text-zinc-300 font-semibold mb-6 tracking-wide backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-              Delhi NCR's Premium Digital Agency
-            </div>
+        {/* Subheadline Description */}
+        <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mb-6 font-normal">
+          We engineer high-speed web platforms, performance marketing campaigns, and data-driven growth strategies that convert visitors into loyal clients.
+        </p>
 
-            <h1 className="font-extrabold text-white mb-5 leading-[1.05] tracking-[-0.04em] font-jost"
-              style={{
-                fontSize: "clamp(40px, 5.5vw, 72px)",
-                textShadow: "0 4px 40px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.4)",
-              }}>
-              We Build{" "}
-              <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-rose-400 bg-clip-text text-transparent">
-                Digital Growth
-              </span>
-              {" "}Machines
-            </h1>
+        {/* 5 Hexagon Award Badges (Matching Screenshot 5) */}
+        <HexagonBadges />
 
-            <p className="text-zinc-200 text-base md:text-[17px] leading-relaxed mb-8 max-w-xl font-medium drop-shadow-2xl" style={{ textShadow: "0 2px 20px rgba(0,0,0,0.6)" }}>
-              From high-performance websites to SEO that actually ranks — we engineer digital products that drive revenue, not just likes.
-            </p>
+        {/* Dual Action CTA Capsule */}
+        <div className="inline-flex items-center p-1.5 rounded-full bg-slate-900 text-white shadow-lg shadow-slate-900/10 mb-7 max-w-md w-full sm:w-auto">
+          <button
+            onClick={() => document.getElementById("contact-section")?.scrollIntoView({ behavior: "smooth" })}
+            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm transition-all duration-200"
+          >
+            <Send className="w-3.5 h-3.5" />
+            <span>Request Proposal</span>
+          </button>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-10">
-              <button
-                onClick={() => document.getElementById("contact-section")?.scrollIntoView({ behavior: "smooth" })}
-                className="btn-primary py-4 px-8 text-white font-bold flex items-center justify-center gap-2 group shadow-xl shadow-indigo-500/15 hover:shadow-indigo-500/25 hover:-translate-y-0.5 transition-all duration-300 rounded-xl text-sm"
-              >
-                Book Free Strategy Call
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-              </button>
+          <span className="w-7 h-7 rounded-full bg-slate-800 text-indigo-300 font-bold text-[10px] flex items-center justify-center mx-1.5 shrink-0 border border-slate-700">
+            OR
+          </span>
 
-              <Link
-                to="/case-studies"
-                className="py-4 px-8 rounded-xl border border-white/10 hover:border-white/20 bg-white/[0.03] hover:bg-white/[0.07] text-zinc-300 hover:text-white font-semibold text-center transition-all duration-200 backdrop-blur-sm text-sm"
-              >
-                View Our Work →
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-medium text-zinc-400 w-full max-w-xl">
-              {[
-                { icon: Zap, label: "100/100 PageSpeed" },
-                { icon: Shield, label: "Rank Guarantee" },
-                { icon: TrendingUp, label: "ROI Focused" },
-                { icon: BarChart3, label: "Data Driven" },
-              ].map(({ icon: Icon, label }) => (
-                <span key={label} className="flex items-center gap-1.5 hover:text-amber-200 transition-colors">
-                  <Icon className="w-3.5 h-3.5 text-amber-400" />
-                  {label}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* ── Right Column: Premium Lead Form ── */}
-          <div className="lg:col-span-5 hidden lg:flex items-start justify-center hero-fu-1 lg:sticky lg:top-32">
-            <div className="relative w-full max-w-[420px]">
-              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/15 to-cyan-500/15 rounded-[2.5rem] blur-2xl animate-glow" />
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/5 via-cyan-500/5 to-purple-500/5 rounded-[2rem] blur-3xl" />
-
-              <div className="relative bg-[#09090b]/95 border border-white/[0.06] backdrop-blur-3xl rounded-[2rem] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.7)]">
-                {/* Header */}
-                <div className="px-6 py-5 border-b border-white/[0.03] bg-gradient-to-r from-white/[0.02] to-transparent">
-                  <div className="flex items-center gap-3 mb-1">
-                    <div className="relative">
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
-                        <MessageCircle className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-[#09090b]" />
-                    </div>
-                    <div>
-                      <span className="text-sm font-bold text-white">Free Strategy Session</span>
-                      <p className="text-[10px] text-zinc-500">Get a custom growth roadmap — no obligation.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <form onSubmit={handleSubmit} className="p-6 space-y-3.5">
-                  {/* Name */}
-                  <div className="relative">
-                    <label htmlFor="hero-name" className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "name" ? "text-amber-400" : "text-zinc-500"}`}>
-                      Full Name
-                    </label>
-                    <div className="relative">
-                      <User className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors duration-300 ${focused === "name" ? "text-amber-400" : "text-zinc-600"}`} />
-                      <input
-                        id="hero-name"
-                        type="text"
-                        required
-                        placeholder="Your name"
-                        value={formData.name}
-                        onFocus={() => setFocused("name")}
-                        onBlur={() => setFocused(null)}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-[#18181b] border border-white/[0.06] rounded-xl pl-9 pr-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Phone */}
-                  <div className="relative">
-                    <label htmlFor="hero-phone" className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "phone" ? "text-amber-400" : "text-zinc-500"}`}>
-                      Phone Number
-                    </label>
-                    <div className="relative">
-                      <Phone className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors duration-300 ${focused === "phone" ? "text-amber-400" : "text-zinc-600"}`} />
-                      <input
-                        id="hero-phone"
-                        type="tel"
-                        required
-                        placeholder="+91 XXXXX XXXXX"
-                        value={formData.phone}
-                        onFocus={() => setFocused("phone")}
-                        onBlur={() => setFocused(null)}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-[#18181b] border border-white/[0.06] rounded-xl pl-9 pr-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Email */}
-                  <div className="relative">
-                    <label htmlFor="hero-email" className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "email" ? "text-amber-400" : "text-zinc-500"}`}>
-                      Email Address
-                    </label>
-                    <div className="relative">
-                      <Mail className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors duration-300 ${focused === "email" ? "text-amber-400" : "text-zinc-600"}`} />
-                      <input
-                        id="hero-email"
-                        type="email"
-                        required
-                        placeholder="name@company.com"
-                        value={formData.email}
-                        onFocus={() => setFocused("email")}
-                        onBlur={() => setFocused(null)}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-[#18181b] border border-white/[0.06] rounded-xl pl-9 pr-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Service */}
-                  <div className="relative">
-                    <label htmlFor="hero-service" className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 block transition-colors duration-300 ${focused === "service" ? "text-amber-400" : "text-zinc-500"}`}>
-                      I'm interested in
-                    </label>
-                    <select
-                      id="hero-service"
-                      value={formData.service}
-                      onFocus={() => setFocused("service")}
-                      onBlur={() => setFocused(null)}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full bg-[#18181b] border border-white/[0.06] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
-                    >
-                      {SERVICES.map((srv) => (
-                        <option key={srv} value={srv} className="bg-zinc-900 text-white">{srv}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-amber-500 to-orange-600 py-3.5 px-6 rounded-xl text-white font-bold flex items-center justify-center gap-2 group transition-all duration-300 disabled:opacity-60 hover:brightness-110 hover:shadow-lg hover:shadow-amber-500/25 active:scale-[0.98] text-sm mt-1 relative overflow-hidden"
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                    {isSubmitting ? (
-                      <>
-                        <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                        </svg>
-                        Submitting...
-                      </>
-                    ) : (
-                      <>
-                        Claim Your Free Session
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </>
-                    )}
-                  </button>
-
-                  <div className="flex items-center justify-center gap-3 text-[10px] text-zinc-600 pt-1">
-                    <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-green-500/60" /> No spam</span>
-                    <span className="w-1 h-1 rounded-full bg-zinc-700" />
-                    <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-green-500/60" /> Response within 24h</span>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-
+          <a
+            href="https://wa.me/919306623619"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm transition-all duration-200"
+          >
+            <MessageSquare className="w-3.5 h-3.5 text-emerald-400 fill-current" />
+            <span>Chat on WhatsApp</span>
+          </a>
         </div>
+
+        {/* Sub-Navigation Pill Bar */}
+        <div className="inline-flex items-center gap-5 px-5 py-2 rounded-full bg-white border border-slate-200 shadow-xs text-xs font-semibold text-slate-600">
+          <Link to="/our-portfolio" className="hover:text-indigo-600 transition-colors">Our Projects</Link>
+          <span className="w-1 h-1 rounded-full bg-slate-300" />
+          <a href="#featured-projects" className="hover:text-indigo-600 transition-colors">Client Work</a>
+          <span className="w-1 h-1 rounded-full bg-slate-300" />
+          <Link to="/contact-us" className="hover:text-indigo-600 transition-colors">Contact Us</Link>
+        </div>
+
       </div>
     </section>
   );
 };
+
+
+
+

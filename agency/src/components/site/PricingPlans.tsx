@@ -151,7 +151,7 @@ export const PricingPlans = () => {
       {/* Support text below pricing */}
       <div className="text-center mt-12 text-xs text-slate-500 flex items-center justify-center gap-1.5">
         <HelpCircle className="w-4 h-4 text-slate-600" />
-        <span>Have custom enterprise requirements? Contact us at <a href="mailto:websbond@websbond.com" className="text-slate-400 hover:text-white transition-colors">websbond@websbond.com</a> or Call/WhatsApp +91 9306623619.</span>
+        <span>Have custom enterprise requirements? Contact us at <a href="mailto:connect@websbond.com" className="text-slate-400 hover:text-white transition-colors">connect@websbond.com</a> or Call/WhatsApp +91 9306623619.</span>
       </div>
     </section>
   );

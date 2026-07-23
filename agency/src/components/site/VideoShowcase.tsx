@@ -5,27 +5,27 @@ import { useState } from "react";
 const VIDEOS = [
   {
     id: "placeholder",
-    name: "Rajesh Kumar",
-    role: "Business Owner, Delhi",
-    thumb: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80",
+    name: "Dr. Geeta Kadayaprath",
+    role: "Max Healthcare & Founder, Breast Cancer Clinic",
+    thumb: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&auto=format&fit=crop&q=80",
   },
   {
     id: "placeholder",
-    name: "Sunita Mehta",
-    role: "Healthcare Clinic, Gurgaon",
-    thumb: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&auto=format&fit=crop&q=80",
+    name: "Dr. Sawan Bopanna",
+    role: "Senior Consultant Gastroenterology, Delhi",
+    thumb: "https://images.unsplash.com/photo-1607990283143-e81e7a2c93ab?w=400&auto=format&fit=crop&q=80",
   },
   {
     id: "placeholder",
-    name: "Priya Sharma",
-    role: "E-Commerce Brand, NCR",
-    thumb: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&auto=format&fit=crop&q=80",
+    name: "Dr. Archit Pandit",
+    role: "Surgical Oncology, MAX Institute of Cancer Care",
+    thumb: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&auto=format&fit=crop&q=80",
   },
   {
     id: "placeholder",
-    name: "Dr. Anil Gupta",
-    role: "Medical Practice, Delhi",
-    thumb: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&auto=format&fit=crop&q=80",
+    name: "Dr. Surender Dabas",
+    role: "Chief Surgical Oncology, BLK-Max Cancer Center",
+    thumb: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&auto=format&fit=crop&q=80",
   },
 ];
 

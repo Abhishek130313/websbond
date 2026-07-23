@@ -92,13 +92,13 @@ export const ContactSection = () => {
                 </div>
               </a>
 
-              <a href="mailto:websbond@websbond.com" className="flex items-center gap-3.5 text-zinc-300 hover:text-cyan-400 transition-colors group">
-                <span className="p-3 bg-white/5 rounded-xl border border-white/10 text-cyan-400 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/10 transition-all duration-300">
-                  <Mail className="w-5 h-5" />
-                </span>
+              <a href="mailto:connect@websbond.com" className="flex items-center gap-3.5 text-zinc-300 hover:text-cyan-400 transition-colors group">
+                <div className="w-10 h-10 rounded-xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-500 group-hover:text-zinc-950 transition-all shrink-0">
+                  <Mail className="w-4 h-4" />
+                </div>
                 <div>
-                  <p className="text-xs text-zinc-500 uppercase font-bold tracking-wider">Email Us</p>
-                  <p className="text-base font-semibold">websbond@websbond.com</p>
+                  <p className="text-xs text-zinc-400 font-medium">Email Us</p>
+                  <p className="text-base font-semibold">connect@websbond.com</p>
                 </div>
               </a>
             </div>

@@ -18,6 +18,7 @@ const AdminPage = lazy(() => import("./pages/Admin.tsx").then(m => ({ default: m
 const BlogAdminPage = lazy(() => import("./pages/BlogAdmin.tsx").then(m => ({ default: m.BlogAdminPage })));
 
 // Service Detail Pages
+const DigitalMarketingPage = lazy(() => import("./pages/services/DigitalMarketing.tsx"));
 const SEOPage = lazy(() => import("./pages/services/SEO.tsx"));
 const SMOPage = lazy(() => import("./pages/services/SMO.tsx"));
 const SMMPage = lazy(() => import("./pages/services/SMM.tsx"));
@@ -63,7 +64,12 @@ const App = () => (
             <Route path="/our-work" element={<OurWorkPage />} />
             <Route path="/our-portfolio" element={<OurWorkPage />} />
             
-            {/* Service Detail Pages */}
+            {/* Digital Marketing Page & Service Detail Pages */}
+            <Route path="/digital-marketing-agency" element={<DigitalMarketingPage />} />
+            <Route path="/digital-marketing" element={<DigitalMarketingPage />} />
+            <Route path="/marketing" element={<DigitalMarketingPage />} />
+            <Route path="/marketing-services" element={<DigitalMarketingPage />} />
+            <Route path="/digital-marketing-services" element={<DigitalMarketingPage />} />
             <Route path="/seo-service-in-delhi" element={<SEOPage />} />
             <Route path="/smo-service-in-delhi" element={<SMOPage />} />
             <Route path="/smm-service-in-delhi" element={<SMMPage />} />

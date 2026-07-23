@@ -183,7 +183,7 @@ export const PaymentPage = () => {
                     </p>
                     <div>
                       <span className="text-gray-400 font-bold uppercase tracking-wide text-[10px] block mb-1">PayPal Billing Email</span>
-                      <span className="font-bold text-[#002b49] text-base select-all">websbond@websbond.com</span>
+                      <span className="font-bold text-[#002b49] text-base select-all">connect@websbond.com</span>
                     </div>
                   </div>
 
