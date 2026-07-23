@@ -8,9 +8,9 @@ export const HexagonBadges = () => {
       title: "Top Web Design Company"
     },
     {
-      src: "/badges/badge_googlepartner.jpg",
-      alt: "Google Partner Verified Agency",
-      title: "Google Partner"
+      src: "/badges/badge_aipowered.jpg",
+      alt: "AI Powered AI Automation Smart Solutions",
+      title: "AI Powered Smart Solutions"
     },
     {
       src: "/badges/badge_fullservice.jpg",
@@ -30,17 +30,17 @@ export const HexagonBadges = () => {
   ];
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 my-8 max-w-4xl mx-auto px-4 select-none">
+    <div className="flex flex-nowrap items-center justify-center gap-1.5 sm:gap-4 md:gap-5 my-6 sm:my-8 w-full max-w-5xl mx-auto px-2 select-none overflow-x-auto no-scrollbar">
       {badgeImages.map((badge, idx) => (
         <div
           key={idx}
-          className="group relative flex items-center justify-center w-[100px] sm:w-[125px] md:w-[135px] transition-transform duration-300 hover:scale-110 cursor-pointer"
+          className="group relative flex items-center justify-center w-[62px] xs:w-[72px] sm:w-[120px] md:w-[135px] shrink-0 sm:shrink transition-transform duration-300 hover:scale-110 cursor-pointer"
         >
           <img
             src={badge.src}
             alt={badge.alt}
             title={badge.title}
-            className="w-full h-auto object-contain rounded-2xl drop-shadow-md group-hover:drop-shadow-xl transition-all duration-300 mix-blend-multiply"
+            className="w-full h-auto object-contain rounded-xl sm:rounded-2xl drop-shadow-md group-hover:drop-shadow-xl transition-all duration-300 mix-blend-multiply"
             loading="eager"
           />
         </div>
