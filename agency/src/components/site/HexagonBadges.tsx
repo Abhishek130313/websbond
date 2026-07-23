@@ -4,31 +4,31 @@ import { Link } from "react-router-dom";
 export const HexagonBadges = () => {
   const serviceBadges = [
     {
-      src: "/badges/badge_webdesign.jpg",
+      src: "/badges/badge_webdesign.png",
       alt: "WebsBond Custom Web & E-Commerce Development Service",
       title: "Web & E-Commerce Development",
       link: "/website-design-service-in-delhi"
     },
     {
-      src: "/badges/badge_aipowered.jpg",
+      src: "/badges/badge_aipowered.png",
       alt: "WebsBond Smart AI & Workflow Automation Solutions",
       title: "AI & Automation Solutions",
       link: "/digital-marketing-services"
     },
     {
-      src: "/badges/badge_fullservice.jpg",
+      src: "/badges/badge_fullservice.png",
       alt: "WebsBond High ROI Performance PPC & Google Ads Services",
       title: "Performance PPC & Google Ads",
       link: "/google-ads-services"
     },
     {
-      src: "/badges/badge_speed100.jpg",
+      src: "/badges/badge_speed100.png",
       alt: "WebsBond Rank #1 SEO & Organic Search Dominance",
       title: "SEO & Organic Search Dominance",
       link: "/seo-service-in-delhi"
     },
     {
-      src: "/badges/badge_topseo.jpg",
+      src: "/badges/badge_topseo.png",
       alt: "WebsBond 360° Digital Marketing & Brand Strategy Services",
       title: "360° Digital Marketing & Branding",
       link: "/digital-marketing-agency"
