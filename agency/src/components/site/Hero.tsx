@@ -90,12 +90,12 @@ export const Hero = () => {
         </div>
 
         {/* Sub-Navigation Pill Bar */}
-        <div className="inline-flex items-center gap-5 px-5 py-2 rounded-full bg-white border border-slate-200 shadow-xs text-xs font-semibold text-slate-600">
-          <Link to="/our-portfolio" className="hover:text-indigo-600 transition-colors">Our Projects</Link>
-          <span className="w-1 h-1 rounded-full bg-slate-300" />
-          <a href="#featured-projects" className="hover:text-indigo-600 transition-colors">Client Work</a>
-          <span className="w-1 h-1 rounded-full bg-slate-300" />
-          <Link to="/contact-us" className="hover:text-indigo-600 transition-colors">Contact Us</Link>
+        <div className="inline-flex items-center gap-5 px-5 py-2.5 rounded-full bg-white border border-[#4B2874]/20 shadow-xs text-xs font-bold text-[#4B2874]">
+          <Link to="/our-portfolio" className="hover:opacity-80 transition-opacity">Our Projects</Link>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#4B2874]/40" />
+          <a href="#featured-projects" className="hover:opacity-80 transition-opacity">Client Work</a>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#4B2874]/40" />
+          <Link to="/contact-us" className="hover:opacity-80 transition-opacity">Contact Us</Link>
         </div>
 
       </div>
