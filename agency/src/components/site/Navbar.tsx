@@ -83,45 +83,45 @@ export const Navbar = () => {
   return (
     <div className="w-full fixed top-0 left-0 z-50 bg-[#FAF9FF] shadow-xs">
       {/* Top Slim Utility Bar (Reference Style) */}
-      <div className="border-b border-slate-200/70 bg-[#FAF9FF] text-slate-700 text-[12px] py-1.5 hidden md:block">
+      <div className="border-b border-[#4B2874]/15 bg-[#FAF9FF] text-[12px] py-1.5 hidden md:block">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           {/* Left: Contact Info */}
-          <div className="flex items-center gap-5 font-semibold text-slate-800">
-            <a href="tel:+919306623619" className="flex items-center gap-1.5 hover:text-indigo-600 transition-colors">
-              <Phone className="w-3.5 h-3.5 text-indigo-700 fill-indigo-700/20" />
+          <div className="flex items-center gap-5 font-bold text-[#4B2874]">
+            <a href="tel:+919306623619" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+              <Phone className="w-3.5 h-3.5 text-[#4B2874] fill-[#4B2874]/20" />
               <span>+91 9306623619</span>
             </a>
-            <span className="text-slate-300">|</span>
-            <a href="mailto:connect@websbond.com" className="flex items-center gap-1.5 hover:text-indigo-600 transition-colors">
-              <Mail className="w-3.5 h-3.5 text-indigo-600" />
+            <span className="text-[#4B2874]/30">|</span>
+            <a href="mailto:connect@websbond.com" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+              <Mail className="w-3.5 h-3.5 text-[#4B2874]" />
               <span>connect@websbond.com</span>
             </a>
           </div>
 
           {/* Right: Quick Links + Social Icons + Free Audit Pill */}
-          <div className="flex items-center gap-4 font-semibold text-slate-700">
-            <Link to="/about-us" className="hover:text-indigo-600 transition-colors">About Us</Link>
-            <span className="text-slate-300">|</span>
-            <Link to="/about-us" className="hover:text-indigo-600 transition-colors">Our Team</Link>
-            <span className="text-slate-300">|</span>
-            <Link to="/blog" className="hover:text-indigo-600 transition-colors">Blog</Link>
-            <span className="text-slate-300">|</span>
+          <div className="flex items-center gap-4 font-bold text-[#4B2874]">
+            <Link to="/about-us" className="hover:opacity-80 transition-opacity">About Us</Link>
+            <span className="text-[#4B2874]/30">|</span>
+            <Link to="/about-us" className="hover:opacity-80 transition-opacity">Our Team</Link>
+            <span className="text-[#4B2874]/30">|</span>
+            <Link to="/blog" className="hover:opacity-80 transition-opacity">Blog</Link>
+            <span className="text-[#4B2874]/30">|</span>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-2.5 text-slate-600">
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-indigo-600 transition-colors">
+            <div className="flex items-center gap-2.5 text-[#4B2874]">
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:opacity-80 transition-opacity">
                 <Facebook className="w-3.5 h-3.5 fill-current" />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="hover:text-indigo-600 transition-colors">
+              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="hover:opacity-80 transition-opacity">
                 <Youtube className="w-3.5 h-3.5 fill-current" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-indigo-600 transition-colors">
+              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:opacity-80 transition-opacity">
                 <Twitter className="w-3.5 h-3.5 fill-current" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-indigo-600 transition-colors">
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:opacity-80 transition-opacity">
                 <Instagram className="w-3.5 h-3.5" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-indigo-600 transition-colors">
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:opacity-80 transition-opacity">
                 <Linkedin className="w-3.5 h-3.5 fill-current" />
               </a>
             </div>
