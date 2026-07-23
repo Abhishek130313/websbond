@@ -40,7 +40,7 @@ export const HexagonBadges = () => {
             src={badge.src}
             alt={badge.alt}
             title={badge.title}
-            className="w-full h-auto object-contain rounded-xl sm:rounded-2xl drop-shadow-md group-hover:drop-shadow-xl transition-all duration-300 mix-blend-multiply"
+            className="w-full h-auto object-contain rounded-xl sm:rounded-2xl filter drop-shadow-md group-hover:drop-shadow-2xl group-hover:-translate-y-1 transition-all duration-300"
             loading="eager"
           />
         </div>
