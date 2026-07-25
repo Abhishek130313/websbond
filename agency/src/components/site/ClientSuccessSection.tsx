@@ -20,6 +20,9 @@ const LEFT_SERVICES = [
     color: "text-indigo-600",
     bg: "bg-indigo-50",
     border: "border-indigo-200",
+    borderLeft: "!border-l-indigo-500",
+    glow: "bg-indigo-200/60",
+    titleColor: "text-indigo-700",
   },
   {
     title: "Search Engine Optimization (SEO)",
@@ -28,6 +31,9 @@ const LEFT_SERVICES = [
     color: "text-orange-600",
     bg: "bg-orange-50",
     border: "border-orange-200",
+    borderLeft: "!border-l-orange-500",
+    glow: "bg-orange-200/60",
+    titleColor: "text-orange-700",
   },
   {
     title: "Google Ads Management",
@@ -36,6 +42,9 @@ const LEFT_SERVICES = [
     color: "text-amber-600",
     bg: "bg-amber-50",
     border: "border-amber-200",
+    borderLeft: "!border-l-amber-500",
+    glow: "bg-amber-200/60",
+    titleColor: "text-amber-700",
   },
 ];
 
@@ -47,6 +56,9 @@ const RIGHT_SERVICES = [
     color: "text-purple-600",
     bg: "bg-purple-50",
     border: "border-purple-200",
+    borderLeft: "!border-l-purple-500",
+    glow: "bg-purple-200/60",
+    titleColor: "text-purple-700",
   },
   {
     title: "Social Media Marketing",
@@ -55,6 +67,9 @@ const RIGHT_SERVICES = [
     color: "text-emerald-600",
     bg: "bg-emerald-50",
     border: "border-emerald-200",
+    borderLeft: "!border-l-emerald-500",
+    glow: "bg-emerald-200/60",
+    titleColor: "text-emerald-700",
   },
   {
     title: "Analytics & Performance",
@@ -63,16 +78,19 @@ const RIGHT_SERVICES = [
     color: "text-teal-600",
     bg: "bg-teal-50",
     border: "border-teal-200",
+    borderLeft: "!border-l-teal-500",
+    glow: "bg-teal-200/60",
+    titleColor: "text-teal-700",
   },
 ];
 
 const WHY_CHOOSE = [
-  { icon: Code, label: "Custom Website Design & Development" },
-  { icon: Search, label: "Local SEO & Google Ranking Experts" },
-  { icon: CircleDollarSign, label: "Pay-Per-Click (PPC) Advertising" },
-  { icon: Users, label: "Lead Generation & Conversion Optimization" },
-  { icon: Target, label: "Ongoing Support & Growth Partnership" },
-  { icon: ShieldCheck, label: "Transparent Reporting & Real Results" },
+  { icon: Code, label: "Custom Website Design & Development", color: "text-indigo-600", hoverBorder: "hover:border-indigo-300" },
+  { icon: Search, label: "Local SEO & Google Ranking Experts", color: "text-orange-600", hoverBorder: "hover:border-orange-300" },
+  { icon: CircleDollarSign, label: "Pay-Per-Click (PPC) Advertising", color: "text-amber-600", hoverBorder: "hover:border-amber-300" },
+  { icon: Users, label: "Lead Generation & Conversion Optimization", color: "text-emerald-600", hoverBorder: "hover:border-emerald-300" },
+  { icon: Target, label: "Ongoing Support & Growth Partnership", color: "text-purple-600", hoverBorder: "hover:border-purple-300" },
+  { icon: ShieldCheck, label: "Transparent Reporting & Real Results", color: "text-teal-600", hoverBorder: "hover:border-teal-300" },
 ];
 
 const CORE_SERVICES_LEFT = [
@@ -165,23 +183,26 @@ export const ClientSuccessSection = () => {
         </div>
       </section>
 
-      {/* ═══════════════  PART 2: Exact Reference 1 Design — Radial Mindmap  ═══════════════ */}
-      <section className="py-14 md:py-20 bg-gradient-to-b from-[#F8F6FC] via-white to-[#F8F6FC] text-slate-900 select-none relative overflow-hidden border-b border-purple-100/60">
+      {/* ═══════════════  PART 2: Colourful Radial Mindmap — Reference 1 Exact  ═══════════════ */}
+      <section className="py-14 md:py-20 bg-gradient-to-b from-[#F5F0FF] via-white to-[#F0F4FF] text-slate-900 select-none relative overflow-hidden border-b border-purple-100/60">
 
-        {/* Ambient Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-purple-100/60 rounded-full blur-3xl pointer-events-none" />
+        {/* Multi-colour Ambient Glow Orbs */}
+        <div className="absolute top-0 left-1/4 w-80 h-80 bg-purple-200/50 rounded-full blur-3xl pointer-events-none animate-pulse" />
+        <div className="absolute top-20 right-10 w-64 h-64 bg-orange-100/40 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-72 h-72 bg-emerald-100/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-60 h-60 bg-blue-100/30 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
           {/* ── Section Header ── */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#552782] bg-white px-4 py-1.5 rounded-full mb-4 border border-purple-200/60 shadow-xs">
-              <Star className="w-3.5 h-3.5 text-purple-500" />
+            <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#552782] bg-gradient-to-r from-purple-50 to-indigo-50 px-4 py-1.5 rounded-full mb-4 border border-purple-200/60 shadow-sm">
+              <Star className="w-3.5 h-3.5 text-amber-500" />
               End-to-End Digital Solutions
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold text-[#1E1238] tracking-tight leading-tight font-sans mb-3">
               Complete Digital Solutions{" "}
-              <span className="font-montserrat font-black italic text-[#552782] block sm:inline">
+              <span className="font-montserrat font-black italic bg-gradient-to-r from-[#552782] via-[#7C3AED] to-[#3B82F6] bg-clip-text text-transparent block sm:inline">
                 to Grow Your Business
               </span>
             </h2>
@@ -192,20 +213,20 @@ export const ClientSuccessSection = () => {
           </div>
 
           {/* ── Radial Layout: Left Cards | Central Hub | Right Cards ── */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-0 items-center max-w-6xl mx-auto mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-0 items-center max-w-6xl mx-auto mb-14">
 
             {/* Left Column: 3 Service Cards */}
-            <div className="flex flex-col gap-5 lg:pr-6">
+            <div className="flex flex-col gap-5 lg:pr-4">
               {LEFT_SERVICES.map((srv) => {
                 const Icon = srv.icon;
                 return (
-                  <div key={srv.title} className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs hover:shadow-lg hover:border-purple-300 transition-all duration-300 transform-gpu hover:-translate-y-1 group flex items-start gap-3.5 relative overflow-hidden">
-                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-purple-100/40 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                    <div className={`w-10 h-10 rounded-xl ${srv.bg} ${srv.color} flex items-center justify-center shrink-0 border ${srv.border} group-hover:scale-110 transition-transform`}>
+                  <div key={srv.title} className={`bg-white rounded-2xl p-4 sm:p-5 border-l-4 ${srv.borderLeft} border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] group flex items-start gap-3.5 relative overflow-hidden`}>
+                    <div className={`absolute -top-6 -right-6 w-20 h-20 ${srv.glow} rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none`} />
+                    <div className={`w-11 h-11 rounded-xl ${srv.bg} ${srv.color} flex items-center justify-center shrink-0 border ${srv.border} group-hover:scale-110 group-hover:rotate-3 transition-all shadow-sm`}>
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-extrabold text-[#1E1238] mb-1 tracking-tight">{srv.title}</h4>
+                      <h4 className={`text-sm font-extrabold ${srv.titleColor} mb-1 tracking-tight`}>{srv.title}</h4>
                       <p className="text-xs text-slate-600 leading-relaxed font-jost">{srv.desc}</p>
                     </div>
                   </div>
@@ -213,49 +234,54 @@ export const ClientSuccessSection = () => {
               })}
             </div>
 
-            {/* Central Hub Circle */}
+            {/* Central Hub Circle with Gradient Rings */}
             <div className="flex items-center justify-center py-6 lg:py-0">
               <div className="relative">
-                {/* Outer Ring */}
-                <div className="w-56 h-56 sm:w-64 sm:h-64 rounded-full border-2 border-dashed border-purple-300/60 flex items-center justify-center relative">
+                {/* Outer Glow Ring */}
+                <div className="absolute inset-0 w-60 h-60 sm:w-68 sm:h-68 rounded-full bg-gradient-to-br from-purple-200/40 via-transparent to-blue-200/40 blur-md -m-2 pointer-events-none" />
+                
+                {/* Outer Dashed Ring */}
+                <div className="w-56 h-56 sm:w-64 sm:h-64 rounded-full flex items-center justify-center relative" style={{ border: '2.5px dashed transparent', backgroundImage: 'linear-gradient(white,white), linear-gradient(135deg, #8B5CF6, #3B82F6, #10B981, #F59E0B, #EF4444, #8B5CF6)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
                   {/* Inner Circle */}
-                  <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-[#1E1238] via-[#2B1550] to-[#421A78] flex flex-col items-center justify-center text-center text-white shadow-2xl border-4 border-purple-400/20 relative z-10">
-                    {/* WB Logo Text */}
-                    <span className="font-montserrat font-black text-3xl sm:text-4xl tracking-tighter text-white/90 leading-none">
-                      W<span className="text-purple-300">B</span>
+                  <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-[#1E1238] via-[#2B1550] to-[#421A78] flex flex-col items-center justify-center text-center text-white shadow-[0_0_40px_rgba(85,39,130,0.4)] border-4 border-purple-400/30 relative z-10">
+                    <span className="font-montserrat font-black text-3xl sm:text-4xl tracking-tighter text-white leading-none">
+                      W<span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">B</span>
                     </span>
-                    <span className="font-montserrat font-extrabold text-xs sm:text-sm tracking-wider text-white/80 mt-1">
+                    <span className="font-montserrat font-extrabold text-xs sm:text-sm tracking-wider text-white/90 mt-1">
                       WEBSBOND
                     </span>
-                    <span className="text-[9px] text-purple-200/70 mt-1 font-jost tracking-wide">
+                    <span className="text-[9px] text-purple-200/80 mt-1 font-jost tracking-wide">
                       Web Design • Marketing • Growth
                     </span>
-                    <span className="text-[8.5px] text-amber-300/80 font-bold mt-0.5 tracking-wider">
+                    <span className="text-[8.5px] bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent font-bold mt-0.5 tracking-wider">
                       One Team. One Strategy. Real Results
                     </span>
                   </div>
 
-                  {/* Animated Orbiting Dots */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-indigo-500 rounded-full shadow-md animate-pulse" />
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3 h-3 bg-amber-500 rounded-full shadow-md animate-pulse" />
-                  <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-orange-500 rounded-full shadow-md animate-pulse" />
-                  <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-emerald-500 rounded-full shadow-md animate-pulse" />
+                  {/* Colourful Orbiting Dots */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full shadow-lg shadow-indigo-500/50 animate-pulse" />
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3.5 h-3.5 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full shadow-lg shadow-amber-500/50 animate-pulse" />
+                  <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-gradient-to-br from-orange-500 to-red-500 rounded-full shadow-lg shadow-orange-500/50 animate-pulse" />
+                  <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full shadow-lg shadow-emerald-500/50 animate-pulse" />
+                  {/* Extra corner dots for richness */}
+                  <div className="absolute top-[15%] left-[10%] w-2.5 h-2.5 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full shadow-md animate-pulse opacity-80" />
+                  <div className="absolute bottom-[15%] right-[10%] w-2.5 h-2.5 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full shadow-md animate-pulse opacity-80" />
                 </div>
               </div>
             </div>
 
             {/* Right Column: 3 Service Cards */}
-            <div className="flex flex-col gap-5 lg:pl-6">
+            <div className="flex flex-col gap-5 lg:pl-4">
               {RIGHT_SERVICES.map((srv) => {
                 const Icon = srv.icon;
                 return (
-                  <div key={srv.title} className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-xs hover:shadow-lg hover:border-purple-300 transition-all duration-300 transform-gpu hover:-translate-y-1 group flex items-start gap-3.5 relative overflow-hidden">
-                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-purple-100/40 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                    <div className={`w-10 h-10 rounded-xl ${srv.bg} ${srv.color} flex items-center justify-center shrink-0 border ${srv.border} group-hover:scale-110 transition-transform`}>
+                  <div key={srv.title} className={`bg-white rounded-2xl p-4 sm:p-5 border-l-4 ${srv.borderLeft} border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] group flex items-start gap-3.5 relative overflow-hidden`}>
+                    <div className={`absolute -top-6 -right-6 w-20 h-20 ${srv.glow} rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none`} />
+                    <div className={`w-11 h-11 rounded-xl ${srv.bg} ${srv.color} flex items-center justify-center shrink-0 border ${srv.border} group-hover:scale-110 group-hover:-rotate-3 transition-all shadow-sm`}>
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-extrabold text-[#1E1238] mb-1 tracking-tight">{srv.title}</h4>
+                      <h4 className={`text-sm font-extrabold ${srv.titleColor} mb-1 tracking-tight`}>{srv.title}</h4>
                       <p className="text-xs text-slate-600 leading-relaxed font-jost">{srv.desc}</p>
                     </div>
                   </div>
@@ -274,8 +300,8 @@ export const ClientSuccessSection = () => {
             {WHY_CHOOSE.map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.label} className="bg-white border border-slate-200/80 rounded-xl px-3 py-3 flex items-center gap-2 shadow-xs hover:shadow-md hover:border-purple-300 transition-all duration-200 group">
-                  <Icon className="w-4 h-4 text-[#552782] shrink-0 group-hover:scale-110 transition-transform" />
+                <div key={item.label} className={`bg-white border border-slate-200/80 rounded-xl px-3 py-3 flex items-center gap-2 shadow-xs hover:shadow-md transition-all duration-200 group ${item.hoverBorder}`}>
+                  <Icon className={`w-4 h-4 ${item.color} shrink-0 group-hover:scale-110 transition-transform`} />
                   <span className="text-[10px] sm:text-[11px] font-bold text-slate-700 leading-tight">{item.label}</span>
                 </div>
               );
