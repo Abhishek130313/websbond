@@ -19,34 +19,22 @@ const LEFT_SERVICES = [
     title: "Website Design & Development",
     desc: "Modern, responsive and SEO-friendly websites that turn visitors into customers.",
     icon: Monitor,
-    color: "text-indigo-600",
-    bg: "bg-indigo-50",
-    border: "border-indigo-200",
-    borderLeft: "!border-l-indigo-500",
-    glow: "bg-indigo-200/60",
-    titleColor: "text-indigo-700",
+    badgeBg: "bg-[#5B21B6]", // Solid Purple/Indigo Circle
+    titleColor: "text-[#5B21B6]",
   },
   {
     title: "Search Engine Optimization (SEO)",
     desc: "Improve search rankings, drive organic traffic and grow your online visibility.",
     icon: Search,
-    color: "text-orange-600",
-    bg: "bg-orange-50",
-    border: "border-orange-200",
-    borderLeft: "!border-l-orange-500",
-    glow: "bg-orange-200/60",
-    titleColor: "text-orange-700",
+    badgeBg: "bg-[#E11D48]", // Solid Magenta/Pink Circle
+    titleColor: "text-[#E11D48]",
   },
   {
     title: "Google Ads Management",
     desc: "Run high-converting ad campaigns that bring instant leads and measurable business results.",
     icon: Megaphone,
-    color: "text-amber-600",
-    bg: "bg-amber-50",
-    border: "border-amber-200",
-    borderLeft: "!border-l-amber-500",
-    glow: "bg-amber-200/60",
-    titleColor: "text-amber-700",
+    badgeBg: "bg-[#F97316]", // Solid Orange Circle
+    titleColor: "text-[#F97316]",
   },
 ];
 
@@ -55,34 +43,22 @@ const RIGHT_SERVICES = [
     title: "Content Marketing",
     desc: "Create valuable content that builds trust, strengthens your brand and drives consistent traffic.",
     icon: FileText,
-    color: "text-purple-600",
-    bg: "bg-purple-50",
-    border: "border-purple-200",
-    borderLeft: "!border-l-purple-500",
-    glow: "bg-purple-200/60",
-    titleColor: "text-purple-700",
+    badgeBg: "bg-[#7C3AED]", // Solid Violet/Purple Circle
+    titleColor: "text-[#7C3AED]",
   },
   {
     title: "Social Media Marketing",
     desc: "Engage your audience, build brand awareness and grow your community across all major platforms.",
     icon: Share2,
-    color: "text-emerald-600",
-    bg: "bg-emerald-50",
-    border: "border-emerald-200",
-    borderLeft: "!border-l-emerald-500",
-    glow: "bg-emerald-200/60",
-    titleColor: "text-emerald-700",
+    badgeBg: "bg-[#2563EB]", // Solid Blue Circle
+    titleColor: "text-[#2563EB]",
   },
   {
     title: "Analytics & Performance",
     desc: "Track performance, analyze data and optimize strategies to maximize your growth and ROI.",
     icon: BarChart3,
-    color: "text-teal-600",
-    bg: "bg-teal-50",
-    border: "border-teal-200",
-    borderLeft: "!border-l-teal-500",
-    glow: "bg-teal-200/60",
-    titleColor: "text-teal-700",
+    badgeBg: "bg-[#0D9488]", // Solid Teal Circle
+    titleColor: "text-[#0D9488]",
   },
 ];
 
@@ -215,29 +191,28 @@ export const ClientSuccessSection = () => {
           </div>
 
           {/* ── Radial Layout: Left Cards | Central Hub | Right Cards ── */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-0 items-center max-w-6xl mx-auto mb-14">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-center max-w-6xl mx-auto mb-14 relative">
 
-            {/* Left Column: 3 Service Cards */}
-            <div className="flex flex-col gap-5 lg:pr-4">
+            {/* Left Column: 3 Service Cards with Solid Circular Icon Badges */}
+            <div className="flex flex-col gap-6 lg:pr-2 z-10">
               {LEFT_SERVICES.map((srv) => {
                 const Icon = srv.icon;
                 return (
-                  <div key={srv.title} className={`bg-white rounded-2xl p-4 sm:p-5 border-l-4 ${srv.borderLeft} border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] group flex items-start gap-3.5 relative overflow-hidden`}>
-                    <div className={`absolute -top-6 -right-6 w-20 h-20 ${srv.glow} rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none`} />
-                    <div className={`w-11 h-11 rounded-xl ${srv.bg} ${srv.color} flex items-center justify-center shrink-0 border ${srv.border} group-hover:scale-110 group-hover:rotate-3 transition-all shadow-sm`}>
-                      <Icon className="w-5 h-5" />
+                  <div key={srv.title} className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100/90 shadow-sm hover:shadow-xl transition-all duration-300 transform-gpu hover:-translate-y-1 group flex items-start gap-4 relative overflow-hidden">
+                    <div className={`w-12 h-12 sm:w-13 sm:h-13 rounded-full ${srv.badgeBg} text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform`}>
+                      <Icon className="w-6 h-6 stroke-[2]" />
                     </div>
                     <div>
-                      <h4 className={`text-sm font-extrabold ${srv.titleColor} mb-1 tracking-tight`}>{srv.title}</h4>
-                      <p className="text-xs text-slate-600 leading-relaxed font-jost">{srv.desc}</p>
+                      <h4 className={`text-base font-extrabold ${srv.titleColor} mb-1.5 tracking-tight font-sans`}>{srv.title}</h4>
+                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-jost font-normal">{srv.desc}</p>
                     </div>
                   </div>
                 );
               })}
             </div>
 
-            {/* Central Hub Circle (Reference Image 2 Exact Style) */}
-            <div className="flex items-center justify-center py-6 lg:py-0">
+            {/* Central Hub Circle (Reference Image 1 & 2 Exact Style) */}
+            <div className="flex items-center justify-center py-6 lg:py-0 z-10">
               <div className="relative">
                 {/* Outer Glow */}
                 <div className="absolute inset-0 w-72 h-72 sm:w-80 sm:h-80 -m-4 rounded-full bg-purple-200/40 blur-2xl pointer-events-none animate-pulse" />
@@ -273,7 +248,7 @@ export const ClientSuccessSection = () => {
                     </span>
                   </div>
 
-                  {/* 6 Connected Dots Around Ring (Image 2 Exact Dots) */}
+                  {/* 6 Connected Dots Around Ring (Image 1 & 2 Exact Dots) */}
                   <div className="absolute top-[12%] left-[12%] w-4 h-4 bg-purple-600 rounded-full border-2 border-white shadow-md" />
                   <div className="absolute top-[50%] -left-2 -translate-y-1/2 w-4 h-4 bg-pink-500 rounded-full border-2 border-white shadow-md" />
                   <div className="absolute bottom-[12%] left-[12%] w-4 h-4 bg-orange-500 rounded-full border-2 border-white shadow-md" />
@@ -285,19 +260,18 @@ export const ClientSuccessSection = () => {
               </div>
             </div>
 
-            {/* Right Column: 3 Service Cards */}
-            <div className="flex flex-col gap-5 lg:pl-4">
+            {/* Right Column: 3 Service Cards with Solid Circular Icon Badges */}
+            <div className="flex flex-col gap-6 lg:pl-2 z-10">
               {RIGHT_SERVICES.map((srv) => {
                 const Icon = srv.icon;
                 return (
-                  <div key={srv.title} className={`bg-white rounded-2xl p-4 sm:p-5 border-l-4 ${srv.borderLeft} border border-slate-200/70 shadow-sm hover:shadow-xl transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] group flex items-start gap-3.5 relative overflow-hidden`}>
-                    <div className={`absolute -top-6 -right-6 w-20 h-20 ${srv.glow} rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none`} />
-                    <div className={`w-11 h-11 rounded-xl ${srv.bg} ${srv.color} flex items-center justify-center shrink-0 border ${srv.border} group-hover:scale-110 group-hover:-rotate-3 transition-all shadow-sm`}>
-                      <Icon className="w-5 h-5" />
+                  <div key={srv.title} className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100/90 shadow-sm hover:shadow-xl transition-all duration-300 transform-gpu hover:-translate-y-1 group flex items-start gap-4 relative overflow-hidden">
+                    <div className={`w-12 h-12 sm:w-13 sm:h-13 rounded-full ${srv.badgeBg} text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform`}>
+                      <Icon className="w-6 h-6 stroke-[2]" />
                     </div>
                     <div>
-                      <h4 className={`text-sm font-extrabold ${srv.titleColor} mb-1 tracking-tight`}>{srv.title}</h4>
-                      <p className="text-xs text-slate-600 leading-relaxed font-jost">{srv.desc}</p>
+                      <h4 className={`text-base font-extrabold ${srv.titleColor} mb-1.5 tracking-tight font-sans`}>{srv.title}</h4>
+                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-jost font-normal">{srv.desc}</p>
                     </div>
                   </div>
                 );
