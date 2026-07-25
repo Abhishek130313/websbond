@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { 
   Globe, TrendingUp, UserCheck, Smartphone, Search, 
-  Server, CheckCircle2, Sparkles, ArrowRight, X 
+  Server, CheckCircle2, Sparkles, X 
 } from "lucide-react";
 
 /* ────────────────────────────────────────────────────────────
  * WebDesignFeatureGrid
- * Interactive 6-Tab Showcase with detail cards, high-res mockups,
- * and bottom floating pill navigation bar.
+ * Interactive 6-Tab Showcase with distinct light color themes,
+ * mouse cursor hover switching, and floating pill navigation bar.
  * ──────────────────────────────────────────────────────────── */
 
 const TABS = [
@@ -17,6 +17,10 @@ const TABS = [
     title: "Stronger Online Presence",
     icon: Globe,
     subtitle: "Custom React & Fast Engineering",
+    badgeBg: "bg-indigo-600 text-white",
+    cardBg: "bg-gradient-to-br from-indigo-50/80 via-purple-50/40 to-white",
+    activeCardBg: "bg-gradient-to-br from-[#1E1238] via-[#2B144E] to-[#3B1568] text-white shadow-xl scale-[1.03] border border-indigo-400/60",
+    hoverBorder: "hover:border-indigo-300",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
     description: "Your website is the first impression your business makes. If your site is old, buggy, slow, or not mobile-friendly, customers bounce before you even talk to them. Having a professionally engineered website increases trust, boosts credibility, and puts you ahead of competitors. At WebsBond, we build fast, clean, and conversion-oriented websites tailored for growth.",
     highlights: ["Increased brand credibility & trust", "Sub-second core web vitals speed", "Designed for maximum customer engagement"],
@@ -26,6 +30,10 @@ const TABS = [
     title: "More Leads & Sales",
     icon: TrendingUp,
     subtitle: "Conversion Rate Optimization (CRO)",
+    badgeBg: "bg-rose-500 text-white",
+    cardBg: "bg-gradient-to-br from-rose-50/80 via-pink-50/40 to-white",
+    activeCardBg: "bg-gradient-to-br from-[#881337] via-[#9F1239] to-[#BE123C] text-white shadow-xl scale-[1.03] border border-rose-400/60",
+    hoverBorder: "hover:border-rose-300",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
     description: "Traffic alone doesn't grow your business — conversions do. We design every page with strategic call-to-action buttons, intuitive user journeys, and persuasive lead forms that convert passive visitors into paying customers. Whether you need more phone calls, form fills, or ecommerce orders, our websites act as 24/7 lead generation engines.",
     highlights: ["Strategic CTA placements & funnels", "Instant lead capture & CRM integrations", "Higher conversion rates across all devices"],
@@ -35,6 +43,10 @@ const TABS = [
     title: "Improved User Experience",
     icon: UserCheck,
     subtitle: "Intuitive UI/UX Design System",
+    badgeBg: "bg-emerald-600 text-white",
+    cardBg: "bg-gradient-to-br from-emerald-50/80 via-teal-50/40 to-white",
+    activeCardBg: "bg-gradient-to-br from-[#064E3B] via-[#047857] to-[#059669] text-white shadow-xl scale-[1.03] border border-emerald-400/60",
+    hoverBorder: "hover:border-emerald-300",
     image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=800&auto=format&fit=crop&q=80",
     description: "Confusing navigation or clutter drives potential clients away. We craft ultra-smooth visual hierarchy, crystal-clear typography, and intuitive micro-interactions that make browsing your site effortless. Users stay longer, engage deeper, and complete actions faster on websites designed with modern UX principles.",
     highlights: ["Smooth micro-animations & transitions", "Clean visual hierarchy & modern typography", "Accessibility & fast navigation layout"],
@@ -44,6 +56,10 @@ const TABS = [
     title: "Responsive Design",
     icon: Smartphone,
     subtitle: "Mobile-First Fluid Layouts",
+    badgeBg: "bg-blue-600 text-white",
+    cardBg: "bg-gradient-to-br from-blue-50/80 via-sky-50/40 to-white",
+    activeCardBg: "bg-gradient-to-br from-[#1E3A8A] via-[#1E40AF] to-[#2563EB] text-white shadow-xl scale-[1.03] border border-blue-400/60",
+    hoverBorder: "hover:border-blue-300",
     image: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=800&auto=format&fit=crop&q=80",
     description: "Over 70% of web traffic comes from smartphones. Our mobile-first design philosophy ensures your website looks stunning, loads instantaneously, and functions flawlessly on every screen size — from iPhones and Android tablets to ultra-wide 4K desktop monitors.",
     highlights: ["100% responsive fluid grid system", "Touch-optimized buttons & mobile menus", "Zero cumulative layout shift (CLS)"],
@@ -53,6 +69,10 @@ const TABS = [
     title: "SEO Optimized Web Pages",
     icon: Search,
     subtitle: "First-Page Search Engine Rankings",
+    badgeBg: "bg-amber-500 text-white",
+    cardBg: "bg-gradient-to-br from-amber-50/80 via-orange-50/40 to-white",
+    activeCardBg: "bg-gradient-to-br from-[#78350F] via-[#92400E] to-[#B45309] text-white shadow-xl scale-[1.03] border border-amber-400/60",
+    hoverBorder: "hover:border-amber-300",
     image: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=800&auto=format&fit=crop&q=80",
     description: "What good is a beautiful website if no one can find it? We build SEO into the foundational codebase — implementing schema markup, semantic HTML5, optimized page titles, meta tags, and high-speed assets so Google indexes and ranks your business at the top of local and national search results.",
     highlights: ["Clean SEO code architecture & schema", "Local SEO & Google Maps pack ready", "Fast indexing & targeted keyword optimization"],
@@ -62,6 +82,10 @@ const TABS = [
     title: "Scalable & Easy To Manage",
     icon: Server,
     subtitle: "Future-Proof Modern Architecture",
+    badgeBg: "bg-purple-600 text-white",
+    cardBg: "bg-gradient-to-br from-purple-50/80 via-violet-50/40 to-white",
+    activeCardBg: "bg-gradient-to-br from-[#3B0764] via-[#581C87] to-[#6D28D9] text-white shadow-xl scale-[1.03] border border-purple-400/60",
+    hoverBorder: "hover:border-purple-300",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80",
     description: "As your business grows, your website should scale effortlessly with you. We engineer clean, modular web platforms that allow easy content updates, seamless third-party API integrations, and enterprise-grade security without needing expensive technical maintenance.",
     highlights: ["Modular reusable component structure", "Seamless API & CRM integrations", "Enterprise-grade security & zero downtime"],
@@ -102,7 +126,7 @@ export const WebDesignFeatureGrid = () => {
         {/* ── Interactive 2-Column Grid ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch max-w-6xl mx-auto mb-10">
 
-          {/* Left Column: 6 Interactive Selectable Cards (2x3 Grid) */}
+          {/* Left Column: 6 Interactive Selectable Cards with Mouse Hover Switching */}
           <div className="lg:col-span-5 grid grid-cols-2 gap-3.5">
             {TABS.map((tab, idx) => {
               const IconComp = tab.icon;
@@ -111,18 +135,19 @@ export const WebDesignFeatureGrid = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(idx)}
+                  onMouseEnter={() => setActiveTab(idx)}
                   className={`p-4 sm:p-5 rounded-2xl text-center flex flex-col items-center justify-center transition-all duration-300 transform-gpu cursor-pointer relative overflow-hidden group ${
                     isActive
-                      ? "bg-[#20103A] text-white shadow-xl scale-[1.02] border border-purple-500/40"
-                      : "bg-white text-slate-800 border border-purple-100/90 shadow-2xs hover:shadow-md hover:border-purple-300 hover:bg-purple-50/40"
+                      ? tab.activeCardBg
+                      : `${tab.cardBg} text-slate-800 border border-slate-200/80 shadow-2xs hover:shadow-xl ${tab.hoverBorder} hover:-translate-y-1`
                   }`}
                 >
                   {/* Icon Badge */}
                   <div
-                    className={`w-11 h-11 rounded-xl flex items-center justify-center mb-3 transition-colors ${
+                    className={`w-11 h-11 rounded-full flex items-center justify-center mb-3 transition-all shadow-sm ${
                       isActive
-                        ? "bg-purple-600/40 text-purple-200 border border-purple-400/30"
-                        : "bg-purple-50 text-[#552782] border border-purple-100 group-hover:bg-[#552782] group-hover:text-white"
+                        ? "bg-white/20 text-white backdrop-blur-sm"
+                        : `${tab.badgeBg} group-hover:scale-110 group-hover:rotate-3`
                     }`}
                   >
                     <IconComp className="w-5 h-5 stroke-[2]" />
@@ -137,7 +162,7 @@ export const WebDesignFeatureGrid = () => {
 
                   {/* Active Indicator Bar */}
                   {isActive && (
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-b-2xl" />
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/40 rounded-b-2xl" />
                   )}
                 </button>
               );
