@@ -156,7 +156,7 @@ export const AboutSection = () => {
               </span>
             </div>
 
-            <h3 className="font-montserrat font-extrabold italic text-4xl sm:text-5xl md:text-[54px] text-[#552782] tracking-tight leading-tight mb-3">
+            <h3 className="font-montserrat font-extrabold italic text-2xl sm:text-3xl md:text-4xl text-[#552782] tracking-tight leading-tight mb-3">
               Code. Rank. Convert.
             </h3>
 
