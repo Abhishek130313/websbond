@@ -61,56 +61,85 @@ export const ClientSuccessSection = () => {
 
           </div>
 
-          {/* Right Column: Clean Floating Logo Grid (Exact Reference Style) */}
+          {/* Right Column: Spacious 3D Showcase Card Grid with Floating Hover Animations */}
           <div className="lg:col-span-5 w-full">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4">
+            <div className="bg-white/80 backdrop-blur-xl p-5 sm:p-7 rounded-3xl border border-purple-100/90 shadow-2xl relative">
               
-              {/* Card 1 */}
-              <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 flex flex-col items-center justify-center text-center h-20 group">
-                <span className="font-black text-base text-[#231244] tracking-tight group-hover:scale-105 transition-transform">
-                  Hollywood<span className="text-amber-500">✦</span>
-                </span>
-                <span className="text-[9px] font-semibold text-slate-400">Media & Ent.</span>
+              {/* Header Label */}
+              <div className="flex items-center justify-between mb-5 border-b border-purple-100 pb-3">
+                <span className="text-xs font-extrabold text-slate-500 uppercase tracking-widest">Featured Client Portfolio</span>
+                <span className="text-xs font-bold text-purple-900 bg-purple-100/80 px-3 py-1 rounded-full shadow-2xs">Verified Brands</span>
               </div>
 
-              {/* Card 2 */}
-              <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 flex flex-col items-center justify-center text-center h-20 group">
-                <span className="font-extrabold text-xs text-rose-700 tracking-tight group-hover:scale-105 transition-transform">
-                  A1 PAINTING
-                </span>
-                <span className="text-[8px] font-bold text-slate-500">EPOXY SERVICES</span>
-              </div>
+              {/* 6 Spacious 3D Showcase Cards Grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
+                
+                {/* Card 1 */}
+                <div className="relative bg-gradient-to-b from-white via-white to-purple-50/40 p-5 rounded-3xl border border-purple-100/80 shadow-md hover:shadow-2xl transition-all duration-300 transform-gpu hover:-translate-y-2 hover:rotate-1 hover:scale-[1.04] flex flex-col items-center justify-center text-center h-28 sm:h-32 group cursor-pointer overflow-hidden">
+                  <div className="absolute -bottom-2 inset-x-4 h-3 bg-purple-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="font-black text-base sm:text-lg text-[#1E1238] tracking-tight group-hover:text-[#552782] transition-colors leading-tight">
+                    Hollywood<span className="text-amber-500">✦</span>
+                  </span>
+                  <span className="text-[10px] sm:text-xs font-semibold text-slate-400 mt-1 uppercase tracking-wider group-hover:text-purple-700 transition-colors">
+                    Media & Ent.
+                  </span>
+                </div>
 
-              {/* Card 3 */}
-              <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 flex flex-col items-center justify-center text-center h-20 group">
-                <span className="font-extrabold text-xs text-amber-800 tracking-tight group-hover:scale-105 transition-transform">
-                  Access2Wellbeing
-                </span>
-                <span className="text-[8px] font-semibold text-slate-400">Healthcare</span>
-              </div>
+                {/* Card 2 */}
+                <div className="relative bg-gradient-to-b from-white via-white to-rose-50/40 p-5 rounded-3xl border border-rose-100/80 shadow-md hover:shadow-2xl transition-all duration-300 transform-gpu hover:-translate-y-2 hover:-rotate-1 hover:scale-[1.04] flex flex-col items-center justify-center text-center h-28 sm:h-32 group cursor-pointer overflow-hidden">
+                  <div className="absolute -bottom-2 inset-x-4 h-3 bg-rose-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="font-extrabold text-xs sm:text-sm text-rose-700 tracking-tight group-hover:scale-105 transition-transform leading-tight">
+                    A1 PAINTING
+                  </span>
+                  <span className="text-[9px] sm:text-[10px] font-bold text-slate-500 mt-1 tracking-wider">
+                    EPOXY SERVICES
+                  </span>
+                </div>
 
-              {/* Card 4 */}
-              <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 flex flex-col items-center justify-center text-center h-20 group">
-                <span className="font-black text-sm text-teal-800 tracking-tight group-hover:scale-105 transition-transform">
-                  ArtValue
-                </span>
-                <span className="text-[9px] font-semibold text-slate-400">Creative Agency</span>
-              </div>
+                {/* Card 3 */}
+                <div className="relative bg-gradient-to-b from-white via-white to-amber-50/40 p-5 rounded-3xl border border-amber-100/80 shadow-md hover:shadow-2xl transition-all duration-300 transform-gpu hover:-translate-y-2 hover:rotate-1 hover:scale-[1.04] flex flex-col items-center justify-center text-center h-28 sm:h-32 group cursor-pointer overflow-hidden">
+                  <div className="absolute -bottom-2 inset-x-4 h-3 bg-amber-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="font-extrabold text-xs sm:text-sm text-amber-800 tracking-tight group-hover:scale-105 transition-transform leading-tight">
+                    Access2Wellbeing
+                  </span>
+                  <span className="text-[10px] sm:text-xs font-semibold text-slate-400 mt-1">
+                    Healthcare
+                  </span>
+                </div>
 
-              {/* Card 5 */}
-              <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 flex flex-col items-center justify-center text-center h-20 group">
-                <span className="font-extrabold text-xs text-slate-900 tracking-tight group-hover:scale-105 transition-transform">
-                  AUTO TYRE
-                </span>
-                <span className="text-[8px] font-bold text-amber-600">WHEELS CENTRE</span>
-              </div>
+                {/* Card 4 */}
+                <div className="relative bg-gradient-to-b from-white via-white to-teal-50/40 p-5 rounded-3xl border border-teal-100/80 shadow-md hover:shadow-2xl transition-all duration-300 transform-gpu hover:-translate-y-2 hover:-rotate-1 hover:scale-[1.04] flex flex-col items-center justify-center text-center h-28 sm:h-32 group cursor-pointer overflow-hidden">
+                  <div className="absolute -bottom-2 inset-x-4 h-3 bg-teal-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="font-black text-sm sm:text-base text-teal-800 tracking-tight group-hover:scale-105 transition-transform leading-tight">
+                    ArtValue
+                  </span>
+                  <span className="text-[10px] sm:text-xs font-semibold text-slate-400 mt-1">
+                    Creative Agency
+                  </span>
+                </div>
 
-              {/* Card 6 */}
-              <div className="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 flex flex-col items-center justify-center text-center h-20 group">
-                <span className="font-extrabold text-xs text-[#231244] tracking-tight group-hover:scale-105 transition-transform">
-                  BILLER PRESS
-                </span>
-                <span className="text-[8px] font-semibold text-slate-400">Publishing</span>
+                {/* Card 5 */}
+                <div className="relative bg-gradient-to-b from-white via-white to-slate-50/50 p-5 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-2xl transition-all duration-300 transform-gpu hover:-translate-y-2 hover:rotate-1 hover:scale-[1.04] flex flex-col items-center justify-center text-center h-28 sm:h-32 group cursor-pointer overflow-hidden">
+                  <div className="absolute -bottom-2 inset-x-4 h-3 bg-slate-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="font-extrabold text-xs sm:text-sm text-slate-900 tracking-tight group-hover:scale-105 transition-transform leading-tight">
+                    AUTO TYRE
+                  </span>
+                  <span className="text-[9px] sm:text-[10px] font-bold text-amber-600 mt-1 tracking-wider">
+                    WHEELS CENTRE
+                  </span>
+                </div>
+
+                {/* Card 6 */}
+                <div className="relative bg-gradient-to-b from-white via-white to-indigo-50/40 p-5 rounded-3xl border border-indigo-100/80 shadow-md hover:shadow-2xl transition-all duration-300 transform-gpu hover:-translate-y-2 hover:-rotate-1 hover:scale-[1.04] flex flex-col items-center justify-center text-center h-28 sm:h-32 group cursor-pointer overflow-hidden">
+                  <div className="absolute -bottom-2 inset-x-4 h-3 bg-indigo-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="font-extrabold text-xs sm:text-sm text-[#231244] tracking-tight group-hover:scale-105 transition-transform leading-tight">
+                    BILLER PRESS
+                  </span>
+                  <span className="text-[10px] sm:text-xs font-semibold text-slate-400 mt-1">
+                    Publishing
+                  </span>
+                </div>
+
               </div>
 
             </div>
