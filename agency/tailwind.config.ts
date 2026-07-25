@@ -9,11 +9,12 @@ export default {
     container: { center: true, padding: "1.5rem", screens: { "2xl": "1310px" } },
     extend: {
       fontFamily: {
-        sans:    ['"Inter"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
-        display: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans:       ['"Inter"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+        display:    ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        montserrat: ['"Montserrat"', 'sans-serif'],
         /* Legacy compat */
-        jost:    ['"Inter"', 'sans-serif'],
-        kumbh:   ['"Inter"', 'sans-serif'],
+        jost:       ['"Inter"', 'sans-serif'],
+        kumbh:      ['"Inter"', 'sans-serif'],
       },
       colors: {
         border:     "hsl(var(--border) / <alpha-value>)",

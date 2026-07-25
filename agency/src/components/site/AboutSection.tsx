@@ -77,7 +77,7 @@ export const AboutSection = () => {
             </span>
 
             {/* Main SEO Headline */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-950 tracking-tight leading-[1.18] mb-6 font-jost">
+            <h2 className="font-montserrat font-semibold italic text-2xl sm:text-3xl md:text-3xl lg:text-[34px] text-slate-950 tracking-tight leading-tight mb-5">
               Our offbeat <span className="text-purple-800">Marketing & Web solutions</span> drive dollars to your bank accounts.
             </h2>
 
