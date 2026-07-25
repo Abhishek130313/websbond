@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, User, Phone, Mail, Pencil, Users, Rocket, Code, Star } from "lucide-react";
 import { submitContactForm } from "@/lib/api";
 import { toast } from "@/hooks/use-toast";
 
@@ -144,98 +144,133 @@ export const AboutSection = () => {
 
         </div>
 
-        {/* ── Bottom Section: Proposal Request & Strategic Growth Highlights (Exact Image 1 Style) ── */}
-        <div id="contact-section" className="py-6 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        {/* ── Bottom Section: Exact User Reference Mockup Design ── */}
+        <div id="contact-section" className="py-6 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative">
           
-          {/* Left Side: Performance Metrics & Value Proposition (Unique Professional Websbond Copy) */}
+          {/* Left Side: Headline + Description + 4 Vertical Divided Stats */}
           <div className="lg:col-span-6">
-            <span className="text-lg sm:text-xl md:text-[25px] font-extrabold text-[#231244] tracking-tight block mb-2.5 font-sans leading-snug">
-              Accelerate Your Digital Revenue With India’s Elite Growth Agency
-            </span>
+            <div className="flex items-center gap-2.5 mb-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#552782] shrink-0" />
+              <span className="text-xl sm:text-2xl md:text-[26px] font-extrabold text-[#1A0E2E] tracking-tight font-sans">
+                India's Elite Digital Growth Partner
+              </span>
+            </div>
 
-            <h3 className="font-montserrat font-black italic text-3xl sm:text-4xl md:text-[48px] text-[#582582] mb-8 leading-[1.12] tracking-tight">
-              Build High. Rank #1. Scale Multi-Fold.
+            <h3 className="font-montserrat font-extrabold italic text-4xl sm:text-5xl md:text-[54px] text-[#552782] tracking-tight leading-tight mb-3">
+              Code. Rank. Convert.
             </h3>
 
-            <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-2">
-              <div>
-                <div className="text-2xl sm:text-3xl md:text-[36px] font-black text-[#231244] font-sans tracking-tight">7,500,000+</div>
-                <div className="text-xs sm:text-sm font-extrabold text-slate-700 mt-1">Leads Driven</div>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8 max-w-lg font-normal">
+              We build digital experiences that rank higher, generate leads, and grow your business.
+            </p>
+
+            <div className="grid grid-cols-4 gap-2 sm:gap-4 pt-2">
+              {/* Stat 1 */}
+              <div className="border-r border-slate-200/80 pr-2 sm:pr-3">
+                <div className="w-10 h-10 rounded-2xl bg-purple-100/70 text-purple-700 flex items-center justify-center mb-3">
+                  <Users className="w-5 h-5" />
+                </div>
+                <div className="text-xl sm:text-2xl font-black text-[#1A0E2E] font-sans">55+</div>
+                <div className="text-[11px] sm:text-xs font-semibold text-slate-600 mt-0.5 leading-tight">Leads Driven</div>
               </div>
-              <div>
-                <div className="text-2xl sm:text-3xl md:text-[36px] font-black text-[#231244] font-sans tracking-tight">5,000+</div>
-                <div className="text-xs sm:text-sm font-extrabold text-slate-700 mt-1">Projects Completed</div>
+
+              {/* Stat 2 */}
+              <div className="border-r border-slate-200/80 pr-2 sm:pr-3">
+                <div className="w-10 h-10 rounded-2xl bg-sky-100/70 text-sky-600 flex items-center justify-center mb-3">
+                  <Rocket className="w-5 h-5" />
+                </div>
+                <div className="text-xl sm:text-2xl font-black text-[#1A0E2E] font-sans">5+</div>
+                <div className="text-[11px] sm:text-xs font-semibold text-slate-600 mt-0.5 leading-tight">Projects Live and Delivered</div>
               </div>
+
+              {/* Stat 3 */}
+              <div className="border-r border-slate-200/80 pr-2 sm:pr-3">
+                <div className="w-10 h-10 rounded-2xl bg-emerald-100/70 text-emerald-600 flex items-center justify-center mb-3">
+                  <Code className="w-5 h-5" />
+                </div>
+                <div className="text-xl sm:text-2xl font-black text-[#1A0E2E] font-sans">10+</div>
+                <div className="text-[11px] sm:text-xs font-semibold text-slate-600 mt-0.5 leading-tight">Projects are in Engineering</div>
+              </div>
+
+              {/* Stat 4 */}
               <div>
-                <div className="text-2xl sm:text-3xl md:text-[36px] font-black text-[#231244] font-sans tracking-tight">10+</div>
-                <div className="text-xs sm:text-sm font-extrabold text-slate-700 mt-1">Years Experience</div>
+                <div className="w-10 h-10 rounded-2xl bg-amber-100/70 text-amber-600 flex items-center justify-center mb-3">
+                  <Star className="w-5 h-5" />
+                </div>
+                <div className="text-xl sm:text-2xl font-black text-[#1A0E2E] font-sans">4.9/5</div>
+                <div className="text-[11px] sm:text-xs font-semibold text-slate-600 mt-0.5 leading-tight">Rating on Google</div>
               </div>
             </div>
           </div>
 
-          {/* Right Side: Thin & Wide Form Card (Exact Image 1 Design) */}
-          <div className="lg:col-span-6 bg-white p-5 sm:p-7 rounded-2xl border border-purple-100/60 shadow-xl w-full">
-            <form onSubmit={handleSubmit} className="space-y-3">
-              {/* Row 1: Name & Phone */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
+          {/* Right Side: Exact Form Card matching reference image */}
+          <div className="lg:col-span-6 bg-white p-6 sm:p-8 rounded-3xl border border-purple-100/80 shadow-2xl w-full max-w-lg ml-auto">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Row 1: Name & Phone with inside icons */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="relative flex items-center">
+                  <User className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none" />
                   <input
                     type="text"
                     required
                     placeholder="Name*"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-[#FAFAFC] border border-slate-200/90 rounded-lg px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-purple-600 focus:bg-white font-medium"
+                    className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-3.5 py-3 text-xs text-slate-900 focus:outline-none focus:border-purple-600 font-medium shadow-2xs"
                   />
                 </div>
-                <div>
+                <div className="relative flex items-center">
+                  <Phone className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none" />
                   <input
                     type="tel"
                     required
                     placeholder="Phone No*"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-[#FAFAFC] border border-slate-200/90 rounded-lg px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-purple-600 focus:bg-white font-medium"
+                    className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-3.5 py-3 text-xs text-slate-900 focus:outline-none focus:border-purple-600 font-medium shadow-2xs"
                   />
                 </div>
               </div>
 
-              {/* Row 2: Email & Message */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
+              {/* Row 2: Email & Message with inside icons */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="relative flex items-center">
+                  <Mail className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none" />
                   <input
                     type="email"
                     required
                     placeholder="Email*"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-[#FAFAFC] border border-slate-200/90 rounded-lg px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-purple-600 focus:bg-white font-medium"
+                    className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-3.5 py-3 text-xs text-slate-900 focus:outline-none focus:border-purple-600 font-medium shadow-2xs"
                   />
                 </div>
-                <div>
+                <div className="relative flex items-center">
+                  <Pencil className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none" />
                   <input
                     type="text"
                     placeholder="Type Your Message*"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-[#FAFAFC] border border-slate-200/90 rounded-lg px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-purple-600 focus:bg-white font-medium"
+                    className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-3.5 py-3 text-xs text-slate-900 focus:outline-none focus:border-purple-600 font-medium shadow-2xs"
                   />
                 </div>
               </div>
 
-              {/* Row 3: reCAPTCHA Card */}
-              <div className="bg-[#F9F9F9] border border-[#E0E0E0] rounded-md p-3 flex items-center justify-between my-3 shadow-2xs">
-                <label className="flex items-center gap-2.5 cursor-pointer">
+              {/* Row 3: reCAPTCHA Box */}
+              <div className="bg-[#F9F9F9] border border-[#E0E0E0] rounded-xl p-4 flex items-center justify-between my-4">
+                <label className="flex items-center gap-3 cursor-pointer">
                   <input
                     type="checkbox"
                     required
-                    className="w-4.5 h-4.5 rounded border-slate-300 text-purple-700 focus:ring-purple-500 cursor-pointer"
+                    className="w-5 h-5 rounded border-slate-300 text-purple-700 focus:ring-purple-500 cursor-pointer"
                   />
-                  <span className="text-[11.5px] font-medium text-slate-700 select-none">I'm not a robot</span>
+                  <span className="text-xs font-medium text-slate-800 select-none">I'm not a robot</span>
                 </label>
-                <div className="flex flex-col items-center justify-center text-[8.5px] text-slate-400 font-sans leading-none">
-                  <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-4.5 h-4.5 opacity-70 mb-0.5" />
+                <div className="flex flex-col items-center justify-center text-[9px] text-slate-400 font-sans leading-tight">
+                  <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-5 h-5 opacity-80 mb-0.5" />
                   <span>reCAPTCHA</span>
+                  <span className="text-[8px] text-slate-400">Privacy - Terms</span>
                 </div>
               </div>
 
@@ -243,7 +278,7 @@ export const AboutSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#5D2C8C] hover:bg-[#4B2273] text-white font-bold text-sm py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer active:scale-[0.99]"
+                className="w-full bg-[#4D237A] hover:bg-[#3C1A62] text-white font-bold text-sm sm:text-base py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer active:scale-[0.99]"
               >
                 {isSubmitting ? "Submitting..." : "Submit"}
               </button>
@@ -256,4 +291,5 @@ export const AboutSection = () => {
     </section>
   );
 };
+
 
