@@ -91,50 +91,50 @@ export const AboutSection = () => {
               In this fast-paced digital market, your first impression defines your success. Whether you want to build an <strong className="text-slate-900 font-bold">affordable website in budget (saste me high quality website)</strong>, scale with a top-rated <strong className="text-slate-900 font-bold">social media marketing agency</strong>, or dominate Google search results with <strong className="text-slate-900 font-bold">#1 rank SEO & Google Ads</strong> — <strong className="text-purple-900 font-bold">Websbond</strong> delivers guaranteed business growth. Our commitment to expanding your revenue goes beyond mere words; it is a steadfast pledge. To bring your dreams of digital dominance to fruition, we have:
             </p>
 
-            {/* 4 Circular Stat Badges Grid (Exact Image 1 Style) */}
+            {/* 4 Circular Stat Badges Grid (Real Websbond Data) */}
             <div className="grid grid-cols-2 gap-4 sm:gap-6 pt-2 border-t border-purple-100">
               
               {/* Badge 1: Red/Coral */}
               <div className="flex items-center gap-3 sm:gap-4 bg-white/70 p-3 sm:p-4 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#EE5351] text-white flex items-center justify-center font-black text-lg sm:text-xl shadow-md shrink-0 font-jost">
-                  10+
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#EE5351] text-white flex items-center justify-center font-black text-sm sm:text-base shadow-md shrink-0 font-jost">
+                  2026
                 </div>
                 <div>
-                  <div className="font-extrabold text-slate-900 text-xs sm:text-sm md:text-base leading-tight font-jost">Industry</div>
-                  <div className="font-medium text-slate-600 text-[11px] sm:text-xs">Experience</div>
+                  <div className="font-extrabold text-slate-900 text-xs sm:text-sm md:text-base leading-tight font-jost">2026</div>
+                  <div className="font-medium text-slate-600 text-[11px] sm:text-xs">Established & Launched</div>
                 </div>
               </div>
 
               {/* Badge 2: Green */}
               <div className="flex items-center gap-3 sm:gap-4 bg-white/70 p-3 sm:p-4 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#95D04B] text-white flex items-center justify-center font-black text-lg sm:text-xl shadow-md shrink-0 font-jost">
-                  5K+
+                  5+
                 </div>
                 <div>
-                  <div className="font-extrabold text-slate-900 text-xs sm:text-sm md:text-base leading-tight font-jost">Happy</div>
-                  <div className="font-medium text-slate-600 text-[11px] sm:text-xs">Clients</div>
+                  <div className="font-extrabold text-slate-900 text-xs sm:text-sm md:text-base leading-tight font-jost">5+ Projects</div>
+                  <div className="font-medium text-slate-600 text-[11px] sm:text-xs">Live & Delivered</div>
                 </div>
               </div>
 
               {/* Badge 3: Purple */}
               <div className="flex items-center gap-3 sm:gap-4 bg-white/70 p-3 sm:p-4 rounded-2xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#5B37BF] text-white flex items-center justify-center font-black text-lg sm:text-xl shadow-md shrink-0 font-jost">
-                  50+
+                  10+
                 </div>
                 <div>
-                  <div className="font-extrabold text-slate-900 text-xs sm:text-sm md:text-base leading-tight font-jost">Growth</div>
-                  <div className="font-medium text-slate-600 text-[11px] sm:text-xs font-jost">Experts</div>
+                  <div className="font-extrabold text-slate-900 text-xs sm:text-sm md:text-base leading-tight font-jost">10+ Projects</div>
+                  <div className="font-medium text-slate-600 text-[11px] sm:text-xs font-jost">In Engineering</div>
                 </div>
               </div>
 
               {/* Badge 4: Yellow/Gold */}
               <div className="flex items-center gap-3 sm:gap-4 bg-white/70 p-3 sm:p-4 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#F6C646] text-white flex items-center justify-center font-black text-lg sm:text-xl shadow-md shrink-0 font-jost">
-                  98%
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#F6C646] text-white flex items-center justify-center font-black text-base sm:text-lg shadow-md shrink-0 font-jost">
+                  4.9★
                 </div>
                 <div>
-                  <div className="font-extrabold text-slate-900 text-xs sm:text-sm md:text-base leading-tight font-jost">Client</div>
-                  <div className="font-medium text-slate-600 text-[11px] sm:text-xs">Retention</div>
+                  <div className="font-extrabold text-slate-900 text-xs sm:text-sm md:text-base leading-tight font-jost">4.9/5 Rating</div>
+                  <div className="font-medium text-slate-600 text-[11px] sm:text-xs">On Google & Clutch</div>
                 </div>
               </div>
 
