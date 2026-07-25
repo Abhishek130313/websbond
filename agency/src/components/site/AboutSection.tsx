@@ -144,111 +144,111 @@ export const AboutSection = () => {
 
         </div>
 
-        {/* ── Bottom Section: Proposal Request & Strategic Growth Highlights ── */}
-        <div id="contact-section" className="bg-white rounded-3xl p-8 lg:p-12 border border-purple-200/80 grid lg:grid-cols-12 gap-10 items-center shadow-lg">
+        {/* ── Bottom Section: Proposal Request & Strategic Growth Highlights (Exact Image 1 Style) ── */}
+        <div id="contact-section" className="py-6 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Side: Performance Metrics & Value Proposition */}
           <div className="lg:col-span-6">
-            <span className="text-xs font-bold text-purple-700 uppercase tracking-widest block mb-2 font-mono">
-              Partner with India's Premier Digital Agency
+            <span className="text-base sm:text-lg font-bold text-slate-800 block mb-2 font-sans">
+              Partner with India’s Elite Digital Architects
             </span>
 
-            <h3 className="text-3xl sm:text-4xl font-black text-slate-900 mb-6 font-jost">
+            <h3 className="font-montserrat font-black italic text-3xl sm:text-4xl md:text-5xl text-[#5D2C8C] mb-8 leading-tight">
               Code. Rank. Convert.
             </h3>
 
-            <div className="grid grid-cols-3 gap-4 border-t border-b border-purple-100 py-6 mb-6">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-2">
               <div>
-                <div className="text-2xl sm:text-3xl font-black text-purple-800 font-mono">7,500,000+</div>
-                <div className="text-[11px] font-bold text-slate-600 mt-1">Leads Driven</div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-sans tracking-tight">7,500,000+</div>
+                <div className="text-xs font-semibold text-slate-600 mt-1 mb-2">Leads Driven</div>
+                <div className="h-1 w-full bg-[#5D2C8C] rounded-full" />
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-black text-purple-800 font-mono">5,000+</div>
-                <div className="text-[11px] font-bold text-slate-600 mt-1">Projects Built</div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-sans tracking-tight">5,000+</div>
+                <div className="text-xs font-semibold text-slate-600 mt-1 mb-2">Projects Completed</div>
+                <div className="h-1 w-full bg-[#5D2C8C] rounded-full" />
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-black text-purple-800 font-mono">100/100</div>
-                <div className="text-[11px] font-bold text-slate-600 mt-1">Core Web Vitals</div>
+                <div className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 font-sans tracking-tight">10+</div>
+                <div className="text-xs font-semibold text-slate-600 mt-1 mb-2">Years Of Experience</div>
+                <div className="h-1 w-full bg-[#5D2C8C] rounded-full" />
               </div>
-            </div>
-
-            <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-4">
-              We engineer budget-friendly, high-performance websites, dominate Google local map packs, and execute ROI-driven social media ad campaigns across Instagram, Facebook, and Google.
-            </p>
-
-            <div className="space-y-2.5">
-              {[
-                "100/100 Google PageSpeed Core Web Vitals Guaranteed",
-                "Proven Rank #1 SEO & Local GMB Map Pack Positioning",
-                "Dedicated Full-Stack Engineers & Direct Transparency",
-                "Complete Telemetry with GA4 Goal Conversion Tracking",
-              ].map((bullet) => (
-                <div key={bullet} className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-800">
-                  <CheckCircle2 className="w-4 h-4 text-purple-700 shrink-0" />
-                  <span>{bullet}</span>
-                </div>
-              ))}
             </div>
           </div>
 
-          {/* Right Side: Proposal Request Form */}
-          <div className="lg:col-span-6 bg-[#F8F7FD] p-6 sm:p-8 rounded-2xl border border-purple-200 shadow-md">
-            <h4 className="text-xl font-extrabold text-slate-900 mb-2 font-jost">
-              Request Your Free Custom Proposal
-            </h4>
-            <p className="text-xs text-slate-500 mb-6">Get a free website audit, SEO estimate, & budget proposal within 24 hours.</p>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Right Side: Thin & Wide Form Card (Exact Image 1 Design) */}
+          <div className="lg:col-span-6 bg-white p-5 sm:p-7 rounded-2xl border border-purple-100/60 shadow-xl w-full">
+            <form onSubmit={handleSubmit} className="space-y-3">
+              {/* Row 1: Name & Phone */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <input
                     type="text"
                     required
-                    placeholder="Your Name *"
+                    placeholder="Name*"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-900 focus:outline-none focus:border-purple-600 font-medium"
+                    className="w-full bg-[#FAFAFC] border border-slate-200/90 rounded-lg px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-purple-600 focus:bg-white font-medium"
                   />
                 </div>
                 <div>
                   <input
                     type="tel"
                     required
-                    placeholder="Phone No *"
+                    placeholder="Phone No*"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-900 focus:outline-none focus:border-purple-600 font-medium"
+                    className="w-full bg-[#FAFAFC] border border-slate-200/90 rounded-lg px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-purple-600 focus:bg-white font-medium"
                   />
                 </div>
               </div>
 
-              <div>
-                <input
-                  type="email"
-                  required
-                  placeholder="Email Address *"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-900 focus:outline-none focus:border-purple-600 font-medium"
-                />
+              {/* Row 2: Email & Message */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <input
+                    type="email"
+                    required
+                    placeholder="Email*"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-[#FAFAFC] border border-slate-200/90 rounded-lg px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-purple-600 focus:bg-white font-medium"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Type Your Message*"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full bg-[#FAFAFC] border border-slate-200/90 rounded-lg px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-purple-600 focus:bg-white font-medium"
+                  />
+                </div>
               </div>
 
-              <div>
-                <textarea
-                  rows={3}
-                  placeholder="Tell us about your project goals (Website design, SEO, Social Media Ads)..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-xs text-slate-900 focus:outline-none focus:border-purple-600 font-medium resize-none"
-                />
+              {/* Row 3: reCAPTCHA Card */}
+              <div className="bg-[#F9F9F9] border border-[#E0E0E0] rounded-md p-3 flex items-center justify-between my-3 shadow-2xs">
+                <label className="flex items-center gap-2.5 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    required
+                    className="w-4.5 h-4.5 rounded border-slate-300 text-purple-700 focus:ring-purple-500 cursor-pointer"
+                  />
+                  <span className="text-[11.5px] font-medium text-slate-700 select-none">I'm not a robot</span>
+                </label>
+                <div className="flex flex-col items-center justify-center text-[8.5px] text-slate-400 font-sans leading-none">
+                  <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-4.5 h-4.5 opacity-70 mb-0.5" />
+                  <span>reCAPTCHA</span>
+                </div>
               </div>
 
+              {/* Row 4: Submit Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-purple-800 hover:bg-purple-900 text-white font-extrabold text-xs uppercase tracking-wider py-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                className="w-full bg-[#5D2C8C] hover:bg-[#4B2273] text-white font-bold text-sm py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer active:scale-[0.99]"
               >
-                {isSubmitting ? "Submitting..." : "Submit Proposal Request ➔"}
+                {isSubmitting ? "Submitting..." : "Submit"}
               </button>
             </form>
           </div>
