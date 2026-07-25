@@ -12,8 +12,6 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { TechStackMatrix } from "@/components/site/TechStackMatrix";
 import { FaqAndBlogs } from "@/components/site/FaqAndBlogs";
 
-// Below-the-fold components
-const Process = lazy(() => import("@/components/site/Process").then(m => ({ default: m.Process })));
 const VideoShowcase = lazy(() => import("@/components/site/VideoShowcase").then(m => ({ default: m.VideoShowcase })));
 const WhyChooseUs = lazy(() => import("@/components/site/WhyChooseUs").then(m => ({ default: m.WhyChooseUs })));
 
@@ -98,11 +96,6 @@ const Index = () => (
 
     {/* Section 3.5: Success Stories Powered by Strategic Design & Digital Marketing */}
     <ClientSuccessSection />
-
-    {/* Section 4 & 9: Verified Live Client Projects & Step-by-Step Strategic Roadmap */}
-    <Suspense fallback={<SectionSkeleton />}>
-      <Process />
-    </Suspense>
 
 
 
