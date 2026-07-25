@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, CheckCircle, TrendingUp } from "lucide-react";
+import { ArrowRight, Sparkles, TrendingUp } from "lucide-react";
 
 export const ClientSuccessSection = () => {
   return (
@@ -27,7 +27,7 @@ export const ClientSuccessSection = () => {
               <span>Proven Growth & Verified Case Studies</span>
             </div>
 
-            {/* Headline (Fluid & Responsive without text clipping) */}
+            {/* Headline */}
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[30px] font-extrabold text-[#241344] tracking-tight leading-snug mb-5 font-sans">
               Success Stories Powered by Strategic Design{" "}
               <span className="font-montserrat font-black italic text-[#552782] block mt-1 text-2xl sm:text-3xl lg:text-[36px]">
@@ -61,251 +61,233 @@ export const ClientSuccessSection = () => {
 
           </div>
 
-          {/* Right Column: Exact Reference Dark Dashboard Card with 6 3D Metric Showcase Cards (50% Width) */}
+          {/* Right Column: Clean 6 Showcase Cards directly on light background (Zero dark box) */}
           <div className="lg:col-span-6 w-full">
-            
-            {/* Outer Dark Dashboard Container */}
-            <div className="bg-[#140B26] p-4 sm:p-6 rounded-3xl border border-purple-900/40 shadow-2xl relative overflow-hidden">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
               
-              {/* Header Label inside Dark Box */}
-              <div className="flex items-center justify-between mb-4 border-b border-purple-900/60 pb-3">
-                <span className="text-xs sm:text-sm font-extrabold text-slate-300 uppercase tracking-widest font-sans">
-                  FEATURED CLIENTS
-                </span>
-                <span className="inline-flex items-center gap-1.5 bg-[#1E1338] text-purple-200 border border-purple-500/30 rounded-full px-3.5 py-1 text-xs font-bold shadow-xs">
-                  <CheckCircle className="w-3.5 h-3.5 text-blue-400 fill-blue-400/20" />
-                  <span>Verified Brands</span>
-                </span>
-              </div>
+              {/* Card 1: Hollywood */}
+              <Link 
+                to="/our-portfolio"
+                className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl border border-slate-200/80 hover:border-purple-300 flex flex-col justify-between h-48 transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] group relative overflow-hidden"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <span className="font-black text-sm sm:text-base text-[#1E1238] tracking-tight group-hover:text-[#552782] transition-colors leading-tight">
+                    Hollywood<span className="text-amber-500">✦</span>
+                  </span>
+                  <span className="text-[8.5px] font-bold text-slate-400 tracking-wider uppercase mt-0.5">
+                    MEDIA & ENT.
+                  </span>
+                </div>
 
-              {/* 6 3D Cards Grid (3 Columns x 2 Rows) */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4">
-                
-                {/* Card 1: Hollywood */}
-                <Link 
-                  to="/our-portfolio"
-                  className="bg-white rounded-2xl p-3.5 sm:p-4 shadow-lg border border-slate-100 flex flex-col justify-between h-48 transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-[0_15px_30px_rgba(88,37,130,0.25)] group relative overflow-hidden"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <span className="font-black text-sm sm:text-base text-[#1E1238] tracking-tight group-hover:text-[#552782] transition-colors leading-tight">
-                      Hollywood<span className="text-amber-500">✦</span>
+                {/* Growth Metric & Sparkline Chart */}
+                <div className="flex items-end justify-between my-1.5 pt-1.5 border-t border-slate-100">
+                  <div className="flex flex-col text-left">
+                    <span className="text-xs sm:text-sm font-black text-emerald-600 flex items-center gap-0.5 font-sans">
+                      <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
+                      <span>+248%</span>
                     </span>
-                    <span className="text-[8.5px] font-bold text-slate-400 tracking-wider uppercase mt-0.5">
-                      MEDIA & ENT.
+                    <span className="text-[9.5px] font-semibold text-slate-500 leading-tight">
+                      Organic Growth
                     </span>
                   </div>
 
-                  {/* Growth Metric & Sparkline Chart */}
-                  <div className="flex items-end justify-between my-1.5 pt-1.5 border-t border-slate-100">
-                    <div className="flex flex-col text-left">
-                      <span className="text-xs sm:text-sm font-black text-emerald-600 flex items-center gap-0.5 font-sans">
-                        <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
-                        <span>+248%</span>
-                      </span>
-                      <span className="text-[9.5px] font-semibold text-slate-500 leading-tight">
-                        Organic Growth
-                      </span>
-                    </div>
+                  {/* Sparkline Chart */}
+                  <svg className="w-12 h-6 text-emerald-500 shrink-0" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 25C10 22 18 24 26 18C34 12 42 16 58 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                  </svg>
+                </div>
 
-                    {/* Sparkline Chart */}
-                    <svg className="w-12 h-6 text-emerald-500 shrink-0" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2 25C10 22 18 24 26 18C34 12 42 16 58 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                    </svg>
-                  </div>
+                {/* Bottom Link */}
+                <div className="border-t border-slate-100 pt-1.5 flex items-center justify-between text-[10.5px] font-extrabold text-purple-900 group-hover:text-purple-700">
+                  <span>View Case Study</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </Link>
 
-                  {/* Bottom Link */}
-                  <div className="border-t border-slate-100 pt-1.5 flex items-center justify-between text-[10.5px] font-extrabold text-purple-900 group-hover:text-purple-700">
-                    <span>View Case Study</span>
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </Link>
+              {/* Card 2: A1 Painting */}
+              <Link 
+                to="/our-portfolio"
+                className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl border border-slate-200/80 hover:border-purple-300 flex flex-col justify-between h-48 transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] group relative overflow-hidden"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <span className="font-extrabold text-[11px] sm:text-xs text-rose-800 tracking-tight group-hover:scale-105 transition-transform leading-tight">
+                    A1 PAINTING
+                  </span>
+                  <span className="text-[8.5px] font-bold text-slate-400 tracking-wider uppercase mt-0.5">
+                    EPOXY SERVICES
+                  </span>
+                </div>
 
-                {/* Card 2: A1 Painting */}
-                <Link 
-                  to="/our-portfolio"
-                  className="bg-white rounded-2xl p-3.5 sm:p-4 shadow-lg border border-slate-100 flex flex-col justify-between h-48 transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-[0_15px_30px_rgba(88,37,130,0.25)] group relative overflow-hidden"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <span className="font-extrabold text-[11px] sm:text-xs text-rose-800 tracking-tight group-hover:scale-105 transition-transform leading-tight">
-                      A1 PAINTING
+                {/* Growth Metric & Sparkline Chart */}
+                <div className="flex items-end justify-between my-1.5 pt-1.5 border-t border-slate-100">
+                  <div className="flex flex-col text-left">
+                    <span className="text-xs sm:text-sm font-black text-emerald-600 flex items-center gap-0.5 font-sans">
+                      <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
+                      <span>+186%</span>
                     </span>
-                    <span className="text-[8.5px] font-bold text-slate-400 tracking-wider uppercase mt-0.5">
-                      EPOXY SERVICES
-                    </span>
-                  </div>
-
-                  {/* Growth Metric & Sparkline Chart */}
-                  <div className="flex items-end justify-between my-1.5 pt-1.5 border-t border-slate-100">
-                    <div className="flex flex-col text-left">
-                      <span className="text-xs sm:text-sm font-black text-emerald-600 flex items-center gap-0.5 font-sans">
-                        <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
-                        <span>+186%</span>
-                      </span>
-                      <span className="text-[9.5px] font-semibold text-slate-500 leading-tight">
-                        Leads Generated
-                      </span>
-                    </div>
-
-                    <svg className="w-12 h-6 text-emerald-500 shrink-0" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2 26C12 24 20 20 28 16C36 12 46 14 58 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                    </svg>
-                  </div>
-
-                  <div className="border-t border-slate-100 pt-1.5 flex items-center justify-between text-[10.5px] font-extrabold text-purple-900 group-hover:text-purple-700">
-                    <span>View Case Study</span>
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </Link>
-
-                {/* Card 3: Access2Wellbeing */}
-                <Link 
-                  to="/our-portfolio"
-                  className="bg-white rounded-2xl p-3.5 sm:p-4 shadow-lg border border-slate-100 flex flex-col justify-between h-48 transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-[0_15px_30px_rgba(88,37,130,0.25)] group relative overflow-hidden"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <span className="font-extrabold text-[11px] sm:text-xs text-amber-900 tracking-tight group-hover:scale-105 transition-transform leading-tight">
-                      Access2Wellbeing
-                    </span>
-                    <span className="text-[8.5px] font-bold text-slate-400 tracking-wider uppercase mt-0.5">
-                      HEALTHCARE
+                    <span className="text-[9.5px] font-semibold text-slate-500 leading-tight">
+                      Leads Generated
                     </span>
                   </div>
 
-                  {/* Growth Metric & Sparkline Chart */}
-                  <div className="flex items-end justify-between my-1.5 pt-1.5 border-t border-slate-100">
-                    <div className="flex flex-col text-left">
-                      <span className="text-xs sm:text-sm font-black text-emerald-600 flex items-center gap-0.5 font-sans">
-                        <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
-                        <span>+314%</span>
-                      </span>
-                      <span className="text-[9.5px] font-semibold text-slate-500 leading-tight">
-                        Website Traffic
-                      </span>
-                    </div>
+                  <svg className="w-12 h-6 text-emerald-500 shrink-0" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 26C12 24 20 20 28 16C36 12 46 14 58 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                  </svg>
+                </div>
 
-                    <svg className="w-12 h-6 text-emerald-500 shrink-0" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2 28C10 24 22 18 32 14C42 10 48 12 58 3" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                    </svg>
-                  </div>
+                <div className="border-t border-slate-100 pt-1.5 flex items-center justify-between text-[10.5px] font-extrabold text-purple-900 group-hover:text-purple-700">
+                  <span>View Case Study</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </Link>
 
-                  <div className="border-t border-slate-100 pt-1.5 flex items-center justify-between text-[10.5px] font-extrabold text-purple-900 group-hover:text-purple-700">
-                    <span>View Case Study</span>
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </Link>
+              {/* Card 3: Access2Wellbeing */}
+              <Link 
+                to="/our-portfolio"
+                className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl border border-slate-200/80 hover:border-purple-300 flex flex-col justify-between h-48 transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] group relative overflow-hidden"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <span className="font-extrabold text-[11px] sm:text-xs text-amber-900 tracking-tight group-hover:scale-105 transition-transform leading-tight">
+                    Access2Wellbeing
+                  </span>
+                  <span className="text-[8.5px] font-bold text-slate-400 tracking-wider uppercase mt-0.5">
+                    HEALTHCARE
+                  </span>
+                </div>
 
-                {/* Card 4: ArtValue */}
-                <Link 
-                  to="/our-portfolio"
-                  className="bg-white rounded-2xl p-3.5 sm:p-4 shadow-lg border border-slate-100 flex flex-col justify-between h-48 transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-[0_15px_30px_rgba(88,37,130,0.25)] group relative overflow-hidden"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <span className="font-black text-xs sm:text-sm text-teal-800 tracking-tight group-hover:scale-105 transition-transform leading-tight">
-                      ArtValue
+                {/* Growth Metric & Sparkline Chart */}
+                <div className="flex items-end justify-between my-1.5 pt-1.5 border-t border-slate-100">
+                  <div className="flex flex-col text-left">
+                    <span className="text-xs sm:text-sm font-black text-emerald-600 flex items-center gap-0.5 font-sans">
+                      <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
+                      <span>+314%</span>
                     </span>
-                    <span className="text-[8.5px] font-bold text-slate-400 tracking-wider uppercase mt-0.5">
-                      CREATIVE AGENCY
-                    </span>
-                  </div>
-
-                  {/* Growth Metric & Sparkline Chart */}
-                  <div className="flex items-end justify-between my-1.5 pt-1.5 border-t border-slate-100">
-                    <div className="flex flex-col text-left">
-                      <span className="text-xs sm:text-sm font-black text-emerald-600 flex items-center gap-0.5 font-sans">
-                        <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
-                        <span>+210%</span>
-                      </span>
-                      <span className="text-[9.5px] font-semibold text-slate-500 leading-tight">
-                        Conversions
-                      </span>
-                    </div>
-
-                    <svg className="w-12 h-6 text-emerald-500 shrink-0" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2 24C12 22 22 18 30 14C38 10 46 12 58 5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                    </svg>
-                  </div>
-
-                  <div className="border-t border-slate-100 pt-1.5 flex items-center justify-between text-[10.5px] font-extrabold text-purple-900 group-hover:text-purple-700">
-                    <span>View Case Study</span>
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </Link>
-
-                {/* Card 5: Auto Tyre */}
-                <Link 
-                  to="/our-portfolio"
-                  className="bg-white rounded-2xl p-3.5 sm:p-4 shadow-lg border border-slate-100 flex flex-col justify-between h-48 transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-[0_15px_30px_rgba(88,37,130,0.25)] group relative overflow-hidden"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <span className="font-extrabold text-[11px] sm:text-xs text-slate-900 tracking-tight group-hover:scale-105 transition-transform leading-tight">
-                      AUTO TYRE
-                    </span>
-                    <span className="text-[8.5px] font-bold text-amber-600 tracking-wider uppercase mt-0.5">
-                      WHEELS CENTRE
+                    <span className="text-[9.5px] font-semibold text-slate-500 leading-tight">
+                      Website Traffic
                     </span>
                   </div>
 
-                  {/* Growth Metric & Sparkline Chart */}
-                  <div className="flex items-end justify-between my-1.5 pt-1.5 border-t border-slate-100">
-                    <div className="flex flex-col text-left">
-                      <span className="text-xs sm:text-sm font-black text-emerald-600 flex items-center gap-0.5 font-sans">
-                        <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
-                        <span>+159%</span>
-                      </span>
-                      <span className="text-[9.5px] font-semibold text-slate-500 leading-tight">
-                        Revenue Growth
-                      </span>
-                    </div>
+                  <svg className="w-12 h-6 text-emerald-500 shrink-0" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 28C10 24 22 18 32 14C42 10 48 12 58 3" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                  </svg>
+                </div>
 
-                    <svg className="w-12 h-6 text-emerald-500 shrink-0" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2 25C14 24 24 20 32 16C40 12 48 14 58 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                    </svg>
-                  </div>
+                <div className="border-t border-slate-100 pt-1.5 flex items-center justify-between text-[10.5px] font-extrabold text-purple-900 group-hover:text-purple-700">
+                  <span>View Case Study</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </Link>
 
-                  <div className="border-t border-slate-100 pt-1.5 flex items-center justify-between text-[10.5px] font-extrabold text-purple-900 group-hover:text-purple-700">
-                    <span>View Case Study</span>
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </Link>
+              {/* Card 4: ArtValue */}
+              <Link 
+                to="/our-portfolio"
+                className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl border border-slate-200/80 hover:border-purple-300 flex flex-col justify-between h-48 transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] group relative overflow-hidden"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <span className="font-black text-xs sm:text-sm text-teal-800 tracking-tight group-hover:scale-105 transition-transform leading-tight">
+                    ArtValue
+                  </span>
+                  <span className="text-[8.5px] font-bold text-slate-400 tracking-wider uppercase mt-0.5">
+                    CREATIVE AGENCY
+                  </span>
+                </div>
 
-                {/* Card 6: Biller Press */}
-                <Link 
-                  to="/our-portfolio"
-                  className="bg-white rounded-2xl p-3.5 sm:p-4 shadow-lg border border-slate-100 flex flex-col justify-between h-48 transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-[0_15px_30px_rgba(88,37,130,0.25)] group relative overflow-hidden"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <span className="font-black text-[11px] sm:text-xs text-[#231244] tracking-tight group-hover:scale-105 transition-transform leading-tight">
-                      BILLER PRESS
+                {/* Growth Metric & Sparkline Chart */}
+                <div className="flex items-end justify-between my-1.5 pt-1.5 border-t border-slate-100">
+                  <div className="flex flex-col text-left">
+                    <span className="text-xs sm:text-sm font-black text-emerald-600 flex items-center gap-0.5 font-sans">
+                      <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
+                      <span>+210%</span>
                     </span>
-                    <span className="text-[8.5px] font-bold text-slate-400 tracking-wider uppercase mt-0.5">
-                      PUBLISHING
+                    <span className="text-[9.5px] font-semibold text-slate-500 leading-tight">
+                      Conversions
                     </span>
                   </div>
 
-                  {/* Growth Metric & Sparkline Chart */}
-                  <div className="flex items-end justify-between my-1.5 pt-1.5 border-t border-slate-100">
-                    <div className="flex flex-col text-left">
-                      <span className="text-xs sm:text-sm font-black text-emerald-600 flex items-center gap-0.5 font-sans">
-                        <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
-                        <span>+178%</span>
-                      </span>
-                      <span className="text-[9.5px] font-semibold text-slate-500 leading-tight">
-                        Qualified Leads
-                      </span>
-                    </div>
+                  <svg className="w-12 h-6 text-emerald-500 shrink-0" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 24C12 22 22 18 30 14C38 10 46 12 58 5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                  </svg>
+                </div>
 
-                    <svg className="w-12 h-6 text-emerald-500 shrink-0" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2 27C12 24 22 20 30 16C38 12 46 14 58 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                    </svg>
+                <div className="border-t border-slate-100 pt-1.5 flex items-center justify-between text-[10.5px] font-extrabold text-purple-900 group-hover:text-purple-700">
+                  <span>View Case Study</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </Link>
+
+              {/* Card 5: Auto Tyre */}
+              <Link 
+                to="/our-portfolio"
+                className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl border border-slate-200/80 hover:border-purple-300 flex flex-col justify-between h-48 transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] group relative overflow-hidden"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <span className="font-extrabold text-[11px] sm:text-xs text-slate-900 tracking-tight group-hover:scale-105 transition-transform leading-tight">
+                    AUTO TYRE
+                  </span>
+                  <span className="text-[8.5px] font-bold text-amber-600 tracking-wider uppercase mt-0.5">
+                    WHEELS CENTRE
+                  </span>
+                </div>
+
+                {/* Growth Metric & Sparkline Chart */}
+                <div className="flex items-end justify-between my-1.5 pt-1.5 border-t border-slate-100">
+                  <div className="flex flex-col text-left">
+                    <span className="text-xs sm:text-sm font-black text-emerald-600 flex items-center gap-0.5 font-sans">
+                      <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
+                      <span>+159%</span>
+                    </span>
+                    <span className="text-[9.5px] font-semibold text-slate-500 leading-tight">
+                      Revenue Growth
+                    </span>
                   </div>
 
-                  <div className="border-t border-slate-100 pt-1.5 flex items-center justify-between text-[10.5px] font-extrabold text-purple-900 group-hover:text-purple-700">
-                    <span>View Case Study</span>
-                    <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                  </div>
-                </Link>
+                  <svg className="w-12 h-6 text-emerald-500 shrink-0" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 25C14 24 24 20 32 16C40 12 48 14 58 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                  </svg>
+                </div>
 
-              </div>
+                <div className="border-t border-slate-100 pt-1.5 flex items-center justify-between text-[10.5px] font-extrabold text-purple-900 group-hover:text-purple-700">
+                  <span>View Case Study</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </Link>
+
+              {/* Card 6: Biller Press */}
+              <Link 
+                to="/our-portfolio"
+                className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl border border-slate-200/80 hover:border-purple-300 flex flex-col justify-between h-48 transition-all duration-300 transform-gpu hover:-translate-y-1.5 hover:scale-[1.02] group relative overflow-hidden"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <span className="font-black text-[11px] sm:text-xs text-[#231244] tracking-tight group-hover:scale-105 transition-transform leading-tight">
+                    BILLER PRESS
+                  </span>
+                  <span className="text-[8.5px] font-bold text-slate-400 tracking-wider uppercase mt-0.5">
+                    PUBLISHING
+                  </span>
+                </div>
+
+                {/* Growth Metric & Sparkline Chart */}
+                <div className="flex items-end justify-between my-1.5 pt-1.5 border-t border-slate-100">
+                  <div className="flex flex-col text-left">
+                    <span className="text-xs sm:text-sm font-black text-emerald-600 flex items-center gap-0.5 font-sans">
+                      <TrendingUp className="w-3 h-3 text-emerald-500 shrink-0" />
+                      <span>+178%</span>
+                    </span>
+                    <span className="text-[9.5px] font-semibold text-slate-500 leading-tight">
+                      Qualified Leads
+                    </span>
+                  </div>
+
+                  <svg className="w-12 h-6 text-emerald-500 shrink-0" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 27C12 24 22 20 30 16C38 12 46 14 58 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                  </svg>
+                </div>
+
+                <div className="border-t border-slate-100 pt-1.5 flex items-center justify-between text-[10.5px] font-extrabold text-purple-900 group-hover:text-purple-700">
+                  <span>View Case Study</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </Link>
 
             </div>
           </div>
