@@ -21,16 +21,10 @@ export const ClientSuccessSection = () => {
           {/* Left Column: Premium SEO Copywriting & Headline */}
           <div className="lg:col-span-6 flex flex-col items-start pr-0 lg:pr-2">
             
-            {/* Top Tagline Badge */}
-            <div className="flex items-center gap-2 mb-3.5 text-purple-900 font-bold text-xs bg-[#F3EAFA] px-3.5 py-1.5 rounded-full border border-purple-200/70 shadow-2xs">
-              <Sparkles className="w-3.5 h-3.5 text-purple-700" />
-              <span>Proven Growth & Verified Case Studies</span>
-            </div>
-
-            {/* Headline */}
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[30px] font-extrabold text-[#241344] tracking-tight leading-snug mb-5 font-sans">
-              Success Stories Powered by Strategic Design{" "}
-              <span className="font-montserrat font-black italic text-[#552782] block mt-1.5 text-2xl sm:text-3xl lg:text-[36px]">
+            {/* Headline (Line 1: Success Stories Powered by Strategic Design, Line 2: and Digital Marketing) */}
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-[27px] font-extrabold text-[#241344] tracking-tight leading-snug mb-5 font-sans">
+              <span className="block">Success Stories Powered by Strategic Design</span>
+              <span className="font-montserrat font-black italic text-[#552782] block mt-1 text-2xl sm:text-3xl lg:text-[38px]">
                 and Digital Marketing
               </span>
             </h2>
