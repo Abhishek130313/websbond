@@ -44,7 +44,7 @@ export const Testimonials = () => {
 
   return (
     <section 
-      className="py-14 md:py-18 bg-gradient-to-b from-[#F8F6FC] via-white to-[#F8F6FC] border-t border-purple-100/60 text-slate-900 select-none overflow-hidden relative"
+      className="pt-6 pb-12 md:pt-8 md:pb-14 bg-gradient-to-b from-[#F8F6FC] via-white to-[#F8F6FC] border-t border-purple-100/60 text-slate-900 select-none overflow-hidden relative"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -65,7 +65,7 @@ export const Testimonials = () => {
             </div>
 
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1E1238] tracking-tight font-sans">
-              Real Client Reviews & Verified Feedback
+              Client Reviews & Verified Feedback
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm mt-1 max-w-xl font-jost font-normal">
               Authentic reviews synced from our official Google Business Profile. Automatically updates every 6 seconds.
