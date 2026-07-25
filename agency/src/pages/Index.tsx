@@ -99,13 +99,13 @@ const Index = () => (
     {/* Section 6: High-Performance Web Design Feature Grid */}
     <WebDesignFeatureGrid />
 
+    {/* Real Google Business Reviews */}
+    <Testimonials />
+
     {/* Section 11: Hire India's Top Agency Partner */}
     <Suspense fallback={<SectionSkeleton />}>
       <WhyChooseUs />
     </Suspense>
-
-    {/* Real Google Business Reviews */}
-    <Testimonials />
 
     {/* Section 14: Tech Stack Matrix */}
     <TechStackMatrix />
