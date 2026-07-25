@@ -147,28 +147,28 @@ export const AboutSection = () => {
         {/* ── Bottom Section: Proposal Request & Strategic Growth Highlights (Exact Image 1 Style) ── */}
         <div id="contact-section" className="py-6 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left Side: Performance Metrics & Value Proposition */}
+          {/* Left Side: Performance Metrics & Value Proposition (Unique Professional Websbond Copy) */}
           <div className="lg:col-span-6">
-            <span className="text-base sm:text-lg md:text-xl font-bold text-[#231244] tracking-tight block mb-2 font-sans whitespace-normal sm:whitespace-nowrap">
-              Partner with India’s Elite Digital Architects
+            <span className="text-lg sm:text-xl md:text-[25px] font-extrabold text-[#231244] tracking-tight block mb-2.5 font-sans leading-snug">
+              Accelerate Your Digital Revenue With India’s Elite Growth Agency
             </span>
 
-            <h3 className="font-montserrat font-extrabold italic text-3xl sm:text-4xl md:text-[42px] text-[#582582] mb-6 leading-tight whitespace-normal sm:whitespace-nowrap">
-              Code. Rank. Convert.
+            <h3 className="font-montserrat font-black italic text-3xl sm:text-4xl md:text-[48px] text-[#582582] mb-8 leading-[1.12] tracking-tight">
+              Build High. Rank #1. Scale Multi-Fold.
             </h3>
 
             <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-2">
               <div>
-                <div className="text-xl sm:text-2xl md:text-3xl font-black text-[#231244] font-sans tracking-tight">7,500,000+</div>
-                <div className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Leads Driven</div>
+                <div className="text-2xl sm:text-3xl md:text-[36px] font-black text-[#231244] font-sans tracking-tight">7,500,000+</div>
+                <div className="text-xs sm:text-sm font-extrabold text-slate-700 mt-1">Leads Driven</div>
               </div>
               <div>
-                <div className="text-xl sm:text-2xl md:text-3xl font-black text-[#231244] font-sans tracking-tight">5,000+</div>
-                <div className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Projects Completed</div>
+                <div className="text-2xl sm:text-3xl md:text-[36px] font-black text-[#231244] font-sans tracking-tight">5,000+</div>
+                <div className="text-xs sm:text-sm font-extrabold text-slate-700 mt-1">Projects Completed</div>
               </div>
               <div>
-                <div className="text-xl sm:text-2xl md:text-3xl font-black text-[#231244] font-sans tracking-tight">10+</div>
-                <div className="text-xs sm:text-sm font-semibold text-slate-600 mt-1">Years Experience</div>
+                <div className="text-2xl sm:text-3xl md:text-[36px] font-black text-[#231244] font-sans tracking-tight">10+</div>
+                <div className="text-xs sm:text-sm font-extrabold text-slate-700 mt-1">Years Experience</div>
               </div>
             </div>
           </div>
