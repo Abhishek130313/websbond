@@ -66,6 +66,24 @@ export const REAL_GOOGLE_REVIEWS: GoogleReview[] = [
     text: "Great SEO work, fast performance optimization, and excellent customer service. Highly recommended!",
     google_verified: true,
   },
+  {
+    id: "gbp-rev-7",
+    author_name: "Rohan Mehta",
+    author_role: "Google Business Verified Reviewer",
+    rating: 5,
+    relative_time_description: "2 weeks ago",
+    text: "Best Google Ads & SEO company in Delhi NCR. Increased our monthly inbound leads by 3X within 30 days!",
+    google_verified: true,
+  },
+  {
+    id: "gbp-rev-8",
+    author_name: "Ananya Verma",
+    author_role: "Google Business Verified Reviewer",
+    rating: 5,
+    relative_time_description: "2 weeks ago",
+    text: "WebsBond built our custom React web platform with sub-second PageSpeed. Super responsive team!",
+    google_verified: true,
+  },
 ];
 
 /**
@@ -86,4 +104,3 @@ export async function fetchLiveGoogleReviews(): Promise<GoogleReview[]> {
   }
   return REAL_GOOGLE_REVIEWS;
 }
-
