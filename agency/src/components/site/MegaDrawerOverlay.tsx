@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { 
   X, Home, Building2, Users, Briefcase, Award, PhoneCall, 
   Code, ShoppingBag, TrendingUp, Search, Cpu, Smartphone, Palette,
-  FolderGit2, FileSpreadsheet, Newspaper, ShieldCheck, Globe, Headset, ArrowRight,
-  Clock, CheckCircle2, Star, Sparkles, Layers, Rocket
+  FolderGit2, Newspaper, ShieldCheck, Globe, Headset, ArrowRight,
+  Star, Sparkles, FileBadge, FolderCheck
 } from "lucide-react";
 import { Logo } from "./Logo";
 
@@ -29,7 +29,7 @@ export const MegaDrawerOverlay = ({ isOpen, onClose }: MegaDrawerOverlayProps) =
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] bg-white flex flex-col justify-between p-4 sm:p-6 lg:px-12 lg:py-5 h-screen max-h-screen overflow-hidden select-none animate-fadeIn">
+    <div className="fixed inset-0 z-[100] bg-white flex flex-col justify-between p-4 sm:p-6 lg:px-12 lg:py-4 h-screen max-h-screen overflow-y-auto select-none animate-fadeIn">
       
       {/* Top Header: Logo + Close Button */}
       <div className="flex items-center justify-between border-b border-purple-100/80 pb-3 max-w-7xl mx-auto w-full shrink-0">
@@ -44,21 +44,21 @@ export const MegaDrawerOverlay = ({ isOpen, onClose }: MegaDrawerOverlayProps) =
         </button>
       </div>
 
-      {/* Main 3-Column Content Grid (Matching MetaBiz Font, Size & Spacing) */}
-      <div className="max-w-7xl mx-auto w-full py-2 lg:py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-10 flex-1 my-auto items-start">
+      {/* Main 3-Column Content Grid (Compact & Clean Matching MetaBiz Layout) */}
+      <div className="max-w-7xl mx-auto w-full py-3 lg:py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8 flex-1 items-start">
         
-        {/* Column 1: Company (lg:col-span-4 with vertical border divider) */}
-        <div className="lg:col-span-4 flex flex-col gap-3 lg:border-r lg:border-purple-100/80 lg:pr-8">
-          <div className="flex items-center gap-3.5 mb-1">
-            <div className="w-11 h-11 rounded-full bg-[#F3EBFF] text-[#4B2874] flex items-center justify-center shrink-0 font-bold">
-              <Building2 className="w-5 h-5" />
+        {/* Column 1: Company */}
+        <div className="lg:col-span-4 flex flex-col gap-2 lg:border-r lg:border-purple-100/80 lg:pr-6">
+          <div className="flex items-center gap-3 mb-1">
+            <div className="w-10 h-10 rounded-full bg-[#F3EBFF] text-[#4B2874] flex items-center justify-center shrink-0 font-bold">
+              <Building2 className="w-4.5 h-4.5" />
             </div>
-            <h3 className="text-lg font-bold text-[#241344] font-sans">
+            <h3 className="text-base font-bold text-[#241344] font-sans">
               Company
             </h3>
           </div>
 
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-0.5">
             {[
               { to: "/", icon: Home, title: "Home", desc: "Discover digital growth solutions" },
               { to: "/about-us", icon: Building2, title: "About Us", desc: "Who we are and what drives us" },
@@ -74,16 +74,16 @@ export const MegaDrawerOverlay = ({ isOpen, onClose }: MegaDrawerOverlayProps) =
                   key={item.title}
                   to={item.to}
                   onClick={onClose}
-                  className="group flex items-center gap-3.5 p-2 rounded-xl hover:bg-[#F8F4FF] transition-all duration-150"
+                  className="group flex items-center gap-3 p-1.5 rounded-xl hover:bg-[#F8F4FF] transition-all duration-150"
                 >
-                  <div className="w-9 h-9 rounded-full bg-[#F5EEFF] text-[#5B2A8A] flex items-center justify-center shrink-0 group-hover:bg-[#4B2874] group-hover:text-white transition-colors duration-150">
-                    <Icon className="w-4 h-4" />
+                  <div className="w-8 h-8 rounded-full bg-[#F5EEFF] text-[#5B2A8A] flex items-center justify-center shrink-0 group-hover:bg-[#4B2874] group-hover:text-white transition-colors duration-150">
+                    <Icon className="w-3.5 h-3.5" />
                   </div>
                   <div className="flex flex-col text-left">
-                    <span className="text-[14px] font-bold text-[#241344] group-hover:text-[#4B2874] transition-colors leading-tight">
+                    <span className="text-[13.5px] font-bold text-[#241344] group-hover:text-[#4B2874] transition-colors leading-tight">
                       {item.title}
                     </span>
-                    <span className="text-[11.5px] font-normal text-[#6B5C82] leading-tight">
+                    <span className="text-[11px] font-normal text-[#6B5C82] leading-tight">
                       {item.desc}
                     </span>
                   </div>
@@ -93,18 +93,18 @@ export const MegaDrawerOverlay = ({ isOpen, onClose }: MegaDrawerOverlayProps) =
           </div>
         </div>
 
-        {/* Column 2: Our Services (lg:col-span-4 with vertical border divider) */}
-        <div className="lg:col-span-4 flex flex-col gap-3 lg:border-r lg:border-purple-100/80 lg:pr-8">
-          <div className="flex items-center gap-3.5 mb-1">
-            <div className="w-11 h-11 rounded-full bg-[#F3EBFF] text-[#4B2874] flex items-center justify-center shrink-0 font-bold">
-              <Code className="w-5 h-5" />
+        {/* Column 2: Our Services */}
+        <div className="lg:col-span-4 flex flex-col gap-2 lg:border-r lg:border-purple-100/80 lg:pr-6">
+          <div className="flex items-center gap-3 mb-1">
+            <div className="w-10 h-10 rounded-full bg-[#F3EBFF] text-[#4B2874] flex items-center justify-center shrink-0 font-bold">
+              <Code className="w-4.5 h-4.5" />
             </div>
-            <h3 className="text-lg font-bold text-[#241344] font-sans">
+            <h3 className="text-base font-bold text-[#241344] font-sans">
               Our Services
             </h3>
           </div>
 
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-0.5">
             {[
               { to: "/website-design-service-in-delhi", icon: Code, title: "Web Development", desc: "Custom websites that drive results" },
               { to: "/e-commerce-website-services-in-delhi", icon: ShoppingBag, title: "eCommerce Development", desc: "Custom online stores that boost sales" },
@@ -120,16 +120,16 @@ export const MegaDrawerOverlay = ({ isOpen, onClose }: MegaDrawerOverlayProps) =
                   key={item.title}
                   to={item.to}
                   onClick={onClose}
-                  className="group flex items-center gap-3.5 p-2 rounded-xl hover:bg-[#F8F4FF] transition-all duration-150"
+                  className="group flex items-center gap-3 p-1.5 rounded-xl hover:bg-[#F8F4FF] transition-all duration-150"
                 >
-                  <div className="w-9 h-9 rounded-full bg-[#F5EEFF] text-[#5B2A8A] flex items-center justify-center shrink-0 group-hover:bg-[#4B2874] group-hover:text-white transition-colors duration-150">
-                    <Icon className="w-4 h-4" />
+                  <div className="w-8 h-8 rounded-full bg-[#F5EEFF] text-[#5B2A8A] flex items-center justify-center shrink-0 group-hover:bg-[#4B2874] group-hover:text-white transition-colors duration-150">
+                    <Icon className="w-3.5 h-3.5" />
                   </div>
                   <div className="flex flex-col text-left">
-                    <span className="text-[14px] font-bold text-[#241344] group-hover:text-[#4B2874] transition-colors leading-tight">
+                    <span className="text-[13.5px] font-bold text-[#241344] group-hover:text-[#4B2874] transition-colors leading-tight">
                       {item.title}
                     </span>
-                    <span className="text-[11.5px] font-normal text-[#6B5C82] leading-tight">
+                    <span className="text-[11px] font-normal text-[#6B5C82] leading-tight">
                       {item.desc}
                     </span>
                   </div>
@@ -139,67 +139,67 @@ export const MegaDrawerOverlay = ({ isOpen, onClose }: MegaDrawerOverlayProps) =
           </div>
         </div>
 
-        {/* Column 3: Resources & Locations + CTA Box (lg:col-span-4) */}
+        {/* Column 3: Resources & Locations + CTA Box */}
         <div className="lg:col-span-4 flex flex-col justify-between gap-4">
           
           {/* Resources Sub-section */}
-          <div className="flex flex-col gap-2.5">
-            <div className="flex items-center gap-3.5 mb-1">
-              <div className="w-11 h-11 rounded-full bg-[#F3EBFF] text-[#4B2874] flex items-center justify-center shrink-0 font-bold">
-                <FolderGit2 className="w-5 h-5" />
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-3 mb-1">
+              <div className="w-10 h-10 rounded-full bg-[#F3EBFF] text-[#4B2874] flex items-center justify-center shrink-0 font-bold">
+                <FolderGit2 className="w-4.5 h-4.5" />
               </div>
-              <h3 className="text-lg font-bold text-[#241344] font-sans">
+              <h3 className="text-base font-bold text-[#241344] font-sans">
                 Resources & Locations
               </h3>
             </div>
 
-            <div className="flex flex-col gap-1 font-semibold text-[14px] text-[#241344]">
-              <span className="text-[11.5px] font-bold text-[#6B5C82] uppercase tracking-wider block mt-1 mb-0.5">Resources</span>
-              <Link to="/our-portfolio" onClick={onClose} className="flex items-center gap-3 p-1.5 rounded-lg hover:bg-[#F8F4FF] text-[#241344] hover:text-[#4B2874] transition-colors">
+            <div className="flex flex-col gap-1 font-semibold text-[13.5px] text-[#241344]">
+              <span className="text-[11px] font-bold text-[#6B5C82] uppercase tracking-wider block mt-1 mb-0.5">Resources</span>
+              <Link to="/our-portfolio" onClick={onClose} className="flex items-center gap-2.5 p-1 rounded-lg hover:bg-[#F8F4FF] text-[#241344] hover:text-[#4B2874] transition-colors">
                 <Briefcase className="w-4 h-4 text-[#5B2A8A]" />
                 <span>Web Portfolio</span>
               </Link>
-              <Link to="/case-studies" onClick={onClose} className="flex items-center gap-3 p-1.5 rounded-lg hover:bg-[#F8F4FF] text-[#241344] hover:text-[#4B2874] transition-colors">
+              <Link to="/case-studies" onClick={onClose} className="flex items-center gap-2.5 p-1 rounded-lg hover:bg-[#F8F4FF] text-[#241344] hover:text-[#4B2874] transition-colors">
                 <Search className="w-4 h-4 text-[#5B2A8A]" />
                 <span>SEO Portfolio & Case Studies</span>
               </Link>
-              <Link to="/blog" onClick={onClose} className="flex items-center gap-3 p-1.5 rounded-lg hover:bg-[#F8F4FF] text-[#241344] hover:text-[#4B2874] transition-colors">
+              <Link to="/blog" onClick={onClose} className="flex items-center gap-2.5 p-1 rounded-lg hover:bg-[#F8F4FF] text-[#241344] hover:text-[#4B2874] transition-colors">
                 <Newspaper className="w-4 h-4 text-[#5B2A8A]" />
                 <span>Blogs & Insights</span>
               </Link>
-              <Link to="/seo-analyzer" onClick={onClose} className="flex items-center gap-3 p-1.5 rounded-lg hover:bg-[#F8F4FF] text-[#4B2874] font-bold transition-colors">
+              <Link to="/seo-analyzer" onClick={onClose} className="flex items-center gap-2.5 p-1 rounded-lg hover:bg-[#F8F4FF] text-[#4B2874] font-bold transition-colors">
                 <ShieldCheck className="w-4 h-4 text-[#5B2A8A]" />
                 <span>Free Website Audit</span>
               </Link>
             </div>
 
-            {/* Real Locations (India NCR HQ + Global Services) */}
+            {/* Real Locations */}
             <div className="pt-2 border-t border-purple-100/70">
-              <span className="text-[11.5px] font-bold text-[#6B5C82] uppercase tracking-wider block mb-1.5">
+              <span className="text-[11px] font-bold text-[#6B5C82] uppercase tracking-wider block mb-1">
                 Locations
               </span>
-              <div className="flex items-center gap-5 text-[13.5px] font-bold text-[#241344]">
+              <div className="flex items-center gap-4 text-[13px] font-bold text-[#241344]">
                 <span className="flex items-center gap-1.5">
                   <span className="text-base">🇮🇳</span> India (Delhi NCR HQ)
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Globe className="w-4 h-4 text-[#5B2A8A]" /> Global Services
+                  <Globe className="w-3.5 h-3.5 text-[#5B2A8A]" /> Global Services
                 </span>
               </div>
             </div>
           </div>
 
           {/* Let's Build Something Great CTA Card */}
-          <div className="bg-[#F6F0FF] p-4 rounded-2xl border border-purple-100/80 shadow-xs relative">
-            <div className="flex items-start gap-3 mb-2.5">
-              <div className="w-9 h-9 rounded-full bg-white text-[#4B2874] flex items-center justify-center shrink-0 shadow-xs">
-                <Headset className="w-4.5 h-4.5" />
+          <div className="bg-[#F6F0FF] p-3.5 rounded-2xl border border-purple-100/80 shadow-xs relative">
+            <div className="flex items-start gap-3 mb-2">
+              <div className="w-8 h-8 rounded-full bg-white text-[#4B2874] flex items-center justify-center shrink-0 shadow-xs">
+                <Headset className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-[#241344] leading-tight">
+                <h4 className="text-xs font-bold text-[#241344] leading-tight">
                   Let's Build Something Great
                 </h4>
-                <p className="text-[11.5px] font-medium text-[#6B5C82] leading-snug mt-0.5">
+                <p className="text-[11px] font-medium text-[#6B5C82] leading-snug mt-0.5">
                   We are here to help your business grow.
                 </p>
               </div>
@@ -219,45 +219,45 @@ export const MegaDrawerOverlay = ({ isOpen, onClose }: MegaDrawerOverlayProps) =
 
       </div>
 
-      {/* Bottom Statistics Counter Bar (Real 2026 Websbond Metrics) */}
-      <div className="max-w-7xl mx-auto w-full border-t border-purple-100/80 pt-3 pb-1 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center shrink-0">
-        <div className="flex items-center justify-center gap-3.5">
-          <div className="w-11 h-11 rounded-full bg-[#F5EEFF] text-[#5B2A8A] flex items-center justify-center shrink-0 font-bold">
-            <Rocket className="w-5 h-5 text-[#5B2A8A]" />
+      {/* Bottom Statistics Counter Bar (Exact Metabuz Style & Alignment) */}
+      <div className="max-w-7xl mx-auto w-full border-t border-purple-100/90 pt-4 pb-3 mt-auto grid grid-cols-2 sm:grid-cols-4 gap-4 text-center shrink-0">
+        <div className="flex items-center justify-start sm:justify-center gap-3">
+          <div className="w-11 h-11 rounded-full bg-[#F3EBFB] text-[#5B2A8A] flex items-center justify-center shrink-0">
+            <FileBadge className="w-5 h-5 text-[#5B2A8A] stroke-[1.8]" />
           </div>
           <div className="flex flex-col text-left">
-            <span className="text-base font-extrabold text-[#241344] leading-none">2026</span>
-            <span className="text-xs font-medium text-[#6B5C82] mt-0.5">Established & Launched</span>
+            <span className="text-sm sm:text-base font-extrabold text-[#1E1238] leading-tight">2026</span>
+            <span className="text-[11px] font-medium text-slate-500 leading-tight mt-0.5">Established & Launched</span>
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-3.5">
-          <div className="w-11 h-11 rounded-full bg-[#F5EEFF] text-[#5B2A8A] flex items-center justify-center shrink-0 font-bold">
-            <CheckCircle2 className="w-5 h-5 text-[#5B2A8A]" />
+        <div className="flex items-center justify-start sm:justify-center gap-3">
+          <div className="w-11 h-11 rounded-full bg-[#F3EBFB] text-[#5B2A8A] flex items-center justify-center shrink-0">
+            <FolderCheck className="w-5 h-5 text-[#5B2A8A] stroke-[1.8]" />
           </div>
           <div className="flex flex-col text-left">
-            <span className="text-base font-extrabold text-[#241344] leading-none">5+ Projects</span>
-            <span className="text-xs font-medium text-[#6B5C82] mt-0.5">Live & Delivered</span>
+            <span className="text-sm sm:text-base font-extrabold text-[#1E1238] leading-tight">5+ Projects</span>
+            <span className="text-[11px] font-medium text-slate-500 leading-tight mt-0.5">Live & Delivered</span>
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-3.5">
-          <div className="w-11 h-11 rounded-full bg-[#F5EEFF] text-[#5B2A8A] flex items-center justify-center shrink-0 font-bold">
-            <Layers className="w-5 h-5 text-[#5B2A8A]" />
+        <div className="flex items-center justify-start sm:justify-center gap-3">
+          <div className="w-11 h-11 rounded-full bg-[#F3EBFB] text-[#5B2A8A] flex items-center justify-center shrink-0">
+            <Users className="w-5 h-5 text-[#5B2A8A] stroke-[1.8]" />
           </div>
           <div className="flex flex-col text-left">
-            <span className="text-base font-extrabold text-[#241344] leading-none">10+ Projects</span>
-            <span className="text-xs font-medium text-[#6B5C82] mt-0.5">In Engineering</span>
+            <span className="text-sm sm:text-base font-extrabold text-[#1E1238] leading-tight">10+ Projects</span>
+            <span className="text-[11px] font-medium text-slate-500 leading-tight mt-0.5">In Engineering</span>
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-3.5">
-          <div className="w-11 h-11 rounded-full bg-[#F5EEFF] text-[#5B2A8A] flex items-center justify-center shrink-0 font-bold">
-            <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
+        <div className="flex items-center justify-start sm:justify-center gap-3">
+          <div className="w-11 h-11 rounded-full bg-[#F3EBFB] text-[#5B2A8A] flex items-center justify-center shrink-0">
+            <Star className="w-5 h-5 text-[#5B2A8A] stroke-[1.8]" />
           </div>
           <div className="flex flex-col text-left">
-            <span className="text-base font-extrabold text-[#241344] leading-none">4.9/5 Rating</span>
-            <span className="text-xs font-medium text-[#6B5C82] mt-0.5">On Google & Clutch</span>
+            <span className="text-sm sm:text-base font-extrabold text-[#1E1238] leading-tight">4.9/5 Rating</span>
+            <span className="text-[11px] font-medium text-slate-500 leading-tight mt-0.5">On Google & Clutch</span>
           </div>
         </div>
       </div>
