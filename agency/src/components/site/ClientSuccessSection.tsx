@@ -217,12 +217,34 @@ export const ClientSuccessSection = () => {
           {/* ── Radial Layout: Left Cards | Central Hub | Right Cards ── */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-center max-w-6xl mx-auto mb-14 relative">
 
-            {/* Left Column: 3 Service Cards with Solid Circular Icon Badges */}
+            {/* SVG Connecting Curves (Desktop Only) */}
+            <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" xmlns="http://www.w3.org/2000/svg">
+              {/* Left Top -> Ring Top Left */}
+              <path d="M 32% 18% C 39% 18%, 41% 36%, 45% 41%" fill="none" stroke="#7C3AED" strokeWidth="2.5" strokeDasharray="5 5" strokeLinecap="round" opacity="0.85" />
+              {/* Left Mid -> Ring Mid Left */}
+              <path d="M 32% 50% C 37% 50%, 40% 50%, 44% 50%" fill="none" stroke="#E11D48" strokeWidth="2.5" strokeDasharray="5 5" strokeLinecap="round" opacity="0.85" />
+              {/* Left Bottom -> Ring Bottom Left */}
+              <path d="M 32% 82% C 39% 82%, 41% 64%, 45% 59%" fill="none" stroke="#F97316" strokeWidth="2.5" strokeDasharray="5 5" strokeLinecap="round" opacity="0.85" />
+
+              {/* Right Top -> Ring Top Right */}
+              <path d="M 68% 18% C 61% 18%, 59% 36%, 55% 41%" fill="none" stroke="#6366F1" strokeWidth="2.5" strokeDasharray="5 5" strokeLinecap="round" opacity="0.85" />
+              {/* Right Mid -> Ring Mid Right */}
+              <path d="M 68% 50% C 63% 50%, 60% 50%, 56% 50%" fill="none" stroke="#2563EB" strokeWidth="2.5" strokeDasharray="5 5" strokeLinecap="round" opacity="0.85" />
+              {/* Right Bottom -> Ring Bottom Right */}
+              <path d="M 68% 82% C 61% 82%, 59% 64%, 55% 59%" fill="none" stroke="#0D9488" strokeWidth="2.5" strokeDasharray="5 5" strokeLinecap="round" opacity="0.85" />
+            </svg>
+
+            {/* Left Column: 3 Service Cards with Solid Circular Icon Badges & Edge Dots */}
             <div className="flex flex-col gap-6 lg:pr-2 z-10">
-              {LEFT_SERVICES.map((srv) => {
+              {LEFT_SERVICES.map((srv, idx) => {
                 const Icon = srv.icon;
+                const dotColors = ["bg-purple-600", "bg-pink-500", "bg-orange-500"];
                 return (
-                  <div key={srv.title} className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100/90 shadow-sm hover:shadow-xl transition-all duration-300 transform-gpu hover:-translate-y-1 group flex items-start gap-4 relative overflow-hidden">
+                  <div key={srv.title} className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100/90 shadow-sm hover:shadow-xl transition-all duration-300 transform-gpu hover:-translate-y-1 group flex items-start gap-4 relative overflow-visible">
+                    
+                    {/* Card Right Edge Connector Dot */}
+                    <div className={`absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 ${dotColors[idx]} rounded-full border-2 border-white shadow-md z-20 hidden lg:block`} />
+
                     <div className={`w-12 h-12 sm:w-13 sm:h-13 rounded-full ${srv.badgeBg} text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform`}>
                       <Icon className="w-6 h-6 stroke-[2]" />
                     </div>
@@ -273,23 +295,28 @@ export const ClientSuccessSection = () => {
                   </div>
 
                   {/* 6 Connected Dots Around Ring (Image 1 & 2 Exact Dots) */}
-                  <div className="absolute top-[12%] left-[12%] w-4 h-4 bg-purple-600 rounded-full border-2 border-white shadow-md" />
-                  <div className="absolute top-[50%] -left-2 -translate-y-1/2 w-4 h-4 bg-pink-500 rounded-full border-2 border-white shadow-md" />
-                  <div className="absolute bottom-[12%] left-[12%] w-4 h-4 bg-orange-500 rounded-full border-2 border-white shadow-md" />
+                  <div className="absolute top-[12%] left-[12%] w-4 h-4 bg-purple-600 rounded-full border-2 border-white shadow-md z-20" />
+                  <div className="absolute top-[50%] -left-2 -translate-y-1/2 w-4 h-4 bg-pink-500 rounded-full border-2 border-white shadow-md z-20" />
+                  <div className="absolute bottom-[12%] left-[12%] w-4 h-4 bg-orange-500 rounded-full border-2 border-white shadow-md z-20" />
                   
-                  <div className="absolute top-[12%] right-[12%] w-4 h-4 bg-indigo-600 rounded-full border-2 border-white shadow-md" />
-                  <div className="absolute top-[50%] -right-2 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow-md" />
-                  <div className="absolute bottom-[12%] right-[12%] w-4 h-4 bg-teal-500 rounded-full border-2 border-white shadow-md" />
+                  <div className="absolute top-[12%] right-[12%] w-4 h-4 bg-indigo-600 rounded-full border-2 border-white shadow-md z-20" />
+                  <div className="absolute top-[50%] -right-2 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow-md z-20" />
+                  <div className="absolute bottom-[12%] right-[12%] w-4 h-4 bg-teal-500 rounded-full border-2 border-white shadow-md z-20" />
                 </div>
               </div>
             </div>
 
-            {/* Right Column: 3 Service Cards with Solid Circular Icon Badges */}
+            {/* Right Column: 3 Service Cards with Solid Circular Icon Badges & Edge Dots */}
             <div className="flex flex-col gap-6 lg:pl-2 z-10">
-              {RIGHT_SERVICES.map((srv) => {
+              {RIGHT_SERVICES.map((srv, idx) => {
                 const Icon = srv.icon;
+                const dotColors = ["bg-indigo-600", "bg-blue-500", "bg-teal-500"];
                 return (
-                  <div key={srv.title} className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100/90 shadow-sm hover:shadow-xl transition-all duration-300 transform-gpu hover:-translate-y-1 group flex items-start gap-4 relative overflow-hidden">
+                  <div key={srv.title} className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100/90 shadow-sm hover:shadow-xl transition-all duration-300 transform-gpu hover:-translate-y-1 group flex items-start gap-4 relative overflow-visible">
+                    
+                    {/* Card Left Edge Connector Dot */}
+                    <div className={`absolute -left-2 top-1/2 -translate-y-1/2 w-4 h-4 ${dotColors[idx]} rounded-full border-2 border-white shadow-md z-20 hidden lg:block`} />
+
                     <div className={`w-12 h-12 sm:w-13 sm:h-13 rounded-full ${srv.badgeBg} text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform`}>
                       <Icon className="w-6 h-6 stroke-[2]" />
                     </div>
