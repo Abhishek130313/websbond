@@ -145,124 +145,124 @@ export const AboutSection = () => {
         </div>
 
         {/* ── Bottom Section: Exact User Reference Mockup Design ── */}
-        <div id="contact-section" className="py-6 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative">
+        <div id="contact-section" className="py-6 grid lg:grid-cols-12 gap-6 lg:gap-8 items-center relative">
           
           {/* Left Side: Headline + Description + 4 Vertical Divided Stats */}
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-5">
             <div className="flex items-center gap-2.5 mb-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#552782] shrink-0" />
-              <span className="text-xl sm:text-2xl md:text-[26px] font-extrabold text-[#1A0E2E] tracking-tight font-sans">
+              <span className="text-xl sm:text-2xl font-extrabold text-[#1A0E2E] tracking-tight font-sans">
                 India's Elite Digital Growth Partner
               </span>
             </div>
 
-            <h3 className="font-montserrat font-extrabold italic text-2xl sm:text-3xl md:text-4xl text-[#552782] tracking-tight leading-tight mb-3">
+            <h3 className="font-montserrat font-extrabold italic text-2xl sm:text-3xl text-[#552782] tracking-tight leading-tight mb-2.5">
               Code. Rank. Convert.
             </h3>
 
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8 max-w-lg font-normal">
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 max-w-lg font-normal">
               We build digital experiences that rank higher, generate leads, and grow your business.
             </p>
 
-            <div className="grid grid-cols-4 gap-2 sm:gap-4 pt-2">
+            <div className="grid grid-cols-4 gap-2 sm:gap-3 pt-2">
               {/* Stat 1 */}
-              <div className="border-r border-slate-200/80 pr-2 sm:pr-3">
-                <div className="w-10 h-10 rounded-2xl bg-purple-100/70 text-purple-700 flex items-center justify-center mb-3">
-                  <Users className="w-5 h-5" />
+              <div className="border-r border-slate-200/80 pr-2">
+                <div className="w-9 h-9 rounded-xl bg-purple-100/70 text-purple-700 flex items-center justify-center mb-2">
+                  <Users className="w-4.5 h-4.5" />
                 </div>
-                <div className="text-xl sm:text-2xl font-black text-[#1A0E2E] font-sans">55+</div>
-                <div className="text-[11px] sm:text-xs font-semibold text-slate-600 mt-0.5 leading-tight">Leads Driven</div>
+                <div className="text-lg sm:text-xl font-black text-[#1A0E2E] font-sans">55+</div>
+                <div className="text-[10px] sm:text-[11px] font-semibold text-slate-600 mt-0.5 leading-tight">Leads Driven</div>
               </div>
 
               {/* Stat 2 */}
-              <div className="border-r border-slate-200/80 pr-2 sm:pr-3">
-                <div className="w-10 h-10 rounded-2xl bg-sky-100/70 text-sky-600 flex items-center justify-center mb-3">
-                  <Rocket className="w-5 h-5" />
+              <div className="border-r border-slate-200/80 pr-2">
+                <div className="w-9 h-9 rounded-xl bg-sky-100/70 text-sky-600 flex items-center justify-center mb-2">
+                  <Rocket className="w-4.5 h-4.5" />
                 </div>
-                <div className="text-xl sm:text-2xl font-black text-[#1A0E2E] font-sans">5+</div>
-                <div className="text-[11px] sm:text-xs font-semibold text-slate-600 mt-0.5 leading-tight">Projects Live and Delivered</div>
+                <div className="text-lg sm:text-xl font-black text-[#1A0E2E] font-sans">5+</div>
+                <div className="text-[10px] sm:text-[11px] font-semibold text-slate-600 mt-0.5 leading-tight">Projects Live and Delivered</div>
               </div>
 
               {/* Stat 3 */}
-              <div className="border-r border-slate-200/80 pr-2 sm:pr-3">
-                <div className="w-10 h-10 rounded-2xl bg-emerald-100/70 text-emerald-600 flex items-center justify-center mb-3">
-                  <Code className="w-5 h-5" />
+              <div className="border-r border-slate-200/80 pr-2">
+                <div className="w-9 h-9 rounded-xl bg-emerald-100/70 text-emerald-600 flex items-center justify-center mb-2">
+                  <Code className="w-4.5 h-4.5" />
                 </div>
-                <div className="text-xl sm:text-2xl font-black text-[#1A0E2E] font-sans">10+</div>
-                <div className="text-[11px] sm:text-xs font-semibold text-slate-600 mt-0.5 leading-tight">Projects are in Engineering</div>
+                <div className="text-lg sm:text-xl font-black text-[#1A0E2E] font-sans">10+</div>
+                <div className="text-[10px] sm:text-[11px] font-semibold text-slate-600 mt-0.5 leading-tight">Projects in Engineering</div>
               </div>
 
               {/* Stat 4 */}
               <div>
-                <div className="w-10 h-10 rounded-2xl bg-amber-100/70 text-amber-600 flex items-center justify-center mb-3">
-                  <Star className="w-5 h-5" />
+                <div className="w-9 h-9 rounded-xl bg-amber-100/70 text-amber-600 flex items-center justify-center mb-2">
+                  <Star className="w-4.5 h-4.5" />
                 </div>
-                <div className="text-xl sm:text-2xl font-black text-[#1A0E2E] font-sans">4.9/5</div>
-                <div className="text-[11px] sm:text-xs font-semibold text-slate-600 mt-0.5 leading-tight">Rating on Google</div>
+                <div className="text-lg sm:text-xl font-black text-[#1A0E2E] font-sans">4.9/5</div>
+                <div className="text-[10px] sm:text-[11px] font-semibold text-slate-600 mt-0.5 leading-tight">Rating on Google</div>
               </div>
             </div>
           </div>
 
-          {/* Right Side: Ultra-Attractive & Widescreen Form Card */}
-          <div className="lg:col-span-6 bg-gradient-to-br from-white via-[#FDFBFF] to-[#F5EFFF] p-7 sm:p-9 rounded-3xl border border-purple-200/80 shadow-[0_20px_50px_rgba(85,39,130,0.12)] w-full relative overflow-hidden group">
+          {/* Right Side: Ultra-Widescreen, Sleek & Premium Border Form Card */}
+          <div className="lg:col-span-7 bg-gradient-to-br from-white via-[#FDFBFF] to-[#F5EFFF] p-5 sm:p-6 rounded-3xl border-2 border-purple-300/90 shadow-[0_16px_45px_rgba(85,39,130,0.16)] hover:border-purple-500/90 transition-all duration-300 ring-4 ring-purple-100/50 w-full relative overflow-hidden group">
             
             {/* Subtle Top Ambient Glow Accent */}
             <div className="absolute -top-16 -right-16 w-36 h-36 bg-purple-300/30 rounded-full blur-2xl pointer-events-none" />
 
-            <form onSubmit={handleSubmit} className="space-y-4.5 relative z-10">
+            <form onSubmit={handleSubmit} className="space-y-3 relative z-10">
               {/* Row 1: Name & Phone with inside icons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="relative flex items-center group/input">
-                  <User className="w-4 h-4 text-purple-600 absolute left-4 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
+                  <User className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
                   <input
                     type="text"
                     required
                     placeholder="Name*"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-white border border-purple-100 rounded-2xl pl-11 pr-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
+                    className="w-full bg-white border border-purple-200/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
                   />
                 </div>
                 <div className="relative flex items-center group/input">
-                  <Phone className="w-4 h-4 text-purple-600 absolute left-4 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
+                  <Phone className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
                   <input
                     type="tel"
                     required
                     placeholder="Phone No*"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-white border border-purple-100 rounded-2xl pl-11 pr-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
+                    className="w-full bg-white border border-purple-200/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
                   />
                 </div>
               </div>
 
               {/* Row 2: Email & Message with inside icons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="relative flex items-center group/input">
-                  <Mail className="w-4 h-4 text-purple-600 absolute left-4 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
+                  <Mail className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
                   <input
                     type="email"
                     required
                     placeholder="Email*"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-white border border-purple-100 rounded-2xl pl-11 pr-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
+                    className="w-full bg-white border border-purple-200/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
                   />
                 </div>
                 <div className="relative flex items-center group/input">
-                  <Pencil className="w-4 h-4 text-purple-600 absolute left-4 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
+                  <Pencil className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
                   <input
                     type="text"
                     placeholder="Type Your Message*"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-white border border-purple-100 rounded-2xl pl-11 pr-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
+                    className="w-full bg-white border border-purple-200/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
                   />
                 </div>
               </div>
 
               {/* Row 3: reCAPTCHA Box */}
-              <div className="bg-[#F9F6FC] border border-purple-200/70 rounded-2xl p-4 sm:p-4.5 flex items-center justify-between my-4">
+              <div className="bg-[#F9F6FC] border border-purple-200/80 rounded-xl p-3 sm:p-3.5 flex items-center justify-between my-2">
                 <label className="flex items-center gap-3 cursor-pointer select-none">
                   <input
                     type="checkbox"
@@ -271,10 +271,10 @@ export const AboutSection = () => {
                   />
                   <span className="text-xs sm:text-sm font-semibold text-slate-800">I'm not a robot</span>
                 </label>
-                <div className="flex flex-col items-center justify-center text-[9.5px] text-slate-500 font-sans leading-tight">
-                  <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-5 h-5 opacity-90 mb-0.5" />
+                <div className="flex flex-col items-center justify-center text-[9px] text-slate-500 font-sans leading-tight">
+                  <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-4.5 h-4.5 opacity-90 mb-0.5" />
                   <span className="font-bold">reCAPTCHA</span>
-                  <span className="text-[8.5px] text-slate-400">Privacy - Terms</span>
+                  <span className="text-[8px] text-slate-400">Privacy - Terms</span>
                 </div>
               </div>
 
@@ -282,7 +282,7 @@ export const AboutSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-[#552782] via-[#6D28D9] to-[#7C3AED] hover:from-[#421A78] hover:to-[#552782] text-white font-extrabold text-sm sm:text-base py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer active:scale-[0.99] transform hover:-translate-y-0.5"
+                className="w-full bg-gradient-to-r from-[#552782] via-[#6D28D9] to-[#7C3AED] hover:from-[#421A78] hover:to-[#552782] text-white font-extrabold text-sm sm:text-base py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer active:scale-[0.99] transform hover:-translate-y-0.5"
               >
                 {isSubmitting ? "Submitting..." : "Submit"}
               </button>
