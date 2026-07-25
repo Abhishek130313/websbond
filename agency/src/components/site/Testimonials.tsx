@@ -136,8 +136,8 @@ export const Testimonials = () => {
         </div>
 
         {/* ── Pagination Controls: Dots & Next/Prev ── */}
-        <div className="flex items-center justify-between pt-2">
-          <div className="text-xs text-slate-500 font-semibold font-jost">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0 pt-2">
+          <div className="text-xs text-slate-500 font-semibold font-jost text-center sm:text-left">
             Showing <strong className="text-[#552782]">{pageIndex * pageSize + 1}-{Math.min((pageIndex + 1) * pageSize, reviews.length)}</strong> of <strong>{reviews.length}</strong> Verified Reviews
           </div>
 

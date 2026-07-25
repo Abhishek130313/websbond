@@ -126,8 +126,8 @@ export const ClientSuccessSection = () => {
             {/* Left: SEO Copy */}
             <div className="lg:col-span-6 flex flex-col items-start pr-0 lg:pr-2">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[29px] font-extrabold text-[#241344] tracking-tight leading-snug mb-4 font-sans">
-                <span className="block whitespace-nowrap">Success Stories Powered by Strategic Design</span>
-                <span className="font-montserrat font-black italic text-[#552782] block mt-1 text-2xl sm:text-3xl lg:text-[38px] whitespace-nowrap">
+                <span className="block sm:whitespace-nowrap">Success Stories Powered by Strategic Design</span>
+                <span className="font-montserrat font-black italic text-[#552782] block mt-1 text-2xl sm:text-3xl lg:text-[38px] sm:whitespace-nowrap">
                   and Digital Marketing
                 </span>
               </h2>
