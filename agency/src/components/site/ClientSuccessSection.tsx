@@ -217,21 +217,68 @@ export const ClientSuccessSection = () => {
           {/* ── Radial Layout: Left Cards | Central Hub | Right Cards ── */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-center max-w-6xl mx-auto mb-14 relative">
 
-            {/* SVG Connecting Curves (Desktop Only) */}
-            <svg className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" xmlns="http://www.w3.org/2000/svg">
-              {/* Left Top -> Ring Top Left */}
-              <path d="M 32% 18% C 39% 18%, 41% 36%, 45% 41%" fill="none" stroke="#7C3AED" strokeWidth="2.5" strokeDasharray="5 5" strokeLinecap="round" opacity="0.85" />
-              {/* Left Mid -> Ring Mid Left */}
-              <path d="M 32% 50% C 37% 50%, 40% 50%, 44% 50%" fill="none" stroke="#E11D48" strokeWidth="2.5" strokeDasharray="5 5" strokeLinecap="round" opacity="0.85" />
-              {/* Left Bottom -> Ring Bottom Left */}
-              <path d="M 32% 82% C 39% 82%, 41% 64%, 45% 59%" fill="none" stroke="#F97316" strokeWidth="2.5" strokeDasharray="5 5" strokeLinecap="round" opacity="0.85" />
+            {/* SVG Connecting Curves (Desktop Only — Exact Image Match) */}
+            <svg 
+              className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" 
+              viewBox="0 0 1000 500" 
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* Left Top Card -> Hub Ring Top Left Dot (Purple) */}
+              <path 
+                d="M 320 85 C 380 85, 400 140, 435 155" 
+                fill="none" 
+                stroke="#7C3AED" 
+                strokeWidth="3.5" 
+                strokeDasharray="6 6" 
+                strokeLinecap="round" 
+              />
+              {/* Left Mid Card -> Hub Ring Mid Left Dot (Pink) */}
+              <path 
+                d="M 320 250 L 390 250" 
+                fill="none" 
+                stroke="#E11D48" 
+                strokeWidth="3.5" 
+                strokeDasharray="6 6" 
+                strokeLinecap="round" 
+              />
+              {/* Left Bottom Card -> Hub Ring Bottom Left Dot (Orange) */}
+              <path 
+                d="M 320 415 C 380 415, 400 360, 435 345" 
+                fill="none" 
+                stroke="#F97316" 
+                strokeWidth="3.5" 
+                strokeDasharray="6 6" 
+                strokeLinecap="round" 
+              />
 
-              {/* Right Top -> Ring Top Right */}
-              <path d="M 68% 18% C 61% 18%, 59% 36%, 55% 41%" fill="none" stroke="#6366F1" strokeWidth="2.5" strokeDasharray="5 5" strokeLinecap="round" opacity="0.85" />
-              {/* Right Mid -> Ring Mid Right */}
-              <path d="M 68% 50% C 63% 50%, 60% 50%, 56% 50%" fill="none" stroke="#2563EB" strokeWidth="2.5" strokeDasharray="5 5" strokeLinecap="round" opacity="0.85" />
-              {/* Right Bottom -> Ring Bottom Right */}
-              <path d="M 68% 82% C 61% 82%, 59% 64%, 55% 59%" fill="none" stroke="#0D9488" strokeWidth="2.5" strokeDasharray="5 5" strokeLinecap="round" opacity="0.85" />
+              {/* Right Top Card -> Hub Ring Top Right Dot (Violet) */}
+              <path 
+                d="M 680 85 C 620 85, 600 140, 565 155" 
+                fill="none" 
+                stroke="#6366F1" 
+                strokeWidth="3.5" 
+                strokeDasharray="6 6" 
+                strokeLinecap="round" 
+              />
+              {/* Right Mid Card -> Hub Ring Mid Right Dot (Blue) */}
+              <path 
+                d="M 680 250 L 610 250" 
+                fill="none" 
+                stroke="#2563EB" 
+                strokeWidth="3.5" 
+                strokeDasharray="6 6" 
+                strokeLinecap="round" 
+              />
+              {/* Right Bottom Card -> Hub Ring Bottom Right Dot (Teal) */}
+              <path 
+                d="M 680 415 C 620 415, 600 360, 565 345" 
+                fill="none" 
+                stroke="#0D9488" 
+                strokeWidth="3.5" 
+                strokeDasharray="6 6" 
+                strokeLinecap="round" 
+              />
             </svg>
 
             {/* Left Column: 3 Service Cards with Solid Circular Icon Badges & Edge Dots */}
