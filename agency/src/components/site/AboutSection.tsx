@@ -203,74 +203,78 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          {/* Right Side: Exact Form Card matching reference image */}
-          <div className="lg:col-span-6 bg-white p-6 sm:p-8 rounded-3xl border border-purple-100/80 shadow-2xl w-full max-w-lg ml-auto">
-            <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Right Side: Ultra-Attractive & Widescreen Form Card */}
+          <div className="lg:col-span-6 bg-gradient-to-br from-white via-[#FDFBFF] to-[#F5EFFF] p-7 sm:p-9 rounded-3xl border border-purple-200/80 shadow-[0_20px_50px_rgba(85,39,130,0.12)] w-full relative overflow-hidden group">
+            
+            {/* Subtle Top Ambient Glow Accent */}
+            <div className="absolute -top-16 -right-16 w-36 h-36 bg-purple-300/30 rounded-full blur-2xl pointer-events-none" />
+
+            <form onSubmit={handleSubmit} className="space-y-4.5 relative z-10">
               {/* Row 1: Name & Phone with inside icons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                <div className="relative flex items-center">
-                  <User className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="relative flex items-center group/input">
+                  <User className="w-4 h-4 text-purple-600 absolute left-4 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
                   <input
                     type="text"
                     required
                     placeholder="Name*"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-3.5 py-3 text-xs text-slate-900 focus:outline-none focus:border-purple-600 font-medium shadow-2xs"
+                    className="w-full bg-white border border-purple-100 rounded-2xl pl-11 pr-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
                   />
                 </div>
-                <div className="relative flex items-center">
-                  <Phone className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none" />
+                <div className="relative flex items-center group/input">
+                  <Phone className="w-4 h-4 text-purple-600 absolute left-4 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
                   <input
                     type="tel"
                     required
                     placeholder="Phone No*"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-3.5 py-3 text-xs text-slate-900 focus:outline-none focus:border-purple-600 font-medium shadow-2xs"
+                    className="w-full bg-white border border-purple-100 rounded-2xl pl-11 pr-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
                   />
                 </div>
               </div>
 
               {/* Row 2: Email & Message with inside icons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                <div className="relative flex items-center">
-                  <Mail className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="relative flex items-center group/input">
+                  <Mail className="w-4 h-4 text-purple-600 absolute left-4 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
                   <input
                     type="email"
                     required
                     placeholder="Email*"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-3.5 py-3 text-xs text-slate-900 focus:outline-none focus:border-purple-600 font-medium shadow-2xs"
+                    className="w-full bg-white border border-purple-100 rounded-2xl pl-11 pr-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
                   />
                 </div>
-                <div className="relative flex items-center">
-                  <Pencil className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none" />
+                <div className="relative flex items-center group/input">
+                  <Pencil className="w-4 h-4 text-purple-600 absolute left-4 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
                   <input
                     type="text"
                     placeholder="Type Your Message*"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-3.5 py-3 text-xs text-slate-900 focus:outline-none focus:border-purple-600 font-medium shadow-2xs"
+                    className="w-full bg-white border border-purple-100 rounded-2xl pl-11 pr-4 py-3.5 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
                   />
                 </div>
               </div>
 
               {/* Row 3: reCAPTCHA Box */}
-              <div className="bg-[#F9F9F9] border border-[#E0E0E0] rounded-xl p-4 flex items-center justify-between my-4">
-                <label className="flex items-center gap-3 cursor-pointer">
+              <div className="bg-[#F9F6FC] border border-purple-200/70 rounded-2xl p-4 sm:p-4.5 flex items-center justify-between my-4">
+                <label className="flex items-center gap-3 cursor-pointer select-none">
                   <input
                     type="checkbox"
                     required
-                    className="w-5 h-5 rounded border-slate-300 text-purple-700 focus:ring-purple-500 cursor-pointer"
+                    className="w-5 h-5 rounded border-purple-300 text-purple-700 focus:ring-purple-500 cursor-pointer accent-[#552782]"
                   />
-                  <span className="text-xs font-medium text-slate-800 select-none">I'm not a robot</span>
+                  <span className="text-xs sm:text-sm font-semibold text-slate-800">I'm not a robot</span>
                 </label>
-                <div className="flex flex-col items-center justify-center text-[9px] text-slate-400 font-sans leading-tight">
-                  <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-5 h-5 opacity-80 mb-0.5" />
-                  <span>reCAPTCHA</span>
-                  <span className="text-[8px] text-slate-400">Privacy - Terms</span>
+                <div className="flex flex-col items-center justify-center text-[9.5px] text-slate-500 font-sans leading-tight">
+                  <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-5 h-5 opacity-90 mb-0.5" />
+                  <span className="font-bold">reCAPTCHA</span>
+                  <span className="text-[8.5px] text-slate-400">Privacy - Terms</span>
                 </div>
               </div>
 
@@ -278,7 +282,7 @@ export const AboutSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-[#4D237A] hover:bg-[#3C1A62] text-white font-bold text-sm sm:text-base py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer active:scale-[0.99]"
+                className="w-full bg-gradient-to-r from-[#552782] via-[#6D28D9] to-[#7C3AED] hover:from-[#421A78] hover:to-[#552782] text-white font-extrabold text-sm sm:text-base py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer active:scale-[0.99] transform hover:-translate-y-0.5"
               >
                 {isSubmitting ? "Submitting..." : "Submit"}
               </button>
