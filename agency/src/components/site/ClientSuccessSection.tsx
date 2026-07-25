@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 export const ClientSuccessSection = () => {
   return (
@@ -21,10 +21,16 @@ export const ClientSuccessSection = () => {
           {/* Left Column: Premium SEO Copywriting & Headline (Exact Reference Typography) */}
           <div className="lg:col-span-7 flex flex-col items-start">
             
-            {/* Headline */}
-            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#241344] tracking-tight leading-tight mb-6 font-sans">
-              Success Stories Powered by Strategic Design{" "}
-              <span className="font-montserrat font-black italic text-[#552782] block mt-1 text-3xl sm:text-4xl lg:text-[42px]">
+            {/* Top Tagline Badge */}
+            <div className="flex items-center gap-2 mb-3.5 text-purple-900 font-bold text-xs bg-[#F3EAFA] px-3.5 py-1.5 rounded-full border border-purple-200/70 shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-purple-700" />
+              <span>Proven Growth & Verified Case Studies</span>
+            </div>
+
+            {/* Headline (Fitted on 1 single line each with whitespace-nowrap on desktop) */}
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[29px] font-extrabold text-[#241344] tracking-tight leading-tight mb-6 font-sans">
+              <span className="block whitespace-normal sm:whitespace-nowrap">Success Stories Powered by Strategic Design</span>
+              <span className="font-montserrat font-black italic text-[#552782] block mt-1.5 text-2xl sm:text-3xl lg:text-[38px] whitespace-normal sm:whitespace-nowrap">
                 and Digital Marketing
               </span>
             </h2>
