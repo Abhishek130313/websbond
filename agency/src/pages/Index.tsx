@@ -6,13 +6,10 @@ import { AboutSection } from "@/components/site/AboutSection";
 import { ClientSuccessSection } from "@/components/site/ClientSuccessSection";
 
 import { WebDesignFeatureGrid } from "@/components/site/WebDesignFeatureGrid";
-import { MidCtaBanner } from "@/components/site/MidCtaBanner";
-import { EverythingGrid } from "@/components/site/EverythingGrid";
 import { Testimonials } from "@/components/site/Testimonials";
 import { TechStackMatrix } from "@/components/site/TechStackMatrix";
 import { FaqAndBlogs } from "@/components/site/FaqAndBlogs";
 
-const VideoShowcase = lazy(() => import("@/components/site/VideoShowcase").then(m => ({ default: m.VideoShowcase })));
 const WhyChooseUs = lazy(() => import("@/components/site/WhyChooseUs").then(m => ({ default: m.WhyChooseUs })));
 
 const SectionSkeleton = () => (
@@ -101,17 +98,6 @@ const Index = () => (
 
     {/* Section 6: High-Performance Web Design Feature Grid */}
     <WebDesignFeatureGrid />
-
-    {/* Section 7: Video Growth Journey Showcase */}
-    <Suspense fallback={<SectionSkeleton />}>
-      <VideoShowcase />
-    </Suspense>
-
-    {/* Section 8: Mid-Page CTA Banner */}
-    <MidCtaBanner />
-
-    {/* Section 10: Everything You Need Capabilities Grid */}
-    <EverythingGrid />
 
     {/* Section 11: Hire India's Top Agency Partner */}
     <Suspense fallback={<SectionSkeleton />}>
