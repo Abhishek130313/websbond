@@ -1,10 +1,7 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
 
 export const ClientSuccessSection = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
   return (
     <section className="py-16 md:py-24 bg-[#F8F7FD] text-slate-900 select-none border-b border-purple-100 relative overflow-hidden">
       
@@ -16,11 +13,11 @@ export const ClientSuccessSection = () => {
         
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Heading + SEO Paragraphs + Interactive Read More + CTA */}
+          {/* Left Column: Rich, Well-Populated SEO Content & Highlights */}
           <div className="lg:col-span-7 flex flex-col items-start">
             
             {/* Tagline Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#F2EAFA] px-3.5 py-1.5 rounded-full text-purple-900 font-bold text-xs mb-4 border border-purple-200/70 shadow-2xs">
+            <div className="inline-flex items-center gap-2 bg-[#F2EAFA] px-3.5 py-1.5 rounded-full text-purple-900 font-bold text-xs mb-3 border border-purple-200/70 shadow-2xs">
               <Sparkles className="w-3.5 h-3.5 text-purple-700" />
               <span>Proven Growth & Verified Business Impact</span>
             </div>
@@ -33,45 +30,45 @@ export const ClientSuccessSection = () => {
               </span>
             </h2>
 
-            {/* Always Visible Paragraph (Clean, Compact, High-Impact) */}
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-              Struggling to attract qualified leads, dominate Google search rankings, or convert website traffic into actual profit? As Delhi NCR & India's premier digital transformation agency, <strong className="text-slate-900 font-bold">Websbond</strong> combines high-speed web engineering with laser-targeted performance marketing to turn your digital assets into high-yield revenue engines.
+            {/* Paragraph 1: Search Intent & Core Value */}
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-3.5 font-normal">
+              Are you struggling to capture qualified leads, achieve top-tier Google search rankings, or convert site visitors into paying clients? At <strong className="text-slate-900 font-bold">Websbond</strong>, we bridge the gap between high-speed web engineering and laser-targeted performance marketing. As Delhi NCR & India's premier digital transformation agency, we build conversion-optimized web platforms that turn casual traffic into loyal customer acquisition engines.
             </p>
 
-            {/* Interactive Collapsible / Expandable Rich SEO Content */}
-            <div
-              className={`transition-all duration-300 overflow-hidden ${
-                isExpanded ? "max-h-[800px] opacity-100 mt-3" : "max-h-0 opacity-0"
-              }`}
-            >
-              <div className="space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed pt-1 border-t border-purple-100/80">
-                <p>
-                  Whether you need an <strong className="text-slate-900 font-bold">affordable budget-friendly website</strong>, custom eCommerce infrastructure, top-tier <Link to="/seo-service-in-delhi" className="text-purple-800 font-bold hover:underline">SEO strategies in India</Link> to capture organic market share, or high-ROI paid ad campaigns (Google Ads & Meta Ads), our full-funnel solutions are engineered to maximize your return on ad spend.
-                </p>
-                <p>
-                  We don't just build websites — we architect complete growth ecosystems that outrank competitors, establish online authority, and deliver measurable business outcomes across India and global markets.
-                </p>
+            {/* Paragraph 2: Services & Organic Authority */}
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-5 font-normal">
+              Our holistic growth model synchronizes top-rank <Link to="/seo-service-in-delhi" className="text-purple-900 font-bold hover:underline">SEO strategies in India</Link>, data-backed Google Ads (PPC), social media marketing (SMM), and performance lead generation campaigns. Whether you are a startup seeking an <strong className="text-slate-900 font-bold">affordable website in budget</strong> or an established enterprise scaling globally, we engineer tailored digital blueprints that drive measurable revenue.
+            </p>
+
+            {/* 4 Key Pillars Feature Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full mb-6 bg-white/60 p-4 rounded-2xl border border-purple-100/80 shadow-xs">
+              <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1E1238]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>100/100 Core Web Vitals Guaranteed</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1E1238]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Top #1 Rank Google SEO Engine</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1E1238]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>High-Converting UI/UX & Lead Funnels</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1E1238]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>End-to-End Campaign Analytics</span>
               </div>
             </div>
-
-            {/* Read More / Read Less Toggle Button */}
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="inline-flex items-center gap-1.5 text-purple-900 hover:text-purple-700 font-extrabold text-xs sm:text-sm my-3 cursor-pointer transition-colors focus:outline-none"
-            >
-              <span>{isExpanded ? "Show Less" : "Read Full Story & SEO Insights"}</span>
-              {isExpanded ? <ChevronUp className="w-4 h-4 text-purple-700" /> : <ChevronDown className="w-4 h-4 text-purple-700" />}
-            </button>
 
             {/* Bold Closing Pitch */}
             <p className="text-slate-900 font-extrabold text-sm sm:text-base mb-6 font-sans">
               Partner with Websbond to transform your online presence into a dominant market force.
             </p>
 
-            {/* View More Button */}
+            {/* View Portfolio Button */}
             <Link
               to="/our-portfolio"
-              className="inline-flex items-center gap-2.5 bg-[#20103A] hover:bg-[#351A5E] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-md hover:shadow-xl transition-all duration-200 group active:scale-95"
+              className="inline-flex items-center gap-2.5 bg-[#20103A] hover:bg-[#351A5E] text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-md hover:shadow-xl transition-all duration-200 group active:scale-95"
             >
               <span>Explore Our Case Studies & Portfolio</span>
               <ArrowRight className="w-4 h-4 text-purple-200 group-hover:translate-x-1 transition-transform" />
