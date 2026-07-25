@@ -3,6 +3,7 @@ import { SEO } from "@/components/site/SEO";
 import { Layout } from "@/components/site/Layout";
 import { Hero } from "@/components/site/Hero";
 import { AboutSection } from "@/components/site/AboutSection";
+import { ClientSuccessSection } from "@/components/site/ClientSuccessSection";
 import { ServicesMindmap } from "@/components/site/ServicesMindmap";
 import { WebDesignFeatureGrid } from "@/components/site/WebDesignFeatureGrid";
 import { MidCtaBanner } from "@/components/site/MidCtaBanner";
@@ -94,6 +95,9 @@ const Index = () => (
 
     {/* Section 2 & 3: Turn Your Website into a High-Converting Engine + Stats + Form */}
     <AboutSection />
+
+    {/* Section 3.5: Success Stories Powered by Strategic Design & Digital Marketing */}
+    <ClientSuccessSection />
 
     {/* Section 4 & 9: Verified Live Client Projects & Step-by-Step Strategic Roadmap */}
     <Suspense fallback={<SectionSkeleton />}>
