@@ -204,11 +204,8 @@ export const AboutSection = () => {
           </div>
 
           {/* Right Side: Ultra-Widescreen, Sleek & Premium Border Form Card */}
-          <div className="lg:col-span-7 bg-gradient-to-br from-white via-[#FDFBFF] to-[#F5EFFF] p-5 sm:p-6 rounded-3xl border-2 border-purple-300/90 shadow-[0_16px_45px_rgba(85,39,130,0.16)] hover:border-purple-500/90 transition-all duration-300 ring-4 ring-purple-100/50 w-full relative overflow-hidden group">
+          <div className="lg:col-span-7 bg-white p-5 sm:p-6 rounded-3xl border-2 border-purple-300/90 shadow-[0_16px_45px_rgba(85,39,130,0.16)] hover:border-purple-500/90 transition-all duration-300 ring-4 ring-purple-100/50 w-full relative overflow-hidden group">
             
-            {/* Subtle Top Ambient Glow Accent */}
-            <div className="absolute -top-16 -right-16 w-36 h-36 bg-purple-300/30 rounded-full blur-2xl pointer-events-none" />
-
             <form onSubmit={handleSubmit} className="space-y-3 relative z-10">
               {/* Row 1: Name & Phone with inside icons */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
