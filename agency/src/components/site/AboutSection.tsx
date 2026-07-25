@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { CheckCircle2, User, Phone, Mail, Pencil, Users, Rocket, Code, Star } from "lucide-react";
+import { 
+  User, Phone, Mail, Pencil, Users, Rocket, Code, Star, 
+  Briefcase, IndianRupee 
+} from "lucide-react";
 import { submitContactForm } from "@/lib/api";
 import { toast } from "@/hooks/use-toast";
 
@@ -8,6 +11,8 @@ export const AboutSection = () => {
     name: "",
     phone: "",
     email: "",
+    service: "Website Design & Development",
+    budget: "₹25,000 - ₹50,000",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,14 +33,21 @@ export const AboutSection = () => {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
-        subject: "Consultation Request",
-        message: formData.message || "Consultation Request from Website",
+        subject: `Consultation Request - ${formData.service}`,
+        message: `Service Required: ${formData.service} | Budget: ${formData.budget} | Note: ${formData.message || "Consultation Request from Website"}`,
       });
       toast({
         title: "Proposal Requested! 🎉",
         description: "Thank you! Our team will contact you within 24 hours.",
       });
-      setFormData({ name: "", phone: "", email: "", message: "" });
+      setFormData({ 
+        name: "", 
+        phone: "", 
+        email: "", 
+        service: "Website Design & Development",
+        budget: "₹25,000 - ₹50,000",
+        message: "" 
+      });
     } catch {
       toast({
         title: "Submission Failed",
@@ -51,13 +63,12 @@ export const AboutSection = () => {
     <section className="py-16 md:py-24 bg-[#F8F7FD] text-slate-900 select-none border-b border-purple-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* ── Top Hero Section: Image 1 Style Layout ── */}
+        {/* ── Top Hero Section ── */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-16 md:mb-24">
           
-          {/* Left Column: 3D Smartphone Expert Graphic */}
+          {/* Left Column: 3D Graphic */}
           <div className="lg:col-span-5 flex justify-center relative">
             <div className="relative group w-full max-w-[480px]">
-              {/* Subtle Ambient Glow */}
               <div className="absolute -inset-4 bg-gradient-to-r from-purple-400/20 via-pink-400/20 to-indigo-400/20 rounded-full blur-2xl opacity-70 group-hover:opacity-100 transition duration-1000" />
               
               <img
@@ -69,32 +80,27 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          {/* Right Column: SEO Optimized Copy & 4 Badge Grid */}
+          {/* Right Column: Copy & 4 Badges */}
           <div className="lg:col-span-7">
-            {/* Tagline Badge */}
             <span className="text-[#F25C3B] font-bold text-sm sm:text-base tracking-wide uppercase block mb-3 font-sans">
               What makes us unique?
             </span>
 
-            {/* Main SEO Headline */}
             <h2 className="font-montserrat font-semibold italic text-2xl sm:text-3xl md:text-3xl lg:text-[34px] text-slate-950 tracking-tight leading-tight mb-5">
               Our offbeat <span className="text-purple-800">Marketing & Web solutions</span> drive dollars to your bank accounts.
             </h2>
 
-            {/* Sub-headline for SEO keyword richness */}
             <h3 className="text-base sm:text-lg font-bold text-slate-800 mb-4 leading-snug">
               Affordable Website Development, Top #1 Google SEO & High-ROI Social Media Marketing Agency
             </h3>
 
-            {/* SEO-Optimized Copy */}
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
               In this fast-paced digital market, your first impression defines your success. Whether you want to build an <strong className="text-slate-900 font-bold">affordable website in budget (saste me high quality website)</strong>, scale with a top-rated <strong className="text-slate-900 font-bold">social media marketing agency</strong>, or dominate Google search results with <strong className="text-slate-900 font-bold">#1 rank SEO & Google Ads</strong> — <strong className="text-purple-900 font-bold">Websbond</strong> delivers guaranteed business growth. Our commitment to expanding your revenue goes beyond mere words; it is a steadfast pledge. To bring your dreams of digital dominance to fruition, we have:
             </p>
 
-            {/* 4 Circular Stat Badges Grid (Real Websbond Data) */}
             <div className="grid grid-cols-2 gap-4 sm:gap-6 pt-2 border-t border-purple-100">
               
-              {/* Badge 1: Red/Coral */}
+              {/* Badge 1 */}
               <div className="flex items-center gap-3 sm:gap-4 bg-white/70 p-3 sm:p-4 rounded-2xl border border-rose-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#EE5351] text-white flex items-center justify-center font-black text-sm sm:text-base shadow-md shrink-0 font-jost">
                   2026
@@ -105,7 +111,7 @@ export const AboutSection = () => {
                 </div>
               </div>
 
-              {/* Badge 2: Green */}
+              {/* Badge 2 */}
               <div className="flex items-center gap-3 sm:gap-4 bg-white/70 p-3 sm:p-4 rounded-2xl border border-emerald-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#95D04B] text-white flex items-center justify-center font-black text-lg sm:text-xl shadow-md shrink-0 font-jost">
                   5+
@@ -116,7 +122,7 @@ export const AboutSection = () => {
                 </div>
               </div>
 
-              {/* Badge 3: Purple */}
+              {/* Badge 3 */}
               <div className="flex items-center gap-3 sm:gap-4 bg-white/70 p-3 sm:p-4 rounded-2xl border border-indigo-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#5B37BF] text-white flex items-center justify-center font-black text-lg sm:text-xl shadow-md shrink-0 font-jost">
                   10+
@@ -127,7 +133,7 @@ export const AboutSection = () => {
                 </div>
               </div>
 
-              {/* Badge 4: Yellow/Gold */}
+              {/* Badge 4 */}
               <div className="flex items-center gap-3 sm:gap-4 bg-white/70 p-3 sm:p-4 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#F6C646] text-white flex items-center justify-center font-black text-base sm:text-lg shadow-md shrink-0 font-jost">
                   4.9★
@@ -139,15 +145,14 @@ export const AboutSection = () => {
               </div>
 
             </div>
-
           </div>
 
         </div>
 
-        {/* ── Bottom Section: Exact User Reference Mockup Design ── */}
+        {/* ── Bottom Section: Form + Headline + Stats ── */}
         <div id="contact-section" className="py-6 grid lg:grid-cols-12 gap-6 lg:gap-8 items-center relative">
           
-          {/* Left Side: Headline + Description + 4 Vertical Divided Stats */}
+          {/* Left Side: Headline + Stats */}
           <div className="lg:col-span-5">
             <div className="flex items-center gap-2.5 mb-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#552782] shrink-0" />
@@ -165,7 +170,6 @@ export const AboutSection = () => {
             </p>
 
             <div className="grid grid-cols-4 gap-2 sm:gap-3 pt-2">
-              {/* Stat 1 */}
               <div className="border-r border-slate-200/80 pr-2">
                 <div className="w-9 h-9 rounded-xl bg-purple-100/70 text-purple-700 flex items-center justify-center mb-2">
                   <Users className="w-4.5 h-4.5" />
@@ -174,7 +178,6 @@ export const AboutSection = () => {
                 <div className="text-[10px] sm:text-[11px] font-semibold text-slate-600 mt-0.5 leading-tight">Leads Driven</div>
               </div>
 
-              {/* Stat 2 */}
               <div className="border-r border-slate-200/80 pr-2">
                 <div className="w-9 h-9 rounded-xl bg-sky-100/70 text-sky-600 flex items-center justify-center mb-2">
                   <Rocket className="w-4.5 h-4.5" />
@@ -183,7 +186,6 @@ export const AboutSection = () => {
                 <div className="text-[10px] sm:text-[11px] font-semibold text-slate-600 mt-0.5 leading-tight">Projects Live and Delivered</div>
               </div>
 
-              {/* Stat 3 */}
               <div className="border-r border-slate-200/80 pr-2">
                 <div className="w-9 h-9 rounded-xl bg-emerald-100/70 text-emerald-600 flex items-center justify-center mb-2">
                   <Code className="w-4.5 h-4.5" />
@@ -192,7 +194,6 @@ export const AboutSection = () => {
                 <div className="text-[10px] sm:text-[11px] font-semibold text-slate-600 mt-0.5 leading-tight">Projects in Engineering</div>
               </div>
 
-              {/* Stat 4 */}
               <div>
                 <div className="w-9 h-9 rounded-xl bg-amber-100/70 text-amber-600 flex items-center justify-center mb-2">
                   <Star className="w-4.5 h-4.5" />
@@ -203,18 +204,19 @@ export const AboutSection = () => {
             </div>
           </div>
 
-          {/* Right Side: Ultra-Widescreen, Sleek & Premium Border Form Card */}
+          {/* Right Side: High-Converting Lead Form with Extra Service & Budget Details */}
           <div className="lg:col-span-7 bg-white p-5 sm:p-6 rounded-3xl border-2 border-purple-300/90 shadow-[0_16px_45px_rgba(85,39,130,0.16)] hover:border-purple-500/90 transition-all duration-300 ring-4 ring-purple-100/50 w-full relative overflow-hidden group">
             
             <form onSubmit={handleSubmit} className="space-y-3 relative z-10">
-              {/* Row 1: Name & Phone with inside icons */}
+              
+              {/* Row 1: Name & Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="relative flex items-center group/input">
                   <User className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
                   <input
                     type="text"
                     required
-                    placeholder="Name*"
+                    placeholder="Your Full Name*"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full bg-white border border-purple-200/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
@@ -225,7 +227,7 @@ export const AboutSection = () => {
                   <input
                     type="tel"
                     required
-                    placeholder="Phone No*"
+                    placeholder="Phone / WhatsApp No*"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full bg-white border border-purple-200/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
@@ -233,24 +235,56 @@ export const AboutSection = () => {
                 </div>
               </div>
 
-              {/* Row 2: Email & Message with inside icons */}
+              {/* Row 2: Email & Required Service Select */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="relative flex items-center group/input">
                   <Mail className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
                   <input
                     type="email"
                     required
-                    placeholder="Email*"
+                    placeholder="Email Address*"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full bg-white border border-purple-200/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
                   />
                 </div>
                 <div className="relative flex items-center group/input">
+                  <Briefcase className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
+                  <select
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                    className="w-full bg-white border border-purple-200/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all appearance-none cursor-pointer"
+                  >
+                    <option value="Website Design & Development">Website Design & Development</option>
+                    <option value="Google SEO & Search Ranking">Google SEO & Search Ranking</option>
+                    <option value="Google Ads (PPC) Management">Google Ads (PPC) Management</option>
+                    <option value="Social Media Marketing">Social Media Marketing</option>
+                    <option value="E-Commerce Store Setup">E-Commerce Store Setup</option>
+                    <option value="Full Digital Growth Package">Full Digital Growth Package</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Row 3: Estimated Budget & Message */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="relative flex items-center group/input">
+                  <IndianRupee className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
+                  <select
+                    value={formData.budget}
+                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                    className="w-full bg-white border border-purple-200/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all appearance-none cursor-pointer"
+                  >
+                    <option value="₹10,000 - ₹25,000">Budget: ₹10,000 - ₹25,000</option>
+                    <option value="₹25,000 - ₹50,000">Budget: ₹25,000 - ₹50,000</option>
+                    <option value="₹50,000 - ₹1,00,000">Budget: ₹50,000 - ₹1,00,000</option>
+                    <option value="₹1,00,000+">Budget: ₹1,00,000+</option>
+                  </select>
+                </div>
+                <div className="relative flex items-center group/input">
                   <Pencil className="w-4 h-4 text-purple-600 absolute left-3.5 pointer-events-none group-focus-within/input:scale-110 group-focus-within/input:text-purple-700 transition-all" />
                   <input
                     type="text"
-                    placeholder="Type Your Message*"
+                    placeholder="Project Brief / Details*"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full bg-white border border-purple-200/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-100/60 font-semibold shadow-2xs transition-all"
@@ -258,24 +292,26 @@ export const AboutSection = () => {
                 </div>
               </div>
 
-              {/* Row 3: reCAPTCHA Box */}
-              <div className="bg-[#F9F6FC] border border-purple-200/80 rounded-xl p-3 sm:p-3.5 flex items-center justify-between my-2">
-                <label className="flex items-center gap-3 cursor-pointer select-none">
-                  <input
-                    type="checkbox"
-                    required
-                    className="w-5 h-5 rounded border-purple-300 text-purple-700 focus:ring-purple-500 cursor-pointer accent-[#552782]"
-                  />
-                  <span className="text-xs sm:text-sm font-semibold text-slate-800">I'm not a robot</span>
-                </label>
-                <div className="flex flex-col items-center justify-center text-[9px] text-slate-500 font-sans leading-tight">
-                  <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-4.5 h-4.5 opacity-90 mb-0.5" />
-                  <span className="font-bold">reCAPTCHA</span>
-                  <span className="text-[8px] text-slate-400">Privacy - Terms</span>
+              {/* Row 4: Standard Normal-Sized reCAPTCHA Box (Not Stretched) */}
+              <div className="flex justify-center my-3">
+                <div className="w-full max-w-[304px] bg-[#F9F9F9] border border-slate-200/90 rounded-xl p-3 flex items-center justify-between shadow-2xs">
+                  <label className="flex items-center gap-3 cursor-pointer select-none">
+                    <input
+                      type="checkbox"
+                      required
+                      className="w-5 h-5 rounded border-slate-300 text-purple-700 focus:ring-purple-500 cursor-pointer accent-[#552782]"
+                    />
+                    <span className="text-xs font-semibold text-slate-800">I'm not a robot</span>
+                  </label>
+                  <div className="flex flex-col items-center justify-center text-[9px] text-slate-500 font-sans leading-tight">
+                    <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-4.5 h-4.5 opacity-90 mb-0.5" />
+                    <span className="font-bold">reCAPTCHA</span>
+                    <span className="text-[8px] text-slate-400">Privacy - Terms</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Row 4: Submit Button */}
+              {/* Row 5: Submit Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -283,6 +319,7 @@ export const AboutSection = () => {
               >
                 {isSubmitting ? "Submitting..." : "Submit"}
               </button>
+
             </form>
           </div>
 
@@ -292,5 +329,3 @@ export const AboutSection = () => {
     </section>
   );
 };
-
-
