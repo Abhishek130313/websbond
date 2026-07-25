@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
 
 export const ClientSuccessSection = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <section className="py-16 md:py-24 bg-[#F8F7FD] text-slate-900 select-none border-b border-purple-100 relative overflow-hidden">
       
@@ -13,36 +16,56 @@ export const ClientSuccessSection = () => {
         
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Heading + SEO Paragraphs + Call to Action */}
+          {/* Left Column: Heading + SEO Paragraphs + Interactive Read More + CTA */}
           <div className="lg:col-span-7 flex flex-col items-start">
             
             {/* Tagline Badge */}
             <div className="inline-flex items-center gap-2 bg-[#F2EAFA] px-3.5 py-1.5 rounded-full text-purple-900 font-bold text-xs mb-4 border border-purple-200/70 shadow-2xs">
               <Sparkles className="w-3.5 h-3.5 text-purple-700" />
-              <span>Proven Growth & Verified Success</span>
+              <span>Proven Growth & Verified Business Impact</span>
             </div>
 
-            {/* Main Headline (Combining Reference 1 & 2 Styles) */}
+            {/* Main Headline (100% Original Websbond Copywriting) */}
             <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-[#1E1238] tracking-tight leading-tight mb-4 font-sans">
-              Success Stories Powered by Strategic Design{" "}
+              Engineering Scalable Success for Modern Brands{" "}
               <span className="font-montserrat font-black italic text-[#552782] block mt-1 text-3xl sm:text-4xl lg:text-[42px]">
-                and Digital Marketing
+                Through Next-Gen Design & Marketing
               </span>
             </h2>
 
-            {/* SEO Paragraph 1 */}
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4 font-normal">
-              Having trouble getting qualified leads, increasing online visibility, and converting visitors into business? As a trusted <strong className="text-slate-900 font-bold">web design company & digital marketing agency in Delhi NCR, India</strong>, we help businesses achieve measurable growth through innovative design and result-driven services. Our fast, responsive, and conversion-oriented websites work well in synchronization with <Link to="/seo-service-in-delhi" className="text-purple-800 font-bold hover:underline">SEO services India</Link>, Google Ads (PPC), content marketing, and lead generation campaigns.
+            {/* Always Visible Paragraph (Clean, Compact, High-Impact) */}
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+              Struggling to attract qualified leads, dominate Google search rankings, or convert website traffic into actual profit? As Delhi NCR & India's premier digital transformation agency, <strong className="text-slate-900 font-bold">Websbond</strong> combines high-speed web engineering with laser-targeted performance marketing to turn your digital assets into high-yield revenue engines.
             </p>
 
-            {/* SEO Paragraph 2 */}
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 font-normal">
-              Our objective isn't limited to only creating an online presence for you; rather, it is also about driving scalable revenue through our <Link to="/digital-marketing-agency" className="text-purple-800 font-bold hover:underline">digital marketing services India</Link>. Be it a startup seeking affordable website development or an already well-established business entity, we have tailored digital marketing solutions for everyone who wants to grow their business.
-            </p>
+            {/* Interactive Collapsible / Expandable Rich SEO Content */}
+            <div
+              className={`transition-all duration-300 overflow-hidden ${
+                isExpanded ? "max-h-[800px] opacity-100 mt-3" : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed pt-1 border-t border-purple-100/80">
+                <p>
+                  Whether you need an <strong className="text-slate-900 font-bold">affordable budget-friendly website</strong>, custom eCommerce infrastructure, top-tier <Link to="/seo-service-in-delhi" className="text-purple-800 font-bold hover:underline">SEO strategies in India</Link> to capture organic market share, or high-ROI paid ad campaigns (Google Ads & Meta Ads), our full-funnel solutions are engineered to maximize your return on ad spend.
+                </p>
+                <p>
+                  We don't just build websites — we architect complete growth ecosystems that outrank competitors, establish online authority, and deliver measurable business outcomes across India and global markets.
+                </p>
+              </div>
+            </div>
+
+            {/* Read More / Read Less Toggle Button */}
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="inline-flex items-center gap-1.5 text-purple-900 hover:text-purple-700 font-extrabold text-xs sm:text-sm my-3 cursor-pointer transition-colors focus:outline-none"
+            >
+              <span>{isExpanded ? "Show Less" : "Read Full Story & SEO Insights"}</span>
+              {isExpanded ? <ChevronUp className="w-4 h-4 text-purple-700" /> : <ChevronDown className="w-4 h-4 text-purple-700" />}
+            </button>
 
             {/* Bold Closing Pitch */}
             <p className="text-slate-900 font-extrabold text-sm sm:text-base mb-6 font-sans">
-              Let's build something that doesn't just look great but delivers real business results.
+              Partner with Websbond to transform your online presence into a dominant market force.
             </p>
 
             {/* View More Button */}
@@ -50,13 +73,13 @@ export const ClientSuccessSection = () => {
               to="/our-portfolio"
               className="inline-flex items-center gap-2.5 bg-[#20103A] hover:bg-[#351A5E] text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-md hover:shadow-xl transition-all duration-200 group active:scale-95"
             >
-              <span>View Portfolio & Case Studies</span>
+              <span>Explore Our Case Studies & Portfolio</span>
               <ArrowRight className="w-4 h-4 text-purple-200 group-hover:translate-x-1 transition-transform" />
             </Link>
 
           </div>
 
-          {/* Right Column: 6 Client Logo Cards Grid */}
+          {/* Right Column: 6 Clean Client Logo Cards Grid */}
           <div className="lg:col-span-5 w-full">
             <div className="bg-white/80 backdrop-blur-md p-6 rounded-3xl border border-purple-100 shadow-xl">
               
