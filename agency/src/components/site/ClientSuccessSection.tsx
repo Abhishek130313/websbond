@@ -384,16 +384,16 @@ export const ClientSuccessSection = () => {
             </h3>
           </div>
 
-          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-3.5 sm:p-4 max-w-5xl mx-auto mb-8 overflow-hidden">
+          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-3.5 sm:p-4.5 max-w-6xl mx-auto mb-8 overflow-hidden">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
               {WHY_CHOOSE.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div key={idx} className="p-2.5 sm:px-3 sm:py-2 flex items-center gap-3 group hover:bg-purple-50/40 transition-colors rounded-xl">
+                  <div key={idx} className="p-2.5 sm:px-4 sm:py-2 flex items-center justify-center gap-3 group hover:bg-purple-50/40 transition-colors rounded-xl">
                     <Icon className="w-5 h-5 text-[#6D28D9] shrink-0 stroke-[1.75] group-hover:scale-105 transition-transform" />
                     <div className="flex flex-col">
-                      <span className="text-[10.5px] sm:text-[11.5px] font-bold text-[#0F172A] leading-tight font-sans">{item.line1}</span>
-                      <span className="text-[10.5px] sm:text-[11.5px] font-bold text-[#0F172A] leading-tight font-sans">{item.line2}</span>
+                      <span className="text-[11px] sm:text-xs font-bold text-[#0F172A] leading-tight font-sans">{item.line1}</span>
+                      <span className="text-[11px] sm:text-xs font-bold text-[#0F172A] leading-tight font-sans">{item.line2}</span>
                     </div>
                   </div>
                 );
@@ -401,16 +401,16 @@ export const ClientSuccessSection = () => {
             </div>
           </div>
 
-          {/* ── Bottom SEO Content Block (Compact 2-Column Card) ── */}
-          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-6 sm:p-8 max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          {/* ── Bottom SEO Content Block (Widescreen 2-Column Card) ── */}
+          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-6 sm:p-8 md:p-9 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-center">
 
               {/* Left: SEO Paragraph */}
-              <div className="md:col-span-6 pr-0 md:pr-3">
-                <h3 className="font-sans font-extrabold text-sm sm:text-base text-[#0F172A] mb-2.5 tracking-tight">
+              <div className="md:col-span-6 pr-0 md:pr-4">
+                <h3 className="font-sans font-extrabold text-base sm:text-lg text-[#0F172A] mb-3 tracking-tight">
                   Digital Growth Partner for Businesses in Delhi NCR & India
                 </h3>
-                <p className="font-jost text-xs text-slate-600 leading-relaxed font-normal">
+                <p className="font-jost text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
                   WebsBond is a result-driven web design and digital marketing agency in Delhi NCR,
                   helping startups, small businesses and established brands grow online. Our services
                   include website design, website development, SEO, Google Ads, social media marketing,
@@ -423,11 +423,11 @@ export const ClientSuccessSection = () => {
               <div className="hidden md:block w-px h-full bg-slate-200/80 self-stretch" />
 
               {/* Right: Core Digital Services Block (Redesigned World-Class Light Violet) */}
-              <div className="md:col-span-5 flex flex-col items-center justify-center text-center pl-0 md:pl-1">
+              <div className="md:col-span-5 flex flex-col items-center justify-center text-center pl-0 md:pl-2">
                 
                 {/* Centered Heading */}
-                <div className="mb-3 text-center">
-                  <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-[#6D28D9] bg-purple-100/70 px-2.5 py-0.5 rounded-full mb-1.5 border border-purple-200/60">
+                <div className="mb-3.5 text-center">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-[#6D28D9] bg-purple-100/70 px-3 py-0.5 rounded-full mb-1.5 border border-purple-200/60">
                     <Sparkles className="w-3 h-3 text-[#6D28D9]" />
                     Expert Capabilities
                   </span>
@@ -437,21 +437,21 @@ export const ClientSuccessSection = () => {
                 </div>
 
                 {/* Light Violet Interactive Service Chips Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full max-w-md">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full max-w-lg">
                   {[...CORE_SERVICES_LEFT, ...CORE_SERVICES_RIGHT].map((svc) => (
                     <div 
                       key={svc} 
-                      className="bg-gradient-to-r from-[#F5EFFC] via-[#FAF5FF] to-[#F3EAFA] border border-purple-200/70 rounded-xl px-3 py-2 flex items-center justify-between shadow-2xs hover:shadow-xs hover:border-purple-400 hover:scale-[1.015] transition-all duration-200 group cursor-pointer"
+                      className="bg-gradient-to-r from-[#F5EFFC] via-[#FAF5FF] to-[#F3EAFA] border border-purple-200/70 rounded-xl px-3.5 py-2.5 flex items-center justify-between shadow-2xs hover:shadow-xs hover:border-purple-400 hover:scale-[1.015] transition-all duration-200 group cursor-pointer"
                     >
-                      <div className="flex items-center gap-1.5">
-                        <div className="w-5 h-5 rounded-full bg-purple-200/60 text-[#552782] flex items-center justify-center text-[9px] font-black group-hover:bg-[#552782] group-hover:text-white transition-colors shrink-0">
+                      <div className="flex items-center gap-2">
+                        <div className="w-5 h-5 rounded-full bg-purple-200/60 text-[#552782] flex items-center justify-center text-[9.5px] font-black group-hover:bg-[#552782] group-hover:text-white transition-colors shrink-0">
                           ✦
                         </div>
-                        <span className="text-[11.5px] font-bold text-[#3B1568] group-hover:text-[#552782] transition-colors font-sans text-left leading-tight">
+                        <span className="text-xs font-bold text-[#3B1568] group-hover:text-[#552782] transition-colors font-sans text-left leading-snug">
                           {svc}
                         </span>
                       </div>
-                      <ChevronRight className="w-3 h-3 text-purple-400 group-hover:text-[#552782] group-hover:translate-x-0.5 transition-transform shrink-0" />
+                      <ChevronRight className="w-3.5 h-3.5 text-purple-400 group-hover:text-[#552782] group-hover:translate-x-0.5 transition-transform shrink-0" />
                     </div>
                   ))}
                 </div>
