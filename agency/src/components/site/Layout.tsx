@@ -3,6 +3,7 @@ import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { SocialSidebar } from "./SocialSidebar";
+import { FloatingNavPill } from "./FloatingNavPill";
 
 export const Layout = ({ children }: { children: ReactNode }) => (
   <div className="min-h-screen flex flex-col" style={{ background: "#fff", color: "#0a0b13" }}>
@@ -14,5 +15,6 @@ export const Layout = ({ children }: { children: ReactNode }) => (
     <Footer />
     <WhatsAppButton />
     <SocialSidebar />
+    <FloatingNavPill />
   </div>
 );

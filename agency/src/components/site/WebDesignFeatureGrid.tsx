@@ -218,33 +218,6 @@ export const WebDesignFeatureGrid = () => {
 
         </div>
 
-        {/* ── Bottom Floating Pill Navigation (Reference Image Exact Match) ── */}
-        {showPillNav && (
-          <div className="flex justify-center mt-6">
-            <div className="bg-white/90 backdrop-blur-xl border border-purple-200/80 rounded-full px-6 py-2.5 shadow-lg flex items-center gap-6 text-xs font-extrabold text-[#1E1238] relative">
-              <Link to="/our-portfolio" className="hover:text-[#552782] transition-colors">
-                Portfolio
-              </Link>
-              <span className="w-1 h-1 rounded-full bg-purple-300" />
-              <Link to="/our-portfolio" className="hover:text-[#552782] transition-colors">
-                Clients
-              </Link>
-              <span className="w-1 h-1 rounded-full bg-purple-300" />
-              <Link to="/contact" className="hover:text-[#552782] transition-colors">
-                Contact
-              </Link>
-              
-              <button 
-                onClick={() => setShowPillNav(false)}
-                className="w-4 h-4 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center hover:bg-purple-200 transition-colors ml-1 cursor-pointer"
-                title="Dismiss"
-              >
-                <X className="w-2.5 h-2.5" />
-              </button>
-            </div>
-          </div>
-        )}
-
       </div>
     </section>
   );
