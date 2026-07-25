@@ -1,4 +1,5 @@
 import { Send, PhoneCall } from "lucide-react";
+import { DualCtaCapsule } from "./DualCtaCapsule";
 
 export const MidCtaBanner = () => {
   return (
@@ -22,27 +23,9 @@ export const MidCtaBanner = () => {
               </span>
             </h2>
 
-            {/* Dual Capsule Buttons (Video 00:38) */}
-            <div className="inline-flex flex-col sm:flex-row items-center p-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">
-              <button
-                onClick={() => document.getElementById("contact-section")?.scrollIntoView({ behavior: "smooth" })}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-purple-700 hover:bg-purple-800 text-white font-extrabold text-xs sm:text-sm transition-all"
-              >
-                <Send className="w-4 h-4" />
-                <span>Request Proposal</span>
-              </button>
-
-              <span className="w-8 h-8 rounded-full bg-white text-purple-950 font-black text-[11px] flex items-center justify-center my-2 sm:my-0 sm:mx-2 shrink-0">
-                OR
-              </span>
-
-              <a
-                href="tel:+919306623619"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-purple-950 hover:bg-purple-50 font-extrabold text-xs sm:text-sm transition-all"
-              >
-                <PhoneCall className="w-4 h-4 text-purple-900" />
-                <span>Contact Now</span>
-              </a>
+            {/* Dual Capsule Buttons (Reference Image 2 Design) */}
+            <div className="mt-2">
+              <DualCtaCapsule />
             </div>
           </div>
 

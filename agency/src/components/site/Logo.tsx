@@ -1,41 +1,34 @@
 import { Link } from "react-router-dom";
-import logo3d from "@/assets/websbond-logo-3d.webp";
+import officialLogo from "@/assets/websbond-official-2026-logo.webp";
 
 type LogoProps = {
   light?: boolean;
   size?: "sm" | "md" | "lg";
+  showTagline?: boolean;
 };
 
-const sizeMap: Record<NonNullable<LogoProps["size"]>, string> = {
-  sm: "h-8 w-8 sm:h-9 sm:w-9",
-  md: "h-9 w-9 sm:h-10 sm:w-10",
-  lg: "h-12 w-12 sm:h-14 sm:w-14",
+const heightMap: Record<NonNullable<LogoProps["size"]>, string> = {
+  sm: "h-9 sm:h-10",
+  md: "h-11 sm:h-13",
+  lg: "h-15 sm:h-17",
 };
 
-export const Logo = ({ light = false, size = "md" }: LogoProps) => (
+export const Logo = ({ size = "md" }: LogoProps) => (
   <Link
     to="/"
     aria-label="Websbond home"
-    className="inline-flex items-center gap-2.5 group focus:outline-none"
+    className="inline-flex items-center group focus:outline-none select-none py-0.5"
   >
-    <span
-      className={`inline-flex items-center justify-center rounded-xl overflow-hidden transition-all duration-300 group-hover:scale-105 ${
-        light ? "border border-zinc-200/60 bg-white shadow-sm" : "border border-white/10 bg-[#09090b]"
-      }`}
-    >
-      <img
-        src={logo3d}
-        alt="Websbond logo"
-        width={128}
-        height={128}
-        loading="eager"
-        decoding="async"
-        className={`${sizeMap[size]} object-contain p-1`}
-      />
-    </span>
-    <span className="font-semibold tracking-tight text-lg sm:text-xl flex items-center">
-      <span className={`${light ? "text-zinc-900" : "text-white"} transition-colors`}>websbond</span>
-      <span className="bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent">.com</span>
-    </span>
+    <img
+      src={officialLogo}
+      alt="Websbond - Connecting Visions, Creating Realities"
+      loading="eager"
+      decoding="async"
+      className={`${heightMap[size]} w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_1.5px_4px_rgba(20,10,50,0.15)]`}
+    />
   </Link>
 );
+
+
+
+

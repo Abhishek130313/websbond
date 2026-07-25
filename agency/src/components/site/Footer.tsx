@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin, Star, ShieldCheck, CreditCard } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo3d from "@/assets/websbond-logo-3d.webp";
+import { Logo } from "./Logo";
 
 export const Footer = () => (
   <footer className="bg-white text-slate-900 select-none border-t border-purple-200">
@@ -32,13 +32,8 @@ export const Footer = () => (
 
         {/* Col 1: Brand & Logo */}
         <div className="lg:col-span-1">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="inline-flex items-center justify-center rounded-xl bg-purple-100 w-9 h-9">
-              <img src={logo3d} alt="Websbond logo" className="w-7 h-7 object-contain" />
-            </span>
-            <span className="font-extrabold text-xl text-purple-950 font-jost">
-              websbond<span className="text-purple-700">.com</span>
-            </span>
+          <div className="mb-4">
+            <Logo size="md" />
           </div>
           <p className="text-xs text-slate-600 leading-relaxed mb-6">
             Websbond is a top-tier digital marketing & website design agency in Delhi NCR offering custom web apps, SEO, PPC, and GMB growth platforms.

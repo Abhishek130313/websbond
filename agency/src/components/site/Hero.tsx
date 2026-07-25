@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { MessageSquare, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 import { HexagonBadges } from "./HexagonBadges";
+import { DualCtaCapsule } from "./DualCtaCapsule";
 
 export const Hero = () => {
   const words = ["Web Design", "Mobile Apps", "Brand Strategy", "Digital Growth"];
@@ -64,30 +65,8 @@ export const Hero = () => {
         {/* 5 Hexagon Award Badges (Matching Screenshot 5) */}
         <HexagonBadges />
 
-        {/* Dual Action CTA Capsule */}
-        <div className="inline-flex items-center p-1.5 rounded-full bg-slate-900 text-white shadow-lg shadow-slate-900/10 mb-7 max-w-md w-full sm:w-auto">
-          <button
-            onClick={() => document.getElementById("contact-section")?.scrollIntoView({ behavior: "smooth" })}
-            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm transition-all duration-200"
-          >
-            <Send className="w-3.5 h-3.5" />
-            <span>Request Proposal</span>
-          </button>
-
-          <span className="w-7 h-7 rounded-full bg-slate-800 text-indigo-300 font-bold text-[10px] flex items-center justify-center mx-1.5 shrink-0 border border-slate-700">
-            OR
-          </span>
-
-          <a
-            href="https://wa.me/919306623619"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm transition-all duration-200"
-          >
-            <MessageSquare className="w-3.5 h-3.5 text-emerald-400 fill-current" />
-            <span>Chat on WhatsApp</span>
-          </a>
-        </div>
+        {/* Dual Action CTA Capsule (Reference Image 2 Design) */}
+        <DualCtaCapsule />
 
         {/* Sub-Navigation Pill Bar */}
         <div className="inline-flex items-center gap-5 px-5 py-2.5 rounded-full bg-white border border-[#4B2874]/20 shadow-xs text-xs font-bold text-[#4B2874]">

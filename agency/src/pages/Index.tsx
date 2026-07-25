@@ -80,9 +80,9 @@ const Index = () => (
             ]
           },
           "sameAs": [
-            "https://facebook.com/websbond",
-            "https://instagram.com/websbond",
-            "https://linkedin.com/company/websbond",
+            "https://www.facebook.com/profile.php?id=61591671059139",
+            "https://www.instagram.com/websbond/",
+            "https://www.linkedin.com/company/websbond/",
             "https://youtube.com/@websbond"
           ]
         }
