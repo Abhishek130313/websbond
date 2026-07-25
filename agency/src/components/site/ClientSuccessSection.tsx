@@ -234,38 +234,60 @@ export const ClientSuccessSection = () => {
               })}
             </div>
 
-            {/* Central Hub Circle with Gradient Rings */}
+            {/* Central Hub Circle (Reference Image 2 Exact Style) */}
             <div className="flex items-center justify-center py-6 lg:py-0">
               <div className="relative">
-                {/* Outer Glow Ring */}
-                <div className="absolute inset-0 w-60 h-60 sm:w-68 sm:h-68 rounded-full bg-gradient-to-br from-purple-200/40 via-transparent to-blue-200/40 blur-md -m-2 pointer-events-none" />
+                {/* Outer Glow */}
+                <div className="absolute inset-0 w-72 h-72 sm:w-80 sm:h-80 -m-4 rounded-full bg-purple-200/40 blur-2xl pointer-events-none animate-pulse" />
                 
-                {/* Outer Dashed Ring */}
-                <div className="w-56 h-56 sm:w-64 sm:h-64 rounded-full flex items-center justify-center relative" style={{ border: '2.5px dashed transparent', backgroundImage: 'linear-gradient(white,white), linear-gradient(135deg, #8B5CF6, #3B82F6, #10B981, #F59E0B, #EF4444, #8B5CF6)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
-                  {/* Inner Circle */}
-                  <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-[#1E1238] via-[#2B1550] to-[#421A78] flex flex-col items-center justify-center text-center text-white shadow-[0_0_40px_rgba(85,39,130,0.4)] border-4 border-purple-400/30 relative z-10">
-                    <span className="font-montserrat font-black text-3xl sm:text-4xl tracking-tighter text-white leading-none">
-                      W<span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">B</span>
-                    </span>
-                    <span className="font-montserrat font-extrabold text-xs sm:text-sm tracking-wider text-white/90 mt-1">
+                {/* Smooth Gradient Outer Ring */}
+                <div className="w-64 h-64 sm:w-72 sm:h-72 rounded-full p-[5px] bg-gradient-to-tr from-purple-500 via-indigo-500 to-pink-400 shadow-xl flex items-center justify-center relative">
+                  
+                  {/* White Interior Hub Circle */}
+                  <div className="w-full h-full rounded-full bg-white flex flex-col items-center justify-center text-center p-4 shadow-inner relative z-10 border border-purple-100">
+                    
+                    {/* WB Stylized Gradient Icon (Image 2 exact look) */}
+                    <div className="mb-1 flex items-center justify-center">
+                      <svg width="48" height="42" viewBox="0 0 48 42" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-9 sm:w-12 sm:h-10 transform hover:scale-110 transition-transform">
+                        <path d="M6 8L16 34L26 8" stroke="url(#wb_grad1)" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M22 8C22 8 30 6 36 12C42 18 36 24 30 24C38 24 44 28 42 34C40 40 30 38 24 34" stroke="url(#wb_grad2)" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
+                        <defs>
+                          <linearGradient id="wb_grad1" x1="6" y1="8" x2="26" y2="34" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#9333EA" />
+                            <stop offset="1" stopColor="#4F46E5" />
+                          </linearGradient>
+                          <linearGradient id="wb_grad2" x1="22" y1="8" x2="42" y2="38" gradientUnits="userSpaceOnUse">
+                            <stop stopColor="#8B5CF6" />
+                            <stop offset="1" stopColor="#3B82F6" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+
+                    {/* WEBSBOND Brand Name (Exact Image 2 dark font) */}
+                    <span className="font-montserrat font-black text-xl sm:text-2xl tracking-tight text-[#0A051C] leading-none mb-1.5">
                       WEBSBOND
                     </span>
-                    <span className="text-[9px] text-purple-200/80 mt-1 font-jost tracking-wide">
+
+                    {/* Category List */}
+                    <span className="text-[10px] sm:text-[11px] font-semibold text-slate-600 tracking-tight font-jost mb-1">
                       Web Design • Marketing • Growth
                     </span>
-                    <span className="text-[8.5px] bg-gradient-to-r from-amber-300 to-orange-300 bg-clip-text text-transparent font-bold mt-0.5 tracking-wider">
+
+                    {/* Tagline */}
+                    <span className="text-[9.5px] sm:text-[10.5px] font-bold text-[#6D28D9] tracking-tight">
                       One Team. One Strategy. Real Results
                     </span>
                   </div>
 
-                  {/* Colourful Orbiting Dots */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-full shadow-lg shadow-indigo-500/50 animate-pulse" />
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3.5 h-3.5 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full shadow-lg shadow-amber-500/50 animate-pulse" />
-                  <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-gradient-to-br from-orange-500 to-red-500 rounded-full shadow-lg shadow-orange-500/50 animate-pulse" />
-                  <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-full shadow-lg shadow-emerald-500/50 animate-pulse" />
-                  {/* Extra corner dots for richness */}
-                  <div className="absolute top-[15%] left-[10%] w-2.5 h-2.5 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full shadow-md animate-pulse opacity-80" />
-                  <div className="absolute bottom-[15%] right-[10%] w-2.5 h-2.5 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full shadow-md animate-pulse opacity-80" />
+                  {/* 6 Connected Dots Around Ring (Image 2 Exact Dots) */}
+                  <div className="absolute top-[12%] left-[12%] w-4 h-4 bg-purple-600 rounded-full border-2 border-white shadow-md" />
+                  <div className="absolute top-[50%] -left-2 -translate-y-1/2 w-4 h-4 bg-pink-500 rounded-full border-2 border-white shadow-md" />
+                  <div className="absolute bottom-[12%] left-[12%] w-4 h-4 bg-orange-500 rounded-full border-2 border-white shadow-md" />
+                  
+                  <div className="absolute top-[12%] right-[12%] w-4 h-4 bg-indigo-600 rounded-full border-2 border-white shadow-md" />
+                  <div className="absolute top-[50%] -right-2 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow-md" />
+                  <div className="absolute bottom-[12%] right-[12%] w-4 h-4 bg-teal-500 rounded-full border-2 border-white shadow-md" />
                 </div>
               </div>
             </div>
