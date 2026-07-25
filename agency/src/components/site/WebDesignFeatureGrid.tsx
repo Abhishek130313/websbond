@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { 
   Globe, TrendingUp, UserCheck, Smartphone, Search, 
-  Server, CheckCircle2, Sparkles, X 
+  Server, CheckCircle2, X 
 } from "lucide-react";
 
 /* ────────────────────────────────────────────────────────────
@@ -22,7 +22,7 @@ const TABS = [
     cardBg: "bg-gradient-to-br from-indigo-50/80 via-purple-50/40 to-white",
     activeCardBg: "bg-gradient-to-br from-[#1E1238] via-[#2B144E] to-[#3B1568] text-white shadow-xl scale-[1.03] border border-indigo-400/60",
     hoverBorder: "hover:border-indigo-300",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
+    image: "/features/stronger-online-presence.png",
     description: (
       <>
         Your website is the first impression your business makes. If your site is old, slow, or not mobile-friendly, customers bounce before you even talk to them. Having a <strong className="font-extrabold text-[#552782] bg-purple-50 px-1 py-0.5 rounded border border-purple-100">professionally engineered website</strong> increases trust, boosts credibility, and puts you ahead of competitors. At <strong className="font-extrabold text-slate-950">WebsBond</strong>, we build <strong className="font-extrabold text-indigo-700">fast, clean, and conversion-oriented websites</strong> tailored for high business growth.
@@ -131,19 +131,31 @@ export const WebDesignFeatureGrid = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* ── Section Header ── */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#552782] bg-purple-50 px-4 py-1.5 rounded-full mb-3 border border-purple-200/60 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-purple-600" />
-            Low-Cost Website Design
-          </span>
+        <div className="text-center max-w-6xl mx-auto mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold text-[#1E1238] tracking-tight leading-tight font-sans mb-3">
             That Delivers{" "}
             <span className="font-montserrat font-black italic text-[#552782]">
               High-Impact Results
             </span>
           </h2>
-          <p className="font-jost text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto font-normal">
-            Your website is your first impression — give it all your power. As a professional <strong className="font-bold text-[#1E1238] bg-purple-50 px-1.5 py-0.5 rounded border border-purple-100">web design company & digital marketing agency in Delhi NCR</strong>, we help companies like yours turn visitors into customers. Whether you're a startup or a scaling brand, our fully custom web design services are customized around your goals. Let's transform your online presence into your most powerful sales tool.
+          <p className="font-jost text-sm sm:text-base md:text-[17px] text-slate-700 leading-relaxed max-w-6xl mx-auto font-normal">
+            Your website is your first impression — give it all your power. As a premier{" "}
+            <strong className="font-bold text-[#1E1238] bg-purple-50/90 px-1.5 py-0.5 rounded border border-purple-100/90">
+              web design company & digital marketing agency in Delhi NCR
+            </strong>
+            , we help businesses{" "}
+            <strong className="font-bold text-[#1E1238] bg-purple-50/90 px-1.5 py-0.5 rounded border border-purple-100/90">
+              turn visitors into loyal customers
+            </strong>
+            . Whether you're a startup or a scaling brand, our{" "}
+            <strong className="font-bold text-[#552782] bg-purple-50/90 px-1.5 py-0.5 rounded border border-purple-100/90">
+              custom web design services
+            </strong>{" "}
+            are tailored to transform your online presence into your{" "}
+            <strong className="font-bold text-[#552782] bg-purple-50/90 px-1.5 py-0.5 rounded border border-purple-100/90">
+              most powerful sales tool
+            </strong>
+            .
           </p>
         </div>
 

@@ -20,21 +20,24 @@ const LEFT_SERVICES = [
     desc: "Modern, responsive and SEO-friendly websites that turn visitors into customers.",
     icon: Monitor,
     badgeBg: "bg-[#5B21B6]", // Solid Purple/Indigo Circle
-    titleColor: "text-[#5B21B6]",
+    titleColor: "text-[#4C1D95]",
+    cardBg: "bg-gradient-to-br from-indigo-50/90 via-purple-50/40 to-white border-indigo-100",
   },
   {
     title: "Search Engine Optimization (SEO)",
     desc: "Improve search rankings, drive organic traffic and grow your online visibility.",
     icon: Search,
     badgeBg: "bg-[#E11D48]", // Solid Magenta/Pink Circle
-    titleColor: "text-[#E11D48]",
+    titleColor: "text-[#BE123C]",
+    cardBg: "bg-gradient-to-br from-rose-50/90 via-pink-50/40 to-white border-rose-100",
   },
   {
     title: "Google Ads Management",
     desc: "Run high-converting ad campaigns that bring instant leads and measurable business results.",
     icon: Megaphone,
     badgeBg: "bg-[#F97316]", // Solid Orange Circle
-    titleColor: "text-[#F97316]",
+    titleColor: "text-[#C2410C]",
+    cardBg: "bg-gradient-to-br from-amber-50/90 via-orange-50/40 to-white border-amber-100",
   },
 ];
 
@@ -44,21 +47,24 @@ const RIGHT_SERVICES = [
     desc: "Create valuable content that builds trust, strengthens your brand and drives consistent traffic.",
     icon: FileText,
     badgeBg: "bg-[#7C3AED]", // Solid Violet/Purple Circle
-    titleColor: "text-[#7C3AED]",
+    titleColor: "text-[#6D28D9]",
+    cardBg: "bg-gradient-to-br from-purple-50/90 via-violet-50/40 to-white border-purple-100",
   },
   {
     title: "Social Media Marketing",
     desc: "Engage your audience, build brand awareness and grow your community across all major platforms.",
     icon: Share2,
     badgeBg: "bg-[#2563EB]", // Solid Blue Circle
-    titleColor: "text-[#2563EB]",
+    titleColor: "text-[#1D4ED8]",
+    cardBg: "bg-gradient-to-br from-blue-50/90 via-sky-50/40 to-white border-blue-100",
   },
   {
     title: "Analytics & Performance",
     desc: "Track performance, analyze data and optimize strategies to maximize your growth and ROI.",
     icon: BarChart3,
     badgeBg: "bg-[#0D9488]", // Solid Teal Circle
-    titleColor: "text-[#0D9488]",
+    titleColor: "text-[#0F766E]",
+    cardBg: "bg-gradient-to-br from-teal-50/90 via-emerald-50/40 to-white border-teal-100",
   },
 ];
 
@@ -67,31 +73,49 @@ const WHY_CHOOSE = [
     icon: Monitor,
     line1: "Custom Website",
     line2: "Design & Development",
+    bgGradient: "from-indigo-50/95 via-indigo-50/50 to-white",
+    borderColor: "border-indigo-200/90 hover:border-indigo-400",
+    iconBg: "bg-indigo-600 text-white",
   },
   {
     icon: TrendingUp,
     line1: "Local SEO & Google",
     line2: "Ranking Experts",
+    bgGradient: "from-emerald-50/95 via-emerald-50/50 to-white",
+    borderColor: "border-emerald-200/90 hover:border-emerald-400",
+    iconBg: "bg-emerald-600 text-white",
   },
   {
     icon: Target,
     line1: "Pay-Per-Click (PPC)",
     line2: "Advertising",
+    bgGradient: "from-blue-50/95 via-blue-50/50 to-white",
+    borderColor: "border-blue-200/90 hover:border-blue-400",
+    iconBg: "bg-blue-600 text-white",
   },
   {
     icon: Users,
     line1: "Lead Generation &",
     line2: "Conversion Optimization",
+    bgGradient: "from-purple-50/95 via-purple-50/50 to-white",
+    borderColor: "border-purple-200/90 hover:border-purple-400",
+    iconBg: "bg-purple-600 text-white",
   },
   {
     icon: Headphones,
     line1: "Ongoing Support &",
     line2: "Growth Partnership",
+    bgGradient: "from-amber-50/95 via-amber-50/50 to-white",
+    borderColor: "border-amber-200/90 hover:border-amber-400",
+    iconBg: "bg-amber-600 text-white",
   },
   {
     icon: PieChart,
     line1: "Transparent Reporting",
     line2: "& Real Results",
+    bgGradient: "from-teal-50/95 via-teal-50/50 to-white",
+    borderColor: "border-teal-200/90 hover:border-teal-400",
+    iconBg: "bg-teal-600 text-white",
   },
 ];
 
@@ -287,7 +311,7 @@ export const ClientSuccessSection = () => {
                 const Icon = srv.icon;
                 const dotColors = ["bg-purple-600", "bg-pink-500", "bg-orange-500"];
                 return (
-                  <div key={srv.title} className="bg-white rounded-2xl p-4 sm:p-4.5 border border-slate-100/90 shadow-2xs hover:shadow-lg transition-all duration-300 transform-gpu hover:-translate-y-0.5 group flex items-start gap-3.5 relative overflow-visible">
+                  <div key={srv.title} className={`${srv.cardBg} rounded-2xl p-4 sm:p-4.5 border shadow-2xs hover:shadow-lg transition-all duration-300 transform-gpu hover:-translate-y-0.5 group flex items-start gap-3.5 relative overflow-visible`}>
                     
                     {/* Card Right Edge Connector Dot */}
                     <div className={`absolute -right-2 top-1/2 -translate-y-1/2 w-3.5 h-3.5 ${dotColors[idx]} rounded-full border-2 border-white shadow-md z-20 hidden lg:block`} />
@@ -297,7 +321,7 @@ export const ClientSuccessSection = () => {
                     </div>
                     <div>
                       <h4 className={`text-sm sm:text-base font-extrabold ${srv.titleColor} mb-1 tracking-tight font-sans`}>{srv.title}</h4>
-                      <p className="text-xs text-slate-600 leading-relaxed font-jost font-normal">{srv.desc}</p>
+                      <p className="text-xs text-slate-700 leading-relaxed font-jost font-medium">{srv.desc}</p>
                     </div>
                   </div>
                 );
@@ -359,7 +383,7 @@ export const ClientSuccessSection = () => {
                 const Icon = srv.icon;
                 const dotColors = ["bg-indigo-600", "bg-blue-500", "bg-teal-500"];
                 return (
-                  <div key={srv.title} className="bg-white rounded-2xl p-4 sm:p-4.5 border border-slate-100/90 shadow-2xs hover:shadow-lg transition-all duration-300 transform-gpu hover:-translate-y-0.5 group flex items-start gap-3.5 relative overflow-visible">
+                  <div key={srv.title} className={`${srv.cardBg} rounded-2xl p-4 sm:p-4.5 border shadow-2xs hover:shadow-lg transition-all duration-300 transform-gpu hover:-translate-y-0.5 group flex items-start gap-3.5 relative overflow-visible`}>
                     
                     {/* Card Left Edge Connector Dot */}
                     <div className={`absolute -left-2 top-1/2 -translate-y-1/2 w-3.5 h-3.5 ${dotColors[idx]} rounded-full border-2 border-white shadow-md z-20 hidden lg:block`} />
@@ -369,7 +393,7 @@ export const ClientSuccessSection = () => {
                     </div>
                     <div>
                       <h4 className={`text-sm sm:text-base font-extrabold ${srv.titleColor} mb-1 tracking-tight font-sans`}>{srv.title}</h4>
-                      <p className="text-xs text-slate-600 leading-relaxed font-jost font-normal">{srv.desc}</p>
+                      <p className="text-xs text-slate-700 leading-relaxed font-jost font-medium">{srv.desc}</p>
                     </div>
                   </div>
                 );
@@ -377,23 +401,28 @@ export const ClientSuccessSection = () => {
             </div>
           </div>
 
-          {/* ── Why Businesses Choose WebsBond (Compact Single Container) ── */}
+          {/* ── Why Businesses Choose WebsBond (Light Colorful Service Grid) ── */}
           <div className="text-center mb-3.5">
             <h3 className="font-sans font-extrabold text-base sm:text-lg text-[#0F172A] tracking-tight">
               Why Businesses Choose WebsBond
             </h3>
           </div>
 
-          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-3.5 sm:p-4.5 max-w-6xl mx-auto mb-8 overflow-hidden">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+          <div className="bg-slate-50/70 p-2 sm:p-2.5 rounded-2xl border border-slate-200/80 max-w-6xl mx-auto mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5">
               {WHY_CHOOSE.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div key={idx} className="p-2.5 sm:px-4 sm:py-2 flex items-center justify-center gap-3 group hover:bg-purple-50/40 transition-colors rounded-xl">
-                    <Icon className="w-5 h-5 text-[#6D28D9] shrink-0 stroke-[1.75] group-hover:scale-105 transition-transform" />
-                    <div className="flex flex-col">
-                      <span className="text-[11px] sm:text-xs font-bold text-[#0F172A] leading-tight font-sans">{item.line1}</span>
-                      <span className="text-[11px] sm:text-xs font-bold text-[#0F172A] leading-tight font-sans">{item.line2}</span>
+                  <div 
+                    key={idx} 
+                    className={`bg-gradient-to-br ${item.bgGradient} ${item.borderColor} border p-3 flex items-center gap-3 rounded-xl shadow-2xs hover:shadow-md hover:scale-[1.02] transition-all duration-300 relative overflow-hidden group cursor-pointer`}
+                  >
+                    <div className={`w-9 h-9 rounded-lg ${item.iconBg} flex items-center justify-center shrink-0 shadow-2xs group-hover:scale-110 transition-transform`}>
+                      <Icon className="w-4.5 h-4.5 stroke-[2.2]" />
+                    </div>
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-[11.5px] sm:text-xs font-black text-slate-900 leading-snug font-sans tracking-tight">{item.line1}</span>
+                      <span className="text-[11.5px] sm:text-xs font-black text-slate-900 leading-snug font-sans tracking-tight">{item.line2}</span>
                     </div>
                   </div>
                 );

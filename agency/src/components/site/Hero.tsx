@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { MessageSquare, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 import { HexagonBadges } from "./HexagonBadges";
 import { DualCtaCapsule } from "./DualCtaCapsule";
@@ -33,14 +32,18 @@ export const Hero = () => {
   }, [displayText, isDeleting, wordIndex]);
 
   return (
-    <section className="relative w-full bg-[#F8FAFC] pt-36 md:pt-44 pb-16 md:pb-24 select-none overflow-hidden text-center border-b border-slate-200/80">
-      {/* Background Soft Ambient Light */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-indigo-500/8 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 left-1/3 w-[550px] h-[300px] bg-cyan-400/8 rounded-full blur-[120px] pointer-events-none" />
+    <section className="relative w-full pt-36 md:pt-44 pb-16 md:pb-24 select-none overflow-hidden text-center border-b border-purple-100/80 min-h-[600px] flex items-center justify-center">
+      
+      {/* Fully Covered Hero Background Image */}
+      <img
+        src="/hero-bg.png"
+        alt="Hero Background"
+        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0"
+      />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10 flex flex-col items-center">
 
-        {/* Subtitle Eyebrow Line (Larger & Prominent) */}
+        {/* Subtitle Eyebrow Line */}
         <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[34px] font-semibold text-slate-800 tracking-tight mb-4 font-sans leading-tight">
           Global Digital Partner For
         </h2>
@@ -62,10 +65,10 @@ export const Hero = () => {
           We engineer high-speed web platforms, performance marketing campaigns, and data-driven growth strategies that convert visitors into loyal clients.
         </p>
 
-        {/* 5 Hexagon Award Badges (Matching Screenshot 5) */}
+        {/* 5 Hexagon Award Badges */}
         <HexagonBadges />
 
-        {/* Dual Action CTA Capsule (Reference Image 2 Design) */}
+        {/* Dual Action CTA Capsule */}
         <DualCtaCapsule />
 
         {/* Sub-Navigation Pill Bar */}
@@ -81,7 +84,3 @@ export const Hero = () => {
     </section>
   );
 };
-
-
-
-

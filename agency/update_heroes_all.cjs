@@ -24,7 +24,7 @@ function processDir(dir) {
                 content = content.replace(importRegex, '');
                 modified = true;
             }
-            
+
             // Remove overlays
             const overlayRegex1 = /\s*<div className="absolute inset-0 bg-gradient-to-b from-black.*? pointer-events-none" \/>/g;
             if (overlayRegex1.test(content)) {

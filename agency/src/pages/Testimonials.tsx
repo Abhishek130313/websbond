@@ -77,7 +77,6 @@ export const TestimonialsPage = () => {
       {/* ── Page Hero Header ── */}
       <section 
         className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-image-overlay"
-        style={{ backgroundImage: `url(${heroBg})` }}
       >
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">

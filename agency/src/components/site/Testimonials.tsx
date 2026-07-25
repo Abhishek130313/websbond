@@ -1,19 +1,29 @@
 import { useState, useEffect } from "react";
-import { Star, CheckCircle, ExternalLink, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { Star, CheckCircle, ExternalLink } from "lucide-react";
 import { GoogleReview, REAL_GOOGLE_REVIEWS, GOOGLE_BUSINESS_PROFILE_URL, fetchLiveGoogleReviews } from "@/data/googleReviews";
 
-const StarRow = ({ count }: { count: number }) => (
-  <div className="flex gap-0.5">
-    {Array.from({ length: count }).map((_, i) => (
-      <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-    ))}
-  </div>
-);
+const StarRow = ({ count }: { count: number }) => {
+  const fullStars = Math.floor(count);
+  const hasHalfStar = count % 1 !== 0;
+  return (
+    <div className="flex gap-0.5 items-center">
+      {Array.from({ length: fullStars }).map((_, i) => (
+        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+      ))}
+      {hasHalfStar && (
+        <div className="relative w-3.5 h-3.5 shrink-0">
+          <Star className="w-3.5 h-3.5 text-amber-400 absolute inset-0" />
+          <div className="overflow-hidden w-[50%] absolute inset-0">
+            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export const Testimonials = () => {
   const [reviews, setReviews] = useState<GoogleReview[]>(REAL_GOOGLE_REVIEWS);
-  const [pageIndex, setPageIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
   // Live Pipeline Fetcher
   useEffect(() => {
@@ -24,34 +34,18 @@ export const Testimonials = () => {
     });
   }, []);
 
-  // Display exactly 4 review boxes per view/page as requested
-  const pageSize = 4;
-  const totalPages = Math.ceil(reviews.length / pageSize);
-
-  // 6-Second Automatic Rotation
-  useEffect(() => {
-    if (isPaused || totalPages <= 1) return;
-
-    const timer = setInterval(() => {
-      setPageIndex((prev) => (prev + 1) % totalPages);
-    }, 6000);
-
-    return () => clearInterval(timer);
-  }, [isPaused, totalPages]);
-
-  // Current 4 reviews to display on screen
-  const currentReviews = reviews.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize);
+  // Duplicate list to ensure seamless infinite looping marquee
+  const marqueeReviewsRow1 = [...reviews, ...reviews, ...reviews, ...reviews];
+  const marqueeReviewsRow2 = [...reviews].reverse().concat([...reviews].reverse(), [...reviews].reverse());
 
   return (
     <section 
-      className="pt-6 pb-12 md:pt-8 md:pb-14 bg-gradient-to-b from-[#F8F6FC] via-white to-[#F8F6FC] border-t border-purple-100/60 text-slate-900 select-none overflow-hidden relative"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+      className="pt-10 pb-14 md:pt-12 md:pb-16 bg-gradient-to-b from-[#F8F6FC] via-white to-[#F8F6FC] border-t border-purple-100/60 text-slate-900 select-none overflow-hidden relative"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-8">
         
         {/* Header with Rating Badge & Action Buttons */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-5 border-b border-purple-100/80 pb-6">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 border-b border-purple-100/80 pb-6">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-purple-200/70 shadow-2xs mb-2 text-xs font-extrabold text-[#552782]">
               <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
@@ -64,11 +58,11 @@ export const Testimonials = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse ml-1" title="Live Auto Sync" />
             </div>
 
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1E1238] tracking-tight font-sans">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#1E1238] tracking-tight font-sans">
               Client Reviews & Verified Feedback
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm mt-1 max-w-xl font-jost font-normal">
-              Authentic reviews synced from our official Google Business Profile. Automatically updates every 6 seconds.
+              Authentic reviews synced live from our official Google Business Profile.
             </p>
           </div>
 
@@ -94,92 +88,125 @@ export const Testimonials = () => {
             </a>
           </div>
         </div>
+      </div>
 
-        {/* ── 4 Compact Review Boxes Display Grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch mb-6">
-          {currentReviews.map((r) => (
+      {/* ── Marquee Continuous Slider Track Container ── */}
+      <div className="relative w-full overflow-hidden py-1 space-y-3">
+        
+        {/* Left & Right Gradient Fade Vignette Overlays */}
+        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-r from-[#F8F6FC] via-[#F8F6FC]/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-l from-[#F8F6FC] via-[#F8F6FC]/80 to-transparent z-20 pointer-events-none" />
+
+        {/* Marquee Row 1: Leftward Infinite Scroll */}
+        <div className="animate-marquee-slow gap-3.5 px-3">
+          {marqueeReviewsRow1.map((r, idx) => (
             <div
-              key={r.id}
-              className="bg-white rounded-2xl p-4 sm:p-4.5 transition-all duration-300 hover:shadow-lg border border-purple-100 hover:border-purple-300 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden"
+              key={`row1-${r.id}-${idx}`}
+              className="w-[250px] xs:w-[280px] sm:w-[300px] md:w-[315px] shrink-0 bg-white rounded-xl p-4 border border-purple-100/90 shadow-2xs hover:shadow-md hover:border-purple-300 transition-all duration-300 flex flex-col justify-between group/card relative overflow-hidden select-none"
             >
               <div>
                 {/* Rating & Verified Badge */}
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-between mb-2">
                   <StarRow count={r.rating} />
-                  <span className="inline-flex items-center gap-1 text-[9.5px] font-extrabold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/70">
+                  <span className="inline-flex items-center gap-1 text-[9px] font-extrabold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-full border border-emerald-200/70">
                     <CheckCircle className="w-2.5 h-2.5 text-emerald-600" />
                     <span>Verified</span>
                   </span>
                 </div>
+
+                {/* Excerpt Header */}
+                <h3 className="font-extrabold text-[#1E1238] text-xs mb-1.5 font-sans line-clamp-1 group-hover/card:text-[#552782] transition-colors">
+                  "{r.text.length > 45 ? r.text.substring(0, 42) + "..." : r.text}"
+                </h3>
                 
                 {/* Review Text */}
-                <p className="text-slate-700 text-xs leading-relaxed font-normal mb-4 font-jost line-clamp-4">
+                <p className="text-slate-600 text-[11px] leading-relaxed font-normal mb-3 font-jost line-clamp-3">
                   "{r.text}"
                 </p>
               </div>
 
               {/* Reviewer Info */}
-              <div className="flex items-center gap-2.5 pt-3 border-t border-purple-50">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-100 to-indigo-100 text-[#552782] font-black flex items-center justify-center text-xs border border-purple-200 shrink-0 shadow-2xs">
-                  {r.author_name.charAt(0)}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="font-extrabold text-xs text-[#1E1238] truncate font-sans">
+              <div className="flex items-center gap-3 pt-2 border-t border-purple-100/70">
+                {r.profile_photo_url ? (
+                  <img
+                    src={r.profile_photo_url}
+                    alt={r.author_name}
+                    className="w-11 h-11 rounded-full object-cover border-2 border-purple-200/90 shadow-sm shrink-0"
+                  />
+                ) : (
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#552782] to-[#7C3AED] text-white font-extrabold flex items-center justify-center text-sm shadow-sm shrink-0">
+                    {r.author_name.charAt(0)}
+                  </div>
+                )}
+                <div className="flex-1 min-w-0 leading-tight">
+                  <p className="font-bold text-xs sm:text-[13px] text-[#1E1238] truncate font-sans tracking-tight">
                     {r.author_name}
                   </p>
-                  <p className="text-slate-500 text-[10px] truncate font-jost">Google Verified Reviewer</p>
+                  <p className="text-slate-500 text-[10px] truncate font-jost mt-0.5">
+                    Google Verified Reviewer
+                  </p>
                 </div>
               </div>
-
             </div>
           ))}
         </div>
 
-        {/* ── Pagination Controls: Dots & Next/Prev ── */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0 pt-2">
-          <div className="text-xs text-slate-500 font-semibold font-jost text-center sm:text-left">
-            Showing <strong className="text-[#552782]">{pageIndex * pageSize + 1}-{Math.min((pageIndex + 1) * pageSize, reviews.length)}</strong> of <strong>{reviews.length}</strong> Verified Reviews
-          </div>
+        {/* Marquee Row 2: Rightward Infinite Scroll */}
+        <div className="animate-marquee-reverse-slow gap-3.5 px-3">
+          {marqueeReviewsRow2.map((r, idx) => (
+            <div
+              key={`row2-${r.id}-${idx}`}
+              className="w-[250px] xs:w-[280px] sm:w-[300px] md:w-[315px] shrink-0 bg-white rounded-xl p-4 border border-purple-100/90 shadow-2xs hover:shadow-md hover:border-purple-300 transition-all duration-300 flex flex-col justify-between group/card relative overflow-hidden select-none"
+            >
+              <div>
+                {/* Rating & Verified Badge */}
+                <div className="flex items-center justify-between mb-2">
+                  <StarRow count={r.rating} />
+                  <span className="inline-flex items-center gap-1 text-[9px] font-extrabold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-full border border-emerald-200/70">
+                    <CheckCircle className="w-2.5 h-2.5 text-emerald-600" />
+                    <span>Verified</span>
+                  </span>
+                </div>
 
-          <div className="flex items-center gap-4">
-            {/* Dots */}
-            <div className="flex items-center gap-1.5">
-              {Array.from({ length: totalPages }).map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setPageIndex(i)}
-                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                    i === pageIndex ? "w-7 bg-[#552782]" : "w-2 bg-purple-200 hover:bg-purple-300"
-                  }`}
-                  aria-label={`Go to review page ${i + 1}`}
-                />
-              ))}
+                {/* Excerpt Header */}
+                <h3 className="font-extrabold text-[#1E1238] text-xs mb-1.5 font-sans line-clamp-1 group-hover/card:text-[#552782] transition-colors">
+                  "{r.text.length > 45 ? r.text.substring(0, 42) + "..." : r.text}"
+                </h3>
+                
+                {/* Review Text */}
+                <p className="text-slate-600 text-[11px] leading-relaxed font-normal mb-3 font-jost line-clamp-3">
+                  "{r.text}"
+                </p>
+              </div>
+
+              {/* Reviewer Info */}
+              <div className="flex items-center gap-3 pt-2 border-t border-purple-100/70">
+                {r.profile_photo_url ? (
+                  <img
+                    src={r.profile_photo_url}
+                    alt={r.author_name}
+                    className="w-11 h-11 rounded-full object-cover border-2 border-purple-200/90 shadow-sm shrink-0"
+                  />
+                ) : (
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-indigo-600 to-purple-800 text-white font-extrabold flex items-center justify-center text-sm shadow-sm shrink-0">
+                    {r.author_name.charAt(0)}
+                  </div>
+                )}
+                <div className="flex-1 min-w-0 leading-tight">
+                  <p className="font-bold text-xs sm:text-[13px] text-[#1E1238] truncate font-sans tracking-tight">
+                    {r.author_name}
+                  </p>
+                  <p className="text-slate-500 text-[10px] truncate font-jost mt-0.5">
+                    Google Verified Reviewer
+                  </p>
+                </div>
+              </div>
             </div>
-
-            {/* Prev / Next Buttons */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setPageIndex((prev) => (prev - 1 + totalPages) % totalPages)}
-                aria-label="Previous reviews page"
-                className="w-8 h-8 rounded-full border border-purple-200 bg-white flex items-center justify-center text-slate-700 hover:text-[#552782] hover:border-purple-400 hover:bg-purple-50 transition-all shadow-2xs cursor-pointer active:scale-95"
-                title="Previous 4 Reviews"
-              >
-                <ChevronLeft className="w-4 h-4 stroke-[2.5]" />
-              </button>
-
-              <button
-                onClick={() => setPageIndex((prev) => (prev + 1) % totalPages)}
-                aria-label="Next reviews page"
-                className="w-8 h-8 rounded-full border border-purple-200 bg-white flex items-center justify-center text-slate-700 hover:text-[#552782] hover:border-purple-400 hover:bg-purple-50 transition-all shadow-2xs cursor-pointer active:scale-95"
-                title="Next 4 Reviews"
-              >
-                <ChevronRight className="w-4 h-4 stroke-[2.5]" />
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
 
       </div>
     </section>
   );
 };
+

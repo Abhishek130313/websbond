@@ -68,6 +68,17 @@ const SERVICES = [
   },
 ];
 
+const CARD_GRADIENTS = [
+  "bg-gradient-to-br from-indigo-50/90 via-purple-50/40 to-white border-indigo-100/90 hover:border-indigo-300",
+  "bg-gradient-to-br from-rose-50/90 via-pink-50/40 to-white border-rose-100/90 hover:border-rose-300",
+  "bg-gradient-to-br from-amber-50/90 via-orange-50/40 to-white border-amber-100/90 hover:border-amber-300",
+  "bg-gradient-to-br from-blue-50/90 via-sky-50/40 to-white border-blue-100/90 hover:border-blue-300",
+  "bg-gradient-to-br from-emerald-50/90 via-teal-50/40 to-white border-emerald-100/90 hover:border-emerald-300",
+  "bg-gradient-to-br from-purple-50/90 via-violet-50/40 to-white border-purple-100/90 hover:border-purple-300",
+  "bg-gradient-to-br from-cyan-50/90 via-blue-50/40 to-white border-cyan-100/90 hover:border-cyan-300",
+  "bg-gradient-to-br from-fuchsia-50/90 via-pink-50/40 to-white border-fuchsia-100/90 hover:border-fuchsia-300",
+];
+
 export const Services = () => (
   <section id="services" className="py-28 bg-[#F8FAFC] text-slate-900 relative overflow-hidden select-none border-t border-slate-200/80">
     <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -89,13 +100,14 @@ export const Services = () => (
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {SERVICES.map((service) => {
+        {SERVICES.map((service, idx) => {
           const IconComp = service.icon;
+          const bgGrad = CARD_GRADIENTS[idx % CARD_GRADIENTS.length];
           return (
             <Link
               key={service.title}
               to={service.link}
-              className="group bento-card p-6 border-slate-200 bg-white flex flex-col justify-between hover:border-indigo-300 transition-all duration-300 relative overflow-hidden shadow-xs"
+              className={`group bento-card p-6 rounded-2xl ${bgGrad} flex flex-col justify-between transition-all duration-300 relative overflow-hidden shadow-xs hover:shadow-md`}
             >
               <div>
                 {/* Header */}

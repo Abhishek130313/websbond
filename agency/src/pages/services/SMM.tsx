@@ -86,7 +86,6 @@ export const SMMPage = () => {
       {/* ── Hero section ── */}
       <section 
         className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 text-white text-center hero-image-overlay"
-        style={{ backgroundImage: `url(${heroBg})` }}
       >
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center max-w-6xl mx-auto">

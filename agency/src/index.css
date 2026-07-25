@@ -514,6 +514,34 @@
     box-shadow: 0 10px 30px -10px rgba(109, 40, 217, 0.08);
   }
 
+/* ── Continuous Marquee Ticker Keyframes ── */
+@keyframes marquee-track {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-track-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee-slow {
+  display: flex;
+  width: max-content;
+  animation: marquee-track 45s linear infinite;
+}
+
+.animate-marquee-reverse-slow {
+  display: flex;
+  width: max-content;
+  animation: marquee-track-reverse 45s linear infinite;
+}
+
+.pause-on-hover:hover .animate-marquee-slow,
+.pause-on-hover:hover .animate-marquee-reverse-slow {
+  animation-play-state: paused;
+}
+
 
 
 
