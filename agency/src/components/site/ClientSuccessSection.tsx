@@ -4,6 +4,8 @@ import {
   FileText, Share2, BarChart3, Star, Code, CircleDollarSign,
   Users, Target, ShieldCheck, ChevronRight
 } from "lucide-react";
+import officialLogo from "@/assets/websbond-official-2026-logo.webp";
+import iconMark from "@/assets/websbond-icon-mark.webp";
 
 /* ────────────────────────────────────────────────────────────
  * ClientSuccessSection
@@ -246,26 +248,17 @@ export const ClientSuccessSection = () => {
                   {/* White Interior Hub Circle */}
                   <div className="w-full h-full rounded-full bg-white flex flex-col items-center justify-center text-center p-4 shadow-inner relative z-10 border border-purple-100">
                     
-                    {/* WB Stylized Gradient Icon (Image 2 exact look) */}
-                    <div className="mb-1 flex items-center justify-center">
-                      <svg width="48" height="42" viewBox="0 0 48 42" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-9 sm:w-12 sm:h-10 transform hover:scale-110 transition-transform">
-                        <path d="M6 8L16 34L26 8" stroke="url(#wb_grad1)" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
-                        <path d="M22 8C22 8 30 6 36 12C42 18 36 24 30 24C38 24 44 28 42 34C40 40 30 38 24 34" stroke="url(#wb_grad2)" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
-                        <defs>
-                          <linearGradient id="wb_grad1" x1="6" y1="8" x2="26" y2="34" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#9333EA" />
-                            <stop offset="1" stopColor="#4F46E5" />
-                          </linearGradient>
-                          <linearGradient id="wb_grad2" x1="22" y1="8" x2="42" y2="38" gradientUnits="userSpaceOnUse">
-                            <stop stopColor="#8B5CF6" />
-                            <stop offset="1" stopColor="#3B82F6" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
+                    {/* Official Websbond Icon Mark / Logo */}
+                    <div className="mb-2 flex flex-col items-center justify-center">
+                      <img 
+                        src={iconMark} 
+                        alt="Websbond Brand Icon" 
+                        className="w-14 h-14 sm:w-16 sm:h-16 object-contain filter drop-shadow-md hover:scale-105 transition-transform" 
+                      />
                     </div>
 
-                    {/* WEBSBOND Brand Name (Exact Image 2 dark font) */}
-                    <span className="font-montserrat font-black text-xl sm:text-2xl tracking-tight text-[#0A051C] leading-none mb-1.5">
+                    {/* WEBSBOND Brand Name */}
+                    <span className="font-montserrat font-black text-lg sm:text-xl tracking-tight text-[#0A051C] leading-none mb-1">
                       WEBSBOND
                     </span>
 
