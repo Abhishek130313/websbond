@@ -292,21 +292,25 @@ export const AboutSection = () => {
                 </div>
               </div>
 
-              {/* Row 4: Standard Normal-Sized reCAPTCHA Box (Not Stretched) */}
-              <div className="flex justify-center my-3">
-                <div className="w-full max-w-[304px] bg-[#F9F9F9] border border-slate-200/90 rounded-xl p-3 flex items-center justify-between shadow-2xs">
-                  <label className="flex items-center gap-3 cursor-pointer select-none">
+              {/* Row 4: Authentic Google reCAPTCHA v2 Box (Original 304x74 Widget) */}
+              <div className="flex justify-center my-2">
+                <div className="w-[304px] h-[74px] bg-[#F9F9F9] border border-[#D3D3D3] rounded-[3px] px-3.5 flex items-center justify-between shadow-2xs select-none">
+                  <label className="flex items-center gap-3 cursor-pointer">
                     <input
                       type="checkbox"
                       required
-                      className="w-5 h-5 rounded border-slate-300 text-purple-700 focus:ring-purple-500 cursor-pointer accent-[#552782]"
+                      className="w-6 h-6 rounded-[2px] border-[#C1C1C1] text-blue-600 focus:ring-0 cursor-pointer accent-[#4285F4]"
                     />
-                    <span className="text-xs font-semibold text-slate-800">I'm not a robot</span>
+                    <span className="text-[14px] font-normal text-[#222] font-sans">I'm not a robot</span>
                   </label>
-                  <div className="flex flex-col items-center justify-center text-[9px] text-slate-500 font-sans leading-tight">
-                    <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-4.5 h-4.5 opacity-90 mb-0.5" />
-                    <span className="font-bold">reCAPTCHA</span>
-                    <span className="text-[8px] text-slate-400">Privacy - Terms</span>
+                  <div className="flex flex-col items-center justify-center text-[10px] text-[#555] font-sans leading-tight">
+                    <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-8 h-8 opacity-90 mb-0.5" />
+                    <span className="text-[10px] font-normal text-[#555]">reCAPTCHA</span>
+                    <div className="text-[8px] text-[#555] flex gap-1">
+                      <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank" rel="noreferrer" className="hover:underline">Privacy</a>
+                      <span>-</span>
+                      <a href="https://www.google.com/intl/en/policies/terms/" target="_blank" rel="noreferrer" className="hover:underline">Terms</a>
+                    </div>
                   </div>
                 </div>
               </div>
