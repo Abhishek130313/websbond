@@ -8,7 +8,8 @@ import {
 /* ────────────────────────────────────────────────────────────
  * WebDesignFeatureGrid
  * Interactive 6-Tab Showcase with distinct light color themes,
- * mouse cursor hover switching, and floating pill navigation bar.
+ * mouse cursor hover switching, highlighted SEO keywords, and
+ * floating pill navigation bar.
  * ──────────────────────────────────────────────────────────── */
 
 const TABS = [
@@ -22,7 +23,11 @@ const TABS = [
     activeCardBg: "bg-gradient-to-br from-[#1E1238] via-[#2B144E] to-[#3B1568] text-white shadow-xl scale-[1.03] border border-indigo-400/60",
     hoverBorder: "hover:border-indigo-300",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
-    description: "Your website is the first impression your business makes. If your site is old, buggy, slow, or not mobile-friendly, customers bounce before you even talk to them. Having a professionally engineered website increases trust, boosts credibility, and puts you ahead of competitors. At WebsBond, we build fast, clean, and conversion-oriented websites tailored for growth.",
+    description: (
+      <>
+        Your website is the first impression your business makes. If your site is old, slow, or not mobile-friendly, customers bounce before you even talk to them. Having a <strong className="font-extrabold text-[#552782] bg-purple-50 px-1 py-0.5 rounded border border-purple-100">professionally engineered website</strong> increases trust, boosts credibility, and puts you ahead of competitors. At <strong className="font-extrabold text-slate-950">WebsBond</strong>, we build <strong className="font-extrabold text-indigo-700">fast, clean, and conversion-oriented websites</strong> tailored for high business growth.
+      </>
+    ),
     highlights: ["Increased brand credibility & trust", "Sub-second core web vitals speed", "Designed for maximum customer engagement"],
   },
   {
@@ -35,7 +40,11 @@ const TABS = [
     activeCardBg: "bg-gradient-to-br from-[#881337] via-[#9F1239] to-[#BE123C] text-white shadow-xl scale-[1.03] border border-rose-400/60",
     hoverBorder: "hover:border-rose-300",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
-    description: "Traffic alone doesn't grow your business — conversions do. We design every page with strategic call-to-action buttons, intuitive user journeys, and persuasive lead forms that convert passive visitors into paying customers. Whether you need more phone calls, form fills, or ecommerce orders, our websites act as 24/7 lead generation engines.",
+    description: (
+      <>
+        Traffic alone doesn't grow your business — <strong className="font-extrabold text-rose-700 bg-rose-50 px-1 py-0.5 rounded border border-rose-100">qualified lead conversions do</strong>. We design every page with <strong className="font-extrabold text-slate-950">strategic call-to-action funnels</strong>, intuitive user journeys, and high-converting lead forms. Whether you need more phone calls or online sales, our websites act as <strong className="font-extrabold text-[#552782] bg-purple-50 px-1 py-0.5 rounded border border-purple-100">24/7 lead generation engines</strong> for your brand.
+      </>
+    ),
     highlights: ["Strategic CTA placements & funnels", "Instant lead capture & CRM integrations", "Higher conversion rates across all devices"],
   },
   {
@@ -48,7 +57,11 @@ const TABS = [
     activeCardBg: "bg-gradient-to-br from-[#064E3B] via-[#047857] to-[#059669] text-white shadow-xl scale-[1.03] border border-emerald-400/60",
     hoverBorder: "hover:border-emerald-300",
     image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=800&auto=format&fit=crop&q=80",
-    description: "Confusing navigation or clutter drives potential clients away. We craft ultra-smooth visual hierarchy, crystal-clear typography, and intuitive micro-interactions that make browsing your site effortless. Users stay longer, engage deeper, and complete actions faster on websites designed with modern UX principles.",
+    description: (
+      <>
+        Confusing navigation or clutter drives potential clients away. We craft <strong className="font-extrabold text-emerald-800 bg-emerald-50 px-1 py-0.5 rounded border border-emerald-100">ultra-smooth visual hierarchy</strong>, crystal-clear typography, and intuitive micro-interactions that make browsing effortless. Users stay longer, engage deeper, and complete actions faster on websites designed with <strong className="font-extrabold text-[#552782]">modern UI/UX design principles</strong>.
+      </>
+    ),
     highlights: ["Smooth micro-animations & transitions", "Clean visual hierarchy & modern typography", "Accessibility & fast navigation layout"],
   },
   {
@@ -61,7 +74,11 @@ const TABS = [
     activeCardBg: "bg-gradient-to-br from-[#1E3A8A] via-[#1E40AF] to-[#2563EB] text-white shadow-xl scale-[1.03] border border-blue-400/60",
     hoverBorder: "hover:border-blue-300",
     image: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?w=800&auto=format&fit=crop&q=80",
-    description: "Over 70% of web traffic comes from smartphones. Our mobile-first design philosophy ensures your website looks stunning, loads instantaneously, and functions flawlessly on every screen size — from iPhones and Android tablets to ultra-wide 4K desktop monitors.",
+    description: (
+      <>
+        Over 70% of web traffic comes from mobile devices. Our <strong className="font-extrabold text-blue-700 bg-blue-50 px-1 py-0.5 rounded border border-blue-100">mobile-first design philosophy</strong> ensures your website looks stunning, loads instantaneously, and functions flawlessly on every screen size — from iPhones and Android tablets to <strong className="font-extrabold text-slate-950">ultra-wide 4K desktop displays</strong> with <strong className="font-extrabold text-[#552782]">zero layout shifts (CLS)</strong>.
+      </>
+    ),
     highlights: ["100% responsive fluid grid system", "Touch-optimized buttons & mobile menus", "Zero cumulative layout shift (CLS)"],
   },
   {
@@ -74,7 +91,11 @@ const TABS = [
     activeCardBg: "bg-gradient-to-br from-[#78350F] via-[#92400E] to-[#B45309] text-white shadow-xl scale-[1.03] border border-amber-400/60",
     hoverBorder: "hover:border-amber-300",
     image: "https://images.unsplash.com/photo-1572021335469-31706a17aaef?w=800&auto=format&fit=crop&q=80",
-    description: "What good is a beautiful website if no one can find it? We build SEO into the foundational codebase — implementing schema markup, semantic HTML5, optimized page titles, meta tags, and high-speed assets so Google indexes and ranks your business at the top of local and national search results.",
+    description: (
+      <>
+        What good is a beautiful website if no one can find it? We integrate <strong className="font-extrabold text-amber-800 bg-amber-50 px-1 py-0.5 rounded border border-amber-100">#1 rank SEO into the foundational code</strong> — implementing schema markup, semantic HTML5, and high-speed assets so Google indexes and ranks your business at the <strong className="font-extrabold text-[#552782]">top of local and national search results</strong>.
+      </>
+    ),
     highlights: ["Clean SEO code architecture & schema", "Local SEO & Google Maps pack ready", "Fast indexing & targeted keyword optimization"],
   },
   {
@@ -87,14 +108,17 @@ const TABS = [
     activeCardBg: "bg-gradient-to-br from-[#3B0764] via-[#581C87] to-[#6D28D9] text-white shadow-xl scale-[1.03] border border-purple-400/60",
     hoverBorder: "hover:border-purple-300",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=80",
-    description: "As your business grows, your website should scale effortlessly with you. We engineer clean, modular web platforms that allow easy content updates, seamless third-party API integrations, and enterprise-grade security without needing expensive technical maintenance.",
+    description: (
+      <>
+        As your business grows, your website should scale effortlessly with you. We engineer <strong className="font-extrabold text-purple-800 bg-purple-50 px-1 py-0.5 rounded border border-purple-100">clean, modular React web architecture</strong> that allows easy content updates, <strong className="font-extrabold text-slate-950">seamless third-party API & CRM integrations</strong>, and enterprise-grade security with <strong className="font-extrabold text-[#552782]">zero technical downtime</strong>.
+      </>
+    ),
     highlights: ["Modular reusable component structure", "Seamless API & CRM integrations", "Enterprise-grade security & zero downtime"],
   },
 ];
 
 export const WebDesignFeatureGrid = () => {
   const [activeTab, setActiveTab] = useState(0);
-  const [showPillNav, setShowPillNav] = useState(true);
 
   const currentTab = TABS[activeTab];
 
@@ -119,12 +143,12 @@ export const WebDesignFeatureGrid = () => {
             </span>
           </h2>
           <p className="font-jost text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto font-normal">
-            Your website is your first impression — give it all your power. As a professional <strong className="font-bold text-[#1E1238]">web design company & digital marketing agency in Delhi NCR</strong>, we help companies like yours turn visitors into customers. Whether you're a startup or a scaling brand, our fully custom web design services are customized around your goals. Let's transform your online presence into your most powerful sales tool.
+            Your website is your first impression — give it all your power. As a professional <strong className="font-bold text-[#1E1238] bg-purple-50 px-1.5 py-0.5 rounded border border-purple-100">web design company & digital marketing agency in Delhi NCR</strong>, we help companies like yours turn visitors into customers. Whether you're a startup or a scaling brand, our fully custom web design services are customized around your goals. Let's transform your online presence into your most powerful sales tool.
           </p>
         </div>
 
         {/* ── Interactive 2-Column Grid ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch max-w-6xl mx-auto mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch max-w-6xl mx-auto mb-6">
 
           {/* Left Column: 6 Interactive Selectable Cards with Mouse Hover Switching */}
           <div className="lg:col-span-5 grid grid-cols-2 gap-3.5">
@@ -197,7 +221,7 @@ export const WebDesignFeatureGrid = () => {
                 <h3 className="text-xl sm:text-2xl font-extrabold text-[#1E1238] font-sans mb-2.5 tracking-tight">
                   {currentTab.title}
                 </h3>
-                <p className="font-jost text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-normal">
+                <p className="font-jost text-xs sm:text-[13px] text-slate-600 leading-relaxed mb-4 font-normal">
                   {currentTab.description}
                 </p>
 
