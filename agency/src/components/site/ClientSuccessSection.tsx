@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight, ExternalLink, Monitor, Search, Megaphone,
   FileText, Share2, BarChart3, Star, ChevronRight,
-  TrendingUp, Target, Users, Headphones, PieChart
+  TrendingUp, Target, Users, Headphones, PieChart, Sparkles
 } from "lucide-react";
 import officialLogo from "@/assets/websbond-official-2026-logo.webp";
 import iconMark from "@/assets/websbond-icon-mark.webp";
@@ -422,29 +422,40 @@ export const ClientSuccessSection = () => {
               {/* Vertical Divider line */}
               <div className="hidden md:block w-px h-full bg-slate-200/80 self-stretch" />
 
-              {/* Right: Core Services List */}
-              <div className="md:col-span-5 pl-0 md:pl-2">
-                <h3 className="font-sans font-extrabold text-base sm:text-lg text-[#6D28D9] mb-4 tracking-tight">
-                  Our Core Digital Services
-                </h3>
-                <div className="grid grid-cols-2 gap-x-4 gap-y-3">
-                  <div className="flex flex-col gap-2.5">
-                    {CORE_SERVICES_LEFT.map((svc) => (
-                      <div key={svc} className="flex items-center gap-1.5 group cursor-pointer">
-                        <ChevronRight className="w-3.5 h-3.5 text-[#6D28D9] shrink-0 stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
-                        <span className="text-xs sm:text-[13px] font-bold text-slate-700 group-hover:text-[#6D28D9] transition-colors">{svc}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex flex-col gap-2.5">
-                    {CORE_SERVICES_RIGHT.map((svc) => (
-                      <div key={svc} className="flex items-center gap-1.5 group cursor-pointer">
-                        <ChevronRight className="w-3.5 h-3.5 text-[#6D28D9] shrink-0 stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
-                        <span className="text-xs sm:text-[13px] font-bold text-slate-700 group-hover:text-[#6D28D9] transition-colors">{svc}</span>
-                      </div>
-                    ))}
-                  </div>
+              {/* Right: Core Digital Services Block (Redesigned World-Class Light Violet) */}
+              <div className="md:col-span-5 flex flex-col items-center justify-center text-center pl-0 md:pl-2">
+                
+                {/* Centered Heading */}
+                <div className="mb-4 text-center">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-[#6D28D9] bg-purple-100/70 px-3 py-1 rounded-full mb-2 border border-purple-200/60">
+                    <Sparkles className="w-3 h-3 text-[#6D28D9]" />
+                    Expert Capabilities
+                  </span>
+                  <h3 className="font-sans font-black text-lg sm:text-xl text-[#552782] tracking-tight">
+                    Our Core Digital Services
+                  </h3>
                 </div>
+
+                {/* Light Violet Interactive Service Chips Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full max-w-lg">
+                  {[...CORE_SERVICES_LEFT, ...CORE_SERVICES_RIGHT].map((svc) => (
+                    <div 
+                      key={svc} 
+                      className="bg-gradient-to-r from-[#F5EFFC] via-[#FAF5FF] to-[#F3EAFA] border border-purple-200/70 rounded-2xl px-3.5 py-2.5 flex items-center justify-between shadow-2xs hover:shadow-md hover:border-purple-400 hover:scale-[1.02] transition-all duration-200 group cursor-pointer"
+                    >
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-purple-200/60 text-[#552782] flex items-center justify-center text-[10px] font-black group-hover:bg-[#552782] group-hover:text-white transition-colors shrink-0">
+                          ✦
+                        </div>
+                        <span className="text-xs font-bold text-[#3B1568] group-hover:text-[#552782] transition-colors font-sans text-left leading-snug">
+                          {svc}
+                        </span>
+                      </div>
+                      <ChevronRight className="w-3.5 h-3.5 text-purple-400 group-hover:text-[#552782] group-hover:translate-x-1 transition-transform shrink-0" />
+                    </div>
+                  ))}
+                </div>
+
               </div>
             </div>
           </div>
