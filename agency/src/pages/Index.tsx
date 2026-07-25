@@ -4,7 +4,7 @@ import { Layout } from "@/components/site/Layout";
 import { Hero } from "@/components/site/Hero";
 import { AboutSection } from "@/components/site/AboutSection";
 import { ClientSuccessSection } from "@/components/site/ClientSuccessSection";
-import { ServicesMindmap } from "@/components/site/ServicesMindmap";
+
 import { WebDesignFeatureGrid } from "@/components/site/WebDesignFeatureGrid";
 import { MidCtaBanner } from "@/components/site/MidCtaBanner";
 import { EverythingGrid } from "@/components/site/EverythingGrid";
@@ -104,8 +104,7 @@ const Index = () => (
       <Process />
     </Suspense>
 
-    {/* Section 5: Smart Strategies Radial Mindmap */}
-    <ServicesMindmap />
+
 
     {/* Section 6: High-Performance Web Design Feature Grid */}
     <WebDesignFeatureGrid />
