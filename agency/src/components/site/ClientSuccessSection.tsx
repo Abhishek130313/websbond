@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import {
   ArrowRight, ExternalLink, Monitor, Search, Megaphone,
-  FileText, Share2, BarChart3, Star, Code, CircleDollarSign,
-  Users, Target, ShieldCheck, ChevronRight
+  FileText, Share2, BarChart3, Star, ChevronRight,
+  TrendingUp, Target, Users, Headphones, PieChart
 } from "lucide-react";
 import officialLogo from "@/assets/websbond-official-2026-logo.webp";
 import iconMark from "@/assets/websbond-icon-mark.webp";
@@ -63,12 +63,36 @@ const RIGHT_SERVICES = [
 ];
 
 const WHY_CHOOSE = [
-  { icon: Code, label: "Custom Website Design & Development", color: "text-indigo-600", hoverBorder: "hover:border-indigo-300" },
-  { icon: Search, label: "Local SEO & Google Ranking Experts", color: "text-orange-600", hoverBorder: "hover:border-orange-300" },
-  { icon: CircleDollarSign, label: "Pay-Per-Click (PPC) Advertising", color: "text-amber-600", hoverBorder: "hover:border-amber-300" },
-  { icon: Users, label: "Lead Generation & Conversion Optimization", color: "text-emerald-600", hoverBorder: "hover:border-emerald-300" },
-  { icon: Target, label: "Ongoing Support & Growth Partnership", color: "text-purple-600", hoverBorder: "hover:border-purple-300" },
-  { icon: ShieldCheck, label: "Transparent Reporting & Real Results", color: "text-teal-600", hoverBorder: "hover:border-teal-300" },
+  {
+    icon: Monitor,
+    line1: "Custom Website",
+    line2: "Design & Development",
+  },
+  {
+    icon: TrendingUp,
+    line1: "Local SEO & Google",
+    line2: "Ranking Experts",
+  },
+  {
+    icon: Target,
+    line1: "Pay-Per-Click (PPC)",
+    line2: "Advertising",
+  },
+  {
+    icon: Users,
+    line1: "Lead Generation &",
+    line2: "Conversion Optimization",
+  },
+  {
+    icon: Headphones,
+    line1: "Ongoing Support &",
+    line2: "Growth Partnership",
+  },
+  {
+    icon: PieChart,
+    line1: "Transparent Reporting",
+    line2: "& Real Results",
+  },
 ];
 
 const CORE_SERVICES_LEFT = [
@@ -279,34 +303,40 @@ export const ClientSuccessSection = () => {
             </div>
           </div>
 
-          {/* ── Why Businesses Choose WebsBond ── */}
-          <div className="text-center mb-6">
-            <h3 className="font-sans font-extrabold text-base sm:text-lg text-[#1E1238] tracking-tight">
+          {/* ── Why Businesses Choose WebsBond (Image 1 Exact Single Container Card) ── */}
+          <div className="text-center mb-5">
+            <h3 className="font-sans font-extrabold text-lg sm:text-xl text-[#0F172A] tracking-tight">
               Why Businesses Choose WebsBond
             </h3>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 max-w-5xl mx-auto mb-12">
-            {WHY_CHOOSE.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div key={item.label} className={`bg-white border border-slate-200/80 rounded-xl px-3 py-3 flex items-center gap-2 shadow-xs hover:shadow-md transition-all duration-200 group ${item.hoverBorder}`}>
-                  <Icon className={`w-4 h-4 ${item.color} shrink-0 group-hover:scale-110 transition-transform`} />
-                  <span className="text-[10px] sm:text-[11px] font-bold text-slate-700 leading-tight">{item.label}</span>
-                </div>
-              );
-            })}
+
+          <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm p-4 sm:p-5 max-w-6xl mx-auto mb-10 overflow-hidden">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
+              {WHY_CHOOSE.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div key={idx} className="p-3 sm:px-4 sm:py-2.5 flex items-center gap-3.5 group hover:bg-purple-50/40 transition-colors rounded-xl">
+                    <Icon className="w-6 h-6 text-[#6D28D9] shrink-0 stroke-[1.75] group-hover:scale-110 transition-transform" />
+                    <div className="flex flex-col">
+                      <span className="text-[11px] sm:text-xs font-bold text-[#0F172A] leading-tight font-sans">{item.line1}</span>
+                      <span className="text-[11px] sm:text-xs font-bold text-[#0F172A] leading-tight font-sans">{item.line2}</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
-          {/* ── Bottom SEO Content Block ── */}
-          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs p-6 sm:p-8 max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* ── Bottom SEO Content Block (Image 1 Exact 2-Column Card) ── */}
+          <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm p-7 sm:p-10 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
 
               {/* Left: SEO Paragraph */}
-              <div>
-                <h3 className="font-sans font-extrabold text-base sm:text-lg text-[#1E1238] mb-3 tracking-tight">
+              <div className="md:col-span-6 pr-0 md:pr-4">
+                <h3 className="font-sans font-extrabold text-base sm:text-lg text-[#0F172A] mb-3 tracking-tight">
                   Digital Growth Partner for Businesses in Delhi NCR & India
                 </h3>
-                <p className="font-jost text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="font-jost text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                   WebsBond is a result-driven web design and digital marketing agency in Delhi NCR,
                   helping startups, small businesses and established brands grow online. Our services
                   include website design, website development, SEO, Google Ads, social media marketing,
@@ -315,32 +345,45 @@ export const ClientSuccessSection = () => {
                 </p>
               </div>
 
+              {/* Vertical Divider line */}
+              <div className="hidden md:block w-px h-full bg-slate-200/80 self-stretch" />
+
               {/* Right: Core Services List */}
-              <div>
-                <h3 className="font-sans font-extrabold text-base sm:text-lg text-[#552782] mb-3 tracking-tight">
+              <div className="md:col-span-5 pl-0 md:pl-2">
+                <h3 className="font-sans font-extrabold text-base sm:text-lg text-[#6D28D9] mb-4 tracking-tight">
                   Our Core Digital Services
                 </h3>
-                <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-                  {[...CORE_SERVICES_LEFT, ...CORE_SERVICES_RIGHT].map((svc) => (
-                    <div key={svc} className="flex items-center gap-1.5">
-                      <ChevronRight className="w-3.5 h-3.5 text-[#552782] shrink-0" />
-                      <span className="text-xs font-semibold text-slate-700">{svc}</span>
-                    </div>
-                  ))}
+                <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                  <div className="flex flex-col gap-2.5">
+                    {CORE_SERVICES_LEFT.map((svc) => (
+                      <div key={svc} className="flex items-center gap-1.5 group cursor-pointer">
+                        <ChevronRight className="w-3.5 h-3.5 text-[#6D28D9] shrink-0 stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
+                        <span className="text-xs sm:text-[13px] font-bold text-slate-700 group-hover:text-[#6D28D9] transition-colors">{svc}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex flex-col gap-2.5">
+                    {CORE_SERVICES_RIGHT.map((svc) => (
+                      <div key={svc} className="flex items-center gap-1.5 group cursor-pointer">
+                        <ChevronRight className="w-3.5 h-3.5 text-[#6D28D9] shrink-0 stroke-[2.5] group-hover:translate-x-0.5 transition-transform" />
+                        <span className="text-xs sm:text-[13px] font-bold text-slate-700 group-hover:text-[#6D28D9] transition-colors">{svc}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* CTA Button */}
-            <div className="text-center mt-6 pt-5 border-t border-slate-100">
-              <Link
-                to="/digital-marketing-agency"
-                className="inline-flex items-center gap-2 bg-[#552782] hover:bg-[#421A78] text-white font-bold text-xs sm:text-sm px-8 py-3 rounded-full shadow-md hover:shadow-xl transition-all duration-200 group active:scale-95"
-              >
-                <span>Explore Our Services</span>
-                <ArrowRight className="w-4 h-4 text-purple-200 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+          {/* Centered CTA Pill Button Below Container */}
+          <div className="text-center mt-8">
+            <Link
+              to="/digital-marketing-agency"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6D28D9] via-[#7C3AED] to-[#8B5CF6] hover:from-[#5B21B6] hover:to-[#6D28D9] text-white font-extrabold text-xs sm:text-sm px-9 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:-translate-y-0.5 active:scale-95"
+            >
+              <span>Explore Our Services</span>
+              <ArrowRight className="w-4 h-4 text-purple-200 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
 
         </div>
