@@ -185,191 +185,191 @@ export const ClientSuccessSection = () => {
         </div>
       </section>
 
-      {/* ═══════════════  PART 2: Colourful Radial Mindmap — Reference 1 Exact  ═══════════════ */}
-      <section className="py-14 md:py-20 bg-gradient-to-b from-[#F5F0FF] via-white to-[#F0F4FF] text-slate-900 select-none relative overflow-hidden border-b border-purple-100/60">
+      {/* ═══════════════  PART 2: Colourful Radial Mindmap — Reference 1 Compact & Synchronized  ═══════════════ */}
+      <section className="py-10 md:py-14 bg-gradient-to-b from-[#F5F0FF] via-white to-[#F0F4FF] text-slate-900 select-none relative overflow-hidden border-b border-purple-100/60">
 
         {/* Multi-colour Ambient Glow Orbs */}
-        <div className="absolute top-0 left-1/4 w-80 h-80 bg-purple-200/50 rounded-full blur-3xl pointer-events-none animate-pulse" />
-        <div className="absolute top-20 right-10 w-64 h-64 bg-orange-100/40 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-10 w-72 h-72 bg-emerald-100/30 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-60 h-60 bg-blue-100/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-80 h-80 bg-purple-200/40 rounded-full blur-3xl pointer-events-none animate-pulse" />
+        <div className="absolute top-20 right-10 w-64 h-64 bg-orange-100/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-72 h-72 bg-emerald-100/25 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-60 h-60 bg-blue-100/25 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
           {/* ── Section Header ── */}
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#552782] bg-gradient-to-r from-purple-50 to-indigo-50 px-4 py-1.5 rounded-full mb-4 border border-purple-200/60 shadow-sm">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#552782] bg-gradient-to-r from-purple-50 to-indigo-50 px-4 py-1.5 rounded-full mb-3 border border-purple-200/60 shadow-xs">
               <Star className="w-3.5 h-3.5 text-amber-500" />
               End-to-End Digital Solutions
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold text-[#1E1238] tracking-tight leading-tight font-sans mb-3">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-extrabold text-[#1E1238] tracking-tight leading-tight font-sans mb-2.5">
               Complete Digital Solutions{" "}
               <span className="font-montserrat font-black italic bg-gradient-to-r from-[#552782] via-[#7C3AED] to-[#3B82F6] bg-clip-text text-transparent block sm:inline">
                 to Grow Your Business
               </span>
             </h2>
-            <p className="font-jost text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="font-jost text-sm sm:text-[15px] text-slate-600 leading-relaxed max-w-2xl mx-auto">
               We build high-performing websites and run data-driven marketing campaigns
               that attract the right audience, generate quality leads, and increase revenue.
             </p>
           </div>
 
-          {/* ── Radial Layout: Left Cards | Central Hub | Right Cards ── */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-center max-w-6xl mx-auto mb-14 relative">
+          {/* ── Compact Radial Layout: Left Cards | Central Hub | Right Cards ── */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 items-center max-w-[1020px] mx-auto mb-10 relative">
 
-            {/* SVG Connecting Curves (Desktop Only — Exact Image Match) */}
+            {/* SVG Connecting Curves (Desktop Only — Tight Coordinates) */}
             <svg 
               className="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" 
-              viewBox="0 0 1000 500" 
+              viewBox="0 0 1000 440" 
               preserveAspectRatio="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Left Top Card -> Hub Ring Top Left Dot (Purple) */}
+              {/* Left Top Card -> Hub Ring Top Left Dot */}
               <path 
-                d="M 320 85 C 380 85, 400 140, 435 155" 
+                d="M 330 75 C 385 75, 410 120, 440 135" 
                 fill="none" 
                 stroke="#7C3AED" 
-                strokeWidth="3.5" 
-                strokeDasharray="6 6" 
+                strokeWidth="3" 
+                strokeDasharray="5 5" 
                 strokeLinecap="round" 
               />
-              {/* Left Mid Card -> Hub Ring Mid Left Dot (Pink) */}
+              {/* Left Mid Card -> Hub Ring Mid Left Dot */}
               <path 
-                d="M 320 250 L 390 250" 
+                d="M 330 220 L 400 220" 
                 fill="none" 
                 stroke="#E11D48" 
-                strokeWidth="3.5" 
-                strokeDasharray="6 6" 
+                strokeWidth="3" 
+                strokeDasharray="5 5" 
                 strokeLinecap="round" 
               />
-              {/* Left Bottom Card -> Hub Ring Bottom Left Dot (Orange) */}
+              {/* Left Bottom Card -> Hub Ring Bottom Left Dot */}
               <path 
-                d="M 320 415 C 380 415, 400 360, 435 345" 
+                d="M 330 365 C 385 365, 410 320, 440 305" 
                 fill="none" 
                 stroke="#F97316" 
-                strokeWidth="3.5" 
-                strokeDasharray="6 6" 
+                strokeWidth="3" 
+                strokeDasharray="5 5" 
                 strokeLinecap="round" 
               />
 
-              {/* Right Top Card -> Hub Ring Top Right Dot (Violet) */}
+              {/* Right Top Card -> Hub Ring Top Right Dot */}
               <path 
-                d="M 680 85 C 620 85, 600 140, 565 155" 
+                d="M 670 75 C 615 75, 590 120, 560 135" 
                 fill="none" 
                 stroke="#6366F1" 
-                strokeWidth="3.5" 
-                strokeDasharray="6 6" 
+                strokeWidth="3" 
+                strokeDasharray="5 5" 
                 strokeLinecap="round" 
               />
-              {/* Right Mid Card -> Hub Ring Mid Right Dot (Blue) */}
+              {/* Right Mid Card -> Hub Ring Mid Right Dot */}
               <path 
-                d="M 680 250 L 610 250" 
+                d="M 670 220 L 600 220" 
                 fill="none" 
                 stroke="#2563EB" 
-                strokeWidth="3.5" 
-                strokeDasharray="6 6" 
+                strokeWidth="3" 
+                strokeDasharray="5 5" 
                 strokeLinecap="round" 
               />
-              {/* Right Bottom Card -> Hub Ring Bottom Right Dot (Teal) */}
+              {/* Right Bottom Card -> Hub Ring Bottom Right Dot */}
               <path 
-                d="M 680 415 C 620 415, 600 360, 565 345" 
+                d="M 670 365 C 615 365, 590 320, 560 305" 
                 fill="none" 
                 stroke="#0D9488" 
-                strokeWidth="3.5" 
-                strokeDasharray="6 6" 
+                strokeWidth="3" 
+                strokeDasharray="5 5" 
                 strokeLinecap="round" 
               />
             </svg>
 
-            {/* Left Column: 3 Service Cards with Solid Circular Icon Badges & Edge Dots */}
-            <div className="flex flex-col gap-6 lg:pr-2 z-10">
+            {/* Left Column: 3 Service Cards (Compact Padding & Height) */}
+            <div className="flex flex-col gap-4.5 lg:pr-1 z-10">
               {LEFT_SERVICES.map((srv, idx) => {
                 const Icon = srv.icon;
                 const dotColors = ["bg-purple-600", "bg-pink-500", "bg-orange-500"];
                 return (
-                  <div key={srv.title} className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100/90 shadow-sm hover:shadow-xl transition-all duration-300 transform-gpu hover:-translate-y-1 group flex items-start gap-4 relative overflow-visible">
+                  <div key={srv.title} className="bg-white rounded-2xl p-4 sm:p-4.5 border border-slate-100/90 shadow-2xs hover:shadow-lg transition-all duration-300 transform-gpu hover:-translate-y-0.5 group flex items-start gap-3.5 relative overflow-visible">
                     
                     {/* Card Right Edge Connector Dot */}
-                    <div className={`absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-4 ${dotColors[idx]} rounded-full border-2 border-white shadow-md z-20 hidden lg:block`} />
+                    <div className={`absolute -right-2 top-1/2 -translate-y-1/2 w-3.5 h-3.5 ${dotColors[idx]} rounded-full border-2 border-white shadow-md z-20 hidden lg:block`} />
 
-                    <div className={`w-12 h-12 sm:w-13 sm:h-13 rounded-full ${srv.badgeBg} text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform`}>
-                      <Icon className="w-6 h-6 stroke-[2]" />
+                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full ${srv.badgeBg} text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform`}>
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2]" />
                     </div>
                     <div>
-                      <h4 className={`text-base font-extrabold ${srv.titleColor} mb-1.5 tracking-tight font-sans`}>{srv.title}</h4>
-                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-jost font-normal">{srv.desc}</p>
+                      <h4 className={`text-sm sm:text-base font-extrabold ${srv.titleColor} mb-1 tracking-tight font-sans`}>{srv.title}</h4>
+                      <p className="text-xs text-slate-600 leading-relaxed font-jost font-normal">{srv.desc}</p>
                     </div>
                   </div>
                 );
               })}
             </div>
 
-            {/* Central Hub Circle (Reference Image 1 & 2 Exact Style) */}
-            <div className="flex items-center justify-center py-6 lg:py-0 z-10">
+            {/* Central Hub Circle (Compact & Perfectly Centered) */}
+            <div className="flex items-center justify-center py-4 lg:py-0 z-10">
               <div className="relative">
                 {/* Outer Glow */}
-                <div className="absolute inset-0 w-72 h-72 sm:w-80 sm:h-80 -m-4 rounded-full bg-purple-200/40 blur-2xl pointer-events-none animate-pulse" />
+                <div className="absolute inset-0 w-64 h-64 sm:w-72 sm:h-72 -m-3 rounded-full bg-purple-200/30 blur-xl pointer-events-none animate-pulse" />
                 
                 {/* Smooth Gradient Outer Ring */}
-                <div className="w-64 h-64 sm:w-72 sm:h-72 rounded-full p-[5px] bg-gradient-to-tr from-purple-500 via-indigo-500 to-pink-400 shadow-xl flex items-center justify-center relative">
+                <div className="w-56 h-56 sm:w-64 sm:h-64 rounded-full p-[4.5px] bg-gradient-to-tr from-purple-500 via-indigo-500 to-pink-400 shadow-lg flex items-center justify-center relative">
                   
                   {/* White Interior Hub Circle */}
-                  <div className="w-full h-full rounded-full bg-white flex flex-col items-center justify-center text-center p-4 shadow-inner relative z-10 border border-purple-100">
+                  <div className="w-full h-full rounded-full bg-white flex flex-col items-center justify-center text-center p-3 sm:p-4 shadow-inner relative z-10 border border-purple-100">
                     
                     {/* Official Websbond Icon Mark / Logo */}
-                    <div className="mb-2 flex flex-col items-center justify-center">
+                    <div className="mb-1.5 flex flex-col items-center justify-center">
                       <img 
                         src={iconMark} 
                         alt="Websbond Brand Icon" 
-                        className="w-14 h-14 sm:w-16 sm:h-16 object-contain filter drop-shadow-md hover:scale-105 transition-transform" 
+                        className="w-12 h-12 sm:w-14 sm:h-14 object-contain filter drop-shadow-md hover:scale-105 transition-transform" 
                       />
                     </div>
 
                     {/* WEBSBOND Brand Name */}
-                    <span className="font-montserrat font-black text-lg sm:text-xl tracking-tight text-[#0A051C] leading-none mb-1">
+                    <span className="font-montserrat font-black text-base sm:text-lg tracking-tight text-[#0A051C] leading-none mb-1">
                       WEBSBOND
                     </span>
 
                     {/* Category List */}
-                    <span className="text-[10px] sm:text-[11px] font-semibold text-slate-600 tracking-tight font-jost mb-1">
+                    <span className="text-[9.5px] sm:text-[10.5px] font-semibold text-slate-600 tracking-tight font-jost mb-0.5">
                       Web Design • Marketing • Growth
                     </span>
 
                     {/* Tagline */}
-                    <span className="text-[9.5px] sm:text-[10.5px] font-bold text-[#6D28D9] tracking-tight">
+                    <span className="text-[9px] sm:text-[10px] font-bold text-[#6D28D9] tracking-tight">
                       One Team. One Strategy. Real Results
                     </span>
                   </div>
 
-                  {/* 6 Connected Dots Around Ring (Image 1 & 2 Exact Dots) */}
-                  <div className="absolute top-[12%] left-[12%] w-4 h-4 bg-purple-600 rounded-full border-2 border-white shadow-md z-20" />
-                  <div className="absolute top-[50%] -left-2 -translate-y-1/2 w-4 h-4 bg-pink-500 rounded-full border-2 border-white shadow-md z-20" />
-                  <div className="absolute bottom-[12%] left-[12%] w-4 h-4 bg-orange-500 rounded-full border-2 border-white shadow-md z-20" />
+                  {/* 6 Connected Dots Around Ring */}
+                  <div className="absolute top-[12%] left-[12%] w-3.5 h-3.5 bg-purple-600 rounded-full border-2 border-white shadow-md z-20" />
+                  <div className="absolute top-[50%] -left-1.5 -translate-y-1/2 w-3.5 h-3.5 bg-pink-500 rounded-full border-2 border-white shadow-md z-20" />
+                  <div className="absolute bottom-[12%] left-[12%] w-3.5 h-3.5 bg-orange-500 rounded-full border-2 border-white shadow-md z-20" />
                   
-                  <div className="absolute top-[12%] right-[12%] w-4 h-4 bg-indigo-600 rounded-full border-2 border-white shadow-md z-20" />
-                  <div className="absolute top-[50%] -right-2 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow-md z-20" />
-                  <div className="absolute bottom-[12%] right-[12%] w-4 h-4 bg-teal-500 rounded-full border-2 border-white shadow-md z-20" />
+                  <div className="absolute top-[12%] right-[12%] w-3.5 h-3.5 bg-indigo-600 rounded-full border-2 border-white shadow-md z-20" />
+                  <div className="absolute top-[50%] -right-1.5 -translate-y-1/2 w-3.5 h-3.5 bg-blue-500 rounded-full border-2 border-white shadow-md z-20" />
+                  <div className="absolute bottom-[12%] right-[12%] w-3.5 h-3.5 bg-teal-500 rounded-full border-2 border-white shadow-md z-20" />
                 </div>
               </div>
             </div>
 
-            {/* Right Column: 3 Service Cards with Solid Circular Icon Badges & Edge Dots */}
-            <div className="flex flex-col gap-6 lg:pl-2 z-10">
+            {/* Right Column: 3 Service Cards (Compact Padding & Height) */}
+            <div className="flex flex-col gap-4.5 lg:pl-1 z-10">
               {RIGHT_SERVICES.map((srv, idx) => {
                 const Icon = srv.icon;
                 const dotColors = ["bg-indigo-600", "bg-blue-500", "bg-teal-500"];
                 return (
-                  <div key={srv.title} className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100/90 shadow-sm hover:shadow-xl transition-all duration-300 transform-gpu hover:-translate-y-1 group flex items-start gap-4 relative overflow-visible">
+                  <div key={srv.title} className="bg-white rounded-2xl p-4 sm:p-4.5 border border-slate-100/90 shadow-2xs hover:shadow-lg transition-all duration-300 transform-gpu hover:-translate-y-0.5 group flex items-start gap-3.5 relative overflow-visible">
                     
                     {/* Card Left Edge Connector Dot */}
-                    <div className={`absolute -left-2 top-1/2 -translate-y-1/2 w-4 h-4 ${dotColors[idx]} rounded-full border-2 border-white shadow-md z-20 hidden lg:block`} />
+                    <div className={`absolute -left-2 top-1/2 -translate-y-1/2 w-3.5 h-3.5 ${dotColors[idx]} rounded-full border-2 border-white shadow-md z-20 hidden lg:block`} />
 
-                    <div className={`w-12 h-12 sm:w-13 sm:h-13 rounded-full ${srv.badgeBg} text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform`}>
-                      <Icon className="w-6 h-6 stroke-[2]" />
+                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full ${srv.badgeBg} text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform`}>
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2]" />
                     </div>
                     <div>
-                      <h4 className={`text-base font-extrabold ${srv.titleColor} mb-1.5 tracking-tight font-sans`}>{srv.title}</h4>
-                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-jost font-normal">{srv.desc}</p>
+                      <h4 className={`text-sm sm:text-base font-extrabold ${srv.titleColor} mb-1 tracking-tight font-sans`}>{srv.title}</h4>
+                      <p className="text-xs text-slate-600 leading-relaxed font-jost font-normal">{srv.desc}</p>
                     </div>
                   </div>
                 );
@@ -377,23 +377,23 @@ export const ClientSuccessSection = () => {
             </div>
           </div>
 
-          {/* ── Why Businesses Choose WebsBond (Image 1 Exact Single Container Card) ── */}
-          <div className="text-center mb-5">
-            <h3 className="font-sans font-extrabold text-lg sm:text-xl text-[#0F172A] tracking-tight">
+          {/* ── Why Businesses Choose WebsBond (Compact Single Container) ── */}
+          <div className="text-center mb-3.5">
+            <h3 className="font-sans font-extrabold text-base sm:text-lg text-[#0F172A] tracking-tight">
               Why Businesses Choose WebsBond
             </h3>
           </div>
 
-          <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm p-4 sm:p-5 max-w-6xl mx-auto mb-10 overflow-hidden">
+          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-3.5 sm:p-4 max-w-5xl mx-auto mb-8 overflow-hidden">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
               {WHY_CHOOSE.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div key={idx} className="p-3 sm:px-4 sm:py-2.5 flex items-center gap-3.5 group hover:bg-purple-50/40 transition-colors rounded-xl">
-                    <Icon className="w-6 h-6 text-[#6D28D9] shrink-0 stroke-[1.75] group-hover:scale-110 transition-transform" />
+                  <div key={idx} className="p-2.5 sm:px-3 sm:py-2 flex items-center gap-3 group hover:bg-purple-50/40 transition-colors rounded-xl">
+                    <Icon className="w-5 h-5 text-[#6D28D9] shrink-0 stroke-[1.75] group-hover:scale-105 transition-transform" />
                     <div className="flex flex-col">
-                      <span className="text-[11px] sm:text-xs font-bold text-[#0F172A] leading-tight font-sans">{item.line1}</span>
-                      <span className="text-[11px] sm:text-xs font-bold text-[#0F172A] leading-tight font-sans">{item.line2}</span>
+                      <span className="text-[10.5px] sm:text-[11.5px] font-bold text-[#0F172A] leading-tight font-sans">{item.line1}</span>
+                      <span className="text-[10.5px] sm:text-[11.5px] font-bold text-[#0F172A] leading-tight font-sans">{item.line2}</span>
                     </div>
                   </div>
                 );
@@ -401,16 +401,16 @@ export const ClientSuccessSection = () => {
             </div>
           </div>
 
-          {/* ── Bottom SEO Content Block (Image 1 Exact 2-Column Card) ── */}
-          <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm p-7 sm:p-10 max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          {/* ── Bottom SEO Content Block (Compact 2-Column Card) ── */}
+          <div className="bg-white rounded-2xl border border-slate-200/80 shadow-2xs p-6 sm:p-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
 
               {/* Left: SEO Paragraph */}
-              <div className="md:col-span-6 pr-0 md:pr-4">
-                <h3 className="font-sans font-extrabold text-base sm:text-lg text-[#0F172A] mb-3 tracking-tight">
+              <div className="md:col-span-6 pr-0 md:pr-3">
+                <h3 className="font-sans font-extrabold text-sm sm:text-base text-[#0F172A] mb-2.5 tracking-tight">
                   Digital Growth Partner for Businesses in Delhi NCR & India
                 </h3>
-                <p className="font-jost text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="font-jost text-xs text-slate-600 leading-relaxed font-normal">
                   WebsBond is a result-driven web design and digital marketing agency in Delhi NCR,
                   helping startups, small businesses and established brands grow online. Our services
                   include website design, website development, SEO, Google Ads, social media marketing,
@@ -423,35 +423,35 @@ export const ClientSuccessSection = () => {
               <div className="hidden md:block w-px h-full bg-slate-200/80 self-stretch" />
 
               {/* Right: Core Digital Services Block (Redesigned World-Class Light Violet) */}
-              <div className="md:col-span-5 flex flex-col items-center justify-center text-center pl-0 md:pl-2">
+              <div className="md:col-span-5 flex flex-col items-center justify-center text-center pl-0 md:pl-1">
                 
                 {/* Centered Heading */}
-                <div className="mb-4 text-center">
-                  <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-[#6D28D9] bg-purple-100/70 px-3 py-1 rounded-full mb-2 border border-purple-200/60">
+                <div className="mb-3 text-center">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider text-[#6D28D9] bg-purple-100/70 px-2.5 py-0.5 rounded-full mb-1.5 border border-purple-200/60">
                     <Sparkles className="w-3 h-3 text-[#6D28D9]" />
                     Expert Capabilities
                   </span>
-                  <h3 className="font-sans font-black text-lg sm:text-xl text-[#552782] tracking-tight">
+                  <h3 className="font-sans font-black text-base sm:text-lg text-[#552782] tracking-tight">
                     Our Core Digital Services
                   </h3>
                 </div>
 
                 {/* Light Violet Interactive Service Chips Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full max-w-lg">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full max-w-md">
                   {[...CORE_SERVICES_LEFT, ...CORE_SERVICES_RIGHT].map((svc) => (
                     <div 
                       key={svc} 
-                      className="bg-gradient-to-r from-[#F5EFFC] via-[#FAF5FF] to-[#F3EAFA] border border-purple-200/70 rounded-2xl px-3.5 py-2.5 flex items-center justify-between shadow-2xs hover:shadow-md hover:border-purple-400 hover:scale-[1.02] transition-all duration-200 group cursor-pointer"
+                      className="bg-gradient-to-r from-[#F5EFFC] via-[#FAF5FF] to-[#F3EAFA] border border-purple-200/70 rounded-xl px-3 py-2 flex items-center justify-between shadow-2xs hover:shadow-xs hover:border-purple-400 hover:scale-[1.015] transition-all duration-200 group cursor-pointer"
                     >
-                      <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-full bg-purple-200/60 text-[#552782] flex items-center justify-center text-[10px] font-black group-hover:bg-[#552782] group-hover:text-white transition-colors shrink-0">
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-5 h-5 rounded-full bg-purple-200/60 text-[#552782] flex items-center justify-center text-[9px] font-black group-hover:bg-[#552782] group-hover:text-white transition-colors shrink-0">
                           ✦
                         </div>
-                        <span className="text-xs font-bold text-[#3B1568] group-hover:text-[#552782] transition-colors font-sans text-left leading-snug">
+                        <span className="text-[11.5px] font-bold text-[#3B1568] group-hover:text-[#552782] transition-colors font-sans text-left leading-tight">
                           {svc}
                         </span>
                       </div>
-                      <ChevronRight className="w-3.5 h-3.5 text-purple-400 group-hover:text-[#552782] group-hover:translate-x-1 transition-transform shrink-0" />
+                      <ChevronRight className="w-3 h-3 text-purple-400 group-hover:text-[#552782] group-hover:translate-x-0.5 transition-transform shrink-0" />
                     </div>
                   ))}
                 </div>
@@ -461,10 +461,10 @@ export const ClientSuccessSection = () => {
           </div>
 
           {/* Centered CTA Pill Button Below Container */}
-          <div className="text-center mt-8">
+          <div className="text-center mt-6">
             <Link
               to="/digital-marketing-agency"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6D28D9] via-[#7C3AED] to-[#8B5CF6] hover:from-[#5B21B6] hover:to-[#6D28D9] text-white font-extrabold text-xs sm:text-sm px-9 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer transform hover:-translate-y-0.5 active:scale-95"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#6D28D9] via-[#7C3AED] to-[#8B5CF6] hover:from-[#5B21B6] hover:to-[#6D28D9] text-white font-extrabold text-xs sm:text-sm px-8 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group cursor-pointer transform hover:-translate-y-0.5 active:scale-95"
             >
               <span>Explore Our Services</span>
               <ArrowRight className="w-4 h-4 text-purple-200 group-hover:translate-x-1 transition-transform" />
