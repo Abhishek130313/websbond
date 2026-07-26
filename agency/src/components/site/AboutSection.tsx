@@ -60,8 +60,19 @@ export const AboutSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-[#F8F7FD] text-slate-900 select-none border-b border-purple-100 overflow-hidden">
+    <section className="pt-14 pb-8 sm:pb-10 md:pb-12 bg-[#F8F7FD] text-slate-900 select-none border-b border-purple-100 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* ── Centered Header ── */}
+        <div className="text-center max-w-4xl mx-auto mb-10 md:mb-14">
+          <span className="text-[#F25C3B] font-bold text-sm sm:text-base tracking-wide uppercase block mb-3 font-sans">
+            What makes us unique?
+          </span>
+
+          <h2 className="font-montserrat font-semibold italic text-2xl sm:text-3xl md:text-4xl text-slate-950 tracking-tight leading-tight">
+            Our offbeat <span className="text-purple-800">Marketing & Web solutions</span> drive dollars to your bank accounts.
+          </h2>
+        </div>
 
         {/* ── Top Hero Section ── */}
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-16 md:mb-24">
@@ -82,14 +93,6 @@ export const AboutSection = () => {
 
           {/* Right Column: Copy & 4 Badges */}
           <div className="lg:col-span-7">
-            <span className="text-[#F25C3B] font-bold text-sm sm:text-base tracking-wide uppercase block mb-3 font-sans">
-              What makes us unique?
-            </span>
-
-            <h2 className="font-montserrat font-semibold italic text-2xl sm:text-3xl md:text-3xl lg:text-[34px] text-slate-950 tracking-tight leading-tight mb-5">
-              Our offbeat <span className="text-purple-800">Marketing & Web solutions</span> drive dollars to your bank accounts.
-            </h2>
-
             <h3 className="text-base sm:text-lg font-bold text-slate-800 mb-4 leading-snug">
               Affordable Website Development, Top #1 Google SEO & High-ROI Social Media Marketing Agency
             </h3>
@@ -292,9 +295,9 @@ export const AboutSection = () => {
                 </div>
               </div>
 
-              {/* Row 4: Authentic Google reCAPTCHA v2 Box (Original 304x74 Widget) */}
-              <div className="flex justify-center my-2">
-                <div className="w-[304px] h-[74px] bg-[#F9F9F9] border border-[#D3D3D3] rounded-[3px] px-3.5 flex items-center justify-between shadow-2xs select-none">
+              {/* Row 4: Authentic Google reCAPTCHA v2 Box (Mobile Responsive Scale) */}
+              <div className="flex justify-center my-2 max-w-full overflow-x-auto">
+                <div className="w-[304px] h-[74px] bg-[#F9F9F9] border border-[#D3D3D3] rounded-[3px] px-3.5 flex items-center justify-between shadow-2xs select-none scale-[0.88] sm:scale-100 origin-center shrink-0">
                   <label className="flex items-center gap-3 cursor-pointer">
                     <input
                       type="checkbox"
@@ -327,6 +330,31 @@ export const AboutSection = () => {
             </form>
           </div>
 
+        </div>
+
+        {/* ── Crazy & Professional Animated Bottom Ribbon (BG Patti & Trust Banner) ── */}
+        <div className="mt-8 sm:mt-10 relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#1A0E2E] via-[#2D164D] to-[#1A0E2E] p-4 sm:p-5 border border-purple-500/30 shadow-xl z-10">
+          {/* Animated Glowing Light Beam */}
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(168,85,247,0.18)_50%,transparent_100%)] animate-pulse pointer-events-none" />
+          
+          <div className="flex flex-wrap items-center justify-around gap-4 text-center relative z-10">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
+              <span className="text-white text-xs sm:text-sm font-extrabold tracking-wide">⚡ 24-Hour Express Proposal</span>
+            </div>
+            <div className="hidden sm:block text-purple-400/50">•</div>
+            <div className="flex items-center gap-2">
+              <span className="text-amber-300 font-bold text-xs sm:text-sm">🎯 100% Mobile & SEO Ready</span>
+            </div>
+            <div className="hidden sm:block text-purple-400/50">•</div>
+            <div className="flex items-center gap-2">
+              <span className="text-purple-200 text-xs sm:text-sm font-semibold">🚀 Free 30-Day Support</span>
+            </div>
+            <div className="hidden sm:block text-purple-400/50">•</div>
+            <div className="flex items-center gap-2">
+              <span className="text-emerald-300 text-xs sm:text-sm font-bold">🔒 Zero Hidden Charges</span>
+            </div>
+          </div>
         </div>
 
       </div>

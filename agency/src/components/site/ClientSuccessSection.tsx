@@ -135,26 +135,51 @@ export const ClientSuccessSection = () => {
   return (
     <>
       {/* ═══════════════  PART 1: Client Showcase & SEO Copy  ═══════════════ */}
-      <section className="py-10 md:py-14 bg-white text-slate-900 select-none relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-white text-slate-900 select-none relative overflow-hidden">
+        {/* SVG Texture Pattern */}
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none bg-repeat"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18h2v14h-2zM32 18h2v8h-2zM53 18h2v20h-2zM74 18h2v10h-2zM95 18h2v16h-2zM11 50h2v18h-2zM32 50h2v10h-2zM53 50h2v14h-2zM74 50h2v22h-2zM95 50h2v12h-2z' fill='%2320103A' fill-rule='evenodd'/%3E%3C/svg%3E")`
           }}
         />
-        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 bg-purple-200/40 rounded-full blur-3xl pointer-events-none animate-pulse" />
+
+        {/* ── Crazy & Professional Animated Background Strip (BG Patti) ── */}
+        <div className="absolute top-12 -left-16 -right-16 h-52 bg-gradient-to-r from-purple-600/15 via-pink-500/20 via-indigo-600/15 to-purple-600/15 -rotate-2 transform scale-105 blur-2xl pointer-events-none animate-pulse duration-1000" />
+        
+        {/* Glassmorphism Glowing Curved Ribbon Track */}
+        <div className="absolute top-6 left-1/2 -translate-x-1/2 w-[115%] max-w-6xl h-44 bg-gradient-to-r from-purple-100/50 via-indigo-50/75 to-purple-100/50 -skew-y-1 rounded-[40px] border-y border-purple-200/40 pointer-events-none shadow-2xs" />
+
+        {/* Ambient Glow Orbs */}
+        <div className="absolute top-1/4 left-10 w-96 h-96 bg-purple-300/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
+        <div className="absolute top-1/3 right-10 w-96 h-96 bg-pink-300/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Centered Main Section Heading */}
+          <div className="text-center max-w-4xl mx-auto mb-6 md:mb-8">
+            <span className="text-[#F25C3B] font-bold text-xs sm:text-sm tracking-widest uppercase block mb-2.5 font-sans">
+              Client Success Stories
+            </span>
+
+            <h2 className="font-montserrat font-semibold italic text-2xl sm:text-3xl md:text-4xl text-slate-950 tracking-tight leading-tight">
+              Success Stories Powered by <span className="text-purple-800">Strategic Design and Digital Marketing</span>
+            </h2>
+
+            {/* Attractive Animated Gradient Divider Badge */}
+            <div className="flex items-center justify-center gap-3 mt-4">
+              <div className="h-[2px] w-12 sm:w-16 bg-gradient-to-r from-transparent via-purple-400 to-purple-600 rounded-full" />
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-purple-50/90 border border-purple-200/80 text-purple-900 text-[11px] sm:text-xs font-bold shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-purple-600 animate-ping inline-block" />
+                Verified Client Portfolio & Results
+              </span>
+              <div className="h-[2px] w-12 sm:w-16 bg-gradient-to-r from-purple-600 via-purple-400 to-transparent rounded-full" />
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
             {/* Left: SEO Copy */}
             <div className="lg:col-span-6 flex flex-col items-start pr-0 lg:pr-2">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[29px] font-extrabold text-[#241344] tracking-tight leading-snug mb-4 font-sans">
-                <span className="block sm:whitespace-nowrap">Success Stories Powered by Strategic Design</span>
-                <span className="font-montserrat font-black italic text-[#552782] block mt-1 text-2xl sm:text-3xl lg:text-[38px] sm:whitespace-nowrap">
-                  and Digital Marketing
-                </span>
-              </h2>
               <p className="font-jost text-sm sm:text-[15px] leading-[1.75] text-[#2D2342] mb-3.5 font-normal">
                 Having trouble getting qualified leads, increasing online visibility, and converting visitors into business? As a trusted <strong className="font-bold text-[#1E1238]">web design company & digital marketing agency in Delhi NCR, India</strong>, we help businesses achieve measurable growth through innovative engineering and result-driven services. Our fast, responsive, and conversion-oriented websites work well in synchronization with <Link to="/seo-service-in-delhi" className="font-bold text-[#552782] hover:underline">SEO services India</Link>, Google Ads (PPC), content marketing, and lead generation campaigns.
               </p>
@@ -170,39 +195,160 @@ export const ClientSuccessSection = () => {
               </Link>
             </div>
 
-            {/* Right: Company Brand Cards */}
+            {/* Right: Company Brand Showcase Grid (Matching Image 1 Design Pattern with 1cm Top Offset) */}
             <div className="lg:col-span-6 w-full">
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5">
-                <div className="bg-gradient-to-br from-[#1E1238] via-[#2B144E] to-[#421A78] p-5 rounded-3xl border border-purple-500/30 shadow-lg hover:shadow-2xl hover:border-purple-400 transition-all duration-300 transform-gpu hover:-translate-y-2 hover:rotate-1 hover:scale-[1.04] flex flex-col items-center justify-between text-center h-32 sm:h-36 group cursor-pointer relative overflow-hidden text-white">
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"><ExternalLink className="w-3.5 h-3.5 text-amber-300" /></div>
-                  <div className="my-auto flex flex-col items-center"><span className="font-black text-base sm:text-lg text-white tracking-tight group-hover:scale-105 transition-transform drop-shadow-sm">Hollywood<span className="text-amber-400">✦</span></span><span className="text-[10px] font-bold text-purple-200 mt-1 uppercase tracking-widest bg-purple-900/60 px-2.5 py-0.5 rounded-full border border-purple-400/20">Media & Ent.</span></div>
-                  <span className="text-[9.5px] font-extrabold text-amber-300/90 tracking-wider">★ Verified Brand</span>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-4.5">
+                
+                {/* 1. Ranga Pest Control */}
+                <div className="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col cursor-pointer">
+                  <div className="h-[125px] sm:h-[135px] w-full overflow-hidden bg-[#F1F5F9] pt-2.5 px-2.5 pb-0 relative border-b border-slate-100">
+                    <img 
+                      src="/client-bg-ranga-pest.jpg" 
+                      alt="Ranga Pest Control"
+                      className="w-full h-full object-cover object-top rounded-t-lg shadow-2xs transition-transform duration-500 group-hover:scale-105" 
+                    />
+                  </div>
+                  <div className="p-3 flex flex-col justify-between bg-white flex-1">
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug truncate">
+                        Ranga Pest Control
+                      </h4>
+                      <p className="text-[10.5px] text-slate-500 font-medium truncate mt-0.5">
+                        Pest Control Services
+                      </p>
+                    </div>
+                    <div className="mt-2.5 pt-1 text-[11px] font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 transition-colors">
+                      <span>View Project</span>
+                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gradient-to-br from-[#7F1D1D] via-[#991B1B] to-[#B91C1C] p-5 rounded-3xl border border-rose-500/30 shadow-lg hover:shadow-2xl hover:border-rose-400 transition-all duration-300 transform-gpu hover:-translate-y-2 hover:-rotate-1 hover:scale-[1.04] flex flex-col items-center justify-between text-center h-32 sm:h-36 group cursor-pointer relative overflow-hidden text-white">
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"><ExternalLink className="w-3.5 h-3.5 text-rose-200" /></div>
-                  <div className="my-auto flex flex-col items-center"><span className="font-extrabold text-xs sm:text-sm text-white tracking-tight group-hover:scale-105 transition-transform drop-shadow-sm">A1 PAINTING</span><span className="text-[9.5px] font-bold text-rose-100 mt-1 uppercase tracking-widest bg-rose-950/60 px-2.5 py-0.5 rounded-full border border-rose-400/20">EPOXY SERVICES</span></div>
-                  <span className="text-[9.5px] font-extrabold text-rose-200/90 tracking-wider">★ Industrial Leader</span>
+
+                {/* 2. timesquarenewyork.com */}
+                <div className="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col cursor-pointer">
+                  <div className="h-[125px] sm:h-[135px] w-full overflow-hidden bg-[#F1F5F9] pt-2.5 px-2.5 pb-0 relative border-b border-slate-100">
+                    <img 
+                      src="/client-bg-timesquare.jpg" 
+                      alt="timesquarenewyork.com"
+                      className="w-full h-full object-cover object-top rounded-t-lg shadow-2xs transition-transform duration-500 group-hover:scale-105" 
+                    />
+                  </div>
+                  <div className="p-3 flex flex-col justify-between bg-white flex-1">
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug truncate">
+                        timesquarenewyork.com
+                      </h4>
+                      <p className="text-[10.5px] text-slate-500 font-medium truncate mt-0.5">
+                        Travel Company
+                      </p>
+                    </div>
+                    <div className="mt-2.5 pt-1 text-[11px] font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 transition-colors">
+                      <span>View Project</span>
+                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gradient-to-br from-[#78350F] via-[#92400E] to-[#B45309] p-5 rounded-3xl border border-amber-500/30 shadow-lg hover:shadow-2xl hover:border-amber-400 transition-all duration-300 transform-gpu hover:-translate-y-2 hover:rotate-1 hover:scale-[1.04] flex flex-col items-center justify-between text-center h-32 sm:h-36 group cursor-pointer relative overflow-hidden text-white">
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"><ExternalLink className="w-3.5 h-3.5 text-amber-200" /></div>
-                  <div className="my-auto flex flex-col items-center"><span className="font-extrabold text-xs sm:text-sm text-white tracking-tight group-hover:scale-105 transition-transform drop-shadow-sm">Access2Wellbeing</span><span className="text-[9.5px] font-bold text-amber-100 mt-1 uppercase tracking-widest bg-amber-950/60 px-2.5 py-0.5 rounded-full border border-amber-400/20">Healthcare</span></div>
-                  <span className="text-[9.5px] font-extrabold text-amber-200/90 tracking-wider">★ Wellness Leader</span>
+
+                {/* 3. Shankar Chemicals */}
+                <div className="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col cursor-pointer">
+                  <div className="h-[125px] sm:h-[135px] w-full overflow-hidden bg-[#F1F5F9] pt-2.5 px-2.5 pb-0 relative border-b border-slate-100">
+                    <img 
+                      src="/client-bg-shankar.jpg" 
+                      alt="Shankar Chemicals"
+                      className="w-full h-full object-cover object-top rounded-t-lg shadow-2xs transition-transform duration-500 group-hover:scale-105" 
+                    />
+                  </div>
+                  <div className="p-3 flex flex-col justify-between bg-white flex-1">
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug truncate">
+                        Shankar Chemicals
+                      </h4>
+                      <p className="text-[10.5px] text-slate-500 font-medium truncate mt-0.5">
+                        Chemical Supplier
+                      </p>
+                    </div>
+                    <div className="mt-2.5 pt-1 text-[11px] font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 transition-colors">
+                      <span>View Project</span>
+                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gradient-to-br from-[#064E3B] via-[#047857] to-[#059669] p-5 rounded-3xl border border-teal-500/30 shadow-lg hover:shadow-2xl hover:border-teal-400 transition-all duration-300 transform-gpu hover:-translate-y-2 hover:-rotate-1 hover:scale-[1.04] flex flex-col items-center justify-between text-center h-32 sm:h-36 group cursor-pointer relative overflow-hidden text-white">
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"><ExternalLink className="w-3.5 h-3.5 text-teal-200" /></div>
-                  <div className="my-auto flex flex-col items-center"><span className="font-black text-sm sm:text-base text-white tracking-tight group-hover:scale-105 transition-transform drop-shadow-sm">ArtValue</span><span className="text-[9.5px] font-bold text-teal-100 mt-1 uppercase tracking-widest bg-teal-950/60 px-2.5 py-0.5 rounded-full border border-teal-400/20">Creative Agency</span></div>
-                  <span className="text-[9.5px] font-extrabold text-teal-200/90 tracking-wider">★ Design Partner</span>
+
+                {/* 4. Tours & Travels Bahadurgarh */}
+                <div className="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col cursor-pointer">
+                  <div className="h-[125px] sm:h-[135px] w-full overflow-hidden bg-[#F1F5F9] pt-2.5 px-2.5 pb-0 relative border-b border-slate-100">
+                    <img 
+                      src="/client-bg-tours-travels.jpg" 
+                      alt="Tours and Travels Bahadurgarh"
+                      className="w-full h-full object-cover object-top rounded-t-lg shadow-2xs transition-transform duration-500 group-hover:scale-105" 
+                    />
+                  </div>
+                  <div className="p-3 flex flex-col justify-between bg-white flex-1">
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug truncate">
+                        Tours & Travels Bahadurgarh
+                      </h4>
+                      <p className="text-[10.5px] text-slate-500 font-medium truncate mt-0.5">
+                        Tour & Travel Services
+                      </p>
+                    </div>
+                    <div className="mt-2.5 pt-1 text-[11px] font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 transition-colors">
+                      <span>View Project</span>
+                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#334155] p-5 rounded-3xl border border-slate-700/50 shadow-lg hover:shadow-2xl hover:border-slate-500 transition-all duration-300 transform-gpu hover:-translate-y-2 hover:rotate-1 hover:scale-[1.04] flex flex-col items-center justify-between text-center h-32 sm:h-36 group cursor-pointer relative overflow-hidden text-white">
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"><ExternalLink className="w-3.5 h-3.5 text-amber-400" /></div>
-                  <div className="my-auto flex flex-col items-center"><span className="font-extrabold text-xs sm:text-sm text-white tracking-tight group-hover:scale-105 transition-transform drop-shadow-sm">AUTO TYRE</span><span className="text-[9.5px] font-bold text-amber-300 mt-1 uppercase tracking-widest bg-slate-950/70 px-2.5 py-0.5 rounded-full border border-amber-400/30">WHEELS CENTRE</span></div>
-                  <span className="text-[9.5px] font-extrabold text-amber-300/90 tracking-wider">★ Automotive Hub</span>
+
+                {/* 5. Santosh Physiocare */}
+                <div className="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col cursor-pointer">
+                  <div className="h-[125px] sm:h-[135px] w-full overflow-hidden bg-[#F1F5F9] pt-2.5 px-2.5 pb-0 relative border-b border-slate-100">
+                    <img 
+                      src="/client-bg-santosh-physio.jpg" 
+                      alt="Santosh Physiocare"
+                      className="w-full h-full object-cover object-top rounded-t-lg shadow-2xs transition-transform duration-500 group-hover:scale-105" 
+                    />
+                  </div>
+                  <div className="p-3 flex flex-col justify-between bg-white flex-1">
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug truncate">
+                        Santosh Physiocare
+                      </h4>
+                      <p className="text-[10.5px] text-slate-500 font-medium truncate mt-0.5">
+                        Physiotherapy Clinic
+                      </p>
+                    </div>
+                    <div className="mt-2.5 pt-1 text-[11px] font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 transition-colors">
+                      <span>View Project</span>
+                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gradient-to-br from-[#2E1065] via-[#3B0764] to-[#581C87] p-5 rounded-3xl border border-purple-600/30 shadow-lg hover:shadow-2xl hover:border-purple-400 transition-all duration-300 transform-gpu hover:-translate-y-2 hover:-rotate-1 hover:scale-[1.04] flex flex-col items-center justify-between text-center h-32 sm:h-36 group cursor-pointer relative overflow-hidden text-white">
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"><ExternalLink className="w-3.5 h-3.5 text-purple-200" /></div>
-                  <div className="my-auto flex flex-col items-center"><span className="font-black text-xs sm:text-sm text-white tracking-tight group-hover:scale-105 transition-transform drop-shadow-sm">BILLER PRESS</span><span className="text-[9.5px] font-bold text-purple-200 mt-1 uppercase tracking-widest bg-purple-950/70 px-2.5 py-0.5 rounded-full border border-purple-400/30">Publishing</span></div>
-                  <span className="text-[9.5px] font-extrabold text-purple-200/90 tracking-wider">★ Media Partner</span>
+
+                {/* 6. Lead Generator SaaS */}
+                <div className="group overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col cursor-pointer">
+                  <div className="h-[125px] sm:h-[135px] w-full overflow-hidden bg-[#F1F5F9] pt-2.5 px-2.5 pb-0 relative border-b border-slate-100">
+                    <img 
+                      src="/client-bg-leadgen-saas.png" 
+                      alt="Lead Generator SaaS Product"
+                      className="w-full h-full object-cover object-top rounded-t-lg shadow-2xs transition-transform duration-500 group-hover:scale-105" 
+                    />
+                  </div>
+                  <div className="p-3 flex flex-col justify-between bg-white flex-1">
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-xs sm:text-[13px] leading-snug truncate">
+                        Lead Generator SaaS
+                      </h4>
+                      <p className="text-[10.5px] text-slate-500 font-medium truncate mt-0.5">
+                        Marketing Automation
+                      </p>
+                    </div>
+                    <div className="mt-2.5 pt-1 text-[11px] font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 transition-colors">
+                      <span>View Project</span>
+                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </div>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>
