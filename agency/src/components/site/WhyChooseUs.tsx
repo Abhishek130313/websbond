@@ -65,29 +65,30 @@ const CHOOSE_CARDS = [
 
 export const WhyChooseUs = () => {
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-b from-[#FAF8FF] via-[#F6F3FF] to-[#FAF8FF] select-none relative overflow-hidden border-b border-purple-100/60">
+    <section className="py-10 md:py-14 bg-gradient-to-b from-[#FAF8FF] via-[#F6F3FF] to-[#FAF8FF] select-none relative overflow-hidden border-b border-purple-100/60">
       
-      {/* Background Soft Orbs */}
+      {/* Background Soft Orbs & Animated Skewed Strip */}
+      <div className="absolute top-10 -left-10 -right-10 h-44 bg-gradient-to-r from-purple-500/10 via-pink-500/12 via-indigo-500/10 to-purple-600/10 -rotate-1 blur-2xl pointer-events-none animate-pulse" />
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-purple-200/30 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-200/25 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* ── Section Header ── */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-purple-100/80 border border-purple-200/80 text-purple-700 text-xs font-bold tracking-wider uppercase mb-3 shadow-2xs">
-            <span>★</span>
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-purple-100/90 border border-purple-200/90 text-purple-800 text-xs font-bold tracking-wider uppercase mb-3 shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-purple-600 animate-ping" />
             <span>PARTNER WITH US</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight font-sans mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold text-slate-900 tracking-tight leading-tight font-sans mb-2.5">
             Why{" "}
             <span className="font-montserrat font-black italic text-[#552782]">
               choose us?
             </span>
           </h2>
 
-          <p className="font-jost text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
+          <p className="font-jost text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
             Partner with the best SEO & digital marketing agency in Delhi NCR & Haryana for unmatched{" "}
             <strong className="text-[#552782] font-extrabold">digital excellence.</strong>
           </p>
