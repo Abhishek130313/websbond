@@ -202,7 +202,7 @@ export const TechStackMatrix = () => {
     <section 
       className="py-16 sm:py-20 md:py-24 text-slate-900 select-none border-b border-slate-200/80 relative overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url('/tech-stack-circuit-bg.png')`
+        backgroundImage: `url('/tech-stack-circuit-bg.webp')`
       }}
     >
       {/* Crystal-clear overlay so 3D purple cubes and circuit graphics shine through with max vibrancy */}

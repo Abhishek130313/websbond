@@ -82,12 +82,16 @@ export const AboutSection = () => {
             <div className="relative group w-full max-w-[480px]">
               <div className="absolute -inset-4 bg-gradient-to-r from-purple-400/20 via-pink-400/20 to-indigo-400/20 rounded-full blur-2xl opacity-70 group-hover:opacity-100 transition duration-1000" />
               
-              <img
-                src="/websbond_unique_hero.png"
-                alt="Websbond Digital Marketing & Affordable Website Development Agency"
-                className="relative z-10 w-full h-auto max-h-[520px] object-contain drop-shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-                loading="eager"
-              />
+              <picture>
+                <source srcSet="/websbond_unique_hero.webp" type="image/webp" />
+                <img
+                  src="/websbond_unique_hero.png"
+                  alt="Websbond Digital Marketing & Affordable Website Development Agency"
+                  className="relative z-10 w-full h-auto max-h-[520px] object-contain drop-shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500 ease-out"
+                  loading="eager"
+                  decoding="async"
+                />
+              </picture>
             </div>
           </div>
 

@@ -34,12 +34,19 @@ export const Hero = () => {
   return (
     <section className="relative w-full pt-36 md:pt-44 pb-16 md:pb-24 select-none overflow-hidden text-center border-b border-purple-100/80 min-h-[600px] flex items-center justify-center">
       
-      {/* Fully Covered Hero Background Image */}
-      <img
-        src="/hero-bg.png"
-        alt="Hero Background"
-        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0"
-      />
+      {/* Fully Covered Hero Background Image - Instant Load WebP */}
+      <picture className="absolute inset-0 w-full h-full pointer-events-none z-0">
+        <source srcSet="/hero-bg.webp" type="image/webp" />
+        <img
+          src="/hero-bg.png"
+          alt="Hero Background"
+          loading="eager"
+          // @ts-ignore
+          fetchpriority="high"
+          decoding="async"
+          className="w-full h-full object-cover object-center pointer-events-none"
+        />
+      </picture>
 
       <div className="max-w-4xl mx-auto px-6 relative z-10 flex flex-col items-center">
 
